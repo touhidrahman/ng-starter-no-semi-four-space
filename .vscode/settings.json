@@ -1,0 +1,36 @@
+{
+    "html.format.wrapAttributes": "preserve-aligned",
+    "html.format.wrapLineLength": 0,
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll": true,
+        "source.organizeImports": false
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "importSorter.sortConfiguration.removeUnusedDefaultImports": true,
+    "importSorter.sortConfiguration.removeUnusedImports": true,
+    "importSorter.sortConfiguration.customOrderingRules.rules": [
+        {
+            "type": "importMember",
+            "regex": "^$",
+            "orderLevel": 20
+            // "disableSort": true
+        },
+        {
+            "regex": "^[@]",
+            "orderLevel": 10
+        },
+        {
+            "regex": "^[app]",
+            "orderLevel": 40
+        },
+        {
+            "regex": "^[.]",
+            "orderLevel": 40
+        }
+    ],
+    "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.count": 120,
+    "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.type": "newLineEachExpressionAfterCountLimitExceptIfOnlyOne",
+    "importSorter.importStringConfiguration.hasSemicolon": false
+}
