@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core'
-import { TodoService, Todo } from './shared/services/todo.service'
+
+import { TodoService } from './shared/services/todo.service'
+import { User, UserService, IUser } from './shared/services/user.service'
 
 @Component({
     selector: 'app-root',
@@ -9,11 +11,18 @@ import { TodoService, Todo } from './shared/services/todo.service'
 export class AppComponent implements OnInit {
     title = 'ng-starter-no-semi-four-space'
 
-    constructor(private todoService: TodoService) {}
+    constructor(
+        private todoService: TodoService,
+        private userService: UserService,
+    ) {}
 
     ngOnInit() {
-        this.todoService.getMany<Todo>({ completed: true }).subscribe((v) => {
-            console.log('TCL: todo :', v) // ! remove
+        this.userService.getMany<User>().subscribe((v) => {
+            console.log('TCL: User :', v) // ! remove
+        })
+
+        this.userService.delete<User>(1).subscribe((v) => {
+            console.log('TCL: deleted :', v) // ! remove
         })
     }
 }
