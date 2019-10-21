@@ -53,8 +53,8 @@
     "tslint-eslint-rules": "^5.4.0",
     "typescript": "~3.5.3"
   },
-    "prettier": {
-    "printWidth": 120,
+  "prettier": {
+    "printWidth": 80,
     "tabWidth": 4,
     "useTabs": false,
     "semi": false,
