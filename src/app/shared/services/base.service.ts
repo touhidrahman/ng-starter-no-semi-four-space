@@ -9,10 +9,12 @@ import { environment } from 'src/environments/environment'
 })
 export class BaseService {
     protected readonly API_URL: string = environment.apiURL
-    protected SERVICE_URL: string
+    protected readonly RESOURCE: string
+    protected readonly SERVICE_URL: string
 
     constructor(protected http: HttpClient, protected resource: string) {
-        this.SERVICE_URL = this.API_URL + '/' + resource
+        this.RESOURCE = resource
+        this.SERVICE_URL = this.API_URL + '/' + this.RESOURCE
     }
 
     getMany<T>(query: Partial<T> = {}): Observable<T[]> {
