@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 
-import { TodoService } from './shared/services/todo.service'
-import { User, UserService, IUser } from './shared/services/user.service'
+import { TodoService } from '../services/todo.service'
+import { User, UserService, IUser } from '../services/user.service'
 
 @Component({
     selector: 'app-root',
