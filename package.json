@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "lint:fix": "ng lint --fix",
     "format:staged": "pretty-quick --staged",
-    "format:app": "prettier --write 'src/**/*.{html,js,ts,scss,css}'",
+    "format:app": "prettier --write 'src/**/*.{html,js,ts,scss,css,less,jsx,tsx,json,xml}'",
     "format:e2e": "prettier --write 'e2e/**/*.*'",
     "e2e": "ng e2e"
   },

@@ -8,14 +8,6 @@
         "node_modules/codelyzer"
     ],
     "rules": {
-        "align": false,
-        "array-bracket-spacing": [
-            true,
-            "never"
-        ],
-        "callable-types": true,
-        "class-name": true,
-        "component-class-suffix": true,
         "component-selector": [
             true,
             "element",
@@ -24,15 +16,24 @@
             ],
             "kebab-case"
         ],
-        "deprecation": {
-            "severity": "warn"
-        },
-        "directive-class-suffix": true,
         "directive-selector": [
             true,
             "attribute",
             "camelCase"
         ],
+        "align": false,
+        "array-bracket-spacing": [
+            true,
+            "never"
+        ],
+        "arrow-return-shorthand": true,
+        "callable-types": true,
+        "class-name": true,
+        "component-class-suffix": true,
+        "deprecation": {
+            "severity": "warn"
+        },
+        "directive-class-suffix": true,
         "forin": true,
         "import-blacklist": [
             true,
@@ -41,7 +42,6 @@
         "import-destructuring-spacing": true,
         "interface-name": false,
         "interface-over-type-literal": true,
-        "invoke-injectable": true,
         "jsdoc-format": false,
         "label-position": true,
         "max-classes-per-file": false,
@@ -60,10 +60,11 @@
                 ]
             }
         ],
-        "no-access-missing-member": true,
+        "no-any": true,
         "no-arg": true,
-        "no-bitwise": false,
+        "no-bitwise": true,
         "no-conditional-assignment": true,
+        "no-conflicting-lifecycle": true,
         "no-console": [
             true,
             "debug",
@@ -74,27 +75,32 @@
         ],
         "no-construct": true,
         "no-debugger": true,
+        "no-duplicate-super": true,
         "no-duplicate-variable": true,
-        "no-empty-interface": true,
         "no-empty": false,
+        "no-empty-interface": true,
         "no-eval": true,
-        "no-focused-tests": true,
-        "no-forward-ref": true,
+        "no-forward-ref": false,
         "no-host-metadata-property": true,
+        "no-implicit-dependencies": false,
         "no-inferrable-types": [
             false,
             "ignore-params"
         ],
         "no-input-rename": true,
         "no-inputs-metadata-property": true,
+        "no-misused-new": true,
         "no-non-null-assertion": true,
+        "no-output-native": true,
         "no-output-on-prefix": false,
         "no-output-rename": true,
         "no-outputs-metadata-property": true,
         "no-shadowed-variable": true,
         "no-string-literal": false,
         "no-string-throw": true,
+        "no-submodule-imports": false,
         "no-switch-case-fall-through": true,
+        "no-unnecessary-initializer": true,
         "no-unused-expression": true,
         "no-var-keyword": true,
         "object-curly-spacing": [
@@ -111,7 +117,8 @@
         "prefer-for-of": true,
         "prefer-object-spread": true,
         "radix": true,
-        "templates-use-public": true,
+        "template-banana-in-box": true,
+        "template-no-negated-async": true,
         "trailing-comma": [
             false,
             {
@@ -124,7 +131,6 @@
             "allow-null-check"
         ],
         "unified-signatures": true,
-        "use-life-cycle-interface": true,
         "use-lifecycle-interface": true,
         "use-pipe-transform-interface": true,
         "variable-name": [
