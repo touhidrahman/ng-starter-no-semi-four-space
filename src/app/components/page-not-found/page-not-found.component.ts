@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 
 @Component({
-    selector: 'natokdb-page-not-found',
+    selector: 'app-page-not-found',
     template: `
         <p>
             page-not-found Works!
