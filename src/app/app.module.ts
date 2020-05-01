@@ -3,11 +3,9 @@ import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { RouterModule } from '@angular/router'
-
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './components/app.component'
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component'
-import { UIModule } from './modules/ui/ui.module'
 
 @NgModule({
     declarations: [AppComponent, PageNotFoundComponent],
@@ -16,9 +14,8 @@ import { UIModule } from './modules/ui/ui.module'
         BrowserModule,
         RouterModule,
         HttpClientModule,
-        UIModule,
 
-        // ROUTING (Very last)
+        // ROUTING
         AppRoutingModule,
     ],
     providers: [],
