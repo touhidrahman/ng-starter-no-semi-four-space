@@ -1,6 +1,24 @@
-# NgStarterNoSemiFourSpace
+# ng-starter-no-semi-four-space
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.10.
+I am tired of adding prettier and configuring for 4 spaced tab, no semicolon for my projects. So this starter project was born.
+
+This project is using [Angular CLI](https://github.com/angular/angular-cli) version 10.x.
+
+## Get Started
+
+1. Clone the repository and checkout to intended branch for your project's requirements:
+
+- `master`: bare-bone angular project with no framework. 
+- `ng-material`: official material library for angular as the UI framework.
+- `ng-tailwind`: tailwindcss for the UI, uses a third-party module to integrate tailwind.
+- `ng-tail-mat`: Uses the power of both tailwindcss and ng-material.
+- `ng-prime`: PrimeNG X library for the UI. Uses v10.x which has a rich collection of angular components (MIT licenced)
+
+2. Once checked out, remove the `.git` directory to remove all the connection to this starter repository.
+
+3. Search project-wide (Ctrl+Shift+F for VS Code) for the string `ng-starter-no-semi-four-space` and replace with your project identifier (e.g.- `my-project`).
+
+4. Re-initialize git with `git init` at the project root to add source control (optional).
 
 ## Development server
 
@@ -22,6 +40,9 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
+## Contributing
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Feel free to open an issue and/or PR to add features. 
+
+## Licence
+&copy; MIT

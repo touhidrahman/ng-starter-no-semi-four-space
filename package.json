@@ -1,6 +1,6 @@
 {
   "name": "ng-starter-no-semi-four-space",
-  "version": "0.0.0",
+  "version": "10.0.7",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
