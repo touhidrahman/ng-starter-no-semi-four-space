@@ -1,6 +1,6 @@
 {
   "name": "ng-starter-no-semi-four-space",
-  "version": "0.0.0",
+  "version": "10.0.7",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -26,6 +26,8 @@
     "@angular/platform-browser-dynamic": "~10.0.7",
     "@angular/router": "~10.0.7",
     "hammerjs": "^2.0.8",
+    "primeicons": "^4.0.0",
+    "primeng": "^10.0.0-rc.1",
     "rxjs": "~6.6.2",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"
