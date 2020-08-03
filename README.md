@@ -8,6 +8,12 @@ This project is using [Angular CLI](https://github.com/angular/angular-cli) vers
 
 1. Clone the repository and checkout to intended branch for your project's requirements:
 
+`git clone https://github.com/touhidrahman/ng-starter-no-semi-four-space <your-project-name>`
+
+`cd <your-project-name>`
+
+`git checkout <desired-branch-name>`
+
 - `master`: bare-bone angular project with no framework. 
 - `ng-material`: official material library for angular as the UI framework.
 - `ng-tailwind`: tailwindcss for the UI, uses a third-party module to integrate tailwind.
@@ -15,6 +21,8 @@ This project is using [Angular CLI](https://github.com/angular/angular-cli) vers
 - `ng-prime`: PrimeNG X library for the UI. Uses v10.x which has a rich collection of angular components (MIT licenced)
 
 2. Once checked out, remove the `.git` directory to remove all the connection to this starter repository.
+
+`rm -rf .git`
 
 3. Search project-wide (Ctrl+Shift+F for VS Code) for the string `ng-starter-no-semi-four-space` and replace with your project identifier (e.g.- `my-project`).
 
