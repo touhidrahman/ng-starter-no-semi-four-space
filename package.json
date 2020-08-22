@@ -25,7 +25,6 @@
     "@angular/platform-browser": "~10.0.11",
     "@angular/platform-browser-dynamic": "~10.0.11",
     "@angular/router": "~10.0.11",
-    "hammerjs": "^2.0.8",
     "rxjs": "~6.6.2",
     "tslib": "^2.0.1",
     "zone.js": "~0.10.3"
@@ -55,16 +54,6 @@
     "tslint-config-prettier": "^1.18.0",
     "tslint-eslint-rules": "^5.4.0",
     "typescript": "~3.9.7"
-  },
-  "prettier": {
-    "printWidth": 120,
-    "tabWidth": 4,
-    "useTabs": false,
-    "semi": false,
-    "singleQuote": true,
-    "trailingComma": "all",
-    "bracketSpacing": true,
-    "arrowParens": "always"
   },
   "lint-staged": {
     "*.ts": "tslint --fix",

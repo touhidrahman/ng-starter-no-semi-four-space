@@ -5,7 +5,7 @@
         "tslint-config-prettier"
     ],
     "rulesDirectory": [
-        "node_modules/codelyzer"
+        "codelyzer"
     ],
     "rules": {
         "component-selector": [
