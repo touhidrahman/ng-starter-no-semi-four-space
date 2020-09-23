@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core'
 import { FormControl } from '@angular/forms'
 import { ActivatedRoute } from '@angular/router'
 import { Observable } from 'rxjs'
+import { AuthService } from '../../services/auth.service'
 
 @Component({
     selector: 'app-forgot-password',

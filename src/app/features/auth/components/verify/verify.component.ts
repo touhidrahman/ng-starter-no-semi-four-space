@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { ActivatedRoute, Router } from '@angular/router'
-import { AuthService } from '@nx-starter/client/data-access'
 import { filter, map, switchMap, take } from 'rxjs/operators'
+import { AuthService } from '../../services/auth.service'
 
 @Component({
     selector: 'app-verify',
