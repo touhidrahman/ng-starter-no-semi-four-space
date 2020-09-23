@@ -1,0 +1,96 @@
+<form
+    [formGroup]="loginForm"
+    (ngSubmit)="login()"
+    class="flex flex-col w-full max-w-sm mx-auto p-4 lg:my-12 border border-gray-200 bg-white shadow"
+>
+    <div>
+        <h2 class="mt-6 text-center text-xl leading-9 text-gray-900">Sign in to your account</h2>
+        <p class="mt-2 text-center text-sm leading-5 text-gray-600">
+            Or
+            <a
+                href="#"
+                class="font-medium text-green-600 hover:text-green-500 focus:outline-none focus:underline transition ease-in-out duration-150"
+            >
+                sign up
+            </a>
+        </p>
+    </div>
+
+    <div class="flex flex-col mb-4">
+        <label for="name" class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600"> Email </label>
+
+        <div class="relative">
+            <div class="absolute flex border border-transparent left-0 top-0 h-full w-10">
+                <div
+                    class="flex items-center justify-center rounded-tl rounded-bl z-10 bg-gray-100 text-gray-600 text-lg h-full w-full"
+                >
+                    <i class="pi pi-user"></i>
+                </div>
+            </div>
+
+            <input
+                formControlName="email"
+                type="text"
+                placeholder="Name"
+                class="text-sm sm:text-base relative w-full border rounded placeholder-gray-400 focus:border-indigo-400 focus:outline-none py-2 pr-2 pl-12"
+            />
+        </div>
+
+        <span
+            *ngIf="!loginForm.get('email').valid"
+            class="flex items-center font-medium tracking-wide text-red-500 text-xs mt-1 ml-1"
+        >
+            Invalid email field !
+        </span>
+    </div>
+    <div class="flex flex-col mb-4">
+        <label for="name" class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600"> Password </label>
+
+        <div class="relative">
+            <div class="absolute flex border border-transparent left-0 top-0 h-full w-10">
+                <div
+                    class="flex items-center justify-center rounded-tl rounded-bl z-10 bg-gray-100 text-gray-600 text-lg h-full w-full"
+                >
+                    <i class="pi pi-lock"></i>
+                </div>
+            </div>
+
+            <input
+                formControlName="password"
+                type="password"
+                placeholder="Password"
+                class="text-sm sm:text-base relative w-full border rounded placeholder-gray-400 focus:border-indigo-400 focus:outline-none py-2 pr-2 pl-12"
+            />
+        </div>
+    </div>
+
+    <div class="mt-6 flex items-center justify-between">
+        <div class="flex items-center">
+            <input
+                id="remember_me"
+                type="checkbox"
+                class="form-checkbox h-4 w-4 text-green-600 transition duration-150 ease-in-out"
+            />
+            <label for="remember_me" class="ml-2 block text-sm leading-5 text-gray-900"> Remember me </label>
+        </div>
+
+        <div class="text-sm leading-5">
+            <a
+                [routerLink]="['/auth/forgot-password']"
+                class="font-medium text-green-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150"
+            >
+                Forgot your password?
+            </a>
+        </div>
+    </div>
+
+    <div class="mt-6">
+        <button
+            type="submit"
+            class="w-full flex justify-center py-3 px-4 border border-transparent leading-5 font-medium rounded text-white bg-green-600 hover:bg-green-500 focus:outline-none focus:border-green-700 focus:shadow-outline-green active:bg-green-700 transition duration-150 ease-in-out"
+        >
+            <i *ngIf="loading" class="pi pi-spinner pi-spin"></i>
+            <span *ngIf="!loading"> Sign in </span>
+        </button>
+    </div>
+</form>

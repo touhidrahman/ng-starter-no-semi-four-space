@@ -69,7 +69,8 @@
                 "serve": {
                     "builder": "@angular-builders/custom-webpack:dev-server",
                     "options": {
-                        "browserTarget": "ng-starter-no-semi-four-space:build"
+                        "browserTarget": "ng-starter-no-semi-four-space:build",
+                        "proxyConfig": "proxy.conf.json"
                     },
                     "configurations": {
                         "production": {
