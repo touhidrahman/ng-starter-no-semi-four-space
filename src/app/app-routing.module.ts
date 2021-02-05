@@ -1,13 +1,17 @@
-import { NgModule } from '@angular/core'
-import { RouterModule, Routes } from '@angular/router'
-import { AppComponent } from './app.component'
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
     {
-        path: '',
-        component: AppComponent,
+        path: 'home',
+        loadChildren: () => import('./pages/home-page/home-page.module').then((m) => m.HomePageModule),
+        pathMatch: 'full',
     },
-    { path: 'home', loadChildren: () => import('./pages/home-page/home-page.module').then((m) => m.HomePageModule) },
+    {
+        path: 'articles/:id',
+        loadChildren: () =>
+            import('./pages/view-article-page/view-article-page.module').then((m) => m.ViewArticlePageModule),
+    },
 ]
 
 @NgModule({

@@ -37,6 +37,7 @@
                 "@angular-eslint/no-forward-ref": "off",
                 "@angular-eslint/no-output-on-prefix": "off",
                 "@typescript-eslint/no-floating-promises": "off",
+                "@typescript-eslint/no-unsafe-assignment": "off",
                 "@typescript-eslint/array-type": [
                     "error",
                     {
