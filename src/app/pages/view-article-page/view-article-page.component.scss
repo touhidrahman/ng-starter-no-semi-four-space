@@ -1,0 +1,49 @@
+:host {
+    display: block;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.link {
+    margin: 0 0.5rem;
+}
+
+.article {
+    padding: 3rem;
+    margin: 5rem 2rem;
+    background-color: aliceblue;
+    border-radius: 5px;
+    border: 1px solid olivedrab;
+
+    h1 {
+        font-size: 3rem;
+        font-weight: 900;
+        color: olivedrab;
+    }
+
+    p {
+        font-size: 1.3rem;
+    }
+}
+
+.comments {
+    padding: 0 5rem;
+    margin: 0 0 5rem 0;
+
+    h1 {
+        font-size: 2rem;
+        color: gray;
+    }
+
+    h3 {
+        color: olivedrab;
+    }
+}
+
+.comment {
+    margin-bottom: 2rem;
+}

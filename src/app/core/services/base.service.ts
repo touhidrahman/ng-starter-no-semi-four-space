@@ -10,7 +10,7 @@ export class BaseService<T, DtoT> {
         this.endpoint = environment.apiURL + resourcePath
     }
 
-    getById(id: string): Observable<T> {
+    findById(id: number): Observable<T> {
         return this.http.get<T>(`${this.endpoint}/${id}`)
     }
 
@@ -22,7 +22,7 @@ export class BaseService<T, DtoT> {
         return this.http.get<T[]>(this.endpoint, { params })
     }
 
-    getAll(): Observable<T[]> {
+    findAll(): Observable<T[]> {
         return this.http.get<T[]>(this.endpoint)
     }
 

@@ -1,14 +1,16 @@
-import { combineLatest, Observable } from 'rxjs';
-import { debounceTime, distinctUntilChanged, map, switchMap, tap } from 'rxjs/operators';
-import { Injectable } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { Params } from '@angular/router';
-import { StateAtom } from '@core/utils/state-atom';
-import { Article } from '@features/articles/interfaces/article';
-import { Comment } from '@features/comments/interfaces/comment';
-import { CommentService } from '@features/comments/services/comment.service';
+import { combineLatest, Observable } from 'rxjs'
+import { debounceTime, distinctUntilChanged, filter, map, switchMap, tap } from 'rxjs/operators'
+import { Injectable } from '@angular/core'
+import { FormControl } from '@angular/forms'
+import { Params } from '@angular/router'
+import { StateAtom } from '@core/utils/state-atom'
+import { Article } from '@features/articles/interfaces/article'
+import { ArticleService } from '@features/articles/services/article.service'
+import { Comment } from '@features/comments/interfaces/comment'
+import { CommentService } from '@features/comments/services/comment.service'
 
-interface ViewArticlePageState {
+export interface ViewArticlePageState {
+    id: number
     article: Article
     comments: Comment[]
     searchTerm: string
@@ -21,6 +23,7 @@ interface ViewArticlePageState {
 }
 
 const initialState: ViewArticlePageState = {
+    id: undefined,
     article: null,
     comments: [],
     loading: false,
@@ -36,6 +39,7 @@ const initialState: ViewArticlePageState = {
 export class ViewArticlePageStateService {
     private currentState: ViewArticlePageState = initialState
 
+    private id: StateAtom<number>
     private article: StateAtom<Article>
     private comments: StateAtom<Comment[]>
     private loading: StateAtom<boolean>
@@ -44,12 +48,13 @@ export class ViewArticlePageStateService {
 
     state$: Observable<ViewArticlePageState>
 
-    constructor(private commentService: CommentService) {
+    constructor(private articleService: ArticleService, private commentService: CommentService) {
         this.init()
         this.handleEffects()
     }
 
     init(): void {
+        this.id = new StateAtom(initialState.id)
         this.article = new StateAtom(initialState.article)
         this.loading = new StateAtom(initialState.loading)
         this.searchTerm = new StateAtom(initialState.searchTerm)
@@ -57,6 +62,7 @@ export class ViewArticlePageStateService {
         this.commentsPagination = new StateAtom(initialState.commentsPagination)
 
         this.state$ = combineLatest([
+            this.id.value$,
             this.article.value$,
             this.comments.value$,
             this.loading.value$,
@@ -64,8 +70,9 @@ export class ViewArticlePageStateService {
             this.commentsPagination.value$,
         ]).pipe(
             map(
-                ([article, comments, loading, searchTerm, commentsPagination]) =>
+                ([id, article, comments, loading, searchTerm, commentsPagination]) =>
                     ({
+                        id,
                         article,
                         comments,
                         loading,
@@ -87,11 +94,11 @@ export class ViewArticlePageStateService {
         return control
     }
 
-    updateArticle(article: Article): void {
-        this.article.update(article)
+    updateArticleId(id: number): void {
+        this.id.update(id)
     }
 
-    updateCommentsQueryParams(start = 0, limit = 10, sort = 'createdAt:desc'): void {
+    updateCommentsPagination(start = 0, limit = 10, sort = ''): void {
         this.commentsPagination.update({ start, limit, sort })
     }
 
@@ -102,7 +109,7 @@ export class ViewArticlePageStateService {
         const sort = params?.sort || initialState.commentsPagination._sort
 
         this.searchTerm.update(searchTerm)
-        this.commentsPagination.update({ start, limit, sort })
+        this.updateCommentsPagination(start, limit, sort)
     }
 
     getStateSnapshot(): ViewArticlePageState {
@@ -110,6 +117,7 @@ export class ViewArticlePageStateService {
     }
 
     resetState(): void {
+        this.id.reset()
         this.article.reset()
         this.loading.reset()
         this.comments.reset()
@@ -118,17 +126,24 @@ export class ViewArticlePageStateService {
     }
 
     private handleEffects() {
-        combineLatest([this.article.value$, this.searchTerm.value$, this.commentsPagination.value$])
+        this.id.value$
+            .pipe(
+                filter((id) => !!id),
+                switchMap((id) => this.articleService.findById(id)),
+            )
+            .subscribe((article) => this.article.update(article))
+
+        combineLatest([this.id.value$, this.searchTerm.value$, this.commentsPagination.value$])
             .pipe(
                 debounceTime(300),
                 tap(() => this.loading.update(true)),
-                switchMap(([article, searchTerm, params]) =>
-                    this.commentService.findCommentsForArticle(article.id, searchTerm, params),
+                switchMap(([id, searchTerm, params]) =>
+                    this.commentService.findCommentsForArticle(id, searchTerm, params),
                 ),
             )
             .subscribe((comments) => {
                 this.comments.update(comments)
-                this.loading.update(true)
+                this.loading.update(false)
             })
     }
 }
