@@ -39,49 +39,37 @@ const initialState: ViewArticlePageState = {
 export class ViewArticlePageStateService {
     private currentState: ViewArticlePageState = initialState
 
-    private id: StateAtom<number>
-    private article: StateAtom<Article>
-    private comments: StateAtom<Comment[]>
-    private loading: StateAtom<boolean>
-    private searchTerm: StateAtom<string>
-    private commentsPagination: StateAtom<Params>
+    private id: StateAtom<number> = new StateAtom(initialState.id)
+    private article: StateAtom<Article> = new StateAtom(initialState.article)
+    private loading: StateAtom<boolean> = new StateAtom(initialState.loading)
+    private searchTerm: StateAtom<string> = new StateAtom(initialState.searchTerm)
+    private comments: StateAtom<Comment[]> = new StateAtom(initialState.comments)
+    private commentsPagination: StateAtom<Params> = new StateAtom(initialState.commentsPagination)
 
-    state$: Observable<ViewArticlePageState>
+    state$: Observable<ViewArticlePageState> = combineLatest([
+        this.id.value$,
+        this.article.value$,
+        this.comments.value$,
+        this.loading.value$,
+        this.searchTerm.value$,
+        this.commentsPagination.value$,
+    ]).pipe(
+        map(
+            ([id, article, comments, loading, searchTerm, commentsPagination]) =>
+                ({
+                    id,
+                    article,
+                    comments,
+                    loading,
+                    searchTerm,
+                    commentsPagination,
+                } as ViewArticlePageState),
+        ),
+        tap((state) => (this.currentState = state)),
+    )
 
     constructor(private articleService: ArticleService, private commentService: CommentService) {
-        this.init()
         this.handleEffects()
-    }
-
-    init(): void {
-        this.id = new StateAtom(initialState.id)
-        this.article = new StateAtom(initialState.article)
-        this.loading = new StateAtom(initialState.loading)
-        this.searchTerm = new StateAtom(initialState.searchTerm)
-        this.comments = new StateAtom(initialState.comments)
-        this.commentsPagination = new StateAtom(initialState.commentsPagination)
-
-        this.state$ = combineLatest([
-            this.id.value$,
-            this.article.value$,
-            this.comments.value$,
-            this.loading.value$,
-            this.searchTerm.value$,
-            this.commentsPagination.value$,
-        ]).pipe(
-            map(
-                ([id, article, comments, loading, searchTerm, commentsPagination]) =>
-                    ({
-                        id,
-                        article,
-                        comments,
-                        loading,
-                        searchTerm,
-                        commentsPagination,
-                    } as ViewArticlePageState),
-            ),
-            tap((state) => (this.currentState = state)),
-        )
     }
 
     controlSearchTerm(initialValue = ''): FormControl {

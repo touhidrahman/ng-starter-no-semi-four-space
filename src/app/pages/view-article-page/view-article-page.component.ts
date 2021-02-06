@@ -1,6 +1,7 @@
 import { Observable } from 'rxjs'
 import { filter, map } from 'rxjs/operators'
 import { Component, OnInit } from '@angular/core'
+import { FormControl } from '@angular/forms'
 import { ActivatedRoute } from '@angular/router'
 import { ViewArticlePageState, ViewArticlePageStateService } from './view-article-page.state.service'
 
@@ -12,6 +13,7 @@ import { ViewArticlePageState, ViewArticlePageStateService } from './view-articl
 })
 export class ViewArticlePageComponent implements OnInit {
     state$: Observable<ViewArticlePageState>
+    searchInput: FormControl
     start = 0
     limit = 2
 
@@ -20,6 +22,7 @@ export class ViewArticlePageComponent implements OnInit {
     ngOnInit(): void {
         this.setArticle()
         this.updateFromQueryParam()
+        this.setSearchControl()
 
         this.state$ = this.stateService.state$
     }
@@ -35,5 +38,9 @@ export class ViewArticlePageComponent implements OnInit {
 
     private updateFromQueryParam(): void {
         this.activatedRoute.queryParams.subscribe((params) => this.stateService.updateStateFromQueryParams(params))
+    }
+
+    private setSearchControl(): void {
+        this.searchInput = this.stateService.controlSearchTerm()
     }
 }
