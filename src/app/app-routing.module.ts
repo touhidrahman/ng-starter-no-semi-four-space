@@ -7,14 +7,21 @@ const routes: Routes = [
         loadChildren: () => import('./pages/home-page/home-page.module').then((m) => m.HomePageModule),
     },
     {
-        path: 'articles/:id',
-        loadChildren: () =>
-            import('./pages/view-article-page/view-article-page.module').then((m) => m.ViewArticlePageModule),
-    },
-    {
         path: 'home',
         redirectTo: '',
         pathMatch: 'full',
+    },
+    {
+        path: 'articles',
+        loadChildren: () => import('./pages/article-pages/article-pages.module').then((m) => m.ArticlePagesModule),
+    },
+    {
+        path: 'settings',
+        loadChildren: () => import('./pages/settings-page/settings-page.module').then((m) => m.SettingsPageModule),
+    },
+    {
+        path: '**',
+        loadChildren: () => import('./pages/error-pages/error-pages.module').then((m) => m.ErrorPagesModule),
     },
 ]
 

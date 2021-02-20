@@ -10,20 +10,20 @@ export class BaseService<T, DtoT> {
         this.endpoint = environment.apiURL + resourcePath
     }
 
-    findById(id: number): Observable<T> {
+    findById(id: string): Observable<T> {
         return this.http.get<T>(`${this.endpoint}/${id}`)
-    }
-
-    search(term: string): Observable<T[]> {
-        return this.http.get<T[]>(this.endpoint, { params: { _q: term } })
     }
 
     find(params: Params): Observable<T[]> {
         return this.http.get<T[]>(this.endpoint, { params })
     }
 
-    findAll(): Observable<T[]> {
-        return this.http.get<T[]>(this.endpoint)
+    search(term: string): Observable<T[]> {
+        return this.http.get<T[]>(this.endpoint, { params: { _q: term } })
+    }
+
+    count(params: Params = {}): Observable<number> {
+        return this.http.get<number>(`${this.endpoint}/count`, { params })
     }
 
     create(dto: DtoT | Partial<T>): Observable<T> {

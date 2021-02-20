@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing'
 
-import { ViewArticlePageComponent } from './view-article-page.component'
+import { NotFoundPageComponent } from './not-found-page.component'
 
-describe('ViewArticlePageComponent', () => {
-    let component: ViewArticlePageComponent
-    let fixture: ComponentFixture<ViewArticlePageComponent>
+describe('NotFoundPageComponent', () => {
+    let component: NotFoundPageComponent
+    let fixture: ComponentFixture<NotFoundPageComponent>
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            declarations: [ViewArticlePageComponent],
+            declarations: [NotFoundPageComponent],
         }).compileComponents()
     })
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(ViewArticlePageComponent)
+        fixture = TestBed.createComponent(NotFoundPageComponent)
         component = fixture.componentInstance
         fixture.detectChanges()
     })

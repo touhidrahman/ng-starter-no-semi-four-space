@@ -1,30 +1,19 @@
-import { combineLatest, Observable } from 'rxjs'
-import { debounceTime, distinctUntilChanged, filter, map, switchMap, tap } from 'rxjs/operators'
+import { combineLatest, Observable, of } from 'rxjs'
+import { debounceTime, distinctUntilChanged, filter, switchMap, tap } from 'rxjs/operators'
 import { Injectable } from '@angular/core'
 import { FormControl } from '@angular/forms'
-import { Params } from '@angular/router'
+import { combineLatestToObject } from '@core/rxjs-operators/combine-latest-to-object'
 import { StateAtom } from '@core/utils/state-atom'
 import { Article } from '@features/articles/interfaces/article'
 import { ArticleService } from '@features/articles/services/article.service'
 import { Comment } from '@features/comments/interfaces/comment'
 import { CommentService } from '@features/comments/services/comment.service'
+import { Pagination } from '@shared/app-pagination/interfaces/pagination'
+import { ArticleDetailsPageState } from './article-details-page.state'
 
-export interface ViewArticlePageState {
-    id: number
-    article: Article
-    comments: Comment[]
-    searchTerm: string
-    loading: boolean
-    commentsPagination: {
-        _limit: number
-        _start: number
-        _sort: string
-    }
-}
-
-const initialState: ViewArticlePageState = {
+const initialState: ArticleDetailsPageState = {
     id: undefined,
-    article: null,
+    article: undefined,
     comments: [],
     loading: false,
     searchTerm: '',
@@ -36,37 +25,24 @@ const initialState: ViewArticlePageState = {
 }
 
 @Injectable()
-export class ViewArticlePageStateService {
-    private currentState: ViewArticlePageState = initialState
+export class ArticleDetailsPageService {
+    private currentState: ArticleDetailsPageState = initialState
 
-    private id: StateAtom<number> = new StateAtom(initialState.id)
-    private article: StateAtom<Article> = new StateAtom(initialState.article)
+    private id: StateAtom<number | undefined> = new StateAtom(initialState.id)
+    private article: StateAtom<Article | undefined> = new StateAtom(initialState.article)
     private loading: StateAtom<boolean> = new StateAtom(initialState.loading)
     private searchTerm: StateAtom<string> = new StateAtom(initialState.searchTerm)
     private comments: StateAtom<Comment[]> = new StateAtom(initialState.comments)
-    private commentsPagination: StateAtom<Params> = new StateAtom(initialState.commentsPagination)
+    private commentsPagination: StateAtom<Pagination> = new StateAtom(initialState.commentsPagination)
 
-    state$: Observable<ViewArticlePageState> = combineLatest([
-        this.id.value$,
-        this.article.value$,
-        this.comments.value$,
-        this.loading.value$,
-        this.searchTerm.value$,
-        this.commentsPagination.value$,
-    ]).pipe(
-        map(
-            ([id, article, comments, loading, searchTerm, commentsPagination]) =>
-                ({
-                    id,
-                    article,
-                    comments,
-                    loading,
-                    searchTerm,
-                    commentsPagination,
-                } as ViewArticlePageState),
-        ),
-        tap((state) => (this.currentState = state)),
-    )
+    state$: Observable<ArticleDetailsPageState> = combineLatestToObject({
+        id: this.id.value$,
+        article: this.article.value$,
+        comments: this.comments.value$,
+        loading: this.loading.value$,
+        searchTerm: this.searchTerm.value$,
+        commentsPagination: this.commentsPagination.value$,
+    }).pipe(tap((state) => (this.currentState = state)))
 
     constructor(private articleService: ArticleService, private commentService: CommentService) {
         this.handleEffects()
@@ -86,21 +62,15 @@ export class ViewArticlePageStateService {
         this.id.update(id)
     }
 
-    updateCommentsPagination(start = 0, limit = 10, sort = ''): void {
-        this.commentsPagination.update({ start, limit, sort })
+    updateCommentsPagination(pagination: Pagination): void {
+        this.commentsPagination.update(pagination)
     }
 
-    updateStateFromQueryParams(params: Params): void {
-        const searchTerm = params?.q || ''
-        const start = +params?.start || initialState.commentsPagination._start
-        const limit = +params?.limit || initialState.commentsPagination._limit
-        const sort = params?.sort || initialState.commentsPagination._sort
-
+    updateSearchTerm(searchTerm: string): void {
         this.searchTerm.update(searchTerm)
-        this.updateCommentsPagination(start, limit, sort)
     }
 
-    getStateSnapshot(): ViewArticlePageState {
+    getStateSnapshot(): ArticleDetailsPageState {
         return { ...this.currentState }
     }
 
@@ -117,7 +87,7 @@ export class ViewArticlePageStateService {
         this.id.value$
             .pipe(
                 filter((id) => !!id),
-                switchMap((id) => this.articleService.findById(id)),
+                switchMap((id) => this.articleService.findById(String(id))),
             )
             .subscribe((article) => this.article.update(article))
 
@@ -126,7 +96,7 @@ export class ViewArticlePageStateService {
                 debounceTime(300),
                 tap(() => this.loading.update(true)),
                 switchMap(([id, searchTerm, params]) =>
-                    this.commentService.findCommentsForArticle(id, searchTerm, params),
+                    id ? this.commentService.findCommentsForArticle(id, searchTerm, params) : of([]),
                 ),
             )
             .subscribe((comments) => {
