@@ -18,6 +18,18 @@
         "importHelpers": true,
         "target": "es2015",
         "typeRoots": ["node_modules/@types"],
-        "lib": ["es2018", "dom"]
+        "lib": [
+            "es2018",
+            "dom"
+        ],
+        "forceConsistentCasingInFileNames": true,
+        "strict": true,
+        "noImplicitReturns": true,
+        "noFallthroughCasesInSwitch": true
+    },
+    "angularCompilerOptions": {
+        "strictInjectionParameters": true,
+        "strictInputAccessModifiers": true,
+        "strictTemplates": true
     }
 }
