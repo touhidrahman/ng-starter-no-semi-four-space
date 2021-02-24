@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core'
-import { RouterModule, Routes } from '@angular/router'
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
     {
@@ -14,10 +14,6 @@ const routes: Routes = [
     {
         path: 'articles',
         loadChildren: () => import('./pages/article-pages/article-pages.module').then((m) => m.ArticlePagesModule),
-    },
-    {
-        path: 'settings',
-        loadChildren: () => import('./pages/settings-page/settings-page.module').then((m) => m.SettingsPageModule),
     },
     {
         path: '**',
