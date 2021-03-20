@@ -2,7 +2,7 @@
 
 I am tired of adding prettier and configuring for 4 spaced tab, no semicolon for my projects. So this starter project was born.
 
-This project is using [Angular CLI](https://github.com/angular/angular-cli) version 11.2.5.
+This project is using [Angular CLI](https://github.com/angular/angular-cli) version 11.2.6.
 
 ## Get Started
 
