@@ -27,11 +27,18 @@
                         "tsConfig": "tsconfig.app.json",
                         "aot": true,
                         "assets": [
+                            {
+                                "glob": "**/*",
+                                "input": "node_modules/@taiga-ui/icons/src",
+                                "output": "assets/taiga-ui/icons"
+                            },
                             "src/favicon.ico",
                             "src/assets"
                         ],
                         "styles": [
-                            "src/styles/styles.scss"
+                            "src/styles/styles.scss",
+                            "node_modules/@taiga-ui/core/styles/taiga-ui-global.less",
+                            "node_modules/@taiga-ui/core/styles/taiga-ui-theme.less"
                         ],
                         "scripts": []
                     },

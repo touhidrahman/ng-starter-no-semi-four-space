@@ -2,7 +2,7 @@
 
 I am tired of adding prettier and configuring for 4 spaced tab, no semicolon for my projects. So this starter project was born.
 
-This project is using [Angular CLI](https://github.com/angular/angular-cli) version 11.2.6.
+This project is using [Angular CLI](https://github.com/angular/angular-cli) version 11.2.6, Tailwind 2.0.4 and Taiga UI 2.6.2.
 
 ## Get Started
 
