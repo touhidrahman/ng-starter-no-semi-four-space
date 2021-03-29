@@ -38,7 +38,7 @@ export class ArticleDetailsPageComponent {
             .subscribe((pagination) => this.stateService.updateCommentsPagination(pagination))
 
         this.activatedRoute.queryParams
-            .pipe(map((params) => params?.q ?? ''))
+            .pipe(map((params) => String(params?.q) ?? ''))
             .subscribe((searchTerm) => this.stateService.updateSearchTerm(searchTerm))
     }
 }

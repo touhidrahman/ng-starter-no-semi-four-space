@@ -14,7 +14,6 @@
                 "eslint:recommended",
                 "plugin:@typescript-eslint/recommended",
                 "plugin:@typescript-eslint/recommended-requiring-type-checking",
-                "prettier/@typescript-eslint",
                 "plugin:prettier/recommended"
             ],
             "plugins": ["eslint-plugin-react"],
@@ -31,7 +30,8 @@
                     "error",
                     {
                         "type": "attribute",
-                        "prefix": "camelCase"
+                        "prefix": "app",
+                        "style": "camelCase"
                     }
                 ],
                 "@angular-eslint/no-forward-ref": "off",
@@ -93,21 +93,27 @@
                 "no-trailing-spaces": "off",
                 "prefer-object-spread": "error",
                 "quote-props": "off",
-                "react/jsx-curly-spacing": "off",
-                "react/jsx-equals-spacing": "off",
-                "react/jsx-wrap-multilines": "off",
                 "space-before-function-paren": "off",
                 "space-in-parens": ["off", "never"]
             }
         },
         {
             "files": ["*.html"],
-            "extends": [
-                "plugin:@angular-eslint/template/recommended",
-                "prettier/@typescript-eslint",
-                "plugin:prettier/recommended"
-            ],
+            "extends": ["plugin:@angular-eslint/template/recommended"],
             "rules": {}
+        },
+        {
+            "files": ["*.html"],
+            "excludedFiles": ["*inline-template-*.component.html"],
+            "extends": ["plugin:prettier/recommended"],
+            "rules": {
+                "prettier/prettier": [
+                    "error",
+                    {
+                        "parser": "angular"
+                    }
+                ]
+            }
         }
     ]
 }

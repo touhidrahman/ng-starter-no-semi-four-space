@@ -6,5 +6,19 @@
     "singleQuote": true,
     "trailingComma": "all",
     "bracketSpacing": true,
-    "arrowParens": "always"
+    "arrowParens": "always",
+    "overrides": [
+        {
+            "files": "*.component.html",
+            "options": {
+                "parser": "angular"
+            }
+        },
+        {
+            "files": "*.html",
+            "options": {
+                "parser": "html"
+            }
+        }
+    ]
 }
