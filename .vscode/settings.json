@@ -8,5 +8,18 @@
         "source.fixAll": true,
         "source.organizeImports": true
     },
-    "typescript.format.semicolons": "remove"
+    "typescript.format.semicolons": "remove",
+    "eslint.options": {
+        "extensions": [
+            ".ts",
+            ".html"
+        ]
+    },
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+        "html"
+    ],
 }
