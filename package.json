@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "lint:fix": "ng lint --fix",
-    "precommit": "lint-staged",
+    "register-git-hooks": "npx simple-git-hook",
     "format:ts": "prettier --write 'src/**/*.{js,ts,scss,css,less,jsx,tsx,json}'",
     "format:html": "prettier --write 'src/**/*.{html,xml}'",
     "format:specs": "prettier --write 'e2e/**/*.*'",
@@ -55,7 +55,6 @@
     "eslint-plugin-prefer-arrow": "1.2.3",
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-react": "latest",
-    "husky": "^6.0.0",
     "jasmine-core": "~3.7.1",
     "jasmine-spec-reporter": "~6.0.0",
     "karma": "~6.3.1",
@@ -66,22 +65,17 @@
     "lint-staged": "^10.5.4",
     "prettier": "^2.2.1",
     "protractor": "~7.0.0",
+    "simple-git-hooks": "^2.2.0",
     "tailwindcss": "^2.0.4",
     "ts-node": "9.1.1",
     "typescript": "~4.1.5"
   },
   "lint-staged": {
-    "*.{js,ts,jsx,tsx}": [
-      "eslint --fix",
-      "prettier --write"
-    ],
     "*.{scss,css,less,json}": "prettier --write",
-    "*.{html,xml}": "prettier --write"
+    "*.{html,xml}": "prettier --write",
+    "*.{ts,js}": "eslint --cache --fix"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run precommit",
-      "pre-push": ""
-    }
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
   }
 }
