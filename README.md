@@ -2,8 +2,6 @@
 
 I am tired of adding prettier and configuring for 4 spaced tab, no semicolon for my projects. So this starter project was born.
 
-This project is using [Angular CLI](https://github.com/angular/angular-cli) version 10.x.
-
 ## Get Started
 
 1. Clone the repository and checkout to intended branch for your project's requirements:
@@ -14,7 +12,7 @@ This project is using [Angular CLI](https://github.com/angular/angular-cli) vers
 
 `git checkout <desired-branch-name>`
 
-- `master`: bare-bone angular project with no framework. 
+- `master`: bare-bone angular project with no framework.
 - `ng-material`: official material library for angular as the UI framework.
 - `ng-tailwind`: tailwindcss for the UI, uses a third-party module to integrate tailwind.
 - `ng-tail-mat`: Uses the power of both tailwindcss and ng-material.
@@ -50,7 +48,7 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 ## Contributing
 
-Feel free to open an issue and/or PR to add features. 
+Feel free to open an issue and/or PR to add features.
 
 ## Licence
 &copy; MIT
