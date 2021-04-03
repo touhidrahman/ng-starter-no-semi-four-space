@@ -2,7 +2,12 @@
 
 I am tired of adding prettier and configuring for 4 spaced tab, no semicolon for my projects. So this starter project was born.
 
-This project is using [Angular CLI](https://github.com/angular/angular-cli) version 11.2.6.
+This boilerplate uses:
+
+- TailwindCSS (with JIT compilation)
+- Eslint
+- Prettier
+- Git hooks
 
 ## Get Started
 
@@ -12,7 +17,14 @@ This project is using [Angular CLI](https://github.com/angular/angular-cli) vers
 
 `cd <your-project-name>`
 
-2. Remove the `.git` directory to remove all the connection to this starter repository.
+`git checkout <desired-branch-name>`
+
+- `main`: bare-bone angular project with tailwind support.
+- `material`: official material library for angular as the UI framework.
+- `zorro`: Uses the power of both tailwindcss and zorro.
+- `prime`: PrimeNG X library for the UI. Uses v10.x which has a rich collection of angular components (MIT licenced)
+
+2. Once checked out, remove the `.git` directory to remove all the connection to this starter repository.
 
 `rm -rf .git`
 
