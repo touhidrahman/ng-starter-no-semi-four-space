@@ -2,6 +2,13 @@
 
 I am tired of adding prettier and configuring for 4 spaced tab, no semicolon for my projects. So this starter project was born.
 
+This boilerplate uses:
+
+- TailwindCSS (with JIT compilation)
+- Eslint
+- Prettier
+- Git hooks
+
 ## Get Started
 
 1. Clone the repository and checkout to intended branch for your project's requirements:

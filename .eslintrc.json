@@ -1,22 +1,21 @@
 {
     "root": true,
-    "ignorePatterns": ["projects/**/*"],
+    "ignorePatterns": ["projects/**/*", "scripts/**/*"],
     "overrides": [
         {
             "files": ["*.ts"],
             "parserOptions": {
-                "project": ["tsconfig.json", "e2e/tsconfig.json"],
-                "createDefaultProgram": true
+                "project": ["tsconfig.app.json", "tsconfig.spec.json", "e2e/tsconfig.json"],
+                "createDefaultProgram": true,
+                "ecmaVersion": 2020,
+                "sourceType": "module"
             },
             "extends": [
                 "plugin:@angular-eslint/recommended",
                 "plugin:@angular-eslint/template/process-inline-templates",
                 "eslint:recommended",
-                "plugin:@typescript-eslint/recommended",
-                "plugin:@typescript-eslint/recommended-requiring-type-checking",
                 "plugin:prettier/recommended"
             ],
-            "plugins": ["eslint-plugin-react"],
             "rules": {
                 "@angular-eslint/component-selector": [
                     "error",
@@ -30,21 +29,19 @@
                     "error",
                     {
                         "type": "attribute",
-                        "prefix": "app",
-                        "style": "camelCase"
+                        "prefix": "camelCase"
                     }
                 ],
-                "@angular-eslint/no-forward-ref": "off",
-                "@angular-eslint/no-output-on-prefix": "off",
-                "@typescript-eslint/no-floating-promises": "off",
-                "@typescript-eslint/no-unsafe-assignment": "off",
-                "@typescript-eslint/array-type": [
+                "@angular-eslint/no-empty-lifecycle-method": 1,
+                "@typescript-eslint/consistent-type-definitions": "error",
+                "@typescript-eslint/no-unused-vars": [
                     "error",
                     {
-                        "default": "array"
+                        "vars": "local",
+                        "args": "after-used",
+                        "argsIgnorePattern": "^_"
                     }
                 ],
-                "@typescript-eslint/consistent-type-definitions": "error",
                 "@typescript-eslint/dot-notation": "off",
                 "@typescript-eslint/explicit-member-accessibility": [
                     "error",
@@ -65,35 +62,23 @@
                         }
                     }
                 ],
-                "@typescript-eslint/no-inferrable-types": [
-                    "off",
-                    {
-                        "ignoreParameters": true
-                    }
-                ],
-                "@typescript-eslint/no-var-requires": "error",
                 "@typescript-eslint/semi": ["off", null],
-                "@typescript-eslint/type-annotation-spacing": "off",
+                "@typescript-eslint/no-empty-interface": "off",
+                "@typescript-eslint/no-use-before-define": "error",
+                "no-unused-vars": "off",
                 "arrow-parens": ["off", "always"],
                 "brace-style": ["off", "off"],
                 "comma-dangle": ["off", "always-multiline"],
-                "eol-last": "off",
-                "import/no-extraneous-dependencies": "off",
-                "import/no-internal-modules": "off",
-                "import/order": "off",
-                "jsdoc/check-alignment": "off",
-                "jsdoc/newline-after-description": "off",
-                "linebreak-style": "off",
-                "max-len": "off",
+                "max-len": [
+                    "error",
+                    {
+                        "ignorePattern": "^import .* from .*|// no-max-line",
+                        "code": 160
+                    }
+                ],
                 "new-parens": "off",
                 "newline-per-chained-call": "off",
-                "no-extra-semi": "off",
-                "no-irregular-whitespace": "off",
-                "no-redeclare": "error",
-                "no-trailing-spaces": "off",
-                "prefer-object-spread": "error",
-                "quote-props": "off",
-                "space-before-function-paren": "off",
+                "no-extra-semi": "warn",
                 "space-in-parens": ["off", "never"]
             }
         },
