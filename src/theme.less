@@ -1,7 +1,73 @@
-
 // Custom Theming for NG-ZORRO
 // For more information: https://ng.ant.design/docs/customize-theme/en
-@import "../node_modules/ng-zorro-antd/ng-zorro-antd.less";
+// @import "../node_modules/ng-zorro-antd/ng-zorro-antd.less";
+
+@import '../node_modules/ng-zorro-antd/style/entry.less';
+
+// Comment out the components you are not using in the project to reduce CSS file size
+@import '../node_modules/ng-zorro-antd/affix/style/entry.less';
+@import '../node_modules/ng-zorro-antd/alert/style/entry.less';
+@import '../node_modules/ng-zorro-antd/anchor/style/entry.less';
+@import '../node_modules/ng-zorro-antd/auto-complete/style/entry.less';
+@import '../node_modules/ng-zorro-antd/avatar/style/entry.less';
+@import '../node_modules/ng-zorro-antd/back-top/style/entry.less';
+@import '../node_modules/ng-zorro-antd/badge/style/entry.less';
+@import '../node_modules/ng-zorro-antd/breadcrumb/style/entry.less';
+@import '../node_modules/ng-zorro-antd/button/style/entry.less';
+@import '../node_modules/ng-zorro-antd/calendar/style/entry.less';
+@import '../node_modules/ng-zorro-antd/card/style/entry.less';
+@import '../node_modules/ng-zorro-antd/carousel/style/entry.less';
+@import '../node_modules/ng-zorro-antd/cascader/style/entry.less';
+@import '../node_modules/ng-zorro-antd/checkbox/style/entry.less';
+@import '../node_modules/ng-zorro-antd/collapse/style/entry.less';
+@import '../node_modules/ng-zorro-antd/comment/style/entry.less';
+@import '../node_modules/ng-zorro-antd/date-picker/style/entry.less';
+@import '../node_modules/ng-zorro-antd/descriptions/style/entry.less';
+@import '../node_modules/ng-zorro-antd/divider/style/entry.less';
+@import '../node_modules/ng-zorro-antd/drawer/style/entry.less';
+@import '../node_modules/ng-zorro-antd/dropdown/style/entry.less';
+@import '../node_modules/ng-zorro-antd/empty/style/entry.less';
+@import '../node_modules/ng-zorro-antd/form/style/entry.less';
+@import '../node_modules/ng-zorro-antd/grid/style/entry.less';
+@import '../node_modules/ng-zorro-antd/icon/style/entry.less';
+@import '../node_modules/ng-zorro-antd/image/style/entry.less';
+@import '../node_modules/ng-zorro-antd/input-number/style/entry.less';
+@import '../node_modules/ng-zorro-antd/input/style/entry.less';
+@import '../node_modules/ng-zorro-antd/layout/style/entry.less';
+@import '../node_modules/ng-zorro-antd/list/style/entry.less';
+@import '../node_modules/ng-zorro-antd/mention/style/entry.less';
+@import '../node_modules/ng-zorro-antd/menu/style/entry.less';
+@import '../node_modules/ng-zorro-antd/message/style/entry.less';
+@import '../node_modules/ng-zorro-antd/modal/style/entry.less';
+@import '../node_modules/ng-zorro-antd/notification/style/entry.less';
+@import '../node_modules/ng-zorro-antd/page-header/style/entry.less';
+@import '../node_modules/ng-zorro-antd/pagination/style/entry.less';
+@import '../node_modules/ng-zorro-antd/popconfirm/style/entry.less';
+@import '../node_modules/ng-zorro-antd/popover/style/entry.less';
+@import '../node_modules/ng-zorro-antd/progress/style/entry.less';
+@import '../node_modules/ng-zorro-antd/radio/style/entry.less';
+@import '../node_modules/ng-zorro-antd/rate/style/entry.less';
+@import '../node_modules/ng-zorro-antd/result/style/entry.less';
+@import '../node_modules/ng-zorro-antd/select/style/entry.less';
+@import '../node_modules/ng-zorro-antd/skeleton/style/entry.less';
+@import '../node_modules/ng-zorro-antd/slider/style/entry.less';
+@import '../node_modules/ng-zorro-antd/space/style/entry.less';
+@import '../node_modules/ng-zorro-antd/spin/style/entry.less';
+@import '../node_modules/ng-zorro-antd/statistic/style/entry.less';
+@import '../node_modules/ng-zorro-antd/steps/style/entry.less';
+@import '../node_modules/ng-zorro-antd/switch/style/entry.less';
+@import '../node_modules/ng-zorro-antd/table/style/entry.less';
+@import '../node_modules/ng-zorro-antd/tabs/style/entry.less';
+@import '../node_modules/ng-zorro-antd/tag/style/entry.less';
+@import '../node_modules/ng-zorro-antd/time-picker/style/entry.less';
+@import '../node_modules/ng-zorro-antd/timeline/style/entry.less';
+@import '../node_modules/ng-zorro-antd/tooltip/style/entry.less';
+@import '../node_modules/ng-zorro-antd/transfer/style/entry.less';
+@import '../node_modules/ng-zorro-antd/tree-select/style/entry.less';
+@import '../node_modules/ng-zorro-antd/tree-view/style/entry.less';
+@import '../node_modules/ng-zorro-antd/tree/style/entry.less';
+@import '../node_modules/ng-zorro-antd/typography/style/entry.less';
+@import '../node_modules/ng-zorro-antd/upload/style/entry.less';
 
 // Override less variables to here
 // View all variables: https://github.com/NG-ZORRO/ng-zorro-antd/blob/master/components/style/themes/default.less
@@ -35,7 +101,7 @@
 @primary-3: color(~`colorPalette('@{primary-color}', 3) `); // unused
 @primary-4: color(~`colorPalette('@{primary-color}', 4) `); // unused
 @primary-5: color(
-  ~`colorPalette('@{primary-color}', 5) `
+    ~`colorPalette('@{primary-color}', 5) `
 ); // color used to control the text color in many active and hover states, replace tint(@primary-color, 20%)
 @primary-6: @primary-color; // color used to control the text color of active buttons, don't use, use @primary-color
 @primary-7: color(~`colorPalette('@{primary-color}', 7) `); // replace shade(@primary-color, 5%)
@@ -53,9 +119,8 @@
 // Popover background color
 @popover-background: @component-background;
 @popover-customize-border-color: @border-color-split;
-@font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
-  'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
-  'Noto Color Emoji';
+@font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 @code-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
 @text-color: fade(@black, 85%);
 @text-color-secondary: fade(@black, 45%);
@@ -163,15 +228,14 @@
 @shadow-color-inverse: @component-background;
 @box-shadow-base: @shadow-2;
 @shadow-1-up: 0 -6px 16px -8px rgba(0, 0, 0, 0.08), 0 -9px 28px 0 rgba(0, 0, 0, 0.05),
-  0 -12px 48px 16px rgba(0, 0, 0, 0.03);
+    0 -12px 48px 16px rgba(0, 0, 0, 0.03);
 @shadow-1-down: 0 6px 16px -8px rgba(0, 0, 0, 0.08), 0 9px 28px 0 rgba(0, 0, 0, 0.05),
-  0 12px 48px 16px rgba(0, 0, 0, 0.03);
+    0 12px 48px 16px rgba(0, 0, 0, 0.03);
 @shadow-1-left: -6px 0 16px -8px rgba(0, 0, 0, 0.08), -9px 0 28px 0 rgba(0, 0, 0, 0.05),
-  -12px 0 48px 16px rgba(0, 0, 0, 0.03);
+    -12px 0 48px 16px rgba(0, 0, 0, 0.03);
 @shadow-1-right: 6px 0 16px -8px rgba(0, 0, 0, 0.08), 9px 0 28px 0 rgba(0, 0, 0, 0.05),
-  12px 0 48px 16px rgba(0, 0, 0, 0.03);
-@shadow-2: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08),
-  0 9px 28px 8px rgba(0, 0, 0, 0.05);
+    12px 0 48px 16px rgba(0, 0, 0, 0.03);
+@shadow-2: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
 
 // Buttons
 @btn-font-weight: 400;
@@ -395,18 +459,15 @@
 @input-padding-horizontal-sm: @control-padding-horizontal-sm - 1px;
 @input-padding-horizontal-lg: @input-padding-horizontal;
 @input-padding-vertical-base: max(
-  (round(((@input-height-base - @font-size-base * @line-height-base) / 2) * 10) / 10) -
-    @border-width-base,
-  3px
+    (round(((@input-height-base - @font-size-base * @line-height-base) / 2) * 10) / 10) - @border-width-base,
+    3px
 );
 @input-padding-vertical-sm: max(
-  (round(((@input-height-sm - @font-size-base * @line-height-base) / 2) * 10) / 10) -
-    @border-width-base,
-  0
+    (round(((@input-height-sm - @font-size-base * @line-height-base) / 2) * 10) / 10) - @border-width-base,
+    0
 );
-@input-padding-vertical-lg: (
-    ceil(((@input-height-lg - @font-size-lg * @line-height-base) / 2) * 10) / 10
-  ) - @border-width-base;
+@input-padding-vertical-lg: (ceil(((@input-height-lg - @font-size-lg * @line-height-base) / 2) * 10) / 10) -
+    @border-width-base;
 @input-placeholder-color: hsv(0, 0, 75%);
 @input-color: @text-color;
 @input-icon-color: @input-color;
@@ -703,8 +764,7 @@
 @card-actions-li-margin: 12px 0;
 @card-skeleton-bg: #cfd8dc;
 @card-background: @component-background;
-@card-shadow: 0 1px 2px -2px rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.12),
-  0 5px 12px 4px rgba(0, 0, 0, 0.09);
+@card-shadow: 0 1px 2px -2px rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.12), 0 5px 12px 4px rgba(0, 0, 0, 0.09);
 @card-radius: @border-radius-base;
 @card-head-tabs-margin-bottom: -17px;
 @card-head-extra-color: @text-color;
@@ -729,9 +789,8 @@
 @tabs-card-head-background: @background-color-light;
 @tabs-card-height: 40px;
 @tabs-card-active-color: @primary-color;
-@tabs-card-horizontal-padding: (
-    (@tabs-card-height - floor(@font-size-base * @line-height-base)) / 2
-  ) - @border-width-base @padding-md;
+@tabs-card-horizontal-padding: ((@tabs-card-height - floor(@font-size-base * @line-height-base)) / 2) -
+    @border-width-base @padding-md;
 @tabs-card-horizontal-padding-sm: 6px @padding-md;
 @tabs-card-horizontal-padding-lg: 7px @padding-md 6px;
 @tabs-title-font-size: @font-size-base;
@@ -918,7 +977,7 @@
 @alert-with-description-no-icon-padding-vertical: @padding-md - 1px;
 @alert-with-description-padding-vertical: @padding-md - 1px;
 @alert-with-description-padding: @alert-with-description-padding-vertical 15px
-  @alert-with-description-no-icon-padding-vertical @alert-with-description-icon-size;
+    @alert-with-description-no-icon-padding-vertical @alert-with-description-icon-size;
 @alert-icon-top: 8px + @font-size-base * (@line-height-base / 2) - (@font-size-base / 2);
 @alert-with-description-icon-size: 24px;
 
