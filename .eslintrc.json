@@ -5,7 +5,7 @@
         {
             "files": ["*.ts"],
             "parserOptions": {
-                "project": ["tsconfig.app.json", "tsconfig.spec.json", "e2e/tsconfig.json"],
+                "project": ["tsconfig.app.json", "tsconfig.spec.json"],
                 "createDefaultProgram": true,
                 "ecmaVersion": 2020,
                 "sourceType": "module"

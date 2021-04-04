@@ -8,6 +8,8 @@ This boilerplate uses:
 - Eslint
 - Prettier
 - Git hooks
+- Cypress
+- Jest
 
 ## Get Started
 
