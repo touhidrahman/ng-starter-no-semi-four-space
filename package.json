@@ -1,6 +1,5 @@
 {
   "name": "ng-starter-no-semi-four-space",
-  "version": "11.2.7",
   "scripts": {
     "ng": "ng",
     "start": "cross-env TAILWIND_MODE=watch ng serve",
@@ -16,7 +15,7 @@
     "format": "npm run format:ts && npm run format:html && npm run format:specs",
     "e2e": "ng e2e",
     "update-angular": "ng update @angular/cli @angular/core --allow-dirty",
-    "postinstall": "node ./scripts/ng-tailwindcss-jit.js"
+    "postinstall": "npx simple-git-hooks && node ./scripts/ng-tailwindcss-jit.js"
   },
   "private": true,
   "dependencies": {
