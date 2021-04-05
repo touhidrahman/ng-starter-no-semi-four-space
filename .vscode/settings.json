@@ -1,16 +1,39 @@
 {
-    "html.format.wrapAttributes": "preserve-aligned",
     "html.format.wrapLineLength": 0,
     "editor.formatOnSave": true,
     "editor.formatOnPaste": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.codeActionsOnSave": {
-        "source.fixAll": true,
-        "source.organizeImports": true
-    },
     "typescript.format.semicolons": "remove",
+    "javascript.format.semicolons": "remove",
+    "prettier.semi": false,
+    "importSorter.importStringConfiguration.hasSemicolon": false,
     "eslint.options": {
         "extensions": [".ts", ".html"]
     },
-    "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact", "html"]
+    "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact", "html"],
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "prettier.eslintIntegration": true,
+    "html.format.endWithNewline": true,
+    "html.format.wrapAttributes": "preserve-aligned",
+    "[javascript]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+        "editor.codeActionsOnSave": {
+            "source.fixAll.eslint": true
+        }
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.codeActionsOnSave": {
+            "source.fixAll.eslint": true
+        }
+    },
+    "[json]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+        "editor.codeActionsOnSave": {
+            "source.fixAll.eslint": true
+        },
+        "editor.formatOnSave": false
+    },
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
 }

@@ -1,3 +1,4 @@
+import { NgxWebstorageModule } from 'ngx-webstorage'
 import { HttpClientModule } from '@angular/common/http'
 import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
@@ -8,7 +9,14 @@ import { AppComponent } from './app.component'
 
 @NgModule({
     declarations: [AppComponent],
-    imports: [BrowserAnimationsModule, BrowserModule, RouterModule, HttpClientModule, AppRoutingModule],
+    imports: [
+        BrowserAnimationsModule,
+        BrowserModule,
+        RouterModule,
+        HttpClientModule,
+        NgxWebstorageModule.forRoot(),
+        AppRoutingModule,
+    ],
     providers: [],
     bootstrap: [AppComponent],
 })

@@ -1,4 +1,5 @@
 import jwt_decode from 'jwt-decode'
+import { LocalStorageService } from 'ngx-webstorage'
 import { BehaviorSubject, Observable } from 'rxjs'
 import { tap } from 'rxjs/operators'
 import { environment } from 'src/environments/environment'
@@ -16,7 +17,7 @@ const endpoint = environment.apiURL + '/auth'
 export class AuthService {
     private loggedIn$$: BehaviorSubject<boolean>
 
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient, private localStorage: LocalStorageService) {
         this.loggedIn$$ = new BehaviorSubject(this.isLoggedIn())
     }
 
@@ -36,11 +37,11 @@ export class AuthService {
     }
 
     getUserId(): string {
-        return localStorage.getItem('userId') ?? ''
+        return this.localStorage.retrieve('userId') ?? ''
     }
 
     getToken(): string {
-        return localStorage.getItem('token') ?? ''
+        return this.localStorage.retrieve('token') ?? ''
     }
 
     login(email: string, password: string): Observable<LoginResponse> {
@@ -79,16 +80,16 @@ export class AuthService {
     }
 
     private saveToken(loginResponse: LoginResponse): void {
-        localStorage.setItem('token', loginResponse.jwt)
-        localStorage.setItem('userId', loginResponse.user.id)
+        this.localStorage.store('token', loginResponse.jwt)
+        this.localStorage.store('userId', loginResponse.user.id)
     }
 
     private deleteToken(): void {
-        localStorage.removeItem('token')
-        localStorage.removeItem('userId')
+        this.localStorage.clear('token')
+        this.localStorage.clear('userId')
     }
 
     private hasSavedToken(): boolean {
-        return Boolean(localStorage.getItem('token'))
+        return Boolean(this.localStorage.retrieve('token'))
     }
 }

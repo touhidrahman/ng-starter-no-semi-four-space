@@ -95,8 +95,8 @@ export class ArticleDetailsPageService {
             .pipe(
                 debounceTime(300),
                 tap(() => this.loading.update(true)),
-                switchMap(([id, searchTerm, params]) =>
-                    id ? this.commentService.findCommentsForArticle(id, searchTerm, params) : of([]),
+                switchMap(([id, _searchTerm, params]) =>
+                    id ? this.commentService.findCommentsForArticle(id, params) : of([]),
                 ),
             )
             .subscribe((comments) => {

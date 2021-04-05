@@ -13,7 +13,7 @@ export class CommentService extends BaseService<Comment, CommentDto> {
         super(http, '/comments')
     }
 
-    findCommentsForArticle(postId: number, searchTerm = '', params: Params = {}): Observable<Comment[]> {
+    findCommentsForArticle(postId: number, params: Params = {}): Observable<Comment[]> {
         return this.http.get<Comment[]>(this.endpoint, { params: { postId: String(postId), ...params } })
     }
 }
