@@ -8,9 +8,9 @@ import { defaultPaginationValues } from '../values/pagination.values'
  * @param params Params
  */
 export function getPagination(params: Params, defaultValues: Pagination = defaultPaginationValues): Pagination {
-    return {
-        _start: +params?._start ?? defaultValues._start,
-        _limit: +params?._limit ?? defaultValues._limit,
-        _sort: params?._sort ?? defaultValues._sort,
-    }
+    const _start = +params._start || +params.start || defaultValues._start
+    const _limit = +params._limit || +params.limit || defaultValues._limit
+    const _sort = params._sort ?? params.sort ?? defaultValues._sort
+
+    return { _start, _limit, _sort }
 }

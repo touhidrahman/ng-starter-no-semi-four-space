@@ -1,14 +1,15 @@
 {
     "root": true,
-    "ignorePatterns": ["projects/**/*", "scripts/**/*"],
+    "ignorePatterns": ["projects/**/*", "scripts/**/*", "dist", "coverage"],
+    "parserOptions": {
+        "ecmaVersion": 2020
+    },
     "overrides": [
         {
             "files": ["*.ts"],
             "parserOptions": {
                 "project": ["tsconfig.app.json", "tsconfig.spec.json"],
-                "createDefaultProgram": true,
-                "ecmaVersion": 2020,
-                "sourceType": "module"
+                "createDefaultProgram": true
             },
             "extends": [
                 "plugin:@angular-eslint/recommended",
@@ -32,7 +33,6 @@
                         "prefix": "camelCase"
                     }
                 ],
-                "@angular-eslint/no-empty-lifecycle-method": 1,
                 "@typescript-eslint/consistent-type-definitions": "error",
                 "@typescript-eslint/no-unused-vars": [
                     "error",
@@ -84,21 +84,8 @@
         },
         {
             "files": ["*.html"],
-            "extends": ["plugin:@angular-eslint/template/recommended"],
+            "extends": ["plugin:@angular-eslint/template/recommended", "plugin:prettier/recommended"],
             "rules": {}
-        },
-        {
-            "files": ["*.html"],
-            "excludedFiles": ["*inline-template-*.component.html"],
-            "extends": ["plugin:prettier/recommended"],
-            "rules": {
-                "prettier/prettier": [
-                    "error",
-                    {
-                        "parser": "angular"
-                    }
-                ]
-            }
         }
     ]
 }

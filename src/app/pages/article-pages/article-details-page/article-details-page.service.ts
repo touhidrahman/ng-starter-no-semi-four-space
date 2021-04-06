@@ -3,7 +3,7 @@ import { debounceTime, distinctUntilChanged, filter, switchMap, tap } from 'rxjs
 import { Injectable } from '@angular/core'
 import { FormControl } from '@angular/forms'
 import { combineLatestToObject } from '@core/rxjs-operators/combine-latest-to-object'
-import { StateAtom } from '@core/utils/state-atom'
+import { StateAtom } from '@core/state/state-atom'
 import { Article } from '@features/articles/interfaces/article'
 import { ArticleService } from '@features/articles/services/article.service'
 import { Comment } from '@features/comments/interfaces/comment'

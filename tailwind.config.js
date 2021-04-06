@@ -1,5 +1,6 @@
 module.exports = {
     prefix: '',
+    mode: 'jit',
     purge: {
         content: [
             './src/**/*.{html,ts}',
