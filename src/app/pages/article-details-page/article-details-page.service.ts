@@ -1,8 +1,7 @@
 import { combineLatest, Observable, of } from 'rxjs'
-import { debounceTime, distinctUntilChanged, filter, switchMap, tap } from 'rxjs/operators'
+import { debounceTime, distinctUntilChanged, filter, map, switchMap, tap } from 'rxjs/operators'
 import { Injectable } from '@angular/core'
 import { FormControl } from '@angular/forms'
-import { combineLatestToObject } from '@core/rxjs-operators/combine-latest-to-object'
 import { StateAtom } from '@core/state/state-atom'
 import { Article } from '@features/articles/interfaces/article'
 import { ArticleService } from '@features/articles/services/article.service'
@@ -26,25 +25,20 @@ const initialState: ArticleDetailsPageState = {
 
 @Injectable()
 export class ArticleDetailsPageService {
+    state$: Observable<ArticleDetailsPageState>
+
     private currentState: ArticleDetailsPageState = initialState
 
-    private id: StateAtom<number | undefined> = new StateAtom(initialState.id)
-    private article: StateAtom<Article | undefined> = new StateAtom(initialState.article)
-    private loading: StateAtom<boolean> = new StateAtom(initialState.loading)
-    private searchTerm: StateAtom<string> = new StateAtom(initialState.searchTerm)
-    private comments: StateAtom<Comment[]> = new StateAtom(initialState.comments)
-    private commentsPagination: StateAtom<Pagination> = new StateAtom(initialState.commentsPagination)
-
-    state$: Observable<ArticleDetailsPageState> = combineLatestToObject({
-        id: this.id.value$,
-        article: this.article.value$,
-        comments: this.comments.value$,
-        loading: this.loading.value$,
-        searchTerm: this.searchTerm.value$,
-        commentsPagination: this.commentsPagination.value$,
-    }).pipe(tap((state) => (this.currentState = state)))
+    private id = new StateAtom<number | undefined>(initialState.id)
+    private article = new StateAtom<Article | undefined>(initialState.article)
+    private loading = new StateAtom<boolean>(initialState.loading)
+    private searchTerm = new StateAtom<string>(initialState.searchTerm)
+    private comments = new StateAtom<Comment[]>(initialState.comments)
+    private commentsPagination = new StateAtom<Pagination>(initialState.commentsPagination)
 
     constructor(private articleService: ArticleService, private commentService: CommentService) {
+        this.state$ = this.buildState()
+        this.onStateChange()
         this.handleEffects()
     }
 
@@ -81,6 +75,30 @@ export class ArticleDetailsPageService {
         this.comments.reset()
         this.searchTerm.reset()
         this.commentsPagination.reset()
+    }
+
+    private buildState(): Observable<ArticleDetailsPageState> {
+        return combineLatest([
+            this.id.value$,
+            this.article.value$,
+            this.comments.value$,
+            this.loading.value$,
+            this.searchTerm.value$,
+            this.commentsPagination.value$,
+        ]).pipe(
+            map(([id, article, comments, loading, searchTerm, commentsPagination]) => ({
+                id,
+                article,
+                comments,
+                loading,
+                searchTerm,
+                commentsPagination,
+            })),
+        )
+    }
+
+    private onStateChange(): void {
+        this.state$.pipe(tap((state) => (this.currentState = state)))
     }
 
     private handleEffects() {
