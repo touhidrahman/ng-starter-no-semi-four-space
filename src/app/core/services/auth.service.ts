@@ -45,14 +45,12 @@ export class AuthService {
     }
 
     login(email: string, password: string): Observable<LoginResponse> {
-        return this.http
-            .post<LoginResponse>(`${endpoint}/local`, { identifier: email, password })
-            .pipe(
-                tap((response) => {
-                    this.loggedIn$$.next(true)
-                    this.saveToken(response)
-                }),
-            )
+        return this.http.post<LoginResponse>(`${endpoint}/local`, { identifier: email, password }).pipe(
+            tap((response) => {
+                this.loggedIn$$.next(true)
+                this.saveToken(response)
+            }),
+        )
     }
 
     register(name: string, email: string, password: string): Observable<LoginResponse> {

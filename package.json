@@ -13,8 +13,7 @@
     "register-git-hooks": "npx simple-git-hooks",
     "format:ts": "prettier --write 'src/**/*.{js,ts,scss,css,less,jsx,tsx,json}'",
     "format:html": "prettier --write 'src/**/*.{html,xml}'",
-    "format:specs": "prettier --write 'cypress/**/*.*'",
-    "format": "npm run format:ts && npm run format:html && npm run format:specs",
+    "format": "npm run format:ts && npm run format:html",
     "ng-update": "ng update @angular/cli @angular/core --allow-dirty"
   },
   "private": true,
