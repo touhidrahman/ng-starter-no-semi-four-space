@@ -12,16 +12,6 @@ const routes: Routes = [
         pathMatch: 'full',
     },
     {
-        path: 'articles/:id',
-        loadChildren: () =>
-            import('./pages/article-details-page/article-details-page.module').then((m) => m.ArticleDetailsPageModule),
-    },
-    {
-        path: 'articles',
-        loadChildren: () =>
-            import('./pages/article-list-page/article-list-page.module').then((m) => m.ArticleListPageModule),
-    },
-    {
         path: '**',
         loadChildren: () => import('./pages/not-found-page/not-found-page.module').then((m) => m.NotFoundPageModule),
     },

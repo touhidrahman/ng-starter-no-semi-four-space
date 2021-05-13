@@ -92,49 +92,9 @@
                     "options": {
                         "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
                     }
-                },
-                "e2e": {
-                    "builder": "@briebug/cypress-schematic:cypress",
-                    "options": {
-                        "devServerTarget": "ng-starter-no-semi-four-space:serve",
-                        "watch": true,
-                        "headless": false
-                    },
-                    "configurations": {
-                        "production": {
-                            "devServerTarget": "ng-starter-no-semi-four-space:serve:production"
-                        }
-                    }
-                },
-                "cypress-run": {
-                    "builder": "@briebug/cypress-schematic:cypress",
-                    "options": {
-                        "devServerTarget": "ng-starter-no-semi-four-space:serve"
-                    },
-                    "configurations": {
-                        "production": {
-                            "devServerTarget": "ng-starter-no-semi-four-space:serve:production"
-                        }
-                    }
-                },
-                "cypress-open": {
-                    "builder": "@briebug/cypress-schematic:cypress",
-                    "options": {
-                        "devServerTarget": "ng-starter-no-semi-four-space:serve",
-                        "watch": true,
-                        "headless": false
-                    },
-                    "configurations": {
-                        "production": {
-                            "devServerTarget": "ng-starter-no-semi-four-space:serve:production"
-                        }
-                    }
                 }
             }
         }
     },
-    "defaultProject": "ng-starter-no-semi-four-space",
-    "cli": {
-        "analytics": "6d00adc9-5b37-4f9b-b235-a9f981eec64e"
-    }
+    "defaultProject": "ng-starter-no-semi-four-space"
 }
