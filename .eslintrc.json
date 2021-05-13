@@ -73,7 +73,7 @@
                     "error",
                     {
                         "ignorePattern": "^import .* from .*|// no-max-line",
-                        "code": 160
+                        "code": 180
                     }
                 ],
                 "new-parens": "off",
