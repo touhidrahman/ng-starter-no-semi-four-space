@@ -1,7 +1,7 @@
 import { Observable } from 'rxjs'
-import { environment } from 'src/environments/environment'
 import { HttpClient } from '@angular/common/http'
 import { Params } from '@angular/router'
+import { environment } from '@environment/environment'
 
 export class BaseService<T, DtoT> {
     protected endpoint: string

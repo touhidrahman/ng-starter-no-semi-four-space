@@ -1,5 +1,4 @@
 {
-    "html.format.wrapLineLength": 0,
     "editor.formatOnSave": true,
     "editor.formatOnPaste": true,
     "typescript.format.semicolons": "remove",
@@ -10,10 +9,7 @@
         "extensions": [".ts", ".html"]
     },
     "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact", "html"],
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "prettier.eslintIntegration": true,
-    "html.format.endWithNewline": true,
-    "html.format.wrapAttributes": "preserve-aligned",
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
     "[javascript]": {
         "editor.defaultFormatter": "dbaeumer.vscode-eslint",
         "editor.codeActionsOnSave": {
@@ -21,7 +17,7 @@
         }
     },
     "[typescript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
         "editor.codeActionsOnSave": {
             "source.fixAll.eslint": true
         }
@@ -34,6 +30,7 @@
         "editor.formatOnSave": false
     },
     "[html]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
+        "editor.formatOnSave": true
     }
 }
