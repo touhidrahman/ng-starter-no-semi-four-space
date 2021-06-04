@@ -1,7 +1,5 @@
 # ng-starter-no-semi-four-space
 
-I am tired of adding prettier and configuring for 4 spaced tab, no semicolon for my projects. So this starter project was born.
-
 This boilerplate uses:
 
 - TailwindCSS (with JIT compilation)
@@ -9,6 +7,8 @@ This boilerplate uses:
 - Prettier
 - Git hooks
 - Jest
+
+and most importantly - **4 space tabs** and **NO SEMICOLON**
 
 ## Get Started
 
@@ -46,10 +46,6 @@ Run `ng generate component component-name` to generate a new component. You can 
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
 ## Contributing
 
