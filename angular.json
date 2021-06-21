@@ -81,17 +81,6 @@
                         "browserTarget": "ng-starter-no-semi-four-space:build"
                     }
                 },
-                "test": {
-                    "builder": "@angular-builders/jest:run",
-                    "options": {
-                        "polyfills": "src/polyfills.ts",
-                        "tsConfig": "tsconfig.spec.json",
-                        "inlineStyleLanguage": "scss",
-                        "assets": ["src/favicon.ico", "src/assets"],
-                        "styles": ["src/styles/styles.scss"],
-                        "scripts": []
-                    }
-                },
                 "lint": {
                     "builder": "@angular-eslint/builder:lint",
                     "options": {
@@ -99,6 +88,20 @@
                     }
                 }
             }
+        }
+    },
+    "schematics": {
+        "@schematics/angular:component": {
+            "skipTests": true
+        },
+        "@schematics/angular:service": {
+            "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+            "skipTests": true
+        },
+        "@schematics/angular:guard": {
+            "skipTests": true
         }
     },
     "defaultProject": "ng-starter-no-semi-four-space"

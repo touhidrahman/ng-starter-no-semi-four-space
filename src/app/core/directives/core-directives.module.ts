@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common'
 import { NgModule } from '@angular/core'
-import { HideDirective } from './hide/hide.directive'
-import { LetDirective } from './let/let.directive'
-import { RepeatDirective } from './repeat/repeat.directive'
+import { HideDirective } from './hide.directive'
+import { LetDirective } from './let.directive'
+import { RepeatDirective } from './repeat.directive'
 
 @NgModule({
     declarations: [HideDirective, LetDirective, RepeatDirective],
