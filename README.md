@@ -6,7 +6,6 @@ This boilerplate uses:
 - Eslint
 - Prettier
 - Git hooks
-- Jest
 
 and most importantly - **4 space tabs** and **NO SEMICOLON**
 
