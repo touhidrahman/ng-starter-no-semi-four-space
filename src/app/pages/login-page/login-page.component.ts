@@ -33,6 +33,7 @@ export class LoginPageComponent implements OnInit {
             this.errors.push('Invalid Credentials')
         }
 
+        this.errors = []
         this.loading = true
 
         this.auth.login(this.loginFormService.getValue()).subscribe({
