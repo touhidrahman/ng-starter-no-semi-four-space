@@ -1,18 +1,19 @@
 import { HttpClient } from '@angular/common/http'
-import { Injectable } from '@angular/core'
-import { BaseService } from '@core/services/base.service'
-import { User } from '@features/users/interfaces/user'
+import { Inject, Injectable } from '@angular/core'
+import { AppConfig, APP_CONFIG } from '@core/config/app-config'
+import { User } from '@core/interfaces/user'
+import { ApiService } from '@core/services/api.service'
 import { Observable } from 'rxjs'
 
 @Injectable({
     providedIn: 'root',
 })
-export class UserService extends BaseService<User, unknown> {
-    constructor(protected http: HttpClient) {
-        super(http, '/users')
+export class UserService extends ApiService<User, unknown> {
+    constructor(protected http: HttpClient, @Inject(APP_CONFIG) appConfig: AppConfig) {
+        super(http, 'users', appConfig)
     }
 
     getMe(): Observable<User> {
-        return this.http.get<User>(this.endpoint + '/me')
+        return this.http.get<User>(this.apiUrl + '/me')
     }
 }

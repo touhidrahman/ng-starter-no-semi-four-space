@@ -1,6 +1,7 @@
-import { User } from '@features/users/interfaces/user'
+import { User } from './user'
 
 export interface LoginResponse {
-    jwt: string
+    refreshToken: string
+    token: string
     user: User
 }

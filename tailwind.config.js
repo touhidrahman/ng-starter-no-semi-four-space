@@ -11,7 +11,7 @@ module.exports = {
         './src/**/*.{html,ts,css,scss,sass,less,styl}',
       ]
     },
-    darkMode: false, // or 'media' or 'class'
+    darkMode: 'media', // or 'class'
     theme: {
       extend: {},
     },
