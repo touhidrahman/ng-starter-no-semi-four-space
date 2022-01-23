@@ -11,16 +11,18 @@
     "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact", "html"],
     "editor.defaultFormatter": "dbaeumer.vscode-eslint",
     "[javascript]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+        "editor.codeActionsOnSave": {
+            "source.fixAll.eslint": true
+        },
+        "editor.formatOnSave": false
+    },
+    "[typescript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
         "editor.codeActionsOnSave": {
             "source.fixAll.eslint": true
-        }
-    },
-    "[typescript]": {
-        "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
-        "editor.codeActionsOnSave": {
-            "source.fixAll.eslint": true
-        }
+        },
+        "editor.formatOnSave": false
     },
     "[json]": {
         "editor.defaultFormatter": "dbaeumer.vscode-eslint",
@@ -30,7 +32,7 @@
         "editor.formatOnSave": false
     },
     "[html]": {
-        "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
         "editor.formatOnSave": true
     }
 }
