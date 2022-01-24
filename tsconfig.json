@@ -22,7 +22,8 @@
         "sourceMap": true,
         "strict": true,
         "target": "es2017",
-        "typeRoots": ["node_modules/@types"]
+        "typeRoots": ["node_modules/@types"],
+        "allowSyntheticDefaultImports": true
     },
     "angularCompilerOptions": {
         "enableI18nLegacyMessageIdFormat": false,
