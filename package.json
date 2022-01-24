@@ -31,6 +31,8 @@
     "@angular/router": "~13.1.3",
     "@ng-web-apis/common": "^1.12.1",
     "@ngneat/tailwind": "^7.0.3",
+    "@sanity/client": "^2.23.2",
+    "@sanity/image-url": "^1.0.1",
     "lodash-es": "^4.17.21",
     "rxjs": "~7.4.0",
     "rxjs-state-subject": "^3.0.0",

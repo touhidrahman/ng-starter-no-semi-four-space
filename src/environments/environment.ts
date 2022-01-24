@@ -2,5 +2,12 @@ import { AppConfig } from '@core/config/app-config'
 
 export const environment: AppConfig = {
     production: false,
-    apiURL: 'http://localhost:3000',
+    sanity: {
+        projectId: '<#< sanity.projectId >#>',
+        dataset: 'development',
+        useCdn: true,
+    },
+    web: {
+        url: '<#< deployments.web.url >#>',
+    },
 }

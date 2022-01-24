@@ -2,7 +2,14 @@ import { InjectionToken, ValueProvider } from '@angular/core'
 
 export interface AppConfig {
     production: boolean
-    apiURL: string
+    sanity: {
+        projectId: string
+        dataset: string
+        useCdn: boolean
+    }
+    web: {
+        url: string
+    }
 }
 
 export const APP_CONFIG = new InjectionToken<AppConfig>('natokdb.config')
