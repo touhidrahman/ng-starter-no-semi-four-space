@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { ActivatedRoute, Router } from '@angular/router'
-import { AuthService } from '@core/services/auth.service'
-import { LoginFormService } from '@core/services/login-form.service'
+import { AuthService } from '@core/auth/services/auth.service'
+import { LoginFormService } from '@core/auth/services/login-form.service'
 
 @Component({
     selector: 'app-login-page',

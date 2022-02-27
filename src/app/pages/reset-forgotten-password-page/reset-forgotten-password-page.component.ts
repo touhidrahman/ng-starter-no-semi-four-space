@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { FormBuilder } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router'
-import { AuthService } from '@core/services/auth.service'
+import { AuthService } from '@core/auth/services/auth.service'
 import { HotToastService } from '@ngneat/hot-toast'
 
 @Component({

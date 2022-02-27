@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { Router } from '@angular/router'
-import { AuthService } from '@core/services/auth.service'
-import { RegisterFormService } from '@core/services/register-form.service'
+import { AuthService } from '@core/auth/services/auth.service'
+import { RegisterFormService } from '@core/auth/services/register-form.service'
 
 @Component({
     selector: 'app-register-page',

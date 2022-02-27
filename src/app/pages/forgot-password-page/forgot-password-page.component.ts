@@ -1,6 +1,6 @@
 import { Component } from '@angular/core'
 import { Router } from '@angular/router'
-import { AuthService } from '@core/services/auth.service'
+import { AuthService } from '@core/auth/services/auth.service'
 import { HotToastService } from '@ngneat/hot-toast'
 
 @Component({

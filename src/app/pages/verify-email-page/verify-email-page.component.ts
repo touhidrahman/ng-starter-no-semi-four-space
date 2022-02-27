@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { ActivatedRoute, Router } from '@angular/router'
-import { AuthService } from '@core/services/auth.service'
+import { AuthService } from '@core/auth/services/auth.service'
 import { timer } from 'rxjs'
 
 @Component({

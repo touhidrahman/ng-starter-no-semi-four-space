@@ -8,8 +8,8 @@ import {
     RouterStateSnapshot,
     UrlSegment,
 } from '@angular/router'
-import { Role } from '@core/interfaces/role'
-import { AuthService } from '../services/auth.service'
+import { UserRole } from '@core/interfaces'
+import { AuthService } from '../auth/services/auth.service'
 
 @Injectable({
     providedIn: 'root',
@@ -19,14 +19,14 @@ export class AdminGuard implements CanActivate, CanLoad {
 
     canLoad(_route: Route, _segments: UrlSegment[]): boolean {
         const user = this.authService.getUser()
-        if (user?.role === Role.ADMIN) return true
+        if (user?.role === UserRole.ADMIN) return true
         this.router.navigate(['login'])
         return false
     }
 
     canActivate(_route: ActivatedRouteSnapshot, _state: RouterStateSnapshot): boolean {
         const user = this.authService.getUser()
-        if (user?.role === Role.ADMIN) return true
+        if (user?.role === UserRole.ADMIN) return true
         this.router.navigate(['login'])
         return false
     }
