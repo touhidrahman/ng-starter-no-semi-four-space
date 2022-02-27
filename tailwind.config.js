@@ -1,22 +1,19 @@
 module.exports = {
     prefix: '',
     mode: 'jit',
-    purge: {
-      content: [
-        './src/**/*.{html,ts,css,scss,sass,less,styl}',
-      ]
-    },
+    content: ['./src/**/*.{html,ts,css,scss,sass,less,styl}'],
     darkMode: 'media', // or 'class'
     theme: {
-      extend: {},
+        extend: {},
     },
     variants: {
-      extend: {},
+        extend: {},
     },
     plugins: [
         require('@tailwindcss/aspect-ratio'),
         require('@tailwindcss/forms'),
         require('@tailwindcss/typography'),
-        require('@tailwindcss/line-clamp')
+        require('@tailwindcss/line-clamp'),
+        require('tailwind-scrollbar'),
     ],
-};
+}

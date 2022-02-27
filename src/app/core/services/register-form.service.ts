@@ -17,6 +17,6 @@ export class RegisterFormService {
 
     getValue(): RegisterPayload {
         const { email, password, firstName, lastName } = this.form.value
-        return { email, password, firstName, lastName }
+        return { email, password, passwordConfirmation: password, firstName, lastName }
     }
 }

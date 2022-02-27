@@ -11,7 +11,7 @@
     "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact", "html"],
     "editor.defaultFormatter": "dbaeumer.vscode-eslint",
     "[javascript]": {
-        "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
         "editor.codeActionsOnSave": {
             "source.fixAll.eslint": true
         },

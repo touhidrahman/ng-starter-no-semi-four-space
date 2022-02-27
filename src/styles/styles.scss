@@ -1,3 +1,121 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+:root {
+    --base-color: rgb(239, 68, 68);
+    --base-color-light: rgba(239, 68, 68, 0.2);
+    --swiper-theme-color: var(--base-color);
+    --swiper-navigation-size: 20px;
+}
+
+::-moz-selection {
+    /* Code for Firefox */
+    background: var(--base-color-light);
+}
+
+::selection {
+    background: var(--base-color-light);
+}
+
+.page-container {
+    @apply container mx-auto max-w-screen-2xl px-4 pb-16 2xl:px-0;
+}
+
+.page-homepage-section {
+    @apply py-12 px-4 md:py-24 md:px-0;
+}
+
+.page-section {
+    @apply flex w-full flex-col items-stretch justify-center space-y-4 md:space-y-6 xl:flex-row xl:space-x-8 xl:space-y-0;
+}
+
+.page-div {
+    @apply w-full bg-gray-50 px-4 py-4 dark:bg-gray-800 md:p-6 md:py-6 xl:p-8;
+}
+
+.page-flex-center {
+    @apply flex items-center justify-center;
+}
+
+.page-heading {
+    @apply text-3xl font-semibold leading-7 text-gray-800 dark:text-white lg:text-4xl lg:leading-9;
+}
+
+.page-heading-subtitle {
+    @apply text-base font-medium leading-6 text-gray-600 dark:text-gray-300;
+}
+
+.page-section-subtitle {
+    @apply text-sm font-semibold uppercase tracking-widest text-red-500;
+}
+
+.page-section-title {
+    @apply text-3xl font-bold;
+}
+
+.page-form-field {
+    @apply mb-6 max-w-screen-lg;
+}
+
+.page-form-label {
+    @apply block pb-2 text-sm font-semibold text-gray-600 dark:text-gray-400;
+
+    .asterics {
+        @apply text-xs text-red-500;
+    }
+}
+
+.page-form-input {
+    @apply m-0
+        block
+        w-full
+        rounded
+        border
+        border-solid
+        border-gray-300
+        bg-white bg-clip-padding
+        px-3 py-1.5 text-base
+        font-normal
+        text-gray-700
+        transition
+        ease-in-out
+        focus:border-red-600 focus:bg-white focus:text-gray-700 focus:outline-none;
+}
+
+.page-form-textarea {
+    @apply m-0
+        block
+        w-full
+        rounded
+        border
+        border-solid
+        border-gray-300
+        bg-white bg-clip-padding
+        px-3 py-1.5 text-base
+        font-normal
+        text-gray-700
+        transition
+        ease-in-out
+        focus:border-red-600 focus:bg-white focus:text-gray-700 focus:outline-none;
+}
+
+.page-button-primary {
+    @apply inline-flex cursor-pointer items-center justify-center rounded-sm bg-red-500 py-2 px-4 text-white hover:bg-red-600;
+}
+
+.page-button-primary-flat {
+    @apply inline-flex cursor-pointer items-center rounded-sm py-2 px-4 text-red-500 hover:bg-gray-100;
+}
+
+.page-link-primary {
+    @apply cursor-pointer text-red-500 hover:text-red-600;
+}
+
+.page-link-secondary {
+    @apply cursor-pointer text-gray-600 underline underline-offset-2 hover:text-red-600 hover:decoration-transparent;
+}
+
+.page-panel {
+    @apply fixed bottom-0 right-0 top-0 z-50 w-full origin-left transform overflow-scroll bg-gray-100 p-8 shadow-2xl transition-transform duration-500 ease-in scrollbar-thin sm:w-1/2 lg:w-1/3;
+}

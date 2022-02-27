@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http'
 import { Inject, Injectable } from '@angular/core'
 import { AppConfig, APP_CONFIG } from '@core/config/app-config'
+import { User, UserRole } from '@core/interfaces'
 import { LoginResponse } from '@core/interfaces/login-response'
-import { User } from '@core/interfaces/user'
 import { WINDOW } from '@ng-web-apis/common'
-import { Observable, tap } from 'rxjs'
+import { catchError, Observable, of, tap } from 'rxjs'
 import { StateSubject } from 'rxjs-state-subject'
 import { LoginPayload } from '../interfaces/login.payload'
 import { RegisterPayload } from '../interfaces/register.payload'
@@ -16,9 +16,17 @@ import { TokenStorageService } from './token-storage.service'
 export class AuthService {
     private endpoint: string
 
-    user = new StateSubject<User | null>(this.storage.getUser())
-    token = new StateSubject<string>(this.storage.getToken() ?? '')
+    user = new StateSubject<User | null>(null)
+    accessToken = new StateSubject<string>(this.storage.getToken() ?? '')
     refreshToken = new StateSubject<string>('')
+
+    get isLoggedIn(): boolean {
+        return Boolean(this.accessToken.value)
+    }
+
+    get isAdmin(): boolean {
+        return this.user.value?.role === UserRole.ADMIN || this.user.value?.role === UserRole.MODERATOR
+    }
 
     constructor(
         private http: HttpClient,
@@ -26,36 +34,48 @@ export class AuthService {
         @Inject(WINDOW) private wnd: Window,
         @Inject(APP_CONFIG) private appConfig: AppConfig,
     ) {
-        this.endpoint = this.appConfig.apiURL
+        this.endpoint = this.appConfig.apiURL + '/auth'
+        this.getLoggedInUser$().subscribe()
     }
 
     signUp(data: RegisterPayload): Observable<void> {
-        return this.http.post<void>(`${this.endpoint}/signup`, data)
+        return this.http.post<void>(`${this.endpoint}/register`, data)
     }
 
     login(data: LoginPayload): Observable<LoginResponse | null> {
         return this.http.post<LoginResponse>(`${this.endpoint}/login`, data).pipe(
             tap((data) => {
-                this.setTokens(data.token, data.refreshToken)
-                this.updateUser(data.user)
+                this.setTokens(data.accessToken, data.refreshToken)
             }),
         )
     }
 
-    isLoggedIn(): boolean {
-        return Boolean(this.token.value) && Boolean(this.user.value)
+    verifyEmail(token: string): Observable<void> {
+        return this.http.post<void>(`${this.endpoint}/verify-email/${token}`, {})
     }
 
-    setTokens(token: string, refreshToken = '') {
-        this.storage.saveToken(token)
+    forgotPassword(email: string): Observable<void> {
+        return this.http.post<void>(`${this.endpoint}/forgot-password`, { email })
+    }
+
+    resetForgottenPassword(token: string, password: string, passwordConfirmation: string): Observable<void> {
+        return this.http.post<void>(`${this.endpoint}/reset-password/${token}`, { password, passwordConfirmation })
+    }
+
+    changePassword(password: string, passwordConfirmation: string): Observable<void> {
+        return this.http.post<void>(`${this.endpoint}/change-password`, { password, passwordConfirmation })
+    }
+
+    setTokens(accessToken: string, refreshToken = '') {
+        this.storage.saveToken(accessToken)
         this.storage.saveRefreshToken(refreshToken)
-        this.token.next(token)
+        this.accessToken.next(accessToken)
         this.refreshToken.next(refreshToken)
     }
 
     deleteTokens() {
         this.storage.clear()
-        this.token.next('')
+        this.accessToken.next('')
         this.refreshToken.next('')
     }
 
@@ -65,8 +85,14 @@ export class AuthService {
         this.wnd.location.href = '/'
     }
 
-    getUser$(): Observable<User | null> {
-        return this.http.get<User>(`${this.endpoint}/me`).pipe(tap((user) => this.updateUser(user)))
+    getLoggedInUser$(): Observable<User | null> {
+        return this.http.get<User>(`${this.endpoint}/me`).pipe(
+            tap((user) => this.updateUser(user)),
+            catchError(() => {
+                this.updateUser(null)
+                return of(null)
+            }),
+        )
     }
 
     getUser(): User | null {
@@ -75,6 +101,5 @@ export class AuthService {
 
     private updateUser(user: User | null) {
         this.user.update(user)
-        this.storage.saveUser(user)
     }
 }

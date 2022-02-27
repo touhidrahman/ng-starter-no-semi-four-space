@@ -23,7 +23,7 @@ export class LoginPageComponent implements OnInit {
 
     ngOnInit(): void {
         this.returnUrl = this.activatedRoute.snapshot.queryParams['returnUrl'] ?? '/'
-        if (this.auth.isLoggedIn()) this.router.navigateByUrl(this.returnUrl)
+        if (this.auth.isLoggedIn) this.router.navigateByUrl(this.returnUrl)
     }
 
     submit(): void {

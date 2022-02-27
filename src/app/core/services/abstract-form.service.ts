@@ -1,10 +1,11 @@
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms'
-import { Observable, throwError } from 'rxjs'
+import { Observable, tap, throwError } from 'rxjs'
+import { AbstractApiService } from './api.service'
 
 export abstract class AbstractFormService<T, DtoT extends { id?: string }> {
     form: FormGroup
 
-    constructor(protected fb: FormBuilder) {
+    constructor(protected fb: FormBuilder, protected apiService: AbstractApiService<T, DtoT>) {
         this.form = this.buildForm()
     }
 
@@ -32,7 +33,9 @@ export abstract class AbstractFormService<T, DtoT extends { id?: string }> {
 
     abstract buildForm(): FormGroup
 
-    abstract loadFromApiAndFillForm$(id: string): Observable<T>
+    fillFormById$(id: string): Observable<T> {
+        return this.apiService.findById(id).pipe(tap((value) => this.setFormValue(value as unknown as DtoT)))
+    }
 
     save$(): Observable<T> {
         if (this.form.invalid) return throwError(() => new Error('Invalid form'))
@@ -41,7 +44,11 @@ export abstract class AbstractFormService<T, DtoT extends { id?: string }> {
         return id ? this.update$(id) : this.create$()
     }
 
-    protected abstract create$(): Observable<T>
+    protected create$(): Observable<T> {
+        return this.apiService.create(this.getFormValue()).pipe(tap(() => this.setFormValue(null)))
+    }
 
-    protected abstract update$(id: string): Observable<T>
+    protected update$(id: string): Observable<T> {
+        return this.apiService.update(id, this.getFormValue()).pipe(tap(() => this.setFormValue(null)))
+    }
 }
