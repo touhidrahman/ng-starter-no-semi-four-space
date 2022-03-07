@@ -8,7 +8,7 @@ export class AuthHeaderInterceptor implements HttpInterceptor {
     constructor(private tokenStorage: TokenStorageService) {}
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-        const accessToken = this.tokenStorage.getToken()
+        const accessToken = this.tokenStorage.getAccessToken()
 
         if (accessToken) {
             request = this.addToken(request, accessToken)

@@ -17,7 +17,7 @@ export class AuthService {
     private endpoint: string
 
     user = new StateSubject<User | null>(null)
-    accessToken = new StateSubject<string>(this.storage.getToken() ?? '')
+    accessToken = new StateSubject<string>(this.storage.getAccessToken() ?? '')
     refreshToken = new StateSubject<string>('')
 
     get isLoggedIn(): boolean {
@@ -31,7 +31,7 @@ export class AuthService {
     constructor(
         private http: HttpClient,
         private storage: TokenStorageService,
-        @Inject(WINDOW) private wnd: Window,
+        @Inject(WINDOW) private windowRef: Window,
         @Inject(APP_CONFIG) private appConfig: AppConfig,
     ) {
         this.endpoint = this.appConfig.apiURL + '/auth'
@@ -67,7 +67,7 @@ export class AuthService {
     }
 
     setTokens(accessToken: string, refreshToken = '') {
-        this.storage.saveToken(accessToken)
+        this.storage.saveAccessToken(accessToken)
         this.storage.saveRefreshToken(refreshToken)
         this.accessToken.next(accessToken)
         this.refreshToken.next(refreshToken)
@@ -82,7 +82,7 @@ export class AuthService {
     signOut() {
         this.deleteTokens()
         this.updateUser(null)
-        this.wnd.location.href = '/'
+        this.windowRef.location.href = '/'
     }
 
     getLoggedInUser$(): Observable<User | null> {
