@@ -3,7 +3,7 @@ import { Inject, Injectable } from '@angular/core'
 import { AppConfig, APP_CONFIG } from '@core/config/app-config'
 import { User, UserRole } from '@core/interfaces'
 import { WINDOW } from '@ng-web-apis/common'
-import { catchError, Observable, of, tap } from 'rxjs'
+import { catchError, Observable, of, shareReplay, switchMap, tap, timer } from 'rxjs'
 import { StateSubject } from 'rxjs-state-subject'
 import { LoginResponse } from '../interfaces/login-response'
 import { LoginPayload } from '../interfaces/login.payload'
@@ -18,7 +18,7 @@ export class AuthService {
 
     user = new StateSubject<User | null>(null)
     accessToken = new StateSubject<string>(this.storage.getAccessToken() ?? '')
-    refreshToken = new StateSubject<string>('')
+    refreshToken = new StateSubject<string>(this.storage.getRefreshToken() ?? '')
 
     get isLoggedIn(): boolean {
         return Boolean(this.accessToken.value)
@@ -35,17 +35,20 @@ export class AuthService {
         @Inject(APP_CONFIG) private appConfig: AppConfig,
     ) {
         this.endpoint = this.appConfig.apiURL + '/auth'
-        this.getLoggedInUser$().subscribe()
+        timer(300)
+            .pipe(switchMap(() => this.getLoggedInUser$()))
+            .subscribe()
     }
 
     signUp(data: RegisterPayload): Observable<void> {
         return this.http.post<void>(`${this.endpoint}/register`, data)
     }
 
-    login(data: LoginPayload): Observable<LoginResponse | null> {
+    login(data: LoginPayload, returnUrl?: string): Observable<LoginResponse | null> {
         return this.http.post<LoginResponse>(`${this.endpoint}/login`, data).pipe(
             tap((data) => {
                 this.setTokens(data.accessToken, data.refreshToken)
+                this.windowRef.location.href = returnUrl ?? '/'
             }),
         )
     }
@@ -81,25 +84,18 @@ export class AuthService {
 
     signOut() {
         this.deleteTokens()
-        this.updateUser(null)
+        this.user.next(null)
         this.windowRef.location.href = '/'
     }
 
     getLoggedInUser$(): Observable<User | null> {
         return this.http.get<User>(`${this.endpoint}/me`).pipe(
-            tap((user) => this.updateUser(user)),
+            tap((user) => this.user.next(user)),
             catchError(() => {
-                this.updateUser(null)
+                this.user.next(null)
                 return of(null)
             }),
+            shareReplay({ bufferSize: 1, refCount: true }),
         )
-    }
-
-    getUser(): User | null {
-        return this.user.value
-    }
-
-    private updateUser(user: User | null) {
-        this.user.update(user)
     }
 }
