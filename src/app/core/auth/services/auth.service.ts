@@ -34,7 +34,7 @@ export class AuthService {
         @Inject(WINDOW) private windowRef: Window,
         @Inject(APP_CONFIG) private appConfig: AppConfig,
     ) {
-        this.endpoint = this.appConfig.apiURL + '/auth'
+        this.endpoint = this.appConfig.apiUrl + '/auth'
         timer(300)
             .pipe(switchMap(() => this.getLoggedInUser$()))
             .subscribe()

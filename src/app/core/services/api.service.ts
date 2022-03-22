@@ -18,7 +18,7 @@ export class ApiService<T, DtoT> implements AbstractApiService<T, DtoT> {
     protected apiUrl: string
 
     constructor(protected http: HttpClient, resource: string, appConfig: AppConfig) {
-        this.apiUrl = appConfig.apiURL + '/' + resource.toLowerCase()
+        this.apiUrl = appConfig.apiUrl + '/' + resource.toLowerCase()
     }
 
     findById(id: string): Observable<T> {

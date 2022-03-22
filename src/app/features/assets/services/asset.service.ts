@@ -11,7 +11,7 @@ export class AssetService {
     private apiUrl: string
 
     constructor(private http: HttpClient, @Inject(APP_CONFIG) appConfig: AppConfig) {
-        this.apiUrl = appConfig.apiURL + '/assets'
+        this.apiUrl = appConfig.apiUrl + '/assets'
     }
 
     findByName(name: string): Observable<any> {
