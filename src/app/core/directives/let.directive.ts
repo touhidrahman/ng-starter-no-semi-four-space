@@ -6,14 +6,14 @@ import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core'
 export class LetDirective {
     context = {
         $implicit: null,
-        c24Let: null,
+        appLet: null,
     }
 
     constructor(private vcRef: ViewContainerRef, private templateRef: TemplateRef<any>) {
         this.vcRef.createEmbeddedView(this.templateRef, this.context)
     }
 
-    @Input() set c24Let(expression: any) {
-        this.context.$implicit = this.context.c24Let = expression
+    @Input() set appLet(expression: any) {
+        this.context.$implicit = this.context.appLet = expression
     }
 }

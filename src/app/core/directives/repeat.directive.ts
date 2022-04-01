@@ -8,7 +8,7 @@ export class RepeatDirective {
         this.vcRef.createEmbeddedView(this.templateRef, {})
     }
 
-    @Input() set c24Repeat(amount: number) {
+    @Input() set appRepeat(amount: number) {
         this.vcRef.clear()
         for (let i = 0; i < amount; i++) {
             this.vcRef.createEmbeddedView(this.templateRef, {
