@@ -1,11 +1,14 @@
+import { CommonModule } from '@angular/common'
 import { Component, OnInit } from '@angular/core'
-import { UntypedFormBuilder } from '@angular/forms'
-import { ActivatedRoute, Router } from '@angular/router'
+import { ReactiveFormsModule, UntypedFormBuilder } from '@angular/forms'
+import { ActivatedRoute, Router, RouterModule } from '@angular/router'
 import { AuthService } from '@core/auth/services/auth.service'
+import { LayoutHalfImageComponent } from '@features/layout/components/layout-half-image/layout-half-image.component'
 import { HotToastService } from '@ngneat/hot-toast'
 
 @Component({
-    selector: 'app-reset-forgotten-password-page',
+    standalone: true,
+    imports: [CommonModule, ReactiveFormsModule, RouterModule, LayoutHalfImageComponent],
     templateUrl: './reset-forgotten-password-page.component.html',
     styleUrls: ['./reset-forgotten-password-page.component.scss'],
 })

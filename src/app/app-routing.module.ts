@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router'
+import { LoggedInGuard } from '@core/guards/logged-in.guard'
 
 export const routes: Routes = [
     {
@@ -11,45 +12,49 @@ export const routes: Routes = [
         redirectTo: '',
         pathMatch: 'full',
     },
-    // {
-    //     path: 'login',
-    //     loadComponent: () => import('./pages/login-page/login-page.module').then((m) => m.LoginPageModule),
-    //     title: '',
-    // },
-    // {
-    //     path: 'register',
-    //     loadComponent: () => import('./pages/register-page/register-page.module').then((m) => m.RegisterPageModule),
-    //     title: '',
-    // },
-    // {
-    //     path: 'verify-email/:token',
-    //     title: '',
-    //     loadComponent: () =>
-    //         import('./pages/verify-email-page/verify-email-page.module').then((m) => m.VerifyEmailPageModule),
-    // },
-    // {
-    //     path: 'forgot-password',
-    //     title: '',
-    //     loadComponent: () =>
-    //         import('./pages/forgot-password-page/forgot-password-page.module').then((m) => m.ForgotPasswordPageModule),
-    // },
-    // {
-    //     path: 'reset-password/:token',
-    //     title: '',
-    //     loadComponent: () =>
-    //         import('./pages/reset-forgotten-password-page/reset-forgotten-password-page.module').then(
-    //             (m) => m.ResetForgottenPasswordPageModule,
-    //         ),
-    // },
-    // {
-    //     path: 'profile',
-    //     loadComponent: () => import('./pages/profile-page/profile-page.module').then((m) => m.ProfilePageModule),
-    //     title: '',
-    //     canActivate: [LoggedInGuard],
-    // },
-    // {
-    //     path: '**',
-    //     loadComponent: () => import('./pages/not-found-page/not-found-page.module').then((m) => m.NotFoundPageModule),
-    //     title: '404',
-    // },
+    {
+        path: 'login',
+        loadComponent: () => import('./pages/login-page/login-page.component').then((m) => m.LoginPageComponent),
+        title: 'Login',
+    },
+    {
+        path: 'register',
+        loadComponent: () =>
+            import('./pages/register-page/register-page.component').then((m) => m.RegisterPageComponent),
+        title: 'Register',
+    },
+    {
+        path: 'verify-email/:token',
+        title: 'Verify Email',
+        loadComponent: () =>
+            import('./pages/verify-email-page/verify-email-page.component').then((m) => m.VerifyEmailPageComponent),
+    },
+    {
+        path: 'forgot-password',
+        title: 'Forgot Password',
+        loadComponent: () =>
+            import('./pages/forgot-password-page/forgot-password-page.component').then(
+                (m) => m.ForgotPasswordPageComponent,
+            ),
+    },
+    {
+        path: 'reset-password/:token',
+        title: 'Reset Password',
+        loadComponent: () =>
+            import('./pages/reset-forgotten-password-page/reset-forgotten-password-page.component').then(
+                (m) => m.ResetForgottenPasswordPageComponent,
+            ),
+    },
+    {
+        path: 'profile',
+        loadComponent: () => import('./pages/profile-page/profile-page.component').then((m) => m.ProfilePageComponent),
+        title: 'Profile',
+        canActivate: [LoggedInGuard],
+    },
+    {
+        path: '**',
+        loadComponent: () =>
+            import('./pages/not-found-page/not-found-page.component').then((m) => m.NotFoundPageComponent),
+        title: '404',
+    },
 ]

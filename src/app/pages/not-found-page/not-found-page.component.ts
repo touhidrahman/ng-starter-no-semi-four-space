@@ -1,15 +1,11 @@
-import { Component, OnInit } from '@angular/core'
-import { Title } from '@angular/platform-browser'
+import { CommonModule } from '@angular/common'
+import { Component } from '@angular/core'
+import { RouterModule } from '@angular/router'
 
 @Component({
-    selector: 'app-not-found-page',
+    standalone: true,
+    imports: [CommonModule, RouterModule],
     templateUrl: './not-found-page.component.html',
     styleUrls: ['./not-found-page.component.scss'],
 })
-export class NotFoundPageComponent implements OnInit {
-    constructor(private title: Title) {}
-
-    ngOnInit(): void {
-        this.title.setTitle('WazDB - Page not found')
-    }
-}
+export class NotFoundPageComponent {}

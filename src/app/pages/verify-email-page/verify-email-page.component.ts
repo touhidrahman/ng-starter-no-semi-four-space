@@ -1,10 +1,13 @@
+import { CommonModule } from '@angular/common'
 import { Component, OnInit } from '@angular/core'
-import { ActivatedRoute, Router } from '@angular/router'
+import { ReactiveFormsModule } from '@angular/forms'
+import { ActivatedRoute, Router, RouterModule } from '@angular/router'
 import { AuthService } from '@core/auth/services/auth.service'
 import { timer } from 'rxjs'
 
 @Component({
-    selector: 'app-verify-email-page',
+    standalone: true,
+    imports: [CommonModule, ReactiveFormsModule, RouterModule],
     templateUrl: './verify-email-page.component.html',
     styleUrls: ['./verify-email-page.component.scss'],
 })

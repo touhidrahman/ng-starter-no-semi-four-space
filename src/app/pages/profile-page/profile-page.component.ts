@@ -1,11 +1,15 @@
+import { CommonModule } from '@angular/common'
 import { Component, OnInit } from '@angular/core'
-import { UntypedFormBuilder } from '@angular/forms'
-import { Router } from '@angular/router'
+import { ReactiveFormsModule, UntypedFormBuilder } from '@angular/forms'
+import { Router, RouterModule } from '@angular/router'
 import { AuthService } from '@core/auth/services/auth.service'
+import { FooterOneComponent } from '@features/layout/components/footer-one/footer-one.component'
+import { HeaderOneComponent } from '@features/layout/components/header-one/header-one.component'
 import { HotToastService } from '@ngneat/hot-toast'
 
 @Component({
-    selector: 'app-profile-page',
+    standalone: true,
+    imports: [CommonModule, ReactiveFormsModule, RouterModule, FooterOneComponent, HeaderOneComponent],
     templateUrl: './profile-page.component.html',
     styleUrls: ['./profile-page.component.scss'],
 })

@@ -1,12 +1,16 @@
+import { CommonModule } from '@angular/common'
 import { Component, OnInit } from '@angular/core'
-import { ActivatedRoute, Router } from '@angular/router'
+import { ReactiveFormsModule } from '@angular/forms'
+import { ActivatedRoute, Router, RouterModule } from '@angular/router'
 import { AuthService } from '@core/auth/services/auth.service'
 import { LoginFormService } from '@core/auth/services/login-form.service'
+import { LayoutHalfImageComponent } from '@features/layout/components/layout-half-image/layout-half-image.component'
 
 @Component({
-    selector: 'app-login-page',
+    standalone: true,
     templateUrl: './login-page.component.html',
     styleUrls: ['./login-page.component.scss'],
+    imports: [CommonModule, ReactiveFormsModule, RouterModule, LayoutHalfImageComponent],
     providers: [LoginFormService],
 })
 export class LoginPageComponent implements OnInit {
