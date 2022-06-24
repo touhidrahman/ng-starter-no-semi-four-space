@@ -8,6 +8,7 @@ export const APP_TAILWIND_STYLES = new InjectionToken<{ [k: string]: string }>('
  */
 @Directive({
     selector: '[tailwind]',
+    standalone: true,
 })
 export class TailwindDirective {
     private twClasses = ''

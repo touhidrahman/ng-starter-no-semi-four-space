@@ -2,6 +2,7 @@ import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core'
 
 @Directive({
     selector: '[appRepeat]',
+    standalone: true,
 })
 export class RepeatDirective {
     constructor(private vcRef: ViewContainerRef, private templateRef: TemplateRef<any>) {

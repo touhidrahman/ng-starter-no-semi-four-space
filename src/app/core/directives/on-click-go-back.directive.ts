@@ -3,6 +3,7 @@ import { Directive, HostListener } from '@angular/core'
 
 @Directive({
     selector: '[appOnClickGoBack]',
+    standalone: true,
 })
 export class OnClickGoBackDirective {
     @HostListener('click', ['$event']) onClick(e: MouseEvent) {

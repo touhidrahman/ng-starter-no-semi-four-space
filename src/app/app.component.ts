@@ -1,12 +1,16 @@
+import { CommonModule } from '@angular/common'
 import { Component } from '@angular/core'
+import { RouterModule } from '@angular/router'
 import { TokenStorageService } from '@core/auth/services/token-storage.service'
 
 const TOKEN_SHARING_CHANNEL = 'token-sharing'
 const REQUESTING_TOKEN = 'requesting-token'
 
 @Component({
+    standalone: true,
     selector: 'app-root',
     templateUrl: './app.component.html',
+    imports: [CommonModule, RouterModule],
 })
 export class AppComponent {
     bc = new BroadcastChannel(TOKEN_SHARING_CHANNEL)
