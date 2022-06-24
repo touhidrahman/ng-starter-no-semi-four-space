@@ -2,7 +2,7 @@
 
 This boilerplate uses:
 
-- TailwindCSS (with JIT compilation)
+- TailwindCSS
 - Eslint
 - Prettier
 - Git hooks

@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core'
 import { Title } from '@angular/platform-browser'
 import { RouterStateSnapshot, TitleStrategy } from '@angular/router'
 
-@Injectable({ providedIn: 'root' })
+@Injectable({
+    providedIn: 'root',
+})
 export class ProfileTitleResolver {
     resolve() {
         return Promise.resolve('My Profile')
