@@ -8,7 +8,7 @@
             "path": ".cache",
             "environment": "all"
         },
-        "defaultCollection": "@angular-eslint/schematics"
+        "schematicCollections": ["@angular-eslint/schematics"]
     },
     "projects": {
         "ng-starter-no-semi-four-space": {
@@ -125,6 +125,5 @@
         "@schematics/angular:guard": {
             "skipTests": true
         }
-    },
-    "defaultProject": "ng-starter-no-semi-four-space"
+    }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core'
-import { FormBuilder } from '@angular/forms'
+import { UntypedFormBuilder } from '@angular/forms'
 import { Router } from '@angular/router'
 import { AuthService } from '@core/auth/services/auth.service'
 import { HotToastService } from '@ngneat/hot-toast'
@@ -19,7 +19,7 @@ export class ProfilePageComponent implements OnInit {
 
     constructor(
         private auth: AuthService,
-        private fb: FormBuilder,
+        private fb: UntypedFormBuilder,
         private router: Router,
         private toast: HotToastService,
     ) {}
