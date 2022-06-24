@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common'
 import { Component, OnInit } from '@angular/core'
-import { ReactiveFormsModule, UntypedFormBuilder } from '@angular/forms'
+import { ReactiveFormsModule, FormBuilder } from '@angular/forms'
 import { ActivatedRoute, Router, RouterModule } from '@angular/router'
 import { AuthService } from '@core/auth/services/auth.service'
 import { LayoutHalfImageComponent } from '@features/layout/components/layout-half-image/layout-half-image.component'
@@ -23,7 +23,7 @@ export class ResetForgottenPasswordPageComponent implements OnInit {
 
     constructor(
         private auth: AuthService,
-        private fb: UntypedFormBuilder,
+        private fb: FormBuilder,
         private router: Router,
         private ar: ActivatedRoute,
         private toast: HotToastService,
@@ -36,7 +36,7 @@ export class ResetForgottenPasswordPageComponent implements OnInit {
     submit(): void {
         this.errors = []
         const { password, passwordConfirmation } = this.form.value
-        if (password !== passwordConfirmation) {
+        if (!password || password !== passwordConfirmation) {
             this.errors.push('Passwords do not match')
             return
         }

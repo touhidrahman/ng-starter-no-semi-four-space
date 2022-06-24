@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core'
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms'
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { LoginPayload } from '../interfaces/login.payload'
 
 @Injectable()
 export class LoginFormService {
-    loginForm: UntypedFormGroup
+    loginForm: FormGroup
 
-    constructor(private fb: UntypedFormBuilder) {
-        this.loginForm = this.fb.group({
+    constructor(private fb: FormBuilder) {
+        this.loginForm = this.fb.nonNullable.group({
             email: ['', [Validators.required, Validators.email]],
             password: ['', Validators.required],
         })

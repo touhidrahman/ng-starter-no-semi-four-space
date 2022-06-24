@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common'
 import { Component, OnInit } from '@angular/core'
-import { ReactiveFormsModule, UntypedFormBuilder } from '@angular/forms'
+import { ReactiveFormsModule, FormBuilder } from '@angular/forms'
 import { Router, RouterModule } from '@angular/router'
 import { AuthService } from '@core/auth/services/auth.service'
 import { FooterOneComponent } from '@features/layout/components/footer-one/footer-one.component'
@@ -14,7 +14,7 @@ import { HotToastService } from '@ngneat/hot-toast'
     styleUrls: ['./profile-page.component.scss'],
 })
 export class ProfilePageComponent implements OnInit {
-    form = this.fb.group({
+    form = this.fb.nonNullable.group({
         password: [''],
         passwordConfirmation: [''],
     })
@@ -23,7 +23,7 @@ export class ProfilePageComponent implements OnInit {
 
     constructor(
         private auth: AuthService,
-        private fb: UntypedFormBuilder,
+        private fb: FormBuilder,
         private router: Router,
         private toast: HotToastService,
     ) {}
@@ -35,7 +35,7 @@ export class ProfilePageComponent implements OnInit {
     submit(): void {
         this.errors = []
         const { password, passwordConfirmation } = this.form.value
-        if (password !== passwordConfirmation) {
+        if (!password || password !== passwordConfirmation) {
             this.errors.push('Passwords do not match')
             return
         }

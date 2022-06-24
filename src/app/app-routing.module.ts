@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router'
+import { ProfileTitleResolver } from '@core/config/app-title'
 import { LoggedInGuard } from '@core/guards/logged-in.guard'
 
 export const routes: Routes = [
@@ -48,7 +49,7 @@ export const routes: Routes = [
     {
         path: 'profile',
         loadComponent: () => import('./pages/profile-page/profile-page.component').then((m) => m.ProfilePageComponent),
-        title: 'Profile',
+        title: ProfileTitleResolver,
         canActivate: [LoggedInGuard],
     },
     {
