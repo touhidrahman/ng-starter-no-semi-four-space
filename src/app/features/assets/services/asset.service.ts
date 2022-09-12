@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http'
 import { Inject, Injectable } from '@angular/core'
 import { AppConfig, APP_CONFIG } from '@core/config/app-config'
-import { Asset } from '@core/interfaces'
+import { Asset } from '@core/models'
 import { Observable } from 'rxjs'
 
 @Injectable({
@@ -26,7 +26,6 @@ export class AssetService {
 
     uploadMultiple(files: File[]): Observable<Asset> {
         const formData = new FormData()
-        // TODO check whether all files are uploaded or just one
         files.forEach((file) => {
             formData.append('files', file, file.name)
         })

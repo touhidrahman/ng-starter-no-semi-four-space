@@ -9,7 +9,7 @@ const REQUESTING_TOKEN = 'requesting-token'
 @Component({
     standalone: true,
     selector: 'app-root',
-    templateUrl: './app.component.html',
+    template: `<router-outlet></router-outlet>`,
     imports: [CommonModule, RouterModule],
 })
 export class AppComponent {

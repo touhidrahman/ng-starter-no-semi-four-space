@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http'
 import { Inject, Injectable } from '@angular/core'
 import { AppConfig, APP_CONFIG } from '@core/config/app-config'
-import { User } from '@core/interfaces'
+import { User } from '@core/models'
 import { ApiService } from '@core/services/api.service'
 import { Observable } from 'rxjs'
 

@@ -8,7 +8,7 @@ import {
     RouterStateSnapshot,
     UrlSegment,
 } from '@angular/router'
-import { UserRole } from '@core/interfaces'
+import { UserRole } from '@core/models'
 import { AuthService } from '../auth/services/auth.service'
 
 @Injectable({

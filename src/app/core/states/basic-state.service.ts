@@ -1,6 +1,6 @@
 import { Injectable, OnDestroy } from '@angular/core'
 import { Subject } from 'rxjs'
-import { StateSubject } from 'rxjs-state-subject'
+import { StateSubject } from '@core/utils/state-subject'
 
 @Injectable()
 export class BasicState implements OnDestroy {
