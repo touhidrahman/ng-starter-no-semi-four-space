@@ -16,5 +16,7 @@ function getContent(): string {
 
 writeFile(filename, getContent(), function onCreate(err: any) {
     if (err) throw err
+    console.info('#################### MAKE-ENV-FILE ####################')
     console.info(filename + ' created')
+    console.info('#######################################################')
 })

@@ -7,7 +7,8 @@ import { CustomTitleStrategy } from '@core/config/app-title'
 import { authInterceptorProvider } from '@core/interceptors/auth-header.interceptor'
 import { AppComponent } from './app/app.component'
 import { routes } from './app/routes'
-import { environment } from './environments/environment'
+import { environment } from './environments/environment';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 if (environment.production) {
     enableProdMode()
@@ -16,7 +17,7 @@ if (environment.production) {
 bootstrapApplication(AppComponent, {
     providers: [
         { provide: APP_CONFIG, useValue: environment },
-        importProvidersFrom(HttpClientModule),
+        importProvidersFrom(HttpClientModule, BrowserAnimationsModule),
         importProvidersFrom(RouterModule.forRoot(routes)),
         authInterceptorProvider,
         // unauthorizedInterceptorProvider, // TODO

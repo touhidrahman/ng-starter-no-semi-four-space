@@ -7,6 +7,7 @@ This boilerplate uses:
 - Prettier
 - Git hooks
 - Boxicons
+- Angular Material
 
 and most importantly - **4 space tabs** and **NO SEMICOLON**
 
@@ -34,6 +35,8 @@ and most importantly - **4 space tabs** and **NO SEMICOLON**
 3. Search project-wide (Ctrl+Shift+F for VS Code) for the string `ng-starter-no-semi-four-space` and replace with your project identifier (e.g.- `my-project`).
 
 4. Re-initialize git with `git init` at the project root to add source control (optional).
+
+5. Feel free to remove libraries that you don't need.
 
 ## Development server
 
