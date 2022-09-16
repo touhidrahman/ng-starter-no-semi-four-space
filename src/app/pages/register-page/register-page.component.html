@@ -1,5 +1,5 @@
-<app-layout-half-image>
-    <div class="my-auto flex flex-col justify-center px-8 pt-8 md:justify-start md:px-24 md:pt-0 lg:px-32">
+<app-layout-centered>
+    <div class="my-auto flex flex-col justify-center px-8 pt-8 md:justify-start md:px-24 md:pt-20 lg:px-32">
         <p class="text-center text-3xl">Register</p>
         <form (ngSubmit)="register()" [formGroup]="registerFormService.form" class="flex flex-col pt-3 md:pt-8">
             <div class="flex flex-col pt-4">
@@ -69,4 +69,4 @@
             </p>
         </div>
     </div>
-</app-layout-half-image>
+</app-layout-centered>

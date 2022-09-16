@@ -3,12 +3,12 @@ import { Component } from '@angular/core'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { Router, RouterModule } from '@angular/router'
 import { AuthService } from '@core/auth/services/auth.service'
-import { LayoutHalfImageComponent } from '@features/layout/components/layout-half-image/layout-half-image.component'
+import { LayoutCenteredComponent } from '@features/layout/components/layout-centered/layout-centered.component'
 import { HotToastService } from '@ngneat/hot-toast'
 
 @Component({
     standalone: true,
-    imports: [CommonModule, ReactiveFormsModule, FormsModule, RouterModule, LayoutHalfImageComponent],
+    imports: [CommonModule, ReactiveFormsModule, FormsModule, RouterModule, LayoutCenteredComponent],
     templateUrl: './forgot-password-page.component.html',
     styleUrls: ['./forgot-password-page.component.scss'],
 })

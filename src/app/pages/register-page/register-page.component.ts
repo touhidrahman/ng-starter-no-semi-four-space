@@ -4,11 +4,11 @@ import { ReactiveFormsModule } from '@angular/forms'
 import { Router, RouterModule } from '@angular/router'
 import { AuthService } from '@core/auth/services/auth.service'
 import { RegisterFormService } from '@core/auth/services/register-form.service'
-import { LayoutHalfImageComponent } from '@features/layout/components/layout-half-image/layout-half-image.component'
+import { LayoutCenteredComponent } from '@features/layout/components/layout-centered/layout-centered.component'
 
 @Component({
     standalone: true,
-    imports: [CommonModule, ReactiveFormsModule, RouterModule, LayoutHalfImageComponent],
+    imports: [CommonModule, ReactiveFormsModule, RouterModule, LayoutCenteredComponent],
     templateUrl: './register-page.component.html',
     styleUrls: ['./register-page.component.scss'],
     providers: [RegisterFormService],
