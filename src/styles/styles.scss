@@ -1,5 +1,6 @@
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
+// https://indepth.dev/tutorials/angular/angular-material-theming-system-complete-guide
 @use '@angular/material' as mat;
 // Plus imports for other components in your app.
 
@@ -11,20 +12,21 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$ng-starter-no-semi-four-space-primary: mat.define-palette(mat.$indigo-palette);
-$ng-starter-no-semi-four-space-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+// https://github.com/angular/components/blob/main/src/material/core/theming/_palette.scss
+$app-primary: mat.define-palette(mat.$light-blue-palette);
+$app-accent: mat.define-palette(mat.$teal-palette, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
-$ng-starter-no-semi-four-space-warn: mat.define-palette(mat.$red-palette);
+$app-warn: mat.define-palette(mat.$red-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$ng-starter-no-semi-four-space-theme: mat.define-light-theme(
+$app-theme: mat.define-light-theme(
     (
         color: (
-            primary: $ng-starter-no-semi-four-space-primary,
-            accent: $ng-starter-no-semi-four-space-accent,
-            warn: $ng-starter-no-semi-four-space-warn,
+            primary: $app-primary,
+            accent: $app-accent,
+            warn: $app-warn,
         ),
     )
 );
@@ -32,26 +34,15 @@ $ng-starter-no-semi-four-space-theme: mat.define-light-theme(
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
-@include mat.all-component-themes($ng-starter-no-semi-four-space-theme);
+@include mat.all-component-themes($app-theme);
 
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
 :root {
-    --base-color: rgb(239, 68, 68);
-    --base-color-light: rgba(239, 68, 68, 0.2);
-    --swiper-theme-color: var(--base-color);
+    --swiper-theme-color: #03a9f4;
     --swiper-navigation-size: 20px;
-}
-
-::-moz-selection {
-    /* Code for Firefox */
-    background: var(--base-color-light);
-}
-
-::selection {
-    background: var(--base-color-light);
 }
 
 html,
@@ -60,43 +51,19 @@ body {
 }
 body {
     margin: 0;
-    font-family: Roboto, 'Helvetica Neue', sans-serif;
+    font-family: 'Roboto Flex', sans-serif;
 }
 
 .page-container {
     @apply container mx-auto max-w-screen-2xl px-4 pb-16 2xl:px-0;
 }
 
-.page-homepage-section {
-    @apply py-12 px-4 md:py-24 md:px-0;
-}
-
 .page-section {
     @apply flex w-full flex-col items-stretch justify-center space-y-4 md:space-y-6 xl:flex-row xl:space-x-8 xl:space-y-0;
 }
 
-.page-div {
-    @apply w-full bg-gray-50 px-4 py-4 dark:bg-gray-800 md:p-6 md:py-6 xl:p-8;
-}
-
 .page-flex-center {
     @apply flex items-center justify-center;
-}
-
-.page-heading {
-    @apply text-3xl font-semibold leading-7 text-gray-800 dark:text-white lg:text-4xl lg:leading-9;
-}
-
-.page-heading-subtitle {
-    @apply text-base font-medium leading-6 text-gray-600 dark:text-gray-300;
-}
-
-.page-section-subtitle {
-    @apply text-sm font-semibold uppercase tracking-widest text-red-500;
-}
-
-.page-section-title {
-    @apply text-3xl font-bold;
 }
 
 .page-form-field {
@@ -143,24 +110,4 @@ body {
         transition
         ease-in-out
         focus:border-red-600 focus:bg-white focus:text-gray-700 focus:outline-none;
-}
-
-.page-button-primary {
-    @apply inline-flex cursor-pointer items-center justify-center rounded-sm bg-red-500 py-2 px-4 text-white hover:bg-red-600;
-}
-
-.page-button-primary-flat {
-    @apply inline-flex cursor-pointer items-center rounded-sm py-2 px-4 text-red-500 hover:bg-gray-100;
-}
-
-.page-link-primary {
-    @apply cursor-pointer text-red-500 hover:text-red-600;
-}
-
-.page-link-secondary {
-    @apply cursor-pointer text-gray-600 underline underline-offset-2 hover:text-red-600 hover:decoration-transparent;
-}
-
-.page-panel {
-    @apply fixed bottom-0 right-0 top-0 z-50 w-full origin-left transform overflow-scroll bg-gray-100 p-8 shadow-2xl transition-transform duration-500 ease-in scrollbar-thin sm:w-1/2 lg:w-1/3;
 }

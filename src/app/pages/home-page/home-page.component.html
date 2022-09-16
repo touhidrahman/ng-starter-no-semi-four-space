@@ -1,7 +1,7 @@
 <div class="flex h-screen items-center justify-center">
     <div class="container mx-auto">
-        <h1 class="text-4xl font-bold text-green-500">Home Page Works!</h1>
-        <p>
+        <h1 class="text-4xl font-bold text-primary-500">Home Page Works!</h1>
+        <p class="bg-accent-200">
             If you can see this message then project initialized successfully. Now change the prefix in tslint.json and
             angular.json files to your desired project prefix.
         </p>
@@ -9,5 +9,22 @@
             This project uses tailwind css by default. If you don't need then delete <code>tailwind.config.js</code> and
             remove tailwind imports from <code>styles.scss</code>.
         </p>
+
+        <div class="space-x-2">
+            <button mat-raised-button color="primary">
+                <mat-icon>edit</mat-icon>
+                Primary Button
+            </button>
+
+            <button mat-raised-button color="accent">
+                <mat-icon>done</mat-icon>
+                Accent Button
+            </button>
+
+            <button mat-raised-button color="warn">
+                <mat-icon>settings</mat-icon>
+                Warn Button
+            </button>
+        </div>
     </div>
 </div>
