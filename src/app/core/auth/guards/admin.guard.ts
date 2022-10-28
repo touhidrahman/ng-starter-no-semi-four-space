@@ -9,7 +9,7 @@ import {
     UrlSegment,
 } from '@angular/router'
 import { UserRole } from '@core/models'
-import { AuthService } from '../auth/services/auth.service'
+import { AuthService } from '../services/auth.service'
 
 @Injectable({
     providedIn: 'root',

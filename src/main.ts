@@ -1,14 +1,14 @@
-import { HttpClientModule } from '@angular/common/http'
+import { provideHttpClient, withInterceptors, withJsonpSupport, withXsrfConfiguration } from '@angular/common/http'
 import { enableProdMode, importProvidersFrom } from '@angular/core'
 import { bootstrapApplication } from '@angular/platform-browser'
-import { RouterModule, TitleStrategy } from '@angular/router'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { provideRouter, TitleStrategy, withInMemoryScrolling, withRouterConfig } from '@angular/router'
+import { AuthHeaderInterceptorFn } from '@core/auth/interceptors/auth-header.interceptor'
 import { APP_CONFIG } from '@core/config/app-config'
 import { CustomTitleStrategy } from '@core/config/app-title'
-import { authInterceptorProvider } from '@core/interceptors/auth-header.interceptor'
 import { AppComponent } from './app/app.component'
-import { routes } from './app/routes'
-import { environment } from './environments/environment';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { ROUTES } from './app/routes'
+import { environment } from './environments/environment'
 
 if (environment.production) {
     enableProdMode()
@@ -17,10 +17,17 @@ if (environment.production) {
 bootstrapApplication(AppComponent, {
     providers: [
         { provide: APP_CONFIG, useValue: environment },
-        importProvidersFrom(HttpClientModule, BrowserAnimationsModule),
-        importProvidersFrom(RouterModule.forRoot(routes)),
-        authInterceptorProvider,
-        // unauthorizedInterceptorProvider, // TODO
+        provideHttpClient(
+            withXsrfConfiguration({}),
+            withJsonpSupport(),
+            withInterceptors([AuthHeaderInterceptorFn]),
+        ),
+        provideRouter(
+            ROUTES,
+            withInMemoryScrolling({ scrollPositionRestoration: 'enabled' }),
+            withRouterConfig({ onSameUrlNavigation: 'reload' }),
+        ),
+        importProvidersFrom(BrowserAnimationsModule),
         { provide: TitleStrategy, useClass: CustomTitleStrategy },
     ],
 }).catch((err) => console.error(err))

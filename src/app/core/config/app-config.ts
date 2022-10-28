@@ -1,4 +1,4 @@
-import { InjectionToken, ValueProvider } from '@angular/core'
+import { InjectionToken } from '@angular/core'
 
 export interface AppConfig {
     production: boolean
@@ -6,8 +6,3 @@ export interface AppConfig {
 }
 
 export const APP_CONFIG = new InjectionToken<AppConfig>('app.config')
-
-export const getAppConfigProvider = (value: AppConfig): ValueProvider => ({
-    provide: APP_CONFIG,
-    useValue: value,
-})

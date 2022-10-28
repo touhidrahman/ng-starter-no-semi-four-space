@@ -1,30 +1,32 @@
+<app-navbar>
+    <h1 class="text-3xl font-bold">My App</h1>
+    <div id="logo" class="bg-white p-2">
+        <img src="./../../../assets/logoipsum-282.svg" class="text-accent" />
+    </div>
+    <section class="space-x-2">
+        <a app-button shape="round" color="secondary" href="">Login</a>
+        <a app-button shape="round" color="primary" href=""><i class="bx bx-home"></i>Sign up</a>
+    </section>
+</app-navbar>
 <div class="flex h-screen items-center justify-center">
     <div class="container mx-auto">
         <h1 class="text-4xl font-bold text-primary-500">Home Page Works!</h1>
-        <p class="bg-accent-200">
-            If you can see this message then project initialized successfully. Now change the prefix in tslint.json and
-            angular.json files to your desired project prefix.
-        </p>
-        <p>
-            This project uses tailwind css by default. If you don't need then delete <code>tailwind.config.js</code> and
-            remove tailwind imports from <code>styles.scss</code>.
-        </p>
-
-        <div class="space-x-2">
-            <button mat-flat-button color="primary">
-                <mat-icon>edit</mat-icon>
+        <button (click)="loading = !loading" class="">Loading</button>
+        <div class="mt-24 space-x-2">
+            <button
+                app-button
+                [loading]="loading"
+                [disabled]="false"
+                shape="round"
+                color="primary"
+                (click)="test()"
+                class=""
+            >
+                <i class="bx bx-home"></i>
                 Primary Button
             </button>
-
-            <button mat-flat-button color="accent">
-                <mat-icon>done</mat-icon>
-                Accent Button
-            </button>
-
-            <button mat-flat-button color="warn">
-                <mat-icon>settings</mat-icon>
-                Warn Button
-            </button>
+            <button app-button color="secondary" class="">Secondary Button</button>
+            <button app-button color="accent" class="">Accent Button</button>
         </div>
     </div>
 </div>

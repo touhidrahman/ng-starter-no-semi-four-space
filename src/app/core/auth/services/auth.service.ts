@@ -50,6 +50,7 @@ export class AuthService {
                 this.setTokens(data.accessToken, data.refreshToken)
                 this.windowRef.location.href = returnUrl ?? '/'
             }),
+            shareReplay({ bufferSize: 1, refCount: true }),
         )
     }
 

@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router'
 import { ProfileTitleResolver } from '@core/config/app-title'
-import { LoggedInGuard } from '@core/guards/logged-in.guard'
+import { LoggedInGuard } from '@core/auth/guards/logged-in.guard'
 
-export const routes: Routes = [
+export const ROUTES: Routes = [
     {
         path: '',
         loadComponent: () => import('./pages/home-page/home-page.component').then((m) => m.HomePageComponent),
