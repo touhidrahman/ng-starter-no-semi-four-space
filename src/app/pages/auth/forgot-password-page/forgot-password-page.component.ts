@@ -3,7 +3,7 @@ import { Component } from '@angular/core'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { Router, RouterModule } from '@angular/router'
 import { AuthService } from '@core/auth/services/auth.service'
-import { LayoutCenteredComponent } from '@features/layout/components/layout-centered/layout-centered.component'
+import { LayoutCenteredComponent } from '@features/layout/layout-centered/layout-centered.component'
 import { HotToastService } from '@ngneat/hot-toast'
 
 @Component({

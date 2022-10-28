@@ -9,8 +9,4 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core'
     styleUrls: ['./footer-one.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FooterOneComponent implements OnInit {
-    constructor() {}
-
-    ngOnInit(): void {}
-}
+export class FooterOneComponent{}

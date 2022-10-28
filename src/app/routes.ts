@@ -15,26 +15,26 @@ export const ROUTES: Routes = [
     },
     {
         path: 'login',
-        loadComponent: () => import('./pages/login-page/login-page.component').then((m) => m.LoginPageComponent),
+        loadComponent: () => import('./pages/auth/login-page/login-page.component').then((m) => m.LoginPageComponent),
         title: 'Login',
     },
     {
         path: 'register',
         loadComponent: () =>
-            import('./pages/register-page/register-page.component').then((m) => m.RegisterPageComponent),
+            import('./pages/auth/register-page/register-page.component').then((m) => m.RegisterPageComponent),
         title: 'Register',
     },
     {
         path: 'verify-email/:token',
         title: 'Verify Email',
         loadComponent: () =>
-            import('./pages/verify-email-page/verify-email-page.component').then((m) => m.VerifyEmailPageComponent),
+            import('./pages/auth/verify-email-page/verify-email-page.component').then((m) => m.VerifyEmailPageComponent),
     },
     {
         path: 'forgot-password',
         title: 'Forgot Password',
         loadComponent: () =>
-            import('./pages/forgot-password-page/forgot-password-page.component').then(
+            import('./pages/auth/forgot-password-page/forgot-password-page.component').then(
                 (m) => m.ForgotPasswordPageComponent,
             ),
     },
@@ -42,7 +42,7 @@ export const ROUTES: Routes = [
         path: 'reset-password/:token',
         title: 'Reset Password',
         loadComponent: () =>
-            import('./pages/reset-forgotten-password-page/reset-forgotten-password-page.component').then(
+            import('./pages/auth/reset-forgotten-password-page/reset-forgotten-password-page.component').then(
                 (m) => m.ResetForgottenPasswordPageComponent,
             ),
     },

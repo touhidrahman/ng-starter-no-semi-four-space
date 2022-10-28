@@ -3,8 +3,8 @@ import { Component, OnInit } from '@angular/core'
 import { ReactiveFormsModule, FormBuilder } from '@angular/forms'
 import { Router, RouterModule } from '@angular/router'
 import { AuthService } from '@core/auth/services/auth.service'
-import { FooterOneComponent } from '@features/layout/components/footer-one/footer-one.component'
-import { HeaderOneComponent } from '@features/layout/components/header-one/header-one.component'
+import { HeaderOneComponent } from '@features/headers/header-one/header-one.component'
+import { FooterOneComponent } from '@features/footers/footer-one/footer-one.component'
 import { HotToastService } from '@ngneat/hot-toast'
 
 @Component({

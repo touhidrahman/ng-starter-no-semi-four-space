@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core'
 import { ReactiveFormsModule, FormBuilder } from '@angular/forms'
 import { ActivatedRoute, Router, RouterModule } from '@angular/router'
 import { AuthService } from '@core/auth/services/auth.service'
-import { LayoutHalfImageComponent } from '@features/layout/components/layout-half-image/layout-half-image.component'
+import { LayoutHalfImageComponent } from '@features/layout/layout-half-image/layout-half-image.component'
 import { HotToastService } from '@ngneat/hot-toast'
 
 @Component({
