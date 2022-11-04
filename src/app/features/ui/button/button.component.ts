@@ -24,14 +24,14 @@ export class ButtonComponent {
 
     @HostBinding('class')
     get klass() {
-        const classes = 'font-semibold h-14 px-8 text-lg focus:outline-none inline-flex items-center gap-2 leading-8'
+        const classes = 'font-medium h-14 px-8 text-lg focus:outline-none inline-flex items-center gap-2 leading-8'
 
         let color = ''
         if (this.color === 'primary') {
-            color = 'bg-primary-100 text-primary-800 hover:bg-white hover:text-primary-900'
+            color = 'bg-primary-700 text-primary-50 hover:bg-primary-800 hover:text-white'
         }
         if (this.color === 'secondary') {
-            color = 'text-primary-100 hover:bg-primary-600 hover:text-white'
+            color = 'text-primary-600 hover:bg-primary-700 hover:text-white'
         }
         if (this.color === 'accent') {
             color = 'text-white bg-accent-500 hover:bg-accent-600 hover:text-white'

@@ -11,7 +11,7 @@ export class ProfileTitleResolver {
     }
 }
 
-const AppName = 'ng-starter-no-semi-four-space'
+export const AppName = 'ng-starter-no-semi-four-space'
 
 @Injectable()
 export class CustomTitleStrategy extends TitleStrategy {
