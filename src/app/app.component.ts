@@ -17,13 +17,13 @@ import { filter, map, mergeMap, Observable } from 'rxjs'
             <app-layout-centered *ngSwitchCase="AppLayoutType.Center"></app-layout-centered>
             <app-layout-sidebar *ngSwitchCase="AppLayoutType.Sidebar"></app-layout-sidebar>
             <router-outlet *ngSwitchCase="AppLayoutType.Blank"></router-outlet>
-            <router-outlet *ngSwitchDefault></router-outlet>
+            <app-layout-default *ngSwitchDefault></app-layout-default>
         </ng-container>
     `,
     imports: [CommonModule, RouterModule, LayoutCenteredComponent, LayoutDefaultComponent, LayoutSidebarComponent],
 })
 export class AppComponent {
-    layout$: Observable<AppLayoutType>
+    layout$: Observable<AppLayoutType> = this.getLayoutType$()
 
     readonly AppLayoutType = AppLayoutType
 
@@ -33,7 +33,6 @@ export class AppComponent {
         private router: Router,
     ) {
         this.tokenSharingService.init()
-        this.layout$ = this.getLayoutType$()
     }
 
     private getLayoutType$(): Observable<AppLayoutType> {

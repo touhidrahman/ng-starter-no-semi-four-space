@@ -1,5 +1,4 @@
-<app-header-one class="sticky top-0"></app-header-one>
-<div class="flex h-full items-center justify-center">
+<div class="my-96 flex h-full items-center justify-center">
     <div class="container mx-auto">
         <h1 class="text-4xl font-bold text-primary-500">Home Page Works!</h1>
         <button (click)="loading = !loading" class="">Loading</button>
@@ -16,9 +15,8 @@
                 <i class="bx bx-home"></i>
                 Primary Button
             </button>
-            <button app-button color="secondary" class="">Secondary Button</button>
+            <button app-button [routerLink]="['/login']" color="secondary" class="">Secondary Button</button>
             <button app-button color="accent" class="">Accent Button</button>
         </div>
     </div>
 </div>
-<app-footer-one></app-footer-one>
