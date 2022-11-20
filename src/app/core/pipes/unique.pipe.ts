@@ -1,4 +1,4 @@
-import { uniq } from 'lodash-es'
+import { unique } from 'radash'
 import { Pipe, PipeTransform } from '@angular/core'
 
 @Pipe({
@@ -6,6 +6,6 @@ import { Pipe, PipeTransform } from '@angular/core'
 })
 export class UniquePipe<T> implements PipeTransform {
     transform(value: T[]): T[] {
-        return uniq(value)
+        return unique(value)
     }
 }
