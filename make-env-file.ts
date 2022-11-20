@@ -6,7 +6,7 @@ const filename = 'src/environments/environment.test.ts'
 function getConfig(): AppConfig {
     return {
         production: true,
-        apiUrl: `${process.env.API_URL ?? 'http://localhost:3000/v1'}`,
+        apiUrl: `${process.env['API_URL'] ?? 'http://localhost:3000/v1'}`,
     }
 }
 

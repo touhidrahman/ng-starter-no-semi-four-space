@@ -1,22 +1,21 @@
 <div class="my-96 flex h-full items-center justify-center">
     <div class="container mx-auto">
         <h1 class="text-4xl font-bold text-primary-500">Home Page Works!</h1>
-        <button (click)="loading = !loading" class="">Loading</button>
         <div class="mt-24 space-x-2">
             <button
                 app-button
-                [loading]="loading"
+                [loading]="appState.loading"
+                [routerLink]="['/login']"
                 [disabled]="false"
                 shape="round"
                 color="primary"
-                (click)="test()"
                 class=""
             >
                 <i class="bx bx-home"></i>
                 Primary Button
             </button>
-            <button app-button [routerLink]="['/login']" color="secondary" class="">Secondary Button</button>
-            <button app-button color="accent" class="">Accent Button</button>
+            <a app-button [routerLink]="['/login']" color="secondary" class="">Secondary Button</a>
+            <button app-button color="accent" (click)="appState.stopLoading()" class="">Accent Button</button>
         </div>
     </div>
 </div>

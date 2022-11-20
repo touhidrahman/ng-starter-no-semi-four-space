@@ -1,11 +1,29 @@
 <app-navbar>
-    <h1 class="text-3xl font-bold">My App</h1>
-    <div id="logo" class="bg-white p-2">
+    <h1 [routerLink]="['/']" class="cursor-pointer text-3xl font-bold">{{ appName }}</h1>
+    <div [routerLink]="['/']" id="logo" class="cursor-pointer bg-white p-2">
         <img src="./../../../assets/logoipsum-282.svg" class="text-accent" />
     </div>
+
     <section class="space-x-2">
-        <a app-button shape="round" color="secondary" [routerLink]="['/login']">Login</a>
-        <a app-button shape="round" color="primary" [routerLink]="['/register']">Sign Up</a>
-        <a app-button shape="round" [routerLink]="['/profile']">Profile</a>
+        <a
+            *ngIf="!auth.isLoggedIn"
+            app-button
+            shape="round"
+            color="secondary"
+            class="text-white"
+            [routerLink]="['/register']"
+            >Register</a
+        >
+        <a *ngIf="!auth.isLoggedIn" app-button shape="round" color="primary" [routerLink]="['/login']">Login</a>
+        <a
+            *ngIf="auth.isLoggedIn"
+            app-button
+            shape="round"
+            color="secondary"
+            class="text-white"
+            (click)="auth.signOut()"
+            >Logout</a
+        >
+        <a *ngIf="auth.isLoggedIn" app-button shape="round" [routerLink]="['/profile']">Profile</a>
     </section>
 </app-navbar>

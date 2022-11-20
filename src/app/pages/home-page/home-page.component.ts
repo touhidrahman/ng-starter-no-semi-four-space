@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common'
 import { Component } from '@angular/core'
 import { RouterModule } from '@angular/router'
+import { AppStateService } from '@core/states/app-state.service'
 import { ButtonComponent } from '@features/ui/button/button.component'
 import { MaterialModules } from '@features/ui/material'
 
@@ -10,10 +11,7 @@ import { MaterialModules } from '@features/ui/material'
     templateUrl: './home-page.component.html',
     styleUrls: ['./home-page.component.scss'],
 })
-export class HomePageComponent {
-    loading = false
-
-    test() {
-        console.log('TCL: ~ HERE ')
+export default class HomePageComponent {
+    constructor(public appState: AppStateService) {
     }
 }

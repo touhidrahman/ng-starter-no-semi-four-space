@@ -2,16 +2,7 @@ import { Injectable } from '@angular/core'
 import { Title } from '@angular/platform-browser'
 import { RouterStateSnapshot, TitleStrategy } from '@angular/router'
 
-@Injectable({
-    providedIn: 'root',
-})
-export class ProfileTitleResolver {
-    resolve() {
-        return Promise.resolve('My Profile')
-    }
-}
-
-export const AppName = 'ng-starter-no-semi-four-space'
+export const APP_NAME = 'ng-starter-no-semi-four-space'
 
 @Injectable()
 export class CustomTitleStrategy extends TitleStrategy {
@@ -21,6 +12,15 @@ export class CustomTitleStrategy extends TitleStrategy {
 
     override updateTitle(routerState: RouterStateSnapshot): void {
         const pageTitle = this.buildTitle(routerState)
-        this.title.setTitle(pageTitle ? `${AppName} - ${pageTitle}` : AppName)
+        this.title.setTitle(pageTitle ? `${APP_NAME} - ${pageTitle}` : APP_NAME)
+    }
+}
+
+@Injectable({
+    providedIn: 'root',
+})
+export class ProfileTitleResolver {
+    resolve() {
+        return Promise.resolve('My Profile')
     }
 }

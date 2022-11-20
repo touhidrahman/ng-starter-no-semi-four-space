@@ -28,6 +28,7 @@ $app-theme: mat.define-light-theme(
             accent: $app-accent,
             warn: $app-warn,
         ),
+        density: -2,
     )
 );
 
@@ -43,6 +44,7 @@ $app-theme: mat.define-light-theme(
 :root {
     --swiper-theme-color: #03a9f4;
     --swiper-navigation-size: 20px;
+    --spinner-color: #03a9f4;
 }
 
 html,
@@ -51,6 +53,8 @@ body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
 }
+
+@import 'app-spinner';
 
 .page-container {
     @apply container mx-auto max-w-screen-2xl px-4 pb-16 2xl:px-0;

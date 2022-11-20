@@ -11,7 +11,7 @@ import { timer } from 'rxjs'
     templateUrl: './verify-email-page.component.html',
     styleUrls: ['./verify-email-page.component.scss'],
 })
-export class VerifyEmailPageComponent implements OnInit {
+export default class VerifyEmailPageComponent implements OnInit {
     message = 'Verifying email...'
 
     constructor(private auth: AuthService, private activatedRoute: ActivatedRoute, private router: Router) {}

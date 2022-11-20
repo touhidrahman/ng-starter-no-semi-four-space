@@ -4,16 +4,15 @@ import { ReactiveFormsModule } from '@angular/forms'
 import { Router, RouterModule } from '@angular/router'
 import { AuthService } from '@core/auth/services/auth.service'
 import { RegisterFormService } from '@core/auth/services/register-form.service'
-import { LayoutCenteredComponent } from '@features/layout/layout-centered/layout-centered.component'
 
 @Component({
     standalone: true,
-    imports: [CommonModule, ReactiveFormsModule, RouterModule, LayoutCenteredComponent],
+    imports: [CommonModule, ReactiveFormsModule, RouterModule],
     templateUrl: './register-page.component.html',
     styleUrls: ['./register-page.component.scss'],
     providers: [RegisterFormService],
 })
-export class RegisterPageComponent implements OnInit {
+export default class RegisterPageComponent implements OnInit {
     loading = false
     errors: string[] = []
 

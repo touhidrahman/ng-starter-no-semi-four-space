@@ -2,9 +2,9 @@ import { HttpClient } from '@angular/common/http'
 import { Inject, Injectable } from '@angular/core'
 import { AppConfig, APP_CONFIG } from '@core/config/app-config'
 import { User, UserRole } from '@core/models'
-import { WINDOW } from '@ng-web-apis/common'
-import { catchError, Observable, of, shareReplay, switchMap, tap, timer } from 'rxjs'
 import { StateSubject } from '@core/utils/state-subject'
+import { WINDOW } from '@ng-web-apis/common'
+import { catchError, debounceTime, Observable, of, shareReplay, switchMap, tap } from 'rxjs'
 import { LoginResponse } from '../interfaces/login-response'
 import { LoginPayload } from '../interfaces/login.payload'
 import { RegisterPayload } from '../interfaces/register.payload'
@@ -35,9 +35,7 @@ export class AuthService {
         @Inject(APP_CONFIG) private appConfig: AppConfig,
     ) {
         this.endpoint = this.appConfig.apiUrl + '/auth'
-        timer(300)
-            .pipe(switchMap(() => this.getLoggedInUser$()))
-            .subscribe()
+        this.continueAutoloadingUser()
     }
 
     signUp(data: RegisterPayload): Observable<void> {
@@ -50,7 +48,6 @@ export class AuthService {
                 this.setTokens(data.accessToken, data.refreshToken)
                 this.windowRef.location.href = returnUrl ?? '/'
             }),
-            shareReplay({ bufferSize: 1, refCount: true }),
         )
     }
 
@@ -91,12 +88,27 @@ export class AuthService {
 
     getLoggedInUser$(): Observable<User | null> {
         return this.http.get<User>(`${this.endpoint}/me`).pipe(
-            tap((user) => this.user.next(user)),
             catchError(() => {
                 this.user.next(null)
                 return of(null)
             }),
             shareReplay({ bufferSize: 1, refCount: true }),
         )
+    }
+
+    private continueAutoloadingUser() {
+        this.accessToken.value$
+            .pipe(
+                debounceTime(100),
+                switchMap((accessToken) => {
+                    if (accessToken && this.user.value === null) {
+                        return this.getLoggedInUser$()
+                    }
+                    return of(null)
+                }),
+            )
+            .subscribe({
+                next: (user) => this.user.next(user),
+            })
     }
 }

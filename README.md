@@ -2,6 +2,7 @@
 
 This boilerplate uses:
 
+- Angular v15
 - TailwindCSS
 - Eslint
 - Prettier

@@ -41,12 +41,12 @@
             "prefix": "app",
             "architect": {
                 "build": {
-                    "builder": "@angular-devkit/build-angular:browser",
+                    "builder": "@angular-devkit/build-angular:browser-esbuild",
                     "options": {
                         "outputPath": "dist/ng-starter-no-semi-four-space",
                         "index": "src/index.html",
                         "main": "src/main.ts",
-                        "polyfills": "src/polyfills.ts",
+                        "polyfills": ["zone.js"],
                         "tsConfig": "tsconfig.app.json",
                         "inlineStyleLanguage": "scss",
                         "assets": ["src/favicon.ico", "src/assets"],
@@ -102,6 +102,17 @@
                     "builder": "@angular-devkit/build-angular:extract-i18n",
                     "options": {
                         "browserTarget": "ng-starter-no-semi-four-space:build"
+                    }
+                },
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "polyfills": ["zone.js", "zone.js/testing"],
+                        "tsConfig": "tsconfig.spec.json",
+                        "inlineStyleLanguage": "scss",
+                        "assets": ["src/favicon.ico", "src/assets"],
+                        "styles": ["src/styles.scss"],
+                        "scripts": []
                     }
                 },
                 "lint": {

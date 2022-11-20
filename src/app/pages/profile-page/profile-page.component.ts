@@ -1,10 +1,10 @@
 import { CommonModule } from '@angular/common'
 import { Component, OnInit } from '@angular/core'
-import { ReactiveFormsModule, FormBuilder } from '@angular/forms'
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms'
 import { Router, RouterModule } from '@angular/router'
 import { AuthService } from '@core/auth/services/auth.service'
-import { HeaderOneComponent } from '@features/headers/header-one/header-one.component'
 import { FooterOneComponent } from '@features/footers/footer-one/footer-one.component'
+import { HeaderOneComponent } from '@features/headers/header-one/header-one.component'
 import { HotToastService } from '@ngneat/hot-toast'
 
 @Component({
@@ -13,7 +13,7 @@ import { HotToastService } from '@ngneat/hot-toast'
     templateUrl: './profile-page.component.html',
     styleUrls: ['./profile-page.component.scss'],
 })
-export class ProfilePageComponent implements OnInit {
+export default class ProfilePageComponent implements OnInit {
     form = this.fb.nonNullable.group({
         password: [''],
         passwordConfirmation: [''],
