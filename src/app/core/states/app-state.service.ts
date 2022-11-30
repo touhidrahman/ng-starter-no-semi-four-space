@@ -35,6 +35,11 @@ export class AppStateService {
         this.loadingSubject.next(false)
     }
 
+    setLoading(loading: boolean): void {
+        this.loadingSubject.next(loading)
+    }
+
+    // TODO improve
     private continueUpdatingLoadingValue() {
         const navigating = this.router.events.pipe(
             filter(

@@ -1,6 +1,5 @@
 module.exports = {
     prefix: '',
-    mode: 'jit',
     content: ['./src/**/*.{html,ts,css,scss,sass,less,styl}'],
     darkMode: 'media', // or 'class'
     theme: {
