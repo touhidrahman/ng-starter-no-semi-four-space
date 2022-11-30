@@ -3,8 +3,11 @@ import { BehaviorSubject, distinctUntilChanged, Observable } from 'rxjs'
 
 /**
  * An extended BehaviorSubject that can be reset to its initial value.
- * The stream of change is checked by lodash's isEqual so that only when the value is trully changed, the stream will emit.
- * This util is also available as a npm package: https://www.npmjs.com/package/rxjs-state-subject
+ * The stream of change is checked for deep equality so that only when
+ * the value has trully changed, the stream will emit.
+ *
+ * This util is also available as a npm package:
+ * https://www.npmjs.com/package/rxjs-state-subject
  * @author Touhid Rahman <touhidrahman1987@gmail.com>
  */
 export class StateSubject<T> extends BehaviorSubject<T> {

@@ -16,6 +16,10 @@ export class Store<T extends Object> {
         sideEffectFn?.()
     }
 
+    getState(): T {
+        return this.state.value
+    }
+
     select<K extends keyof T>(key: K, filterFn?: (value: T[K]) => boolean): Observable<T[K]> {
         return this.state.value$.pipe(
             map((state) => state[key]),
@@ -33,5 +37,10 @@ export class Store<T extends Object> {
     reset(sideEffectFn?: () => void): void {
         this.state.reset()
         sideEffectFn?.()
+    }
+
+    destroy(): void {
+        this.unsubscriber.next()
+        this.unsubscriber.complete()
     }
 }

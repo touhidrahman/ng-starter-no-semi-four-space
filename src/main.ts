@@ -1,3 +1,4 @@
+import { DATE_PIPE_DEFAULT_OPTIONS } from '@angular/common'
 import { provideHttpClient, withInterceptors, withJsonpSupport, withXsrfConfiguration } from '@angular/common/http'
 import { importProvidersFrom } from '@angular/core'
 import { bootstrapApplication } from '@angular/platform-browser'
@@ -13,17 +14,14 @@ import { environment } from './environments/environment'
 bootstrapApplication(AppComponent, {
     providers: [
         { provide: APP_CONFIG, useValue: environment },
-        provideHttpClient(
-            withXsrfConfiguration({}),
-            withJsonpSupport(),
-            withInterceptors([AuthHeaderInterceptorFn]),
-        ),
+        { provide: DATE_PIPE_DEFAULT_OPTIONS, useValue: { dateFormat: 'shortDate' } },
+        { provide: TitleStrategy, useClass: CustomTitleStrategy },
+        provideHttpClient(withXsrfConfiguration({}), withJsonpSupport(), withInterceptors([AuthHeaderInterceptorFn])),
         provideRouter(
             ROUTES,
             withInMemoryScrolling({ scrollPositionRestoration: 'enabled' }),
             withRouterConfig({ onSameUrlNavigation: 'reload' }),
         ),
         importProvidersFrom(BrowserAnimationsModule),
-        { provide: TitleStrategy, useClass: CustomTitleStrategy },
     ],
 }).catch((err: any) => console.error(err))
