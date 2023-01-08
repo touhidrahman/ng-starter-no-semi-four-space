@@ -53,4 +53,21 @@ module.exports = {
     'red-hue-200': '#FF5252',
     'red-hue-400': '#FF1744',
     'red-hue-700': '#D50000',
+    // material teal pallete
+    teal: {
+        50: '#e0f2f1',
+        100: '#b2dfdb',
+        200: '#80cbc4',
+        300: '#4db6ac',
+        400: '#26a69a',
+        500: '#009688',
+        600: '#00897b',
+        700: '#00796b',
+        800: '#00695c',
+        900: '#004d40',
+    },
+    'teal-hue-100': '#A7FFEB',
+    'teal-hue-200': '#64FFDA',
+    'teal-hue-400': '#1DE9B6',
+    'teal-hue-700': '#00BFA5',
 }

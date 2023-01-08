@@ -1,10 +1,21 @@
 <app-navbar>
-    <h1 [routerLink]="['/']" class="cursor-pointer text-3xl font-bold">{{ appName }}</h1>
+    <h1 [routerLink]="['/']" class="cursor-pointer text-3xl font-bold text-primary-content">{{ appName }}</h1>
     <div [routerLink]="['/']" id="logo" class="cursor-pointer bg-white p-2">
         <img src="./../../../assets/logoipsum-282.svg" class="text-accent" />
     </div>
 
-    <section class="space-x-2">
+    <div class="flex items-stretch">
+        <a class="btn-ghost rounded-btn btn text-primary-content">Button</a>
+        <div class="dropdown-end dropdown">
+            <label tabindex="0" class="btn-ghost rounded-btn btn text-primary-content">Dropdown</label>
+            <ul tabindex="0" class="dropdown-content menu rounded-box mt-4 w-52 bg-base-100 p-2 shadow">
+                <li><a>Item 1</a></li>
+                <li><a>Item 2</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- <section class="space-x-2">
         <a
             *ngIf="!auth.isLoggedIn"
             app-button
@@ -25,5 +36,5 @@
             >Logout</a
         >
         <a *ngIf="auth.isLoggedIn" app-button shape="round" [routerLink]="['/profile']">Profile</a>
-    </section>
+    </section> -->
 </app-navbar>

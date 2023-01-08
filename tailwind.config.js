@@ -3,64 +3,38 @@ module.exports = {
     content: ['./src/**/*.{html,ts,css,scss,sass,less,styl}'],
     darkMode: 'media', // or 'class'
     theme: {
-        extend: {
-            colors: {
-                // material light blue pallete
-                primary: {
-                    50: '#e1f5fe',
-                    100: '#b3e5fc',
-                    200: '#81d4fa',
-                    300: '#4fc3f7',
-                    400: '#29b6f6',
-                    500: '#03a9f4',
-                    600: '#039be5',
-                    700: '#0288d1',
-                    800: '#0277bd',
-                    900: '#01579b',
-                },
-                'primary-hue-100': '#80D8FF',
-                'primary-hue-200': '#40C4FF',
-                'primary-hue-400': '#00B0FF',
-                'primary-hue-700': '#0091EA',
-                // material teal pallete
-                accent: {
-                    50: '#e0f2f1',
-                    100: '#b2dfdb',
-                    200: '#80cbc4',
-                    300: '#4db6ac',
-                    400: '#26a69a',
-                    500: '#009688',
-                    600: '#00897b',
-                    700: '#00796b',
-                    800: '#00695c',
-                    900: '#004d40',
-                },
-                'accent-hue-100': '#A7FFEB',
-                'accent-hue-200': '#64FFDA',
-                'accent-hue-400': '#1DE9B6',
-                'accent-hue-700': '#00BFA5',
-                // material red pallete
-                warn: {
-                    50: '#ffebee',
-                    100: '#ffcdd2',
-                    200: '#ef9a9a',
-                    300: '#e57373',
-                    400: '#ef5350',
-                    500: '#f44336',
-                    600: '#e53935',
-                    700: '#d32f2f',
-                    800: '#c62828',
-                    900: '#b71c1c',
-                },
-                'warn-hue-100': '#FF8A80',
-                'warn-hue-200': '#FF5252',
-                'warn-hue-400': '#FF1744',
-                'warn-hue-700': '#D50000',
-            },
-        },
+        extend: {},
     },
     variants: {
         extend: {},
+    },
+    daisyui: {
+        themes: [
+            {
+                mytheme: {
+                    primary: '#dc2626',
+                    secondary: '#0d9488',
+                    accent: '#374151',
+                    neutral: '#181A2A',
+                    'base-100': '#FFFFFF',
+                    info: '#3ABFF8',
+                    success: '#36D399',
+                    warning: '#FBBD23',
+                    error: '#ea580c',
+
+                    '--rounded-box': '0.25rem', // border radius rounded-box utility class, used in card and other large boxes
+                    '--rounded-btn': '0.15rem', // border radius rounded-btn utility class, used in buttons and similar element
+                    '--rounded-badge': '1.9rem', // border radius rounded-badge utility class, used in badges and similar
+                    '--animation-btn': '0.25s', // duration of animation when you click on button
+                    '--animation-input': '0.2s', // duration of animation for inputs like checkbox, toggle, radio, etc
+                    '--btn-text-case': '', // set default text transform for buttons
+                    '--btn-focus-scale': '1', // scale transform of button when you focus on it
+                    '--border-btn': '1px', // border width of buttons
+                    '--tab-border': '1px', // border width of tabs
+                    '--tab-radius': '0.25rem', // border radius of tabs
+                },
+            },
+        ],
     },
     plugins: [
         require('@tailwindcss/aspect-ratio'),
@@ -69,5 +43,6 @@ module.exports = {
         require('@tailwindcss/line-clamp'),
         require('tailwind-scrollbar'),
         require('prettier-plugin-tailwindcss'),
+        require('daisyui'),
     ],
 }
