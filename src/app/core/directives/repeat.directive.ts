@@ -1,7 +1,7 @@
 import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core'
 
 @Directive({
-    selector: '[appRepeat]',
+    selector: '[ngRepeat]',
     standalone: true,
 })
 export class RepeatDirective {
@@ -9,7 +9,7 @@ export class RepeatDirective {
         this.vcRef.createEmbeddedView(this.templateRef, {})
     }
 
-    @Input() set appRepeat(amount: number) {
+    @Input() set ngRepeat(amount: number) {
         this.vcRef.clear()
         for (let i = 0; i < amount; i++) {
             this.vcRef.createEmbeddedView(this.templateRef, {

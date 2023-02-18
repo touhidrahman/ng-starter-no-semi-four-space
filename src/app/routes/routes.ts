@@ -6,7 +6,7 @@ import { AppLayoutType } from '@core/models'
 export const ROUTES: Routes = [
     {
         path: '',
-        loadComponent: () => import('./pages/home-page/home-page.component'),
+        loadComponent: () => import('./home-page/home-page.component'),
         title: 'Home',
         data: { layout: AppLayoutType.Default },
     },
@@ -18,45 +18,45 @@ export const ROUTES: Routes = [
     {
         path: 'login',
         data: { layout: AppLayoutType.Center },
-        loadComponent: () => import('./pages/auth/login-page/login-page.component'),
+        loadComponent: () => import('./auth/login-page/login-page.component'),
         title: 'Login',
     },
     {
         path: 'register',
         data: { layout: AppLayoutType.Center },
-        loadComponent: () => import('./pages/auth/register-page/register-page.component'),
+        loadComponent: () => import('./auth/register-page/register-page.component'),
         title: 'Register',
     },
     {
         path: 'verify-email/:token',
         title: 'Verify Email',
         data: { layout: AppLayoutType.Center },
-        loadComponent: () => import('./pages/auth/verify-email-page/verify-email-page.component'),
+        loadComponent: () => import('./auth/verify-email-page/verify-email-page.component'),
     },
     {
         path: 'forgot-password',
         title: 'Forgot Password',
         data: { layout: AppLayoutType.Center },
-        loadComponent: () => import('./pages/auth/forgot-password-page/forgot-password-page.component'),
+        loadComponent: () => import('./auth/forgot-password-page/forgot-password-page.component'),
     },
     {
         path: 'reset-password/:token',
         title: 'Reset Password',
         data: { layout: AppLayoutType.Center },
         loadComponent: () =>
-            import('./pages/auth/reset-forgotten-password-page/reset-forgotten-password-page.component'),
+            import('./auth/reset-forgotten-password-page/reset-forgotten-password-page.component'),
     },
     {
         path: 'profile',
         data: { layout: AppLayoutType.Default },
-        loadComponent: () => import('./pages/profile-page/profile-page.component'),
+        loadComponent: () => import('./profile-page/profile-page.component'),
         title: ProfileTitleResolver,
         canActivate: [authGuardFn({ redirectTo: ['/login'] })],
     },
     {
         path: '**',
         data: { layout: AppLayoutType.Center },
-        loadComponent: () => import('./pages/not-found-page/not-found-page.component'),
+        loadComponent: () => import('./not-found-page/not-found-page.component'),
         title: '404',
     },
 ]

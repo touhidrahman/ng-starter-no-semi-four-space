@@ -2,7 +2,7 @@ import { Location } from '@angular/common'
 import { Directive, HostListener } from '@angular/core'
 
 @Directive({
-    selector: '[appOnClickGoBack]',
+    selector: '[onClickGoBack]',
     standalone: true,
 })
 export class OnClickGoBackDirective {

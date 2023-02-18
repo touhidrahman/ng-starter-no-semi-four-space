@@ -8,7 +8,7 @@ import { AuthHeaderInterceptorFn } from '@core/auth/interceptors/auth-header.int
 import { APP_CONFIG } from '@core/config/app-config'
 import { CustomTitleStrategy } from '@core/config/app-title'
 import { AppComponent } from './app/app.component'
-import { ROUTES } from './app/routes'
+import { ROUTES } from './app/routes/routes'
 import { environment } from './environments/environment'
 
 bootstrapApplication(AppComponent, {

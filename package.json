@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "dev": "ng serve",
     "build": "ng build",
     "build:alternative": "NODE_ENV=production node --max_old_space_size=8192 node_modules/@angular/cli/bin/ng build --prod",
     "watch": "ng build --watch --configuration development",
