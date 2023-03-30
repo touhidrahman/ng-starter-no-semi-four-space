@@ -5,7 +5,7 @@ import {
     NavigationEnd,
     NavigationError,
     NavigationStart,
-    Router
+    Router,
 } from '@angular/router'
 import { APP_NAME } from '@core/config/app-title'
 import { BehaviorSubject, combineLatest, filter, interval, map, zip } from 'rxjs'

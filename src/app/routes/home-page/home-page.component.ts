@@ -12,6 +12,5 @@ import { MaterialModules } from '@features/ui/material'
     styleUrls: ['./home-page.component.scss'],
 })
 export default class HomePageComponent {
-    constructor(public appState: AppStateService) {
-    }
+    constructor(public appState: AppStateService) {}
 }

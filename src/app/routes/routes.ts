@@ -43,8 +43,7 @@ export const ROUTES: Routes = [
         path: 'reset-password/:token',
         title: 'Reset Password',
         data: { layout: AppLayoutType.Center },
-        loadComponent: () =>
-            import('./auth/reset-forgotten-password-page/reset-forgotten-password-page.component'),
+        loadComponent: () => import('./auth/reset-forgotten-password-page/reset-forgotten-password-page.component'),
     },
     {
         path: 'profile',

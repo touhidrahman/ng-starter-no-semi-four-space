@@ -2,13 +2,14 @@
 
 This boilerplate uses:
 
-- Angular v15
+- Angular
 - TailwindCSS
 - Eslint
 - Prettier
 - Git hooks
 - Boxicons
 - Angular Material
+- DaisyUI
 
 and most importantly - **4 space tabs** and **NO SEMICOLON**
 
@@ -22,7 +23,7 @@ and most importantly - **4 space tabs** and **NO SEMICOLON**
 
 `git checkout <desired-branch-name>`
 
-- `main`: bare-bone angular project with tailwind support.
+- `main`: bare-bone angular project with tailwind and daisyUI support.
 - `material`: official material library for angular as the UI framework.
 - `zorro`: Uses the power of both tailwindcss and zorro.
 - `prime`: PrimeNG X library for the UI. Uses v10.x which has a rich collection of angular components (MIT licenced)

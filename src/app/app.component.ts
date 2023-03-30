@@ -13,7 +13,7 @@ import { filter, map, mergeMap, Observable } from 'rxjs'
     standalone: true,
     selector: 'app-root',
     template: `
-        <div *ngIf="appState.loading" class="fixed w-full h-full z-50">
+        <div *ngIf="appState.loading" class="fixed z-50 h-full w-full">
             <div class="app-loading mx-auto">
                 <svg class="spinner" viewBox="25 25 50 50">
                     <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />

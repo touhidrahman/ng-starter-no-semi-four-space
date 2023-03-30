@@ -28,5 +28,4 @@ export class LayoutSidebarComponent {
             this.opened = false
         }
     }
-
 }
