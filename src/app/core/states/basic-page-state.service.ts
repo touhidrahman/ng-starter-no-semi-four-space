@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
 import { DEFAULT_PAGE_SIZE } from '@core/values/pagination'
-import { StateSubject } from '@core/utils/state-subject'
+import { StateSubject } from '@core/store/state-subject'
 import { BasicState } from './basic-state.service'
 
 @Injectable()

@@ -1,14 +1,7 @@
 import { Inject, Injectable } from '@angular/core'
-import {
-    NavigationCancel,
-    NavigationEnd,
-    NavigationError,
-    NavigationStart,
-    Router
-} from '@angular/router'
 import { APP_CONFIG, AppConfig } from '@core/config/app-config'
 import { AppLayoutType } from '@core/models'
-import { BehaviorSubject, Observable, combineLatest, filter, interval, map, zip } from 'rxjs'
+import { BehaviorSubject, Observable } from 'rxjs'
 
 /**
  * Stores crucial information and functionalities for the app's full lifecycle
@@ -17,28 +10,22 @@ import { BehaviorSubject, Observable, combineLatest, filter, interval, map, zip 
     providedIn: 'root',
 })
 export class AppStateService {
-    #isLoading = true
-    private loadingSubject = new BehaviorSubject<boolean>(false)
-    private layoutSubject = new BehaviorSubject<AppLayoutType>(AppLayoutType.Blank)
+    private loadingSubject = new BehaviorSubject<boolean>(true)
+    private layoutSubject = new BehaviorSubject<AppLayoutType>(AppLayoutType.Default)
 
     get appName(): string {
         return this.appConfig.appName
     }
 
     get loading(): boolean {
-        return this.#isLoading
+        return this.loadingSubject.value
     }
 
     get layout$(): Observable<AppLayoutType> {
         return this.layoutSubject.asObservable()
     }
 
-    constructor(
-        private router: Router,
-        @Inject(APP_CONFIG) readonly appConfig: AppConfig,
-    ) {
-        this.continueUpdatingLoadingValue()
-    }
+    constructor(@Inject(APP_CONFIG) readonly appConfig: AppConfig) {}
 
     setLayout(value: AppLayoutType) {
         this.layoutSubject.next(value)
@@ -56,23 +43,4 @@ export class AppStateService {
         this.loadingSubject.next(loading)
     }
 
-    // TODO improve
-    private continueUpdatingLoadingValue() {
-        const navigating = this.router.events.pipe(
-            filter(
-                (e) =>
-                    e instanceof NavigationStart ||
-                    e instanceof NavigationEnd ||
-                    e instanceof NavigationCancel ||
-                    e instanceof NavigationError,
-            ),
-            map((e) => e instanceof NavigationStart),
-        )
-        const navigationDone = zip([navigating, interval(500)], (a, _b) => a)
-        const stream = combineLatest([navigationDone, this.loadingSubject.asObservable()]).pipe(map(([a, b]) => a || b))
-
-        zip([stream, interval(500)], (a, _b) => a).subscribe({
-            next: (loading) => (this.#isLoading = loading),
-        })
-    }
 }

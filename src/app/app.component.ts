@@ -7,7 +7,7 @@ import { AppStateService } from '@core/states/app-state.service'
 import { LayoutCenteredComponent } from '@features/layout/layout-centered/layout-centered.component'
 import { LayoutDefaultComponent } from '@features/layout/layout-default/layout-default.component'
 import { LayoutSidebarComponent } from '@features/layout/layout-sidebar/layout-sidebar.component'
-import { Observable } from 'rxjs'
+import { Observable, take, timer } from 'rxjs'
 
 @Component({
     standalone: true,
@@ -40,6 +40,8 @@ export class AppComponent {
         private tokenSharingService: TokenSharingService,
     ) {
         this.tokenSharingService.init()
+        // stop initial loading spinner
+        timer(1000).pipe(take(1)).subscribe({ next: () => this.appState.stopLoading() })
     }
 
 }
