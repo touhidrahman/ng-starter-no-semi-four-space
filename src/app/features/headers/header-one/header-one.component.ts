@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common'
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core'
 import { RouterModule } from '@angular/router'
 import { AuthService } from '@core/auth/services/auth.service'
-import { APP_NAME } from '@core/config/app-title'
+import { AppStateService } from '@core/states/app-state.service'
 import { ButtonComponent } from '@features/ui/button/button.component'
 import { NavbarComponent } from '@features/ui/navbar/navbar.component'
 
@@ -15,9 +15,9 @@ import { NavbarComponent } from '@features/ui/navbar/navbar.component'
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderOneComponent implements OnInit {
-    appName = APP_NAME
+    appName = this.appState.appName
 
-    constructor(public auth: AuthService) {}
+    constructor(public auth: AuthService, public appState: AppStateService) {}
 
     ngOnInit(): void {
         void 0

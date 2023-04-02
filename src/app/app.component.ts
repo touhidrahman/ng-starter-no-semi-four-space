@@ -1,13 +1,13 @@
 import { CommonModule } from '@angular/common'
 import { Component } from '@angular/core'
-import { ActivatedRoute, NavigationEnd, Router, RouterModule } from '@angular/router'
+import { RouterModule } from '@angular/router'
 import { TokenSharingService } from '@core/auth/services/token-sharing.service'
 import { AppLayoutType } from '@core/models'
 import { AppStateService } from '@core/states/app-state.service'
 import { LayoutCenteredComponent } from '@features/layout/layout-centered/layout-centered.component'
 import { LayoutDefaultComponent } from '@features/layout/layout-default/layout-default.component'
 import { LayoutSidebarComponent } from '@features/layout/layout-sidebar/layout-sidebar.component'
-import { filter, map, mergeMap, Observable } from 'rxjs'
+import { Observable } from 'rxjs'
 
 @Component({
     standalone: true,
@@ -31,30 +31,15 @@ import { filter, map, mergeMap, Observable } from 'rxjs'
     imports: [CommonModule, RouterModule, LayoutCenteredComponent, LayoutDefaultComponent, LayoutSidebarComponent],
 })
 export class AppComponent {
-    layout$: Observable<AppLayoutType> = this.getLayoutType$()
+    layout$: Observable<AppLayoutType> = this.appState.layout$
 
     readonly AppLayoutType = AppLayoutType
 
     constructor(
         public appState: AppStateService,
         private tokenSharingService: TokenSharingService,
-        private activatedRoute: ActivatedRoute,
-        private router: Router,
     ) {
         this.tokenSharingService.init()
     }
 
-    private getLayoutType$(): Observable<AppLayoutType> {
-        return this.router.events.pipe(
-            filter((event) => event instanceof NavigationEnd),
-            map(() => this.activatedRoute),
-            map((route) => {
-                while (route.firstChild) route = route.firstChild
-                return route
-            }),
-            filter((route) => route.outlet === 'primary'),
-            mergeMap((route) => route.data),
-            map(({ layout }) => layout),
-        )
-    }
 }

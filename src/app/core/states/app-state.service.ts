@@ -1,30 +1,47 @@
-import { Injectable } from '@angular/core'
+import { Inject, Injectable } from '@angular/core'
 import {
-    ActivatedRoute,
     NavigationCancel,
     NavigationEnd,
     NavigationError,
     NavigationStart,
-    Router,
+    Router
 } from '@angular/router'
-import { APP_NAME } from '@core/config/app-title'
-import { BehaviorSubject, combineLatest, filter, interval, map, zip } from 'rxjs'
+import { APP_CONFIG, AppConfig } from '@core/config/app-config'
+import { AppLayoutType } from '@core/models'
+import { BehaviorSubject, Observable, combineLatest, filter, interval, map, zip } from 'rxjs'
 
+/**
+ * Stores crucial information and functionalities for the app's full lifecycle
+ */
 @Injectable({
     providedIn: 'root',
 })
 export class AppStateService {
     #isLoading = true
     private loadingSubject = new BehaviorSubject<boolean>(false)
+    private layoutSubject = new BehaviorSubject<AppLayoutType>(AppLayoutType.Blank)
 
-    appName = APP_NAME
+    get appName(): string {
+        return this.appConfig.appName
+    }
 
     get loading(): boolean {
         return this.#isLoading
     }
 
-    constructor(private router: Router, private activatedRoute: ActivatedRoute) {
+    get layout$(): Observable<AppLayoutType> {
+        return this.layoutSubject.asObservable()
+    }
+
+    constructor(
+        private router: Router,
+        @Inject(APP_CONFIG) readonly appConfig: AppConfig,
+    ) {
         this.continueUpdatingLoadingValue()
+    }
+
+    setLayout(value: AppLayoutType) {
+        this.layoutSubject.next(value)
     }
 
     startLoading(): void {

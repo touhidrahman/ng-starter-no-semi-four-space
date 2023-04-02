@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common'
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
 import { RouterModule } from '@angular/router'
 import { AuthService } from '@core/auth/services/auth.service'
-import { APP_NAME } from '@core/config/app-title'
+import { AppStateService } from '@core/states/app-state.service'
 import { isSmallScreen } from '@core/utils/screen.util'
 import { FooterOneComponent } from '@features/footers/footer-one/footer-one.component'
 import { HeaderOneComponent } from '@features/headers/header-one/header-one.component'
@@ -19,10 +19,10 @@ import { MaterialModules } from '@features/ui/material'
 export class LayoutSidebarComponent {
     @Input() opened = false
 
-    appName = APP_NAME
+    appName = this.appState.appName
     isSmallScreen = false
 
-    constructor(public auth: AuthService) {
+    constructor(public auth: AuthService, private appState: AppStateService) {
         this.isSmallScreen = isSmallScreen()
         if (this.isSmallScreen) {
             this.opened = false
