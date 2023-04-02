@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router'
 import { authGuardFn } from '@core/auth/guards/auth.guard'
-import { ProfileTitleResolver } from '@core/config/app-title'
 import { AppLayoutType } from '@core/models'
 
 export const ROUTES: Routes = [
@@ -49,7 +48,7 @@ export const ROUTES: Routes = [
         path: 'profile',
         data: { layout: AppLayoutType.Default },
         loadComponent: () => import('./profile-page/profile-page.component'),
-        title: ProfileTitleResolver,
+        title: 'Profile',
         canActivate: [authGuardFn({ redirectTo: ['/login'] })],
     },
     {

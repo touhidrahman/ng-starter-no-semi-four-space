@@ -15,12 +15,3 @@ export class CustomTitleStrategy extends TitleStrategy {
         this.title.setTitle(pageTitle ? `${APP_NAME} - ${pageTitle}` : APP_NAME)
     }
 }
-
-@Injectable({
-    providedIn: 'root',
-})
-export class ProfileTitleResolver {
-    resolve() {
-        return Promise.resolve('My Profile')
-    }
-}

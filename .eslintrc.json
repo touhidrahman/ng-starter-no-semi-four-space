@@ -14,7 +14,7 @@
     "rules": {
         "no-unused-vars": "off",
         "arrow-parens": ["off", "always"],
-        "brace-style": ["off", "off"],
+        "brace-style": ["off"],
         "comma-dangle": ["off", "always-multiline"],
         "max-len": [
             "error",
