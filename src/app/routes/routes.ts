@@ -1,14 +1,14 @@
 import { Routes } from '@angular/router'
 import { authGuardFn } from '@core/auth/guards/auth.guard'
-import { setLayout } from '@core/config/app-layout-resolver'
+import { setLayout } from '@core/config/app-layout.resolver'
 import { AppLayoutType } from '@core/models'
 
 export const ROUTES: Routes = [
     {
         path: '',
-        loadComponent: () => import('./home-page/home-page.component'),
         title: 'Home',
         resolve: { layout: setLayout(AppLayoutType.Default) },
+        loadComponent: () => import('./home-page/home-page.component'),
     },
     {
         path: 'home',
@@ -17,15 +17,15 @@ export const ROUTES: Routes = [
     },
     {
         path: 'login',
-        resolve: { layout: setLayout(AppLayoutType.Center) },
-        loadComponent: () => import('./auth/login-page/login-page.component'),
         title: 'Login',
+        resolve: { layout: setLayout(AppLayoutType.Blank) },
+        loadComponent: () => import('./auth/login-page/login-page.component'),
     },
     {
         path: 'register',
+        title: 'Register',
         resolve: { layout: setLayout(AppLayoutType.Center) },
         loadComponent: () => import('./auth/register-page/register-page.component'),
-        title: 'Register',
     },
     {
         path: 'verify-email/:token',
@@ -47,15 +47,15 @@ export const ROUTES: Routes = [
     },
     {
         path: 'profile',
-        resolve: { layout: setLayout(AppLayoutType.Default) },
-        loadComponent: () => import('./profile-page/profile-page.component'),
         title: 'Profile',
         canActivate: [authGuardFn({ redirectTo: ['/login'] })],
+        resolve: { layout: setLayout(AppLayoutType.Default) },
+        loadComponent: () => import('./profile-page/profile-page.component'),
     },
     {
         path: '**',
+        title: '404',
         resolve: { layout: setLayout(AppLayoutType.Center) },
         loadComponent: () => import('./not-found-page/not-found-page.component'),
-        title: '404',
     },
 ]

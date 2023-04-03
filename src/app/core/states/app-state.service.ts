@@ -1,7 +1,6 @@
 import { Inject, Injectable } from '@angular/core'
 import { APP_CONFIG, AppConfig } from '@core/config/app-config'
-import { AppLayoutType } from '@core/models'
-import { BehaviorSubject, Observable } from 'rxjs'
+import { BehaviorSubject } from 'rxjs'
 
 /**
  * Stores crucial information and functionalities for the app's full lifecycle
@@ -11,7 +10,6 @@ import { BehaviorSubject, Observable } from 'rxjs'
 })
 export class AppStateService {
     private loadingSubject = new BehaviorSubject<boolean>(true)
-    private layoutSubject = new BehaviorSubject<AppLayoutType>(AppLayoutType.Default)
 
     get appName(): string {
         return this.appConfig.appName
@@ -21,15 +19,7 @@ export class AppStateService {
         return this.loadingSubject.value
     }
 
-    get layout$(): Observable<AppLayoutType> {
-        return this.layoutSubject.asObservable()
-    }
-
     constructor(@Inject(APP_CONFIG) readonly appConfig: AppConfig) {}
-
-    setLayout(value: AppLayoutType) {
-        this.layoutSubject.next(value)
-    }
 
     startLoading(): void {
         this.loadingSubject.next(true)
