@@ -43,10 +43,3 @@ export enum UserRole {
     USER = 'USER',
 }
 
-export enum AppLayoutType {
-    Default = 'default',
-    Sidebar = 'sidebar', // with sidebar
-    Center = 'center', // centered content, no frame
-    Blank = 'blank', // no frame
-    Admin = 'admin', // admin layout
-}

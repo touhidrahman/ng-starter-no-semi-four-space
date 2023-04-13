@@ -2,12 +2,12 @@ import { CommonModule } from '@angular/common'
 import { Component } from '@angular/core'
 import { RouterModule } from '@angular/router'
 import { TokenSharingService } from '@core/auth/services/token-sharing.service'
-import { AppLayoutService } from '@core/config/app-layout.service'
-import { AppLayoutType } from '@core/models'
 import { AppStateService } from '@core/states/app-state.service'
 import { LayoutCenteredComponent } from '@features/layout/layout-centered/layout-centered.component'
 import { LayoutDefaultComponent } from '@features/layout/layout-default/layout-default.component'
 import { LayoutSidebarComponent } from '@features/layout/layout-sidebar/layout-sidebar.component'
+import { PageLayout } from '@features/layout/page-layout.enum'
+import { PageLayoutService } from '@features/layout/page-layout.service'
 import { take, timer } from 'rxjs'
 
 @Component({
@@ -21,22 +21,22 @@ import { take, timer } from 'rxjs'
                 </svg>
             </div>
         </div>
-        <ng-container [ngSwitch]="appLayoutService.layout$ | async">
-            <app-layout-default *ngSwitchCase="AppLayoutType.Default"></app-layout-default>
-            <app-layout-centered *ngSwitchCase="AppLayoutType.Center"></app-layout-centered>
-            <app-layout-sidebar *ngSwitchCase="AppLayoutType.Sidebar"></app-layout-sidebar>
-            <router-outlet *ngSwitchCase="AppLayoutType.Blank"></router-outlet>
+        <ng-container [ngSwitch]="pageLayoutService.layout$ | async">
+            <app-layout-default *ngSwitchCase="PageLayout.Default"></app-layout-default>
+            <app-layout-centered *ngSwitchCase="PageLayout.Center"></app-layout-centered>
+            <app-layout-sidebar *ngSwitchCase="PageLayout.Sidebar"></app-layout-sidebar>
+            <router-outlet *ngSwitchCase="PageLayout.Blank"></router-outlet>
             <app-layout-default *ngSwitchDefault></app-layout-default>
         </ng-container>
     `,
     imports: [CommonModule, RouterModule, LayoutCenteredComponent, LayoutDefaultComponent, LayoutSidebarComponent],
 })
 export class AppComponent {
-    readonly AppLayoutType = AppLayoutType
+    readonly PageLayout = PageLayout
 
     constructor(
         public appState: AppStateService,
-        public appLayoutService: AppLayoutService,
+        public pageLayoutService: PageLayoutService,
         private tokenSharingService: TokenSharingService,
     ) {
         this.tokenSharingService.init()

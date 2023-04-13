@@ -3,7 +3,7 @@ import { provideHttpClient, withInterceptors, withJsonpSupport, withXsrfConfigur
 import { importProvidersFrom } from '@angular/core'
 import { bootstrapApplication } from '@angular/platform-browser'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import { provideRouter, TitleStrategy, withInMemoryScrolling, withRouterConfig } from '@angular/router'
+import { PreloadAllModules, TitleStrategy, provideRouter, withComponentInputBinding, withInMemoryScrolling, withPreloading, withRouterConfig } from '@angular/router'
 import { AuthHeaderInterceptorFn } from '@core/auth/interceptors/auth-header.interceptor'
 import { APP_CONFIG } from '@core/config/app-config'
 import { CustomTitleStrategy } from '@core/config/custom-title.service'
@@ -21,6 +21,8 @@ bootstrapApplication(AppComponent, {
             ROUTES,
             withInMemoryScrolling({ scrollPositionRestoration: 'enabled' }),
             withRouterConfig({ onSameUrlNavigation: 'reload' }),
+            withComponentInputBinding(),
+            withPreloading(PreloadAllModules),
         ),
         importProvidersFrom(BrowserAnimationsModule),
     ],
