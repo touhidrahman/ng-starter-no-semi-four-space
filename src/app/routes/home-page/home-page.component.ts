@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router'
 import { AppStateService } from '@core/states/app-state.service'
 import { ButtonComponent } from '@features/ui/button/button.component'
 import { MaterialModules } from '@features/ui/material'
+import { ToastService } from '@features/ui/toast/toast.service'
 
 @Component({
     standalone: true,
@@ -12,5 +13,13 @@ import { MaterialModules } from '@features/ui/material'
     styleUrls: ['./home-page.component.scss'],
 })
 export default class HomePageComponent {
-    constructor(public appState: AppStateService) {}
+    constructor(public appState: AppStateService, public toast: ToastService) {}
+
+    openToast(): void {
+        this.toast.success("This is a toast")
+    }
+
+    openSnackbar(): void {
+        this.toast.snackbar("This is a toast")
+    }
 }

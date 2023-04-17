@@ -9,7 +9,7 @@ import { Observable } from 'rxjs'
     providedIn: 'root',
 })
 export class UserService extends ApiService<User, unknown> {
-    constructor(protected http: HttpClient, @Inject(APP_CONFIG) appConfig: AppConfig) {
+    constructor(protected override http: HttpClient, @Inject(APP_CONFIG) appConfig: AppConfig) {
         super(http, 'users', appConfig)
     }
 

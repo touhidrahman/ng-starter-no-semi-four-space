@@ -5,7 +5,7 @@ import { Router, RouterModule } from '@angular/router'
 import { AuthService } from '@core/auth/services/auth.service'
 import { FooterOneComponent } from '@features/footers/footer-one/footer-one.component'
 import { HeaderOneComponent } from '@features/headers/header-one/header-one.component'
-import { HotToastService } from '@ngneat/hot-toast'
+import { ToastService } from '@features/ui/toast/toast.service'
 
 @Component({
     standalone: true,
@@ -25,7 +25,7 @@ export default class ProfilePageComponent implements OnInit {
         private auth: AuthService,
         private fb: FormBuilder,
         private router: Router,
-        private toast: HotToastService,
+        private toast: ToastService,
     ) {}
 
     ngOnInit(): void {

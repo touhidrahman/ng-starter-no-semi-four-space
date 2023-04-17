@@ -1,3 +1,5 @@
+<app-header-one class="sticky top-0 z-50" (sidenavToggle)="sidenav.toggle()"></app-header-one>
+
 <mat-sidenav-container class="sidenav-container">
     <mat-sidenav #sidenav [mode]="isSmallScreen ? 'over' : 'side'" [(opened)]="opened">
         <mat-toolbar color="">
@@ -29,9 +31,7 @@
     </mat-sidenav>
 
     <mat-sidenav-content>
-        <app-header-one class="sticky top-0 z-50" (sidenavToggle)="sidenav.toggle()"></app-header-one>
-
-        <main class="app-content px-2 pt-4 md:px-6">
+        <main class="px-2 pt-4 md:px-6">
             <router-outlet></router-outlet>
         </main>
 

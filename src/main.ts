@@ -10,6 +10,7 @@ import { CustomTitleStrategy } from '@core/config/custom-title.service'
 import { AppComponent } from './app/app.component'
 import { ROUTES } from './app/routes/routes'
 import { environment } from './environments/environment'
+import { HotToastModule } from '@ngneat/hot-toast'
 
 bootstrapApplication(AppComponent, {
     providers: [
@@ -25,5 +26,8 @@ bootstrapApplication(AppComponent, {
             withPreloading(PreloadAllModules),
         ),
         importProvidersFrom(BrowserAnimationsModule),
+        importProvidersFrom(
+            HotToastModule.forRoot(),
+        ),
     ],
 }).catch((err: any) => console.error(err))

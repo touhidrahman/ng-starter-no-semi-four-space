@@ -7,7 +7,7 @@ export const ROUTES: Routes = [
     {
         path: '',
         title: 'Home',
-        resolve: { layout: setLayout(PageLayout.Default) },
+        resolve: { layout: setLayout(PageLayout.Sidebar) },
         loadComponent: () => import('./home-page/home-page.component'),
     },
     {

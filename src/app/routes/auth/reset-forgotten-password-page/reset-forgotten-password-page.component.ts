@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core'
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms'
 import { ActivatedRoute, Router, RouterModule } from '@angular/router'
 import { AuthService } from '@core/auth/services/auth.service'
-import { HotToastService } from '@ngneat/hot-toast'
+import { ToastService } from '@features/ui/toast/toast.service'
 
 @Component({
     standalone: true,
@@ -25,7 +25,7 @@ export default class ResetForgottenPasswordPageComponent implements OnInit {
         private fb: FormBuilder,
         private router: Router,
         private ar: ActivatedRoute,
-        private toast: HotToastService,
+        private toast: ToastService,
     ) {}
 
     ngOnInit(): void {

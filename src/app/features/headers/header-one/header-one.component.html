@@ -1,8 +1,13 @@
 <app-navbar>
-    <h1 [routerLink]="['/']" class="cursor-pointer text-3xl font-bold text-primary-content">{{ appName }}</h1>
+    <button id="toggler" mat-icon-button (click)="toggle()">
+        <mat-icon class="text-white"> menu </mat-icon>
+    </button>
+
     <div [routerLink]="['/']" id="logo" class="cursor-pointer bg-white p-2">
         <img src="./../../../assets/logoipsum-282.svg" class="text-accent" />
     </div>
+
+    <h1 [routerLink]="['/']" class="cursor-pointer text-3xl font-bold text-primary-content">{{ appName }}</h1>
 
     <div class="flex items-stretch">
         <a class="btn-ghost rounded-btn btn text-primary-content">Button</a>
@@ -16,27 +21,4 @@
             </ul>
         </div>
     </div>
-
-    <!-- <section class="space-x-2">
-        <a
-            *ngIf="!auth.isLoggedIn"
-            app-button
-            shape="round"
-            color="secondary"
-            class="text-white"
-            [routerLink]="['/register']"
-            >Register</a
-        >
-        <a *ngIf="!auth.isLoggedIn" app-button shape="round" color="primary" [routerLink]="['/login']">Login</a>
-        <a
-            *ngIf="auth.isLoggedIn"
-            app-button
-            shape="round"
-            color="secondary"
-            class="text-white"
-            (click)="auth.signOut()"
-            >Logout</a
-        >
-        <a *ngIf="auth.isLoggedIn" app-button shape="round" [routerLink]="['/profile']">Profile</a>
-    </section> -->
 </app-navbar>

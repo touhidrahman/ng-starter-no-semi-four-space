@@ -2,11 +2,11 @@
     <h1 class="text-primary-500 mt-8 text-3xl font-bold">Home Page Works!</h1>
 
     <div class="mt-12 space-x-4">
-        <button class="btn-outline btn">
+        <button (click)="openSnackbar()" class="btn-outline btn">
             <i class="bx bx-home mr-2"></i>
             Default
         </button>
-        <button class="btn-primary btn">Primary</button>
+        <button (click)="openToast()" class="btn-primary btn">Primary</button>
         <button class="btn-secondary btn">Secondary</button>
         <button class="btn-accent btn">Accent</button>
         <button class="btn-ghost btn">Ghost</button>
