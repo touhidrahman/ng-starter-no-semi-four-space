@@ -4,6 +4,7 @@ export type ByteUnit = 'B' | 'kB' | 'KB' | 'MB' | 'GB' | 'TB'
 
 @Pipe({
     name: 'bytes',
+    standalone: true
 })
 export class BytesPipe implements PipeTransform {
     static formats: { [key: string]: { max: number; prev?: ByteUnit } } = {

@@ -1,5 +1,5 @@
 <main class="container mx-auto">
-    <h1 class="text-primary-500 mt-8 text-3xl font-bold">Home Page Works!</h1>
+    <h1 class="text-primary-500 text-3xl font-bold">Home Page Works!</h1>
 
     <div class="mt-12 space-x-4">
         <button (click)="openSnackbar()" class="btn-outline btn">
@@ -31,24 +31,16 @@
         </div>
     </div>
 
-    <div class="mt-12">
-        <div class="alert alert-success shadow-lg">
-            <div>
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-6 w-6 flex-shrink-0 stroke-current"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                >
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                </svg>
-                <span>Your purchase has been confirmed!</span>
-            </div>
-        </div>
+    <div *ngFor="let item of 6 | spreadIntoArray" class="mt-12">
+        Distinctio quo eum inventore. Voluptatem saepe ut magni sed est hic molestiae asperiores. Quo esse facilis velit
+        rerum quasi natus ducimus in. Blanditiis dolores similique ducimus nihil. Qui similique a provident minus. Nobis
+        et et asperiores corporis numquam maxime libero consequatur. Quia nam maiores ut cumque. Suscipit quis ducimus
+        ea recusandae repudiandae. Sed pariatur quis fuga. Culpa cumque sit error saepe quidem aut aperiam et. Et qui
+        atque perspiciatis dolor. Quia id laudantium assumenda dicta. Nihil aspernatur neque ipsum occaecati est.
+        Praesentium perspiciatis eum quae quaerat. Qui illum est officia asperiores vero sed. Inventore in mollitia
+        excepturi itaque sapiente. Aliquam quidem molestias sint et placeat officiis magni. Asperiores est nulla
+        voluptas nihil eligendi inventore. Cum minima vitae eos perspiciatis pariatur sit accusamus. Minima officiis
+        officia qui. Animi quas qui illo totam rerum odit rerum. Aut omnis consequatur quos. Porro provident quo
+        ducimus. Vitae inventore omnis dolorum doloremque accusamus aut. Sequi consequatur rerum eveniet optio nobis et.
     </div>
 </main>

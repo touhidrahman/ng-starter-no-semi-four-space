@@ -2,6 +2,7 @@ import { Pipe, PipeTransform } from '@angular/core'
 
 @Pipe({
     name: 'spreadIntoArray',
+    standalone: true
 })
 export class SpreadIntoArrayPipe implements PipeTransform {
     transform(value: number, startIndex = 0): number[] {

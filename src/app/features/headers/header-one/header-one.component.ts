@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common'
-import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output } from '@angular/core'
+import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output, Input } from '@angular/core'
 import { MatIconModule } from '@angular/material/icon'
 import { RouterModule } from '@angular/router'
 import { AuthService } from '@core/auth/services/auth.service'
@@ -16,6 +16,7 @@ import { NavbarComponent } from '@features/ui/navbar/navbar.component'
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderOneComponent implements OnInit {
+    @Input() sidenavToggleVisible = true
     @Output() sidenavToggle = new EventEmitter<void>();
 
     appName = this.appState.appName

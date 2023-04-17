@@ -1,40 +1,28 @@
 <app-header-one class="sticky top-0 z-50" (sidenavToggle)="sidenav.toggle()"></app-header-one>
 
-<mat-sidenav-container class="sidenav-container">
+<mat-sidenav-container>
     <mat-sidenav #sidenav [mode]="isSmallScreen ? 'over' : 'side'" [(opened)]="opened">
-        <mat-toolbar color="">
-            <span>{{ appName }}</span>
-
-            <span class="flex-1"></span>
-
-            <button mat-icon-button (click)="sidenav.toggle()" class="">
-                <mat-icon>close</mat-icon>
-            </button>
-        </mat-toolbar>
-
-        <div class="">
-            <div></div>
-
-            <div class="absolute bottom-0 w-full">
-                <mat-selection-list #sidebarMenuRef [multiple]="false">
-                    <mat-list-option *ngIf="auth.isLoggedIn" [routerLink]="['/logout']" value="logout">
-                        <mat-icon matListIcon>logout</mat-icon>
-                        <h3 matLine>Logout</h3>
-                    </mat-list-option>
-                    <mat-list-option *ngIf="!auth.isLoggedIn" [routerLink]="['/login']" value="login">
-                        <mat-icon matListIcon>login</mat-icon>
-                        <h3 matLine>Login</h3>
-                    </mat-list-option>
-                </mat-selection-list>
-            </div>
+        <div class="space-y-2">
+            <a href="#" class="btn-accent btn-block btn">Home</a>
+            <a href="#" class="btn-accent btn-block btn">Profile</a>
+            <a href="#" class="btn-accent btn-block btn">Settings</a>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 p-2">
+            <a *ngIf="!auth.isLoggedIn" [routerLink]="['/login']" class="btn-primary btn-block btn">
+                <mat-icon class="mr-2">login</mat-icon>
+                Login
+            </a>
+            <a *ngIf="auth.isLoggedIn" [routerLink]="['/logout']" class="btn-accent btn-block btn">
+                <mat-icon class="mr-2">logout</mat-icon>
+                Logout
+            </a>
         </div>
     </mat-sidenav>
 
     <mat-sidenav-content>
-        <main class="px-2 pt-4 md:px-6">
+        <main class="block p-4 pb-12">
             <router-outlet></router-outlet>
         </main>
-
-        <app-footer-one></app-footer-one>
+        <app-footer-copyright></app-footer-copyright>
     </mat-sidenav-content>
 </mat-sidenav-container>

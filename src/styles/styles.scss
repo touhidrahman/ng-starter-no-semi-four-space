@@ -11,12 +11,62 @@
 // Be sure that you only ever include this mixin once!
 @include mat.core();
 
+$my-palette: (
+    50: #f3fcff,
+    100: #eef7ff,
+    200: #e9f2ff,
+    300: #dfe8f4,
+    400: #bdc5d2,
+    500: #9fa7b3,
+    600: #757d89,
+    700: #616974,
+    800: #424954,
+    900: #202831,
+    contrast: (
+        50: rgba(black, 0.87),
+        100: rgba(black, 0.87),
+        200: rgba(black, 0.87),
+        300: white,
+        400: white,
+        500: white,
+        600: white,
+        700: white,
+        800: white,
+        900: white,
+    ),
+);
+
+$my-accent-palette: (
+    50: #fbefdd,
+    100: #e9d6c2,
+    200: #d4bca4,
+    300: #bca184,
+    400: #a98b69,
+    500: #97764f,
+    600: #8a6b48,
+    700: #7a5d3e,
+    800: #6d4f35,
+    900: #5d402a,
+    contrast: (
+        50: rgba(black, 0.87),
+        100: rgba(black, 0.87),
+        200: rgba(black, 0.87),
+        300: rgba(black, 0.87),
+        400: white,
+        500: white,
+        600: white,
+        700: white,
+        800: white,
+        900: white,
+    ),
+);
+
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
 // https://github.com/angular/components/blob/main/src/material/core/theming/_palette.scss
-$app-primary: mat.define-palette(mat.$light-blue-palette);
-$app-accent: mat.define-palette(mat.$teal-palette, A200, A100, A400);
+$app-primary: mat.define-palette($my-palette);
+$app-accent: mat.define-palette($my-accent-palette);
 
 // The warn palette is optional (defaults to red).
 $app-warn: mat.define-palette(mat.$red-palette);
@@ -44,16 +94,18 @@ $app-theme: mat.define-light-theme(
 @import 'tailwindcss/utilities';
 
 :root {
-    --swiper-theme-color: #03a9f4;
+    --my-primary: #616974;
+    --my-accent: #bca184;
+    --swiper-theme-color: #616974;
     --swiper-navigation-size: 20px;
-    --spinner-color: #03a9f4;
+    --spinner-color: #d4bca4;
 }
 
 html,
 body {
     height: 100%;
     margin: 0;
-    font-family: 'B612', sans-serif;
+    font-family: 'IBM Plex Sans', sans-serif;
 }
 
 @import 'app-spinner';
