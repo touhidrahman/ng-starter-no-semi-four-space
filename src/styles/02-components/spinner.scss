@@ -1,4 +1,4 @@
-.app-loading {
+.app-loading-container {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -7,7 +7,7 @@
     height: 100%;
 }
 
-.app-loading .spinner {
+.app-loading-container .spinner {
     height: 8rem;
     width: 8rem;
     animation: rotate 2s linear infinite;
@@ -20,7 +20,7 @@
     margin: auto;
 }
 
-.app-loading .spinner .path {
+.app-loading-container .spinner .path {
     stroke-dasharray: 1, 200;
     stroke-dashoffset: 0;
     animation: dash 1.5s ease-in-out infinite;

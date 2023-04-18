@@ -1,0 +1,14 @@
+html,
+body {
+    @apply h-full;
+}
+
+body {
+    @apply bg-slate-50;
+    @apply text-slate-800;
+}
+
+body.dark {
+    @apply bg-zinc-900;
+    @apply text-zinc-200;
+}

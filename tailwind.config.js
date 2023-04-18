@@ -12,18 +12,21 @@ module.exports = {
         themes: [
             {
                 mytheme: {
-                    primary: '#616974',
+                    primary: '#416680',
+                    'primary-content': '#ffffff',
                     secondary: '#a4d4d4',
-                    accent: '#d4bca4',
-                    neutral: '#181A2A',
+                    'secondary-content': '#000000',
+                    accent: '#38bfa5',
+                    'accent-content': '#000000',
+                    neutral: '#d8dadc',
                     'base-100': '#FFFFFF',
                     info: '#3ABFF8',
-                    success: '#36D399',
+                    success: '#65a30d',
                     warning: '#FBBD23',
-                    error: '#ea580c',
+                    error: '#cc0000',
 
                     '--rounded-box': '0.25rem', // border radius rounded-box utility class, used in card and other large boxes
-                    '--rounded-btn': '0.15rem', // border radius rounded-btn utility class, used in buttons and similar element
+                    '--rounded-btn': '0.25rem', // border radius rounded-btn utility class, used in buttons and similar element
                     '--rounded-badge': '1.9rem', // border radius rounded-badge utility class, used in badges and similar
                     '--animation-btn': '0.25s', // duration of animation when you click on button
                     '--animation-input': '0.2s', // duration of animation for inputs like checkbox, toggle, radio, etc
@@ -40,6 +43,7 @@ module.exports = {
         require('@tailwindcss/aspect-ratio'),
         require('@tailwindcss/forms'),
         require('@tailwindcss/typography'),
+        require('tailwindcss-elevation'),
         require('tailwind-scrollbar'),
         require('prettier-plugin-tailwindcss'),
         require('daisyui'),
