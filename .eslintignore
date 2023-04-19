@@ -1,6 +1,10 @@
-package.json
-package-lock.json
-dist
-node_modules
 **/*.spec.ts
 cypress
+dist
+dist
+node_modules
+node_modules/*
+package-lock.json
+package.json
+pnpm-lock.yaml
+yarn.lock

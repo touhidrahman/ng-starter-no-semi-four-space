@@ -1,7 +1,7 @@
 import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core'
 
 @Directive({
-    selector: '[ngRepeat]',
+    selector: '[appRepeat]',
     standalone: true,
 })
 export class RepeatDirective {

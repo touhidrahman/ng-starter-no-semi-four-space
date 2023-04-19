@@ -1,15 +1,19 @@
 import { HttpHandlerFn, HttpInterceptorFn, HttpRequest } from '@angular/common/http'
 import { inject } from '@angular/core'
 import { TokenStorageService } from '@core/auth/services/token-storage.service'
+import { environment } from '@environment/environment'
 
-export const AuthHeaderInterceptorFn: HttpInterceptorFn = (req: HttpRequest<unknown>, next: HttpHandlerFn) => {
+export const AuthHeaderInterceptorFn: HttpInterceptorFn = (request: HttpRequest<unknown>, next: HttpHandlerFn) => {
     const accessToken = inject(TokenStorageService).getAccessToken()
+    const isApiUrl = request.url.startsWith(environment.apiUrl)
 
-    if (accessToken) {
-        req = req.clone({
-            headers: req.headers.set('Authorization', 'Bearer ' + accessToken),
+    if (accessToken && isApiUrl) {
+        request = request.clone({
+            setHeaders: {
+                Authorization: `Bearer ${accessToken}`,
+            },
         })
     }
 
-    return next(req)
+    return next(request)
 }

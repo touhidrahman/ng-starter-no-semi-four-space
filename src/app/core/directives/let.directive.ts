@@ -1,7 +1,7 @@
 import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core'
 
 @Directive({
-    selector: '[ngLet]',
+    selector: '[appLet]',
     standalone: true,
 })
 export class LetDirective {

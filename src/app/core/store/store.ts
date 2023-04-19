@@ -2,7 +2,7 @@ import { isEqual } from 'radash'
 import { distinctUntilChanged, filter, map, Observable, share, Subject, takeUntil } from 'rxjs'
 import { StateSubject } from './state-subject'
 
-export class Store<T extends Object> {
+export class Store<T> {
     private unsubscriber: Subject<void>
     private state: StateSubject<T>
 

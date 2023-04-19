@@ -3,18 +3,18 @@ import { Params } from '@angular/router'
 import { AppConfig } from '@core/config/app-config'
 import { Observable } from 'rxjs'
 
-export abstract class AbstractApiService<T, DtoT extends { id?: string }> {
+export abstract class AbstractApiService<T> {
     abstract findById(id: string): Observable<T>
     abstract find(params: Params): Observable<T[]>
     abstract search(term: string): Observable<T[]>
     abstract count(params: Params): Observable<number>
-    abstract create(dto: DtoT | Partial<T>): Observable<T>
-    abstract createMany(dto: DtoT[] | Partial<T>[]): Observable<T[]>
-    abstract update(id: string, body: DtoT | Partial<T>): Observable<T>
+    abstract create(dto: Partial<T>): Observable<T>
+    abstract createMany(dto: Partial<T>[]): Observable<T[]>
+    abstract update(id: string, body: Partial<T>): Observable<T>
     abstract delete(id: string): Observable<void>
 }
 
-export class ApiService<T, DtoT> implements AbstractApiService<T, DtoT> {
+export class ApiService<T, DtoT> implements AbstractApiService<T> {
     protected apiUrl: string
 
     constructor(protected http: HttpClient, resource: string, appConfig: AppConfig) {

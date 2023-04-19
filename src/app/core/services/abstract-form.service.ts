@@ -2,10 +2,10 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms'
 import { Observable, tap, throwError } from 'rxjs'
 import { AbstractApiService } from './api.service'
 
-export abstract class AbstractFormService<T, DtoT extends { id?: string }> {
+export abstract class AbstractFormService<T> {
     form: FormGroup
 
-    constructor(protected fb: FormBuilder, protected apiService: AbstractApiService<T, DtoT>) {
+    constructor(protected fb: FormBuilder, protected apiService: AbstractApiService<T>) {
         this.form = this.buildForm()
     }
 
@@ -14,11 +14,11 @@ export abstract class AbstractFormService<T, DtoT extends { id?: string }> {
         return this.form.valid
     }
 
-    getFormValue(): DtoT {
+    getFormValue(): T {
         return this.form.value
     }
 
-    setFormValue(dto: DtoT | null): void {
+    setFormValue(dto: (T & { id?: string }) | null): void {
         if (!dto) {
             this.form.reset()
             return
@@ -34,7 +34,7 @@ export abstract class AbstractFormService<T, DtoT extends { id?: string }> {
     abstract buildForm(): FormGroup
 
     fillFormById$(id: string): Observable<T> {
-        return this.apiService.findById(id).pipe(tap((value) => this.setFormValue(value as unknown as DtoT)))
+        return this.apiService.findById(id).pipe(tap((value) => this.setFormValue(value as T & { id?: string })))
     }
 
     save$(): Observable<T> {

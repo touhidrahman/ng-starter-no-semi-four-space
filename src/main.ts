@@ -11,13 +11,18 @@ import { AppComponent } from './app/app.component'
 import { ROUTES } from './app/routes/routes'
 import { environment } from './environments/environment'
 import { HotToastModule } from '@ngneat/hot-toast'
+import { serverErrorInterceptorFn } from '@core/interceptors/server-error.interceptor'
 
 bootstrapApplication(AppComponent, {
     providers: [
         { provide: APP_CONFIG, useValue: environment },
         { provide: DATE_PIPE_DEFAULT_OPTIONS, useValue: { dateFormat: 'shortDate' } },
         { provide: TitleStrategy, useClass: CustomTitleStrategy },
-        provideHttpClient(withXsrfConfiguration({}), withJsonpSupport(), withInterceptors([AuthHeaderInterceptorFn])),
+        provideHttpClient(
+            withXsrfConfiguration({}),
+            withJsonpSupport(),
+            withInterceptors([AuthHeaderInterceptorFn, serverErrorInterceptorFn]),
+        ),
         provideRouter(
             ROUTES,
             withInMemoryScrolling({ scrollPositionRestoration: 'enabled' }),
@@ -26,8 +31,6 @@ bootstrapApplication(AppComponent, {
             withPreloading(PreloadAllModules),
         ),
         importProvidersFrom(BrowserAnimationsModule),
-        importProvidersFrom(
-            HotToastModule.forRoot(),
-        ),
+        importProvidersFrom(HotToastModule.forRoot()),
     ],
 }).catch((err: any) => console.error(err))

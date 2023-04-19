@@ -3,7 +3,7 @@ import { AuthService } from '@core/auth/services/auth.service'
 
 @Directive({
     standalone: true,
-    selector: '[ifAdmin]',
+    selector: '[appIfAdmin]',
 })
 export class IfAdminDirective {
     constructor(
