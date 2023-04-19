@@ -1,13 +1,15 @@
 import { inject } from '@angular/core'
 import { Router } from '@angular/router'
-import { UserRole } from '@core/models'
 import { AuthService } from '../services/auth.service'
 
+/**
+ * Checks whether user is admin or not
+ * @returns
+ */
 export const adminGuardFn = () => {
     const router = inject(Router)
     const authService = inject(AuthService)
-    const user = authService.user.value
-    if (user?.role === UserRole.ADMIN) return true
+    if (authService.isAdmin) return true
     router.navigate(['login'])
     return false
 }

@@ -1,0 +1,22 @@
+/* override material button to be bigger to match with daisyUI button */
+button[mat-button],
+button[mat-raised-button],
+button[mat-flat-button],
+button[mat-stroked-button] {
+    padding: 1.45rem;
+}
+
+/* override daisyUI button to match material button */
+.btn {
+    @apply text-base font-normal;
+}
+
+.btn-primary,
+.btn-secondary,
+.btn-accent {
+    @apply elevation-1;
+
+    &:hover {
+        @apply elevation-2;
+    }
+}

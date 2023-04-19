@@ -25,7 +25,11 @@ export class AuthService {
     }
 
     get isAdmin(): boolean {
-        return this.user.value?.role === UserRole.ADMIN || this.user.value?.role === UserRole.MODERATOR
+        return this.user.value?.role === UserRole.ADMIN
+    }
+
+    get isModerator(): boolean {
+        return this.user.value?.role === UserRole.MODERATOR
     }
 
     constructor(
