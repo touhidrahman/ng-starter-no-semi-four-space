@@ -17,10 +17,10 @@ export default class HomePageComponent {
     constructor(public appState: AppStateService, public toast: ToastService) {}
 
     openToast(): void {
-        this.toast.success("This is a toast")
+        this.toast.success('This is a toast')
     }
 
     openSnackbar(): void {
-        this.toast.snackbar("This is a toast")
+        this.toast.snackbar('This is a toast')
     }
 }

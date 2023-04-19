@@ -12,7 +12,14 @@ import { MaterialModules } from '@features/ui/material'
 @Component({
     selector: 'app-layout-sidebar',
     standalone: true,
-    imports: [CommonModule, RouterModule, MaterialModules, HeaderOneComponent, FooterOneComponent, FooterCopyrightComponent],
+    imports: [
+        CommonModule,
+        RouterModule,
+        MaterialModules,
+        HeaderOneComponent,
+        FooterOneComponent,
+        FooterCopyrightComponent,
+    ],
     templateUrl: './layout-sidebar.component.html',
     styleUrls: ['./layout-sidebar.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,

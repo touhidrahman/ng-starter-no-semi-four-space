@@ -32,5 +32,4 @@ export class AppStateService {
     setLoading(loading: boolean): void {
         this.loadingSubject.next(loading)
     }
-
 }

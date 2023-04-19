@@ -17,7 +17,7 @@ import { NavbarComponent } from '@features/ui/navbar/navbar.component'
 })
 export class HeaderOneComponent implements OnInit {
     @Input() sidenavToggleVisible = true
-    @Output() sidenavToggle = new EventEmitter<void>();
+    @Output() sidenavToggle = new EventEmitter<void>()
 
     appName = this.appState.appName
 
@@ -28,6 +28,6 @@ export class HeaderOneComponent implements OnInit {
     }
 
     toggle(): void {
-        this.sidenavToggle.next();
+        this.sidenavToggle.next()
     }
 }

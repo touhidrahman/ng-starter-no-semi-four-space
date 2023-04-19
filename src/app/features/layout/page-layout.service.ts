@@ -15,5 +15,4 @@ export class PageLayoutService {
     setLayout(value: PageLayout) {
         this.layoutSubject.next(value)
     }
-
 }
