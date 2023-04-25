@@ -1,29 +1,17 @@
 <button (click)="expanded = !expanded" class="btn-accent btn-block btn">
     <div class="inline-flex w-full items-center justify-between">
         <div class="flex items-center">
-            <mat-icon class="mr-3">home</mat-icon>
-            <span>Home</span>
+            <mat-icon class="mr-3">{{ matIconString }}</mat-icon>
+            <span>{{ buttonLabel }}</span>
         </div>
-        <mat-icon [class.rotate-180]="expanded">home</mat-icon>
+        <mat-icon [class.rotate-180]="expanded">expand_more</mat-icon>
     </div>
 </button>
 <ul *ngIf="expanded" class="menu w-full rounded bg-base-100 p-2 text-primary">
-    <li>
-        <a [routerLink]="[]">
-            <mat-icon>folder</mat-icon>
-            Folder
-        </a>
-    </li>
-    <li>
-        <a [routerLink]="[]">
-            <mat-icon>eye</mat-icon>
-            Eye
-        </a>
-    </li>
-    <li>
-        <a [routerLink]="[]">
-            <mat-icon>cog</mat-icon>
-            Settings
+    <li *ngFor="let item of dropdownItems">
+        <a [routerLink]="item.routerLinkCommands">
+            <mat-icon>{{ item.matIconString }}</mat-icon>
+            {{ item.label }}
         </a>
     </li>
 </ul>

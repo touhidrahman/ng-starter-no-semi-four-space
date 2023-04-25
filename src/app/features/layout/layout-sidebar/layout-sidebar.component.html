@@ -3,62 +3,35 @@
 <mat-sidenav-container>
     <mat-sidenav #sidenav [mode]="isSmallScreen ? 'over' : 'side'" [(opened)]="opened">
         <div class="space-y-2">
-            <button (click)="menuToggles.home = !menuToggles.home" class="btn-accent btn-block btn">
-                <div class="inline-flex w-full items-center justify-between">
-                    <div class="flex items-center">
-                        <mat-icon class="mr-3">home</mat-icon>
-                        <span>Home</span>
-                    </div>
-                    <mat-icon [class.rotate-180]="menuToggles.home">home</mat-icon>
-                </div>
-            </button>
-            <ul *ngIf="menuToggles.home" class="menu w-full rounded bg-base-100 p-2 text-primary">
-                <li>
-                    <a [routerLink]="[]">
-                        <mat-icon>folder</mat-icon>
-                        Folder
-                    </a>
-                </li>
-                <li>
-                    <a [routerLink]="[]">
-                        <mat-icon>eye</mat-icon>
-                        Eye
-                    </a>
-                </li>
-                <li>
-                    <a [routerLink]="[]">
-                        <mat-icon>cog</mat-icon>
-                        Settings
-                    </a>
-                </li>
-            </ul>
+            <app-dropdown-accent
+                [matIconString]="'home'"
+                [buttonLabel]="'Home'"
+                [dropdownItems]="[
+                    { label: 'Link 1', matIconString: 'star', routerLinkCommands: ['/'] },
+                    { label: 'Link 2', matIconString: 'delete', routerLinkCommands: ['/'] },
+                    { label: 'Link 3', matIconString: 'edit', routerLinkCommands: ['/'] }
+                ]"
+            ></app-dropdown-accent>
 
-            <button (click)="menuToggles.account = !menuToggles.account" class="btn-accent btn-block btn">
-                <div class="inline-flex w-full items-center justify-start">
-                    <mat-icon class="mr-3">manage_accounts</mat-icon>
-                    <span>Account</span>
-                </div>
-            </button>
-            <ul *ngIf="menuToggles.account" class="menu w-full rounded bg-base-100 p-2 text-primary">
-                <li>
-                    <a [routerLink]="[]">
-                        <mat-icon>folder</mat-icon>
-                        Folder
-                    </a>
-                </li>
-                <li>
-                    <a [routerLink]="[]">
-                        <mat-icon>eye</mat-icon>
-                        Eye
-                    </a>
-                </li>
-                <li>
-                    <a [routerLink]="[]">
-                        <mat-icon>cog</mat-icon>
-                        Settings
-                    </a>
-                </li>
-            </ul>
+            <app-dropdown-accent
+                [matIconString]="'dashboard'"
+                [buttonLabel]="'Dashboard'"
+                [dropdownItems]="[
+                    { label: 'Link 1', matIconString: 'star', routerLinkCommands: ['/'] },
+                    { label: 'Link 2', matIconString: 'delete', routerLinkCommands: ['/'] },
+                    { label: 'Link 3', matIconString: 'edit', routerLinkCommands: ['/'] }
+                ]"
+            ></app-dropdown-accent>
+
+            <app-dropdown-accent
+                [matIconString]="'settings'"
+                [buttonLabel]="'Settings'"
+                [dropdownItems]="[
+                    { label: 'Link 1', matIconString: 'delete', routerLinkCommands: ['/'] },
+                    { label: 'Link 2', matIconString: 'star', routerLinkCommands: ['/'] },
+                    { label: 'Link 3', matIconString: 'edit', routerLinkCommands: ['/'] }
+                ]"
+            ></app-dropdown-accent>
         </div>
 
         <div class="absolute bottom-0 left-0 right-0 p-2">

@@ -7,6 +7,7 @@ import { isSmallScreen } from '@core/utils/screen.util'
 import { FooterCopyrightComponent } from '@features/footers/footer-copyright/footer-copyright.component'
 import { FooterOneComponent } from '@features/footers/footer-one/footer-one.component'
 import { HeaderOneComponent } from '@features/headers/header-one/header-one.component'
+import { DropdownAccentComponent } from '@features/ui/dropdown/dropdown-accent/dropdown-accent.component'
 import { MaterialModules } from '@features/ui/material'
 
 @Component({
@@ -19,6 +20,7 @@ import { MaterialModules } from '@features/ui/material'
         HeaderOneComponent,
         FooterOneComponent,
         FooterCopyrightComponent,
+        DropdownAccentComponent
     ],
     templateUrl: './layout-sidebar.component.html',
     styleUrls: ['./layout-sidebar.component.scss'],
