@@ -27,6 +27,11 @@ import { MaterialModules } from '@features/ui/material'
 export class LayoutSidebarComponent {
     @Input() opened = true
 
+    menuToggles = {
+        home: false,
+        account: false
+    }
+
     appName = this.appState.appName
     isSmallScreen = false
 

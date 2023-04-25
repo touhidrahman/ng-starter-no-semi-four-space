@@ -1,0 +1,29 @@
+<button (click)="expanded = !expanded" class="btn-accent btn-block btn">
+    <div class="inline-flex w-full items-center justify-between">
+        <div class="flex items-center">
+            <mat-icon class="mr-3">home</mat-icon>
+            <span>Home</span>
+        </div>
+        <mat-icon [class.rotate-180]="expanded">home</mat-icon>
+    </div>
+</button>
+<ul *ngIf="expanded" class="menu w-full rounded bg-base-100 p-2 text-primary">
+    <li>
+        <a [routerLink]="[]">
+            <mat-icon>folder</mat-icon>
+            Folder
+        </a>
+    </li>
+    <li>
+        <a [routerLink]="[]">
+            <mat-icon>eye</mat-icon>
+            Eye
+        </a>
+    </li>
+    <li>
+        <a [routerLink]="[]">
+            <mat-icon>cog</mat-icon>
+            Settings
+        </a>
+    </li>
+</ul>
