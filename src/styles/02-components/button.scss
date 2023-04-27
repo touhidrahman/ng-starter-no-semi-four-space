@@ -9,6 +9,7 @@ button[mat-stroked-button] {
 /* override daisyUI button to match material button */
 .btn {
     @apply text-base font-normal;
+    animation: none;
 }
 
 .btn-primary,
