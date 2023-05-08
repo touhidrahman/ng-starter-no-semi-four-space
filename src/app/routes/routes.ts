@@ -3,7 +3,7 @@ import { authGuardFn } from '@core/auth/guards/auth.guard'
 import { PageLayout } from '@features/layout/page-layout.enum'
 import { setLayout } from '@features/layout/set-layout.resolver'
 
-export const ROUTES: Routes = [
+export const AppRoutes: Routes = [
     {
         path: '',
         title: 'Home',

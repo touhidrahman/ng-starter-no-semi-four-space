@@ -10,7 +10,7 @@ import { Observable } from 'rxjs'
 })
 export class UserService extends ApiService<User, unknown> {
     constructor(protected override http: HttpClient, @Inject(APP_CONFIG) appConfig: AppConfig) {
-        super(http, 'users', appConfig)
+        super(http, 'v1/users', appConfig)
     }
 
     getMe(): Observable<User> {

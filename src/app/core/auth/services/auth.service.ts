@@ -1,10 +1,11 @@
 import { HttpClient } from '@angular/common/http'
 import { Inject, Injectable } from '@angular/core'
-import { AppConfig, APP_CONFIG } from '@core/config/app-config'
 import { User, UserRole } from '@core/models'
 import { StateSubject } from '@core/store/state-subject'
+import { APP_ENVIRONMENT } from '@environment/app-environment.injector'
+import { AppEnvironment } from '@environment/app-environment.interface'
 import { WINDOW } from '@ng-web-apis/common'
-import { catchError, debounceTime, Observable, of, shareReplay, switchMap, tap } from 'rxjs'
+import { Observable, catchError, debounceTime, of, shareReplay, switchMap, tap } from 'rxjs'
 import { LoginResponse } from '../interfaces/login-response'
 import { LoginPayload } from '../interfaces/login.payload'
 import { RegisterPayload } from '../interfaces/register.payload'
@@ -36,9 +37,9 @@ export class AuthService {
         private http: HttpClient,
         private storage: TokenStorageService,
         @Inject(WINDOW) private windowRef: Window,
-        @Inject(APP_CONFIG) private appConfig: AppConfig,
+        @Inject(APP_ENVIRONMENT) private appEnvironment: AppEnvironment,
     ) {
-        this.endpoint = this.appConfig.apiUrl + '/auth'
+        this.endpoint = this.appEnvironment.apiUrl + '/auth'
         this.continueAutoloadingUser()
     }
 

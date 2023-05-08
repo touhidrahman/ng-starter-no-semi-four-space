@@ -1,7 +1,7 @@
-import { AppConfig } from '@core/config/app-config'
+import { AppEnvironment } from "./app-environment.interface"
 
-export const environment: AppConfig = {
+export const environment: AppEnvironment = {
     appName: 'ng-starter-no-semi-four-space',
     production: false,
-    apiUrl: 'http://localhost:3000/v1',
+    apiUrl: 'http://localhost:3000',
 }

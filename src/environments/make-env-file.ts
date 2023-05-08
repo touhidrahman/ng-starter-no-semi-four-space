@@ -1,4 +1,4 @@
-import { AppConfig } from './src/app/core/config/app-config'
+import { AppEnvironment } from './app-environment.interface'
 import { writeFile } from 'fs'
 
 /**
@@ -7,16 +7,16 @@ import { writeFile } from 'fs'
 
 const filename = 'src/environments/environment.prod.ts'
 
-function getConfig(): AppConfig {
+function getAppEnvironment(): AppEnvironment {
     return {
         appName: 'ng-no-semi-four-space',
         production: true,
-        apiUrl: `${process.env['API_URL'] ?? 'http://localhost:3000/v1'}`,
+        apiUrl: `${process.env['API_URL'] ?? 'http://localhost:3000'}`,
     }
 }
 
 function getContent(): string {
-    return `export const environment = ${JSON.stringify(getConfig(), null, 4)}`
+    return `export const environment = ${JSON.stringify(getAppEnvironment(), null, 4)}`
 }
 
 writeFile(filename, getContent(), function onCreate(err: any) {

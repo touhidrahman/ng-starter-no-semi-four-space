@@ -7,11 +7,13 @@
         <mat-icon [class.rotate-180]="expanded">expand_more</mat-icon>
     </div>
 </button>
-<ul *ngIf="expanded" class="menu w-full rounded bg-base-100 p-2 text-primary">
-    <li *ngFor="let item of dropdownItems">
-        <a [routerLink]="item.routerLinkCommands">
-            <mat-icon>{{ item.matIconString }}</mat-icon>
-            {{ item.label }}
-        </a>
-    </li>
-</ul>
+<div [@expandCollapse]="expanded ? 'expanded' : 'collapsed'">
+    <ul class="menu w-full rounded bg-base-100 p-2 text-primary">
+        <li *ngFor="let item of dropdownItems">
+            <a [routerLink]="item.routerLinkCommands">
+                <mat-icon>{{ item.matIconString }}</mat-icon>
+                {{ item.label }}
+            </a>
+        </li>
+    </ul>
+</div>

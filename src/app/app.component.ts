@@ -21,12 +21,21 @@ import { take, timer } from 'rxjs'
                 </svg>
             </div>
         </div>
+
         <ng-container [ngSwitch]="pageLayoutService.layout$ | async">
-            <app-layout-default *ngSwitchCase="PageLayout.Default"></app-layout-default>
-            <app-layout-centered *ngSwitchCase="PageLayout.Center"></app-layout-centered>
-            <app-layout-sidebar *ngSwitchCase="PageLayout.Sidebar"></app-layout-sidebar>
+            <app-layout-default *ngSwitchCase="PageLayout.Default">
+                <router-outlet></router-outlet>
+            </app-layout-default>
+            <app-layout-centered *ngSwitchCase="PageLayout.Center">
+                <router-outlet></router-outlet>
+            </app-layout-centered>
+            <app-layout-sidebar *ngSwitchCase="PageLayout.Sidebar">
+                <router-outlet></router-outlet>
+            </app-layout-sidebar>
             <router-outlet *ngSwitchCase="PageLayout.Blank"></router-outlet>
-            <app-layout-default *ngSwitchDefault></app-layout-default>
+            <app-layout-default *ngSwitchDefault>
+                <router-outlet></router-outlet>
+            </app-layout-default>
         </ng-container>
     `,
     imports: [CommonModule, RouterModule, LayoutCenteredComponent, LayoutDefaultComponent, LayoutSidebarComponent],

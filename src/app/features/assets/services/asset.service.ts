@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http'
 import { Inject, Injectable } from '@angular/core'
-import { AppConfig, APP_CONFIG } from '@core/config/app-config'
 import { Asset } from '@core/models'
+import { APP_ENVIRONMENT } from '@environment/app-environment.injector'
+import { AppEnvironment } from '@environment/app-environment.interface'
 import { Observable } from 'rxjs'
 
 @Injectable({
@@ -10,8 +11,8 @@ import { Observable } from 'rxjs'
 export class AssetService {
     private apiUrl: string
 
-    constructor(private http: HttpClient, @Inject(APP_CONFIG) appConfig: AppConfig) {
-        this.apiUrl = appConfig.apiUrl + '/assets'
+    constructor(private http: HttpClient, @Inject(APP_ENVIRONMENT) appEnvironment: AppEnvironment) {
+        this.apiUrl = appEnvironment.apiUrl + 'v1/assets'
     }
 
     findByName(name: string): Observable<any> {

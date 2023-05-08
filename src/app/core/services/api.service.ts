@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http'
 import { Params } from '@angular/router'
-import { AppConfig } from '@core/config/app-config'
+import { AppEnvironment } from '@environment/app-environment.interface'
 import { Observable } from 'rxjs'
 
 export abstract class AbstractApiService<T> {
@@ -17,8 +17,8 @@ export abstract class AbstractApiService<T> {
 export class ApiService<T, DtoT> implements AbstractApiService<T> {
     protected apiUrl: string
 
-    constructor(protected http: HttpClient, resource: string, appConfig: AppConfig) {
-        this.apiUrl = appConfig.apiUrl + '/' + resource.toLowerCase()
+    constructor(protected http: HttpClient, resource: string, appEnvironment: AppEnvironment) {
+        this.apiUrl = appEnvironment.apiUrl + '/' + resource.toLowerCase()
     }
 
     findById(id: string): Observable<T> {
