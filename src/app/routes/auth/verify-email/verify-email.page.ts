@@ -8,10 +8,10 @@ import { timer } from 'rxjs'
 @Component({
     standalone: true,
     imports: [CommonModule, ReactiveFormsModule, RouterModule],
-    templateUrl: './verify-email-page.component.html',
-    styleUrls: ['./verify-email-page.component.scss'],
+    templateUrl: './verify-email.page.html',
+    styleUrls: ['./verify-email.page.scss'],
 })
-export default class VerifyEmailPageComponent implements OnInit {
+export default class VerifyEmailPage implements OnInit {
     message = 'Verifying email...'
 
     constructor(private auth: AuthService, private activatedRoute: ActivatedRoute, private router: Router) {}

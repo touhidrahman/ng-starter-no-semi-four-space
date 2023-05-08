@@ -7,12 +7,12 @@ import { LoginFormService } from '@core/auth/services/login-form.service'
 
 @Component({
     standalone: true,
-    templateUrl: './login-page.component.html',
-    styleUrls: ['./login-page.component.scss'],
+    templateUrl: './login.page.html',
+    styleUrls: ['./login.page.scss'],
     imports: [CommonModule, ReactiveFormsModule, RouterModule],
     providers: [LoginFormService],
 })
-export default class LoginPageComponent implements OnInit {
+export default class LoginPage implements OnInit {
     loading = false
     errors: string[] = []
     private returnUrl = ''

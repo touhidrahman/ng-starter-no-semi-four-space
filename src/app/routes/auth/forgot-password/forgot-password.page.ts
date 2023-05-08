@@ -8,10 +8,10 @@ import { ToastService } from '@features/ui/toast/toast.service'
 @Component({
     standalone: true,
     imports: [CommonModule, ReactiveFormsModule, FormsModule, RouterModule],
-    templateUrl: './forgot-password-page.component.html',
-    styleUrls: ['./forgot-password-page.component.scss'],
+    templateUrl: './forgot-password.page.html',
+    styleUrls: ['./forgot-password.page.scss'],
 })
-export default class ForgotPasswordPageComponent {
+export default class ForgotPasswordPage {
     email = ''
 
     constructor(private auth: AuthService, private toast: ToastService, private router: Router) {}

@@ -8,11 +8,11 @@ import { RegisterFormService } from '@core/auth/services/register-form.service'
 @Component({
     standalone: true,
     imports: [CommonModule, ReactiveFormsModule, RouterModule],
-    templateUrl: './register-page.component.html',
-    styleUrls: ['./register-page.component.scss'],
+    templateUrl: './register.page.html',
+    styleUrls: ['./register.page.scss'],
     providers: [RegisterFormService],
 })
-export default class RegisterPageComponent implements OnInit {
+export default class RegisterPage implements OnInit {
     loading = false
     errors: string[] = []
 

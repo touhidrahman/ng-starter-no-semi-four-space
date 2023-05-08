@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router'
 @Component({
     standalone: true,
     imports: [CommonModule, RouterModule],
-    templateUrl: './not-found-page.component.html',
-    styleUrls: ['./not-found-page.component.scss'],
+    templateUrl: './not-found.page.html',
+    styleUrls: ['./not-found.page.scss'],
 })
-export default class NotFoundPageComponent {}
+export default class NotFoundPage {}

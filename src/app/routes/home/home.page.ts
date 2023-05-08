@@ -10,10 +10,10 @@ import { ToastService } from '@features/ui/toast/toast.service'
 @Component({
     standalone: true,
     imports: [CommonModule, MaterialModules, RouterModule, ButtonComponent, SpreadIntoArrayPipe],
-    templateUrl: './home-page.component.html',
-    styleUrls: ['./home-page.component.scss'],
+    templateUrl: './home.page.html',
+    styleUrls: ['./home.page.scss'],
 })
-export default class HomePageComponent {
+export default class HomePage {
     constructor(public appState: AppStateService, public toast: ToastService) {}
 
     openToast(): void {

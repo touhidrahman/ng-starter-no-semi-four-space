@@ -1,30 +1,30 @@
 import { CommonModule } from '@angular/common'
 import { Component, OnInit } from '@angular/core'
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms'
-import { Router, RouterModule } from '@angular/router'
+import { ActivatedRoute, Router, RouterModule } from '@angular/router'
 import { AuthService } from '@core/auth/services/auth.service'
-import { FooterOneComponent } from '@features/footers/footer-one/footer-one.component'
-import { HeaderOneComponent } from '@features/headers/header-one/header-one.component'
 import { ToastService } from '@features/ui/toast/toast.service'
 
 @Component({
     standalone: true,
-    imports: [CommonModule, ReactiveFormsModule, RouterModule, FooterOneComponent, HeaderOneComponent],
-    templateUrl: './profile-page.component.html',
-    styleUrls: ['./profile-page.component.scss'],
+    imports: [CommonModule, ReactiveFormsModule, RouterModule],
+    templateUrl: './reset-forgotten-password.page.html',
+    styleUrls: ['./reset-forgotten-password.page.scss'],
 })
-export default class ProfilePageComponent implements OnInit {
-    form = this.fb.nonNullable.group({
+export default class ResetForgottenPasswordPage implements OnInit {
+    form = this.fb.group({
         password: [''],
         passwordConfirmation: [''],
     })
 
     errors: string[] = []
+    token = this.ar.snapshot.params['token'] ?? ''
 
     constructor(
         private auth: AuthService,
         private fb: FormBuilder,
         private router: Router,
+        private ar: ActivatedRoute,
         private toast: ToastService,
     ) {}
 
@@ -39,10 +39,10 @@ export default class ProfilePageComponent implements OnInit {
             this.errors.push('Passwords do not match')
             return
         }
-        this.auth.changePassword(password, passwordConfirmation).subscribe({
+        this.auth.resetForgottenPassword(this.token, password, passwordConfirmation).subscribe({
             next: () => {
-                this.toast.success('Password changed successfully')
-                this.form.reset()
+                this.toast.success('Password reset successfully')
+                this.router.navigate(['/login'])
             },
             error: (err) => {
                 this.errors.push(err.error.message)
