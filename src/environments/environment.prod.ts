@@ -4,7 +4,7 @@
  * - So make sure you change the `make-env-file.ts script` to reflect your environment configuration
  */
 
-import { AppEnvironment } from "./app-environment.interface"
+import { AppEnvironment } from './app-environment.interface'
 
 export const environment: AppEnvironment = {
     appName: 'ng-starter-no-semi-four-space',

@@ -1,15 +1,19 @@
 import { HttpClient } from '@angular/common/http'
 import { Inject, Injectable } from '@angular/core'
-import { AppConfig, APP_CONFIG } from '@core/config/app-config'
 import { User } from '@core/models'
 import { ApiService } from '@core/services/api.service'
+import { APP_ENVIRONMENT } from '@environment/app-environment.injector'
+import { AppEnvironment } from '@environment/app-environment.interface'
 import { Observable } from 'rxjs'
 
 @Injectable({
     providedIn: 'root',
 })
 export class UserService extends ApiService<User, unknown> {
-    constructor(protected override http: HttpClient, @Inject(APP_CONFIG) appConfig: AppConfig) {
+    constructor(
+        protected override http: HttpClient,
+        @Inject(APP_ENVIRONMENT) appConfig: AppEnvironment,
+    ) {
         super(http, 'v1/users', appConfig)
     }
 

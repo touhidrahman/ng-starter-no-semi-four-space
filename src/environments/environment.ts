@@ -1,4 +1,4 @@
-import { AppEnvironment } from "./app-environment.interface"
+import { AppEnvironment } from './app-environment.interface'
 
 export const environment: AppEnvironment = {
     appName: 'ng-starter-no-semi-four-space',
