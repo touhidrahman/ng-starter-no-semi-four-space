@@ -12,7 +12,7 @@
     "test": "ng test",
     "lint": "tsc --noEmit && eslint . --ext js,ts,json --quiet --fix",
     "lint:debug": "TIMING=1 ng lint --fix",
-    "register-git-hooks": "husky install .client/.husky",
+    "prepare": "husky install .client/.husky",
     "format:ts": "prettier --write 'src/**/*.{js,ts,scss,css,less,jsx,tsx,json}'",
     "format:html": "prettier --write 'src/**/*.{html,xml}'",
     "format": "npm run format:ts && npm run format:html",
