@@ -12,13 +12,12 @@
     "test": "ng test",
     "lint": "tsc --noEmit && eslint . --ext js,ts,json --quiet --fix",
     "lint:debug": "TIMING=1 ng lint --fix",
-    "register-git-hooks": "npx simple-git-hooks",
+    "register-git-hooks": "husky install .client/.husky",
     "format:ts": "prettier --write 'src/**/*.{js,ts,scss,css,less,jsx,tsx,json}'",
     "format:html": "prettier --write 'src/**/*.{html,xml}'",
     "format": "npm run format:ts && npm run format:html",
     "ng-update": "ng update @angular/core @angular/cli @angular/cdk @angular/material @angular-eslint/schematics @schematics/angular --allow-dirty",
-    "make-env-file": "tsc src/environments/make-env-file.ts && node src/environments/make-env-file.js && rm src/environments/make-env-file.js",
-    "prepare": "husky install .client/.husky"
+    "make-env-file": "tsc src/environments/make-env-file.ts && node src/environments/make-env-file.js && rm src/environments/make-env-file.js"
   },
   "dependencies": {
     "@angular/animations": "^16.2.2",
@@ -73,21 +72,17 @@
     "prettier-eslint": "^15.0.1",
     "prettier-plugin-tailwindcss": "^0.5.3",
     "pretty-quick": "^3.1.3",
-    "simple-git-hooks": "^2.9.0",
     "tailwind-scrollbar": "^3.0.5",
     "tailwindcss": "^3.3.3",
     "tailwindcss-elevation": "^2.0.0",
     "typescript": "~5.1.6"
   },
-   "lint-staged": {
+  "lint-staged": {
     "*.{scss,css,less,json}": "npx prettier --write",
     "*.{html,xml}": "npx prettier --write",
-    "*.{ts,js}": ["npx prettier --write", "npx eslint --fix"]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npx pretty-quick --staged ng lint",
-      "pre-push": "ng build"
-    }
+    "*.{ts,js}": [
+      "npx prettier --write",
+      "npx eslint --fix"
+    ]
   }
 }
