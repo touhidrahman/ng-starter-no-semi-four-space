@@ -1,5 +1,11 @@
 import { CommonModule } from '@angular/common'
-import { ChangeDetectionStrategy, Component, HostBinding, Input, ViewEncapsulation } from '@angular/core'
+import {
+    ChangeDetectionStrategy,
+    Component,
+    HostBinding,
+    Input,
+    ViewEncapsulation,
+} from '@angular/core'
 
 @Component({
     imports: [CommonModule],
@@ -24,7 +30,8 @@ export class ButtonComponent {
 
     @HostBinding('class')
     get klass() {
-        const classes = 'font-medium h-14 px-8 text-lg focus:outline-none inline-flex items-center gap-2 leading-8'
+        const classes =
+            'font-medium h-14 px-8 text-lg focus:outline-none inline-flex items-center gap-2 leading-8'
 
         let color = ''
         if (this.color === 'primary') {

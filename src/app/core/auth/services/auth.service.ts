@@ -39,7 +39,7 @@ export class AuthService {
         @Inject(WINDOW) private windowRef: Window,
         @Inject(APP_ENVIRONMENT) private appEnvironment: AppEnvironment,
     ) {
-        this.endpoint = this.appEnvironment.apiUrl + '/auth'
+        this.endpoint = `${this.appEnvironment.apiUrl}/auth`
         this.continueAutoloadingUser()
     }
 
@@ -64,12 +64,22 @@ export class AuthService {
         return this.http.post<void>(`${this.endpoint}/forgot-password`, { email })
     }
 
-    resetForgottenPassword(token: string, password: string, passwordConfirmation: string): Observable<void> {
-        return this.http.post<void>(`${this.endpoint}/reset-password/${token}`, { password, passwordConfirmation })
+    resetForgottenPassword(
+        token: string,
+        password: string,
+        passwordConfirmation: string,
+    ): Observable<void> {
+        return this.http.post<void>(`${this.endpoint}/reset-password/${token}`, {
+            password,
+            passwordConfirmation,
+        })
     }
 
     changePassword(password: string, passwordConfirmation: string): Observable<void> {
-        return this.http.post<void>(`${this.endpoint}/change-password`, { password, passwordConfirmation })
+        return this.http.post<void>(`${this.endpoint}/change-password`, {
+            password,
+            passwordConfirmation,
+        })
     }
 
     setTokens(accessToken: string, refreshToken = '') {

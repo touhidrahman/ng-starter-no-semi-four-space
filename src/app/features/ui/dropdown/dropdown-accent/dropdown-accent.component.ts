@@ -7,7 +7,7 @@ import { expandCollapseTrigger } from '@features/ui/animations/expand-collapse.a
 export interface DropdownItem {
     label: string
     matIconString: string
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    // rome-ignore lint/suspicious/noExplicitAny: <explanation>
     routerLinkCommands: any[]
 }
 
@@ -17,9 +17,7 @@ export interface DropdownItem {
     imports: [CommonModule, MatIconModule, RouterModule],
     templateUrl: './dropdown-accent.component.html',
     styleUrls: ['./dropdown-accent.component.scss'],
-    animations: [
-        expandCollapseTrigger
-    ]
+    animations: [expandCollapseTrigger],
 })
 export class DropdownAccentComponent {
     @Input() matIconString = ''

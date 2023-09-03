@@ -38,7 +38,13 @@ import { take, timer } from 'rxjs'
             </app-layout-default>
         </ng-container>
     `,
-    imports: [CommonModule, RouterModule, LayoutCenteredComponent, LayoutDefaultComponent, LayoutSidebarComponent],
+    imports: [
+        CommonModule,
+        RouterModule,
+        LayoutCenteredComponent,
+        LayoutDefaultComponent,
+        LayoutSidebarComponent,
+    ],
 })
 export class AppComponent {
     readonly PageLayout = PageLayout

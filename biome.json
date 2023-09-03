@@ -7,13 +7,20 @@
         "enabled": true,
         "rules": {
             "recommended": true,
-            "style": {}
+            "style": {
+            },
+            "complexity": {
+                "useLiteralKeys": "off"
+            },
+            "suspicious": {
+                "noExplicitAny": "warn"
+            }
         }
     },
     "formatter": {
         "enabled": true,
         "formatWithErrors": false,
-        "indentStyle": "tab",
+        "indentStyle": "space",
         "indentSize": 4,
         "lineWidth": 100,
         "ignore": []
@@ -23,7 +30,8 @@
             "unsafeParameterDecoratorsEnabled": true
         },
         "formatter": {
-            "semicolons": "asNeeded"
+            "semicolons": "asNeeded",
+            "quoteStyle": "single"
         }
     }
 }

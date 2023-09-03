@@ -12,7 +12,7 @@ export class AssetService {
     private apiUrl: string
 
     constructor(private http: HttpClient, @Inject(APP_ENVIRONMENT) appEnvironment: AppEnvironment) {
-        this.apiUrl = appEnvironment.apiUrl + 'v1/assets'
+        this.apiUrl = `${appEnvironment.apiUrl}v1/assets`
     }
 
     findByName(name: string): Observable<any> {

@@ -3,15 +3,18 @@ import {
     provideHttpClient,
     withInterceptors,
     withJsonpSupport,
-    withXsrfConfiguration
+    withXsrfConfiguration,
 } from '@angular/common/http'
 import { ApplicationConfig, importProvidersFrom } from '@angular/core'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import {
     PreloadAllModules,
-    TitleStrategy, provideRouter, withComponentInputBinding, withInMemoryScrolling,
+    TitleStrategy,
+    provideRouter,
+    withComponentInputBinding,
+    withInMemoryScrolling,
     withPreloading,
-    withRouterConfig
+    withRouterConfig,
 } from '@angular/router'
 import { AuthHeaderInterceptorFn } from '@core/auth/interceptors/auth-header.interceptor'
 import { serverErrorInterceptorFn } from '@core/interceptors/server-error.interceptor'

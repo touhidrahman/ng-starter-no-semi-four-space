@@ -16,7 +16,11 @@ export default class RegisterPage implements OnInit {
     loading = false
     errors: string[] = []
 
-    constructor(public registerFormService: RegisterFormService, private router: Router, private auth: AuthService) {}
+    constructor(
+        public registerFormService: RegisterFormService,
+        private router: Router,
+        private auth: AuthService,
+    ) {}
 
     ngOnInit(): void {
         void 0

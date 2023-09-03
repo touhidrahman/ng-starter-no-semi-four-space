@@ -34,7 +34,9 @@ export abstract class AbstractFormService<T> {
     abstract buildForm(): FormGroup
 
     fillFormById$(id: string): Observable<T> {
-        return this.apiService.findById(id).pipe(tap((value) => this.setFormValue(value as T & { id?: string })))
+        return this.apiService
+            .findById(id)
+            .pipe(tap((value) => this.setFormValue(value as T & { id?: string })))
     }
 
     save$(): Observable<T> {
@@ -49,6 +51,8 @@ export abstract class AbstractFormService<T> {
     }
 
     protected update$(id: string): Observable<T> {
-        return this.apiService.update(id, this.getFormValue()).pipe(tap(() => this.setFormValue(null)))
+        return this.apiService
+            .update(id, this.getFormValue())
+            .pipe(tap(() => this.setFormValue(null)))
     }
 }

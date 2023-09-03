@@ -20,10 +20,10 @@ export class LocalStorageService {
     }
 
     removeItem(key: string): void {
-        return this.storage.removeItem(key)
+        this.storage.removeItem(key)
     }
 
     setItem(key: string, value: string): void {
-        return this.storage.setItem(key, value)
+        this.storage.setItem(key, value)
     }
 }

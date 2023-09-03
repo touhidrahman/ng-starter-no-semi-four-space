@@ -20,7 +20,7 @@ import { MaterialModules } from '@features/ui/material'
         HeaderOneComponent,
         FooterOneComponent,
         FooterCopyrightComponent,
-        DropdownAccentComponent
+        DropdownAccentComponent,
     ],
     templateUrl: './layout-sidebar.component.html',
     styleUrls: ['./layout-sidebar.component.scss'],
@@ -31,7 +31,7 @@ export class LayoutSidebarComponent {
 
     menuToggles = {
         home: false,
-        account: false
+        account: false,
     }
 
     appName = this.appState.appName

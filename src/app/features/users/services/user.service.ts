@@ -18,6 +18,6 @@ export class UserService extends ApiService<User, unknown> {
     }
 
     getMe(): Observable<User> {
-        return this.http.get<User>(this.apiUrl + '/me')
+        return this.http.get<User>(`${this.apiUrl}/me`)
     }
 }

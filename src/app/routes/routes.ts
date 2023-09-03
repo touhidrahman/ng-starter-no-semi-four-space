@@ -12,7 +12,12 @@ type GroupedRoutes = [
     NotFoundPageRoutes,
 ]
 
-const groupedRoutes: GroupedRoutes = [getHomeRoutes(), getAuthRoutes(), getProfileRoutes(), getNotFoundPageRoutes()]
+const groupedRoutes: GroupedRoutes = [
+    getHomeRoutes(),
+    getAuthRoutes(),
+    getProfileRoutes(),
+    getNotFoundPageRoutes(),
+]
 
 const flattenedRoutes: Route[] = []
 groupedRoutes.forEach((routeGroup) => {

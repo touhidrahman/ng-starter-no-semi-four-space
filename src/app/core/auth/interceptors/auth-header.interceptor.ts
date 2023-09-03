@@ -9,17 +9,21 @@ import { environment } from '@environment/environment'
  * @param next
  * @returns
  */
-export const AuthHeaderInterceptorFn: HttpInterceptorFn = (request: HttpRequest<unknown>, next: HttpHandlerFn) => {
+export const AuthHeaderInterceptorFn: HttpInterceptorFn = (
+    request: HttpRequest<unknown>,
+    next: HttpHandlerFn,
+) => {
     const accessToken = inject(TokenStorageService).getAccessToken()
     const isApiUrl = request.url.startsWith(environment.apiUrl)
+    let changedRequest = request
 
     if (accessToken && isApiUrl) {
-        request = request.clone({
+        changedRequest = request.clone({
             setHeaders: {
                 Authorization: `Bearer ${accessToken}`,
             },
         })
     }
 
-    return next(request)
+    return next(changedRequest)
 }

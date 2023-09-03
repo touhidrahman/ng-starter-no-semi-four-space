@@ -9,7 +9,13 @@ import { ToastService } from '@features/ui/toast/toast.service'
 
 @Component({
     standalone: true,
-    imports: [CommonModule, ReactiveFormsModule, RouterModule, FooterOneComponent, HeaderOneComponent],
+    imports: [
+        CommonModule,
+        ReactiveFormsModule,
+        RouterModule,
+        FooterOneComponent,
+        HeaderOneComponent,
+    ],
     templateUrl: './profile.page.html',
     styleUrls: ['./profile.page.scss'],
 })
