@@ -15,8 +15,8 @@ export class AssetService {
         this.apiUrl = `${appEnvironment.apiUrl}v1/assets`
     }
 
-    findByName(name: string): Observable<any> {
-        return this.http.get<any>(`${this.apiUrl}/${name}`)
+    findByName(name: string): Observable<unknown> {
+        return this.http.get<unknown>(`${this.apiUrl}/${name}`)
     }
 
     uploadSingle(file: File): Observable<Asset> {
@@ -33,7 +33,7 @@ export class AssetService {
         return this.http.post<Asset>(this.apiUrl, formData)
     }
 
-    delete(name: string): Observable<any> {
+    delete(name: string): Observable<unknown> {
         return this.http.delete(`${this.apiUrl}/${name}`)
     }
 }

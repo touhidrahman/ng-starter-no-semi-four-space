@@ -19,10 +19,10 @@ function getContent(): string {
     return `export const environment = ${JSON.stringify(getAppEnvironment(), null, 4)}`
 }
 
-writeFile(filename, getContent(), function onCreate(err: any) {
+writeFile(filename, getContent(), function onCreate(err: unknown) {
     if (err) throw err
     console.warn('Running ./make-env-file.ts script to create angular environment file')
     console.info('#################### MAKE-ENV-FILE ####################')
-    console.info(filename + ' created')
+    console.info(`${filename} created`)
     console.info('#######################################################')
 })

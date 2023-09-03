@@ -14,7 +14,11 @@ import { timer } from 'rxjs'
 export default class VerifyEmailPage implements OnInit {
     message = 'Verifying email...'
 
-    constructor(private auth: AuthService, private activatedRoute: ActivatedRoute, private router: Router) {}
+    constructor(
+        private auth: AuthService,
+        private activatedRoute: ActivatedRoute,
+        private router: Router,
+    ) {}
 
     ngOnInit(): void {
         const token = this.activatedRoute.snapshot.params['token'] ?? ''
