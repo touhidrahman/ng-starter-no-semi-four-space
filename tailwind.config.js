@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 module.exports = {
     prefix: '',
     content: ['./src/**/*.{html,ts,css,scss,sass,less,styl}'],
