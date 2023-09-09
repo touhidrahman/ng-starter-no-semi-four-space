@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common'
 import { ChangeDetectionStrategy, Component } from '@angular/core'
 import { RouterModule } from '@angular/router'
-import { FooterOneComponent } from '@features/footers/footer-one/footer-one.component'
-import { HeaderOneComponent } from '@features/headers/header-one/header-one.component'
+import { FooterOneComponent } from 'src/app/main/footers/footer-one/footer-one.component'
+import { HeaderOneComponent } from 'src/app/main/headers/header-one/header-one.component'
 
 @Component({
     selector: 'app-layout-default',

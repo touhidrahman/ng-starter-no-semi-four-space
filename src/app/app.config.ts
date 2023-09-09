@@ -22,7 +22,7 @@ import { CustomTitleStrategy } from '@core/services/custom-title.service'
 import { APP_ENVIRONMENT } from '@environment/app-environment.injector'
 import { environment } from '@environment/environment'
 import { HotToastModule } from '@ngneat/hot-toast'
-import { AppRoutes } from './routes/routes'
+import { AppRoutes } from './app.routes'
 
 export const appConfig: ApplicationConfig = {
     providers: [

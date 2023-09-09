@@ -1,6 +1,6 @@
 import { Route } from '@angular/router'
-import { PageLayout } from '@features/layout/page-layout.enum'
-import { setLayout } from '@features/layout/set-layout.resolver'
+import { PageLayout } from 'src/app/main/layout/page-layout.enum'
+import { setLayout } from 'src/app/main/layout/set-layout.resolver'
 
 export type HomeRoutes = {
     index: Route

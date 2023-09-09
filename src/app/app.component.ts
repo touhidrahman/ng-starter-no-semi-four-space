@@ -3,12 +3,12 @@ import { Component } from '@angular/core'
 import { RouterModule } from '@angular/router'
 import { TokenSharingService } from '@core/auth/services/token-sharing.service'
 import { AppStateService } from '@core/states/app-state.service'
-import { LayoutCenteredComponent } from '@features/layout/layout-centered/layout-centered.component'
-import { LayoutDefaultComponent } from '@features/layout/layout-default/layout-default.component'
-import { LayoutSidebarComponent } from '@features/layout/layout-sidebar/layout-sidebar.component'
-import { PageLayout } from '@features/layout/page-layout.enum'
-import { PageLayoutService } from '@features/layout/page-layout.service'
 import { take, timer } from 'rxjs'
+import { LayoutCenteredComponent } from 'src/app/main/layout/layout-centered/layout-centered.component'
+import { LayoutDefaultComponent } from 'src/app/main/layout/layout-default/layout-default.component'
+import { LayoutSidebarComponent } from 'src/app/main/layout/layout-sidebar/layout-sidebar.component'
+import { PageLayout } from 'src/app/main/layout/page-layout.enum'
+import { PageLayoutService } from 'src/app/main/layout/page-layout.service'
 
 @Component({
     standalone: true,

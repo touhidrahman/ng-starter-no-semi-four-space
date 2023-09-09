@@ -3,9 +3,9 @@ import { Component, OnInit } from '@angular/core'
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms'
 import { Router, RouterModule } from '@angular/router'
 import { AuthService } from '@core/auth/services/auth.service'
-import { FooterOneComponent } from '@features/footers/footer-one/footer-one.component'
-import { HeaderOneComponent } from '@features/headers/header-one/header-one.component'
-import { ToastService } from '@features/ui/toast/toast.service'
+import { FooterOneComponent } from 'src/app/main/footers/footer-one/footer-one.component'
+import { HeaderOneComponent } from 'src/app/main/headers/header-one/header-one.component'
+import { ToastService } from 'src/app/main/ui/toast/toast.service'
 
 @Component({
     standalone: true,

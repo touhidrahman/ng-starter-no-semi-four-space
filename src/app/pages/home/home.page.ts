@@ -3,9 +3,9 @@ import { Component } from '@angular/core'
 import { RouterModule } from '@angular/router'
 import { SpreadIntoArrayPipe } from '@core/pipes/spread-into-array.pipe'
 import { AppStateService } from '@core/states/app-state.service'
-import { ButtonComponent } from '@features/ui/button/button.component'
-import { MaterialModules } from '@features/ui/material'
-import { ToastService } from '@features/ui/toast/toast.service'
+import { ButtonComponent } from 'src/app/main/ui/button/button.component'
+import { MaterialModules } from 'src/app/main/ui/material'
+import { ToastService } from 'src/app/main/ui/toast/toast.service'
 
 @Component({
     standalone: true,

@@ -4,7 +4,9 @@
         "baseUrl": "./",
         "paths": {
             "@core/*": ["src/app/core/*"],
-            "@features/*": ["src/app/features/*"],
+            "@features/*": [
+                "src/app/main/*"
+            ],
             "@environment/*": ["src/environments/*"]
         },
         "typeRoots": ["node_modules/@types"],
