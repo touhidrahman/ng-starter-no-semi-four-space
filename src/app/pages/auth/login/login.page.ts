@@ -2,8 +2,8 @@ import { CommonModule } from '@angular/common'
 import { Component, OnInit } from '@angular/core'
 import { ReactiveFormsModule } from '@angular/forms'
 import { ActivatedRoute, Router, RouterModule } from '@angular/router'
-import { AuthService } from '@core/auth/services/auth.service'
-import { LoginFormService } from '@core/auth/services/login-form.service'
+import { AuthService } from '@main/auth/services/auth.service'
+import { LoginFormService } from '@main/auth/services/login-form.service'
 
 @Component({
     standalone: true,

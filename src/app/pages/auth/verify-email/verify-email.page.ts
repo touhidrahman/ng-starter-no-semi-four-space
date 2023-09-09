@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common'
 import { Component, OnInit } from '@angular/core'
 import { ReactiveFormsModule } from '@angular/forms'
 import { ActivatedRoute, Router, RouterModule } from '@angular/router'
-import { AuthService } from '@core/auth/services/auth.service'
+import { AuthService } from '@main/auth/services/auth.service'
 import { timer } from 'rxjs'
 
 @Component({

@@ -1,5 +1,5 @@
 import { Directive, TemplateRef, ViewContainerRef } from '@angular/core'
-import { AuthService } from '@core/auth/services/auth.service'
+import { AuthService } from '@main/auth/services/auth.service'
 
 @Directive({
     standalone: true,

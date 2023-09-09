@@ -2,8 +2,8 @@ import { CommonModule } from '@angular/common'
 import { Component, OnInit } from '@angular/core'
 import { ReactiveFormsModule } from '@angular/forms'
 import { Router, RouterModule } from '@angular/router'
-import { AuthService } from '@core/auth/services/auth.service'
-import { RegisterFormService } from '@core/auth/services/register-form.service'
+import { AuthService } from '@main/auth/services/auth.service'
+import { RegisterFormService } from '@main/auth/services/register-form.service'
 
 @Component({
     standalone: true,

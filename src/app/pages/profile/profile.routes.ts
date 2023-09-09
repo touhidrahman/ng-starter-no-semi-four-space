@@ -1,5 +1,5 @@
 import { Route } from '@angular/router'
-import { authGuardFn } from '@core/auth/guards/auth.guard'
+import { authGuardFn } from '@main/auth/guards/auth.guard'
 import { PageLayout } from '@main/layout/page-layout.enum'
 import { setLayout } from '@main/layout/set-layout.resolver'
 

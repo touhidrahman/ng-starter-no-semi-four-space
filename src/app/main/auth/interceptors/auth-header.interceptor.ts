@@ -1,7 +1,7 @@
 import { HttpHandlerFn, HttpInterceptorFn, HttpRequest } from '@angular/common/http'
 import { inject } from '@angular/core'
-import { TokenStorageService } from '@core/auth/services/token-storage.service'
 import { environment } from '@environment/environment'
+import { TokenStorageService } from '@main/auth/services/token-storage.service'
 
 /**
  * Adds the Bearer token to outgoing requests

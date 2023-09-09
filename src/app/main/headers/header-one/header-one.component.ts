@@ -9,15 +9,14 @@ import {
 } from '@angular/core'
 import { MatIconModule } from '@angular/material/icon'
 import { RouterModule } from '@angular/router'
-import { AuthService } from '@core/auth/services/auth.service'
 import { AppStateService } from '@core/states/app-state.service'
 import { ButtonComponent } from '@core/ui/button/button.component'
-import { NavbarComponent } from '@core/ui/navbar/navbar.component'
+import { AuthService } from '@main/auth/services/auth.service'
 
 @Component({
     selector: 'app-header-one',
     standalone: true,
-    imports: [CommonModule, RouterModule, ButtonComponent, MatIconModule, NavbarComponent],
+    imports: [CommonModule, RouterModule, ButtonComponent, MatIconModule],
     templateUrl: './header-one.component.html',
     styleUrls: ['./header-one.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
