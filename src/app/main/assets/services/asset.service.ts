@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http'
 import { Inject, Injectable } from '@angular/core'
-import { Asset } from '@core/models'
 import { APP_ENVIRONMENT } from '@environment/app-environment.injector'
 import { AppEnvironment } from '@environment/app-environment.interface'
 import { Observable } from 'rxjs'
+import { Asset } from '../models/asset.model'
 
 @Injectable({
     providedIn: 'root',

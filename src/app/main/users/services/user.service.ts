@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http'
 import { Inject, Injectable } from '@angular/core'
-import { User } from '@core/models'
 import { ApiService } from '@core/services/api.service'
 import { APP_ENVIRONMENT } from '@environment/app-environment.injector'
 import { AppEnvironment } from '@environment/app-environment.interface'
 import { Observable } from 'rxjs'
+import { User } from '../models/user.model'
 
 @Injectable({
     providedIn: 'root',

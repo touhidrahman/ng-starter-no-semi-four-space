@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common'
 import { Component, OnInit } from '@angular/core'
 import { ReactiveFormsModule } from '@angular/forms'
 import { Router, RouterModule } from '@angular/router'
+import { markAllControlsAsDirty } from '@core/utils/form.util'
 import { AuthService } from '@main/auth/services/auth.service'
 import { RegisterFormService } from '@main/auth/services/register-form.service'
 
@@ -28,8 +29,12 @@ export default class RegisterPage implements OnInit {
 
     register(): void {
         if (this.loading) return
-        this.errors = []
+        if (this.registerFormService.form.invalid) {
+            markAllControlsAsDirty([this.registerFormService.form])
+            return
+        }
 
+        this.errors = []
         this.loading = true
         this.auth.signUp(this.registerFormService.getValue()).subscribe({
             next: () => {
