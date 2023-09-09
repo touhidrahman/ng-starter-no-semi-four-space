@@ -3,12 +3,12 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
 import { RouterModule } from '@angular/router'
 import { AuthService } from '@core/auth/services/auth.service'
 import { AppStateService } from '@core/states/app-state.service'
+import { DropdownAccentComponent } from '@core/ui/dropdown/dropdown-accent/dropdown-accent.component'
+import { MaterialModules } from '@core/ui/material'
 import { isSmallScreen } from '@core/utils/screen.util'
 import { FooterCopyrightComponent } from '@main/footers/footer-copyright/footer-copyright.component'
 import { FooterOneComponent } from '@main/footers/footer-one/footer-one.component'
 import { HeaderOneComponent } from '@main/headers/header-one/header-one.component'
-import { DropdownAccentComponent } from '@main/ui/dropdown/dropdown-accent/dropdown-accent.component'
-import { MaterialModules } from '@main/ui/material'
 
 @Component({
     selector: 'app-layout-sidebar',

@@ -2,12 +2,12 @@ import { CommonModule } from '@angular/common'
 import { Component, Input } from '@angular/core'
 import { MatIconModule } from '@angular/material/icon'
 import { RouterModule } from '@angular/router'
-import { expandCollapseTrigger } from '@main/ui/animations/expand-collapse.animation'
+import { expandCollapseTrigger } from '@core/ui/animations/expand-collapse.animation'
 
 export interface DropdownItem {
     label: string
     matIconString: string
-    // rome-ignore lint/suspicious/noExplicitAny: <explanation>
+    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
     routerLinkCommands: any[]
 }
 

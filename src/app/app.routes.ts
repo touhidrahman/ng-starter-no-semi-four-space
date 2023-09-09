@@ -1,8 +1,8 @@
 import { Route } from '@angular/router'
-import { AuthRoutes, getAuthRoutes } from './pages/auth/auth.routes'
-import { HomeRoutes, getHomeRoutes } from './pages/home/home.routes'
-import { NotFoundPageRoutes, getNotFoundPageRoutes } from './pages/not-found/not-found.routes'
-import { ProfileRoutes, getProfileRoutes } from './pages/profile/profile.routes'
+import { AuthRoutes, getAuthRoutes } from '@pages/auth/auth.routes'
+import { HomeRoutes, getHomeRoutes } from '@pages/home/home.routes'
+import { NotFoundPageRoutes, getNotFoundPageRoutes } from '@pages/not-found/not-found.routes'
+import { ProfileRoutes, getProfileRoutes } from '@pages/profile/profile.routes'
 
 type GroupedRoutes = [
     HomeRoutes,
