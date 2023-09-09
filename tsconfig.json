@@ -4,7 +4,7 @@
         "baseUrl": "./",
         "paths": {
             "@core/*": ["src/app/core/*"],
-            "@features/*": [
+            "@main/*": [
                 "src/app/main/*"
             ],
             "@environment/*": ["src/environments/*"]

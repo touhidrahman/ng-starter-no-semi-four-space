@@ -11,8 +11,8 @@ import { MatIconModule } from '@angular/material/icon'
 import { RouterModule } from '@angular/router'
 import { AuthService } from '@core/auth/services/auth.service'
 import { AppStateService } from '@core/states/app-state.service'
-import { ButtonComponent } from 'src/app/main/ui/button/button.component'
-import { NavbarComponent } from 'src/app/main/ui/navbar/navbar.component'
+import { ButtonComponent } from '@main/ui/button/button.component'
+import { NavbarComponent } from '@main/ui/navbar/navbar.component'
 
 @Component({
     selector: 'app-header-one',

@@ -1,7 +1,7 @@
 import { Route } from '@angular/router'
 import { authGuardFn } from '@core/auth/guards/auth.guard'
-import { PageLayout } from 'src/app/main/layout/page-layout.enum'
-import { setLayout } from 'src/app/main/layout/set-layout.resolver'
+import { PageLayout } from '@main/layout/page-layout.enum'
+import { setLayout } from '@main/layout/set-layout.resolver'
 
 export type ProfileRoutes = {
     index: Route

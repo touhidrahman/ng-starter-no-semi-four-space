@@ -3,7 +3,7 @@ import { Component } from '@angular/core'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { Router, RouterModule } from '@angular/router'
 import { AuthService } from '@core/auth/services/auth.service'
-import { ToastService } from 'src/app/main/ui/toast/toast.service'
+import { ToastService } from '@main/ui/toast/toast.service'
 
 @Component({
     standalone: true,

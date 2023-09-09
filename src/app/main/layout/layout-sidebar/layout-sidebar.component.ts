@@ -4,11 +4,11 @@ import { RouterModule } from '@angular/router'
 import { AuthService } from '@core/auth/services/auth.service'
 import { AppStateService } from '@core/states/app-state.service'
 import { isSmallScreen } from '@core/utils/screen.util'
-import { FooterCopyrightComponent } from 'src/app/main/footers/footer-copyright/footer-copyright.component'
-import { FooterOneComponent } from 'src/app/main/footers/footer-one/footer-one.component'
-import { HeaderOneComponent } from 'src/app/main/headers/header-one/header-one.component'
-import { DropdownAccentComponent } from 'src/app/main/ui/dropdown/dropdown-accent/dropdown-accent.component'
-import { MaterialModules } from 'src/app/main/ui/material'
+import { FooterCopyrightComponent } from '@main/footers/footer-copyright/footer-copyright.component'
+import { FooterOneComponent } from '@main/footers/footer-one/footer-one.component'
+import { HeaderOneComponent } from '@main/headers/header-one/header-one.component'
+import { DropdownAccentComponent } from '@main/ui/dropdown/dropdown-accent/dropdown-accent.component'
+import { MaterialModules } from '@main/ui/material'
 
 @Component({
     selector: 'app-layout-sidebar',
