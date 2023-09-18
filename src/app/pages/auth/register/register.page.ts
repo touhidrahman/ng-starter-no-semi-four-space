@@ -15,7 +15,11 @@ import { RegisterFormService } from '@main/auth/services/register-form.service'
 })
 export default class RegisterPage implements OnInit {
     loading = false
-    errors: string[] = []
+    errors = ''
+
+    get signUpForm() {
+        return this.registerFormService.form
+    }
 
     constructor(
         public registerFormService: RegisterFormService,
@@ -34,7 +38,7 @@ export default class RegisterPage implements OnInit {
             return
         }
 
-        this.errors = []
+        this.errors = ''
         this.loading = true
         this.auth.signUp(this.registerFormService.getValue()).subscribe({
             next: () => {
@@ -43,10 +47,12 @@ export default class RegisterPage implements OnInit {
             },
             error: ({ error }) => {
                 if (typeof error.message === 'string') {
-                    this.errors.push(error.message)
+                    this.errors = error.message
                 }
                 if (Array.isArray(error.message)) {
-                    error.message.forEach((x: string) => this.errors.push(x))
+                    error.message.forEach((x: string) => {
+                        this.errors = this.errors.concat(`\n${x}`)
+                    })
                 }
 
                 this.loading = false

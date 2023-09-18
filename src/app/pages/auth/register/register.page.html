@@ -1,77 +1,141 @@
-<div class="my-auto flex flex-col justify-center px-8 pt-8 md:justify-start md:px-24 md:pt-20 lg:px-32">
-    <p class="text-center text-3xl">Register</p>
-    <form (ngSubmit)="register()" [formGroup]="registerFormService.form" class="flex flex-col pt-3 md:pt-8">
-        <div class="flex flex-col pt-4">
-            <div
-                *ngIf="errors.length"
-                class="border-warn-500 text-warn-500 mb-8 border border-solid bg-red-100 px-4 py-2"
-            >
-                <ng-container *ngFor="let err of errors">{{ err }}</ng-container>
-            </div>
-            <div class="flex space-x-4">
+<div class="flex items-center justify-center mb-6 text-2xl font-semibold text-gray-900">
+    <img class="w-8 h-8 mr-2" src="./../../../../assets/logoipsum-282.svg" alt="logo" />
+</div>
+
+<div class="w-full bg-white rounded shadow dark:border md:mt-0 sm:w-96 xl:p-0">
+    <div class="p-6 space-y-2 md:space-y-4 sm:p-8">
+        <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">Create account</h1>
+        <p *ngIf="errors" class="text-lg font-medium text-sky-600">
+            {{ errors }}
+        </p>
+        <form
+            class="space-y-4 md:space-y-6"
+            [formGroup]="signUpForm"
+            [ngClass]="{ 'opacity-50 pointer-events-none': loading === true }"
+        >
+            <div>
+                <label for="firstName" class="block mb-2 text-sm font-medium text-gray-900">First name</label>
                 <input
-                    type="text"
                     formControlName="firstName"
-                    class="w-full flex-1 appearance-none border border-gray-300 bg-white px-4 py-2 text-base text-gray-700 placeholder-gray-400 shadow-sm focus:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600"
-                    placeholder="First Name"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 rounded block w-full p-2.5"
                 />
+                <div
+                    *ngIf="
+                        signUpForm.get('firstName')?.hasError('required') &&
+                        signUpForm.get('firstName')?.touched &&
+                        signUpForm.get('firstName')?.dirty
+                    "
+                    class="text-red-500 text-xs italic"
+                >
+                    First name is required.
+                </div>
+            </div>
+            <div>
+                <label for="lastName" class="block mb-2 text-sm font-medium text-gray-900">Last name</label>
                 <input
-                    type="text"
                     formControlName="lastName"
-                    class="w-full flex-1 appearance-none border border-gray-300 bg-white px-4 py-2 text-base text-gray-700 placeholder-gray-400 shadow-sm focus:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600"
-                    placeholder="Last Name"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 rounded block w-full p-2.5"
                 />
+                <div
+                    *ngIf="
+                        signUpForm.get('lastName')?.hasError('required') &&
+                        signUpForm.get('lastName')?.touched &&
+                        signUpForm.get('lastName')?.dirty
+                    "
+                    class="text-red-500 text-xs italic"
+                >
+                    Last name is required.
+                </div>
             </div>
-        </div>
-        <div class="flex flex-col pt-4">
-            <div class="relative flex">
+            <div>
+                <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Email</label>
                 <input
-                    type="text"
                     formControlName="email"
-                    class="w-full flex-1 appearance-none border border-gray-300 bg-white px-4 py-2 text-base text-gray-700 placeholder-gray-400 shadow-sm focus:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600"
-                    placeholder="Email"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 rounded block w-full p-2.5"
                 />
+                <div
+                    *ngIf="
+                        signUpForm.get('email')?.hasError('required') &&
+                        signUpForm.get('email')?.touched &&
+                        signUpForm.get('email')?.dirty
+                    "
+                    class="text-red-500 text-xs italic"
+                >
+                    Email is required.
+                </div>
+                <div
+                    *ngIf="signUpForm.get('email')?.hasError('email') && signUpForm.get('email')?.touched"
+                    class="text-red-500 text-xs italic"
+                >
+                    Enter a valid email address.
+                </div>
             </div>
-        </div>
-        <div class="mb-12 flex flex-col pt-4 gap-4">
-            <div class="relative flex">
+            <div>
+                <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Password</label>
                 <input
                     type="password"
                     formControlName="password"
-                    class="w-full flex-1 appearance-none border border-gray-300 bg-white px-4 py-2 text-base text-gray-700 placeholder-gray-400 shadow-sm focus:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600"
-                    placeholder="Password"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 rounded block w-full p-2.5"
                 />
+                <div
+                    *ngIf="
+                        signUpForm.get('password')?.hasError('required') &&
+                        signUpForm.get('password')?.touched &&
+                        signUpForm.get('password')?.dirty
+                    "
+                    class="text-red-500 text-xs italic"
+                >
+                    Password is required.
+                </div>
+                <div
+                    *ngIf="signUpForm.get('password')?.hasError('minLength') && signUpForm.get('password')?.touched"
+                    class="text-red-500 text-xs italic"
+                >
+                    Password must be 8 characters.
+                </div>
+                <div
+                    *ngIf="signUpForm.get('password')?.hasError('maxLength') && signUpForm.get('password')?.touched"
+                    class="text-red-500 text-xs italic"
+                >
+                    Password can't exceed 32 characters.
+                </div>
             </div>
-            <div class="relative flex">
+            <div>
+                <label for="passwordConfirmation" class="block mb-2 text-sm font-medium text-gray-900"
+                    >Confirm password</label
+                >
                 <input
                     type="password"
                     formControlName="passwordConfirmation"
-                    class="w-full flex-1 appearance-none border border-gray-300 bg-white px-4 py-2 text-base text-gray-700 placeholder-gray-400 shadow-sm focus:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600"
-                    placeholder="Retype Password"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 rounded block w-full p-2.5"
                 />
+                <div
+                    class="text-red-500 text-xs italic"
+                    *ngIf="
+                        signUpForm.get('passwordConfirmation')?.touched &&
+                        signUpForm.errors?.['passwordNotMatched'] &&
+                        signUpForm.get('password')?.valid
+                    "
+                >
+                    Passwords do not match.
+                </div>
             </div>
-        </div>
-        <button
-            type="submit"
-            class="w-full bg-black px-4 py-2 text-center text-base font-semibold text-white shadow-md transition duration-200 ease-in focus:outline-none focus:ring-2 hover:bg-white hover:text-black"
-        >
-            <span *ngIf="loading" class="w-full">
-                <i class="bx bx-loader bx-spin"></i>
-                Please wait
-            </span>
-            <span *ngIf="!loading" class="w-full"> Submit </span>
-        </button>
-    </form>
-    <div class="pb-12 pt-12 text-center">
-        <p>
-            Have an account?
-            <a [routerLink]="['/login']" class="font-semibold underline"> Login here. </a>
-        </p>
-    </div>
-    <div class="pt-12 text-center text-xs text-gray-400">
-        <p>
-            Go to
-            <a [routerLink]="['/']" class="font-semibold underline"> Home </a>
-        </p>
+
+            <div class="py-4">
+                <button
+                    type="submit"
+                    (click)="register()"
+                    class="w-full text-white bg-sky-600 hover:bg-sky-700 focus:ring-4 focus:outline-none focus:ring-sky-300 font-medium rounded text-sm px-5 py-2.5 text-center dark:bg-sky-600 dark:hover:bg-sky-700 dark:focus:ring-sky-800"
+                >
+                    Register
+                </button>
+            </div>
+            <p class="text-sm font-light text-gray-500 dark:text-gray-400">
+                Already have an account?
+                <a [routerLink]="['/login']" class="font-medium text-sky-600 hover:underline dark:text-sky-500"
+                    >Login here</a
+                >
+            </p>
+        </form>
     </div>
 </div>
