@@ -76,10 +76,13 @@
     "typescript": "~5.1.6"
   },
   "lint-staged": {
-    "*.{html,xml,scss,css,less}": "npx prettier --write",
+    "src/**/*.{html,xml,scss,css,less}": "npx prettier --write",
     "src/**/*.{ts,js}": [
       "npx biome format --write",
       "npx biome lint --apply"
+    ],
+    "cypress/**/*.{ts,js}": [
+      "npx biome format --write"
     ]
   }
 }
