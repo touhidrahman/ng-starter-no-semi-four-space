@@ -10,6 +10,8 @@
     "build:alternative": "NODE_ENV=production node --max_old_space_size=8192 node_modules/@angular/cli/bin/ng build --prod",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "e2e:open": "npx cypress open",
+    "e2e:run": "npx cypress run",
     "lint": "npx biome lint ./src --apply",
     "prepare": "husky install .client/.husky",
     "format:ts": "npx biome format ./src --write",
@@ -51,6 +53,7 @@
     "@types/jasmine": "~4.3.6",
     "@types/node": "^20.6.2",
     "autoprefixer": "^10.4.15",
+    "cypress": "^13.2.0",
     "eslint": "^8.49.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-angular": "^4.1.0",
@@ -74,7 +77,7 @@
   },
   "lint-staged": {
     "*.{html,xml,scss,css,less}": "npx prettier --write",
-    "*.{ts,js}": [
+    "src/**/*.{ts,js}": [
       "npx biome format --write",
       "npx biome lint --apply"
     ]

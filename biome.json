@@ -1,5 +1,5 @@
 {
-    "$schema": "https://biomejs.dev/schemas/1.1.2/schema.json",
+    "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
     "organizeImports": {
         "enabled": true
     },
@@ -15,7 +15,8 @@
             "suspicious": {
                 "noExplicitAny": "warn"
             }
-        }
+        },
+        "ignore": ["./cypres/**/*.*"]
     },
     "formatter": {
         "enabled": true,
