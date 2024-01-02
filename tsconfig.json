@@ -1,39 +1,142 @@
 {
-    "compileOnSave": false,
-    "compilerOptions": {
-        "baseUrl": "./",
-        "paths": {
-            "@core/*": ["src/app/core/*"],
-            "@main/*": ["src/app/main/*"],
-            "@pages/*": ["src/app/pages/*"],
-            "@environment/*": ["src/environments/*"]
-        },
-        "typeRoots": ["node_modules/@types"],
-        "lib": ["ES2022", "dom"],
-        "declaration": false,
-        "downlevelIteration": true,
-        "experimentalDecorators": true,
-        "esModuleInterop": true,
-        "forceConsistentCasingInFileNames": true,
-        "resolveJsonModule": true,
-        "importHelpers": true,
-        "module": "ES2022",
-        "moduleResolution": "node",
-        "noFallthroughCasesInSwitch": true,
-        "noImplicitOverride": true,
-        "noImplicitReturns": true,
-        "noPropertyAccessFromIndexSignature": true,
-        "outDir": "./dist/out-tsc",
-        "sourceMap": true,
-        "strict": true,
-        "target": "ES2022",
-        "useDefineForClassFields": false
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@core/*": [
+        "src/app/core/*"
+      ],
+      "@main/*": [
+        "src/app/main/*"
+      ],
+      "@pages/*": [
+        "src/app/pages/*"
+      ],
+      "@environment/*": [
+        "src/environments/*"
+      ],
+      "@spartan-ng/ui-accordion-helm": [
+        "./libs/ui/ui-accordion-helm/src/index.ts"
+      ],
+      "@spartan-ng/ui-alert-helm": [
+        "./libs/ui/ui-alert-helm/src/index.ts"
+      ],
+      "@spartan-ng/ui-alertdialog-helm": [
+        "./libs/ui/ui-alertdialog-helm/src/index.ts"
+      ],
+      "@spartan-ng/ui-aspectratio-helm": [
+        "./libs/ui/ui-aspectratio-helm/src/index.ts"
+      ],
+      "@spartan-ng/ui-avatar-helm": [
+        "./libs/ui/ui-avatar-helm/src/index.ts"
+      ],
+      "@spartan-ng/ui-badge-helm": [
+        "./libs/ui/ui-badge-helm/src/index.ts"
+      ],
+      "@spartan-ng/ui-button-helm": [
+        "./libs/ui/ui-button-helm/src/index.ts"
+      ],
+      "@spartan-ng/ui-card-helm": [
+        "./libs/ui/ui-card-helm/src/index.ts"
+      ],
+      "@spartan-ng/ui-command-helm": [
+        "./libs/ui/ui-command-helm/src/index.ts"
+      ],
+      "@spartan-ng/ui-dialog-helm": [
+        "./libs/ui/ui-dialog-helm/src/index.ts"
+      ],
+      "@spartan-ng/ui-icon-helm": [
+        "./libs/ui/ui-icon-helm/src/index.ts"
+      ],
+      "@spartan-ng/ui-input-helm": [
+        "./libs/ui/ui-input-helm/src/index.ts"
+      ],
+      "@spartan-ng/ui-label-helm": [
+        "./libs/ui/ui-label-helm/src/index.ts"
+      ],
+      "@spartan-ng/ui-menu-helm": [
+        "./libs/ui/ui-menu-helm/src/index.ts"
+      ],
+      "@spartan-ng/ui-popover-helm": [
+        "./libs/ui/ui-popover-helm/src/index.ts"
+      ],
+      "@spartan-ng/ui-progress-helm": [
+        "./libs/ui/ui-progress-helm/src/index.ts"
+      ],
+      "@spartan-ng/ui-radiogroup-helm": [
+        "./libs/ui/ui-radiogroup-helm/src/index.ts"
+      ],
+      "@spartan-ng/ui-scrollarea-helm": [
+        "./libs/ui/ui-scrollarea-helm/src/index.ts"
+      ],
+      "@spartan-ng/ui-separator-helm": [
+        "./libs/ui/ui-separator-helm/src/index.ts"
+      ],
+      "@spartan-ng/ui-sheet-helm": [
+        "./libs/ui/ui-sheet-helm/src/index.ts"
+      ],
+      "@spartan-ng/ui-skeleton-helm": [
+        "./libs/ui/ui-skeleton-helm/src/index.ts"
+      ],
+      "@spartan-ng/ui-spinner-helm": [
+        "./libs/ui/ui-spinner-helm/src/index.ts"
+      ],
+      "@spartan-ng/ui-switch-helm": [
+        "./libs/ui/ui-switch-helm/src/index.ts"
+      ],
+      "@spartan-ng/ui-tabs-helm": [
+        "./libs/ui/ui-tabs-helm/src/index.ts"
+      ],
+      "@spartan-ng/ui-toggle-helm": [
+        "./libs/ui/ui-toggle-helm/src/index.ts"
+      ],
+      "@spartan-ng/ui-typography-helm": [
+        "./libs/ui/ui-typography-helm/src/index.ts"
+      ],
+      "@spartan-ng/ui-table-helm": [
+        "./libs/ui/ui-table-helm/src/index.ts"
+      ],
+      "@spartan-ng/ui-hovercard-helm": [
+        "./libs/ui/ui-hovercard-helm/src/index.ts"
+      ],
+      "@spartan-ng/ui-checkbox-helm": [
+        "./libs/ui/ui-checkbox-helm/src/index.ts"
+      ],
+      "@spartan-ng/ui-tooltip-helm": [
+        "./libs/ui/ui-tooltip-helm/src/index.ts"
+      ]
     },
-    "angularCompilerOptions": {
-        "enableI18nLegacyMessageIdFormat": false,
-        "fullTemplateTypeCheck": true,
-        "strictInjectionParameters": true,
-        "strictInputAccessModifiers": true,
-        "strictTemplates": true
-    }
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "ES2022",
+      "dom"
+    ],
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "importHelpers": true,
+    "module": "ES2022",
+    "moduleResolution": "node",
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "strict": true,
+    "target": "ES2022",
+    "useDefineForClassFields": false
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  }
 }
