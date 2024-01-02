@@ -5,7 +5,7 @@ module.exports = {
         './src/**/*.{html,ts,css,scss,sass,less,styl}',
         './libs/ui/**/*.{html,ts}',
     ],
-    darkMode: 'media', // or 'class'
+    darkMode: 'class', // or 'media'
     theme: {
         extend: {},
     },
@@ -18,6 +18,6 @@ module.exports = {
         require('@tailwindcss/typography'),
         require('tailwindcss-elevation'),
         require('tailwind-scrollbar'),
-        // require('prettier-plugin-tailwindcss'),
+        require('prettier-plugin-tailwindcss'),
     ],
 }

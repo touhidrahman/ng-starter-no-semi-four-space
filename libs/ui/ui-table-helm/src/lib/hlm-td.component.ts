@@ -1,24 +1,24 @@
-import { NgTemplateOutlet } from '@angular/common';
+import { NgTemplateOutlet } from '@angular/common'
 import {
-	booleanAttribute,
-	ChangeDetectionStrategy,
-	Component,
-	computed,
-	Input,
-	signal,
-	ViewEncapsulation,
-} from '@angular/core';
-import { hlm } from '@spartan-ng/ui-core';
-import { ClassValue } from 'clsx';
+    booleanAttribute,
+    ChangeDetectionStrategy,
+    Component,
+    computed,
+    Input,
+    signal,
+    ViewEncapsulation,
+} from '@angular/core'
+import { hlm } from '@spartan-ng/ui-core'
+import { ClassValue } from 'clsx'
 
 @Component({
-	selector: 'hlm-td',
-	standalone: true,
-	imports: [NgTemplateOutlet],
-	host: {
-		'[class]': '_computedClass()',
-	},
-	template: `
+    selector: 'hlm-td',
+    standalone: true,
+    imports: [NgTemplateOutlet],
+    host: {
+        '[class]': '_computedClass()',
+    },
+    template: `
 		<ng-template #content>
 			<ng-content />
 		</ng-template>
@@ -30,20 +30,20 @@ import { ClassValue } from 'clsx';
 			<ng-container [ngTemplateOutlet]="content" />
 		}
 	`,
-	changeDetection: ChangeDetectionStrategy.OnPush,
-	encapsulation: ViewEncapsulation.None,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    encapsulation: ViewEncapsulation.None,
 })
 export class HlmTdComponent {
-	@Input({ transform: booleanAttribute })
-	public truncate = false;
+    @Input({ transform: booleanAttribute })
+    public truncate = false
 
-	private readonly _userCls = signal<ClassValue>('');
-	protected readonly _computedClass = computed(() =>
-		hlm('flex flex-none p-4 items-center [&:has([role=checkbox])]:pr-0', this._userCls()),
-	);
+    private readonly _userCls = signal<ClassValue>('')
+    protected readonly _computedClass = computed(() =>
+        hlm('flex flex-none p-4 items-center [&:has([role=checkbox])]:pr-0', this._userCls()),
+    )
 
-	@Input()
-	set class(inputs: ClassValue) {
-		this._userCls.set(inputs);
-	}
+    @Input()
+    set class(inputs: ClassValue) {
+        this._userCls.set(inputs)
+    }
 }
