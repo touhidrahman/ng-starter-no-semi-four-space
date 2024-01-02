@@ -13,6 +13,9 @@ import { take, timer } from 'rxjs'
     standalone: true,
     selector: 'app-root',
     templateUrl: './app.component.html',
+    host: {
+        class: 'text-foreground block antialiased',
+    },
     imports: [CommonModule, RouterModule, LayoutCenteredComponent, LayoutDefaultComponent],
 })
 export class AppComponent {

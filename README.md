@@ -6,10 +6,10 @@ This boilerplate uses:
 - TailwindCSS
 - Eslint
 - Prettier
+- BiomeJS
 - Git hooks
 - Boxicons
-- Angular Material
-- DaisyUI
+- SpartanNG UI Library
 
 and most importantly - **4 space tabs** and **NO SEMICOLON**
 

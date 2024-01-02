@@ -1,3 +1,4 @@
+/** @type {import('tailwindcss').Config} */
 /* eslint-disable no-undef */
 module.exports = {
     prefix: '',
@@ -13,8 +14,6 @@ module.exports = {
         extend: {},
     },
     plugins: [
-        require('@tailwindcss/aspect-ratio'),
-        require('@tailwindcss/forms'),
         require('@tailwindcss/typography'),
         require('tailwindcss-elevation'),
         require('tailwind-scrollbar'),

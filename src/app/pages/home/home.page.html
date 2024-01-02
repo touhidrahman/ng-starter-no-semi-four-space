@@ -32,4 +32,26 @@
             </div>
         </div>
     </div>
+
+    <section class="mt-12">
+        <h1 hlmH1 class="${hlmH1}">The Joke Tax Chronicles</h1>
+        <button hlmBtn>Button</button>
+
+        <hlm-alert-dialog>
+            <button id="edit-profile" variant="outline" brnAlertDialogTrigger hlmBtn>Delete Account</button>
+            <hlm-alert-dialog-content *brnAlertDialogContent="let ctx">
+                <hlm-alert-dialog-header>
+                    <h3 hlmAlertDialogTitle>Are you absolutely sure?</h3>
+                    <p hlmAlertDialogDescription>
+                        This action cannot be undone. This will permanently delete your account and remove your data
+                        from our servers.
+                    </p>
+                </hlm-alert-dialog-header>
+                <hlm-alert-dialog-footer>
+                    <button hlmAlertDialogCancel (click)="ctx.close()">Cancel</button>
+                    <button hlmAlertDialogAction (click)="ctx.close()">Delete account</button>
+                </hlm-alert-dialog-footer>
+            </hlm-alert-dialog-content>
+        </hlm-alert-dialog>
+    </section>
 </main>

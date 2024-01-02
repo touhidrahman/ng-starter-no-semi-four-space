@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html class="dark h-full" lang="en">
     <head>
         <meta charset="utf-8" />
         <title>ng-starter-no-semi-four-space</title>
@@ -14,16 +14,38 @@
             href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
             rel="stylesheet"
         />
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <script>
+            if (localStorage.theme !== 'default') {
+                if (document && document.body) {
+                    document.body.classList.add('theme-' + localStorage.theme)
+                }
+            }
+            if (localStorage.darkMode === 'dark') {
+                if (document && document.documentElement) {
+                    document.documentElement.classList.add('dark')
+                }
+            } else if (localStorage.darkMode === 'light') {
+                if (document && document.documentElement) {
+                    document.documentElement.classList.remove('dark')
+                    localStorage.setItem('darkMode', 'light')
+                }
+            } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                localStorage.setItem('darkMode', 'system')
+                if (document && document.documentElement) {
+                    document.documentElement.classList.add('dark')
+                }
+            } else {
+                if (document && document.documentElement) {
+                    document.documentElement.classList.remove('dark')
+                }
+            }
+        </script>
     </head>
-    <body>
-        <app-root>
-            <!-- loading layout replaced by app after startupp -->
-            <div class="app-loading-container">
-                <svg class="spinner" viewBox="25 25 50 50">
-                    <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
-                </svg>
-            </div>
-        </app-root>
+    <body class="bg-background text-foreground h-full">
+        <script>
+            if (localStorage.theme !== 'default' && document && document.body)
+                document.body.classList.add('theme-' + localStorage.theme)
+        </script>
+        <app-root></app-root>
     </body>
 </html>
