@@ -1,26 +1,10 @@
-@import '@angular/cdk/overlay-prebuilt.css';
-
-/* Base */
+// @import '@angular/cdk/overlay-prebuilt.css';
 @import 'tailwindcss/base';
-@import './01-base/variables.scss';
-@import './01-base/document.scss';
-@import './01-base/font.scss';
-@import './01-base/material-theme.scss';
-@import './01-base/heading.scss';
-
-/* Components */
 @import 'tailwindcss/components';
-@import './02-components/spinner.scss';
-@import './02-components/button.scss';
-@import 'node_modules/@ngneat/hot-toast/src/styles/styles.scss';
-
-/* Utilities */
 @import 'tailwindcss/utilities';
-@import './03-utilities/page.scss';
-@import './03-utilities/border.scss';
 
 :root {
-    --font-sans: '';
+    --font-sans: 'IBM Plex Sans';
 }
 
 :root {

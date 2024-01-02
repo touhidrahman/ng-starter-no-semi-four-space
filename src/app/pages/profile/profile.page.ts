@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common'
 import { Component, OnInit } from '@angular/core'
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms'
 import { Router, RouterModule } from '@angular/router'
-import { ToastService } from '@core/ui/toast/toast.service'
 import { AuthService } from '@main/auth/services/auth.service'
 import { FooterOneComponent } from '@main/footers/footer-one/footer-one.component'
 import { HeaderOneComponent } from '@main/headers/header-one/header-one.component'
@@ -27,12 +26,7 @@ export default class ProfilePage implements OnInit {
 
     errors: string[] = []
 
-    constructor(
-        private auth: AuthService,
-        private fb: FormBuilder,
-        private router: Router,
-        private toast: ToastService,
-    ) {}
+    constructor(private auth: AuthService, private fb: FormBuilder, private router: Router) {}
 
     ngOnInit(): void {
         void 0
@@ -47,7 +41,6 @@ export default class ProfilePage implements OnInit {
         }
         this.auth.changePassword(password, passwordConfirmation).subscribe({
             next: () => {
-                this.toast.success('Password changed successfully')
                 this.form.reset()
             },
             error: (err) => {

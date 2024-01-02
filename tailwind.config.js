@@ -18,6 +18,6 @@ module.exports = {
         require('@tailwindcss/typography'),
         require('tailwindcss-elevation'),
         require('tailwind-scrollbar'),
-        require('prettier-plugin-tailwindcss'),
+        // require('prettier-plugin-tailwindcss'),
     ],
 }

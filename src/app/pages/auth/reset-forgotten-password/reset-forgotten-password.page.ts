@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common'
 import { Component, OnInit } from '@angular/core'
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms'
 import { ActivatedRoute, Router, RouterModule } from '@angular/router'
-import { ToastService } from '@core/ui/toast/toast.service'
 import { AuthService } from '@main/auth/services/auth.service'
 
 @Component({
@@ -25,7 +24,6 @@ export default class ResetForgottenPasswordPage implements OnInit {
         private fb: FormBuilder,
         private router: Router,
         private ar: ActivatedRoute,
-        private toast: ToastService,
     ) {}
 
     ngOnInit(): void {
@@ -41,7 +39,6 @@ export default class ResetForgottenPasswordPage implements OnInit {
         }
         this.auth.resetForgottenPassword(this.token, password, passwordConfirmation).subscribe({
             next: () => {
-                this.toast.success('Password reset successfully')
                 this.router.navigate(['/login'])
             },
             error: (err) => {
