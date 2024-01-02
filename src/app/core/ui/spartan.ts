@@ -154,7 +154,7 @@ import {
     HlmUlDirective,
 } from '@spartan-ng/ui-typography-helm'
 
-export const HelmImports = [
+export const SpartanUiImports = [
     BrnAccordionContentComponent,
     BrnAlertDialogContentDirective,
     BrnAlertDialogTriggerDirective,
