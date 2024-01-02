@@ -7,16 +7,14 @@ import {
     OnInit,
     Output,
 } from '@angular/core'
-import { MatIconModule } from '@angular/material/icon'
 import { RouterModule } from '@angular/router'
 import { AppStateService } from '@core/states/app-state.service'
-import { ButtonComponent } from '@core/ui/button/button.component'
 import { AuthService } from '@main/auth/services/auth.service'
 
 @Component({
     selector: 'app-header-one',
     standalone: true,
-    imports: [CommonModule, RouterModule, ButtonComponent, MatIconModule],
+    imports: [CommonModule, RouterModule],
     templateUrl: './header-one.component.html',
     styleUrls: ['./header-one.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
