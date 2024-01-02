@@ -48,5 +48,6 @@ module.exports = {
         require('tailwind-scrollbar'),
         // require('prettier-plugin-tailwindcss'),
         require('daisyui'),
+        require('@spartan-ng/ui-core/hlm-tailwind-preset'),
     ],
 }

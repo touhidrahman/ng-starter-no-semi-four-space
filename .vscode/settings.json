@@ -29,12 +29,18 @@
     "[json]": {
         "editor.defaultFormatter": "vscode.json-language-features",
         "editor.codeActionsOnSave": {
-            "source.fixAll.eslint": true
+            "source.fixAll.eslint": "explicit"
         },
         "editor.formatOnSave": false
     },
     "[html]": {
-        "editor.defaultFormatter": "Angular.ng-template",
+        "editor.defaultFormatter": "stringham.angular-template-formatter",
         "editor.formatOnSave": true
+    },
+    "[javascript][typescript]": {
+        "editor.codeActionsOnSave": {
+            "quickfix.biome": "explicit",
+            "source.organizeImports.biome": "explicit"
+        }
     }
 }

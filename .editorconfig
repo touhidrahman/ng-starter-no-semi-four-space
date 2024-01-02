@@ -17,6 +17,7 @@ indent_style = space
 
 [{*.md,*.markdown}]
 trim_trailing_whitespace = false
+max_line_length = off
 
 [{package.json,package-lock.json}]
 indent_size = 2
