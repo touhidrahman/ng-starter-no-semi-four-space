@@ -6,13 +6,11 @@ export type NotFoundPageRoutes = {
     index: Route
 }
 
-export function getNotFoundPageRoutes(): NotFoundPageRoutes {
-    return {
-        index: {
-            path: '**',
-            title: '404',
-            resolve: { layout: setLayout(PageLayout.Center) },
-            loadComponent: () => import('./not-found.page'),
-        },
-    }
+export const notFoundPageRoutes: NotFoundPageRoutes = {
+    index: {
+        path: '**',
+        title: '404',
+        resolve: { layout: setLayout(PageLayout.Center) },
+        loadComponent: () => import('./not-found.page'),
+    },
 }

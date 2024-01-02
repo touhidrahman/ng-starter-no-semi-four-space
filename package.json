@@ -15,6 +15,7 @@
     "spartan": "ng g @spartan-ng/cli:ui",
     "spartan-theme": "ng g @spartan-ng/cli:ui-theme",
     "lint": "npx biome lint ./src --apply",
+    "lint:unsafe": "npx biome lint ./src --apply-unsafe",
     "prepare": "husky install .client/.husky",
     "format:ts": "npx biome format ./src ./libs --write",
     "format:html": "prettier --write 'src/**/*.{html,xml,scss,css,less}'",

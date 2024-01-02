@@ -7,14 +7,12 @@ export type ProfileRoutes = {
     index: Route
 }
 
-export function getProfileRoutes(): ProfileRoutes {
-    return {
-        index: {
-            path: 'profile',
-            title: 'Profile',
-            canActivate: [authGuardFn({ redirectTo: ['/login'] })],
-            resolve: { layout: setLayout(PageLayout.Default) },
-            loadComponent: () => import('./profile.page'),
-        },
-    }
+export const profileRoutes: ProfileRoutes = {
+    index: {
+        path: 'profile',
+        title: 'Profile',
+        canActivate: [authGuardFn({ redirectTo: ['/login'] })],
+        resolve: { layout: setLayout(PageLayout.Default) },
+        loadComponent: () => import('./profile.page'),
+    },
 }

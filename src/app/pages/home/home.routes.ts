@@ -7,18 +7,16 @@ export type HomeRoutes = {
     redirect: Route
 }
 
-export function getHomeRoutes(): HomeRoutes {
-    return {
-        index: {
-            path: '',
-            title: 'Home',
-            resolve: { layout: setLayout(PageLayout.Sidebar) },
-            loadComponent: () => import('./home.page'),
-        },
-        redirect: {
-            path: 'home',
-            redirectTo: '',
-            pathMatch: 'full',
-        },
-    }
+export const homeRoutes: HomeRoutes = {
+    index: {
+        path: '',
+        title: 'Home',
+        resolve: { layout: setLayout(PageLayout.Sidebar) },
+        loadComponent: () => import('./home.page'),
+    },
+    redirect: {
+        path: 'home',
+        redirectTo: '',
+        pathMatch: 'full',
+    },
 }
