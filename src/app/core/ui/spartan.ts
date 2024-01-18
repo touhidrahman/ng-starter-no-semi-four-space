@@ -1,147 +1,78 @@
-import { BrnAccordionContentComponent } from '@spartan-ng/ui-accordion-brain'
-import {
-    HlmAccordionContentDirective,
-    HlmAccordionDirective,
-    HlmAccordionIconDirective,
-    HlmAccordionItemDirective,
-    HlmAccordionTriggerDirective,
-} from '@spartan-ng/ui-accordion-helm'
-import {
-    HlmAlertDescriptionDirective,
-    HlmAlertDirective,
-    HlmAlertIconDirective,
-    HlmAlertTitleDirective,
-} from '@spartan-ng/ui-alert-helm'
-import {
-    BrnAlertDialogContentDirective,
-    BrnAlertDialogTriggerDirective,
-} from '@spartan-ng/ui-alertdialog-brain'
-import {
-    HlmAlertDialogActionButtonDirective,
-    HlmAlertDialogCancelButtonDirective,
-    HlmAlertDialogComponent,
-    HlmAlertDialogContentComponent,
-    HlmAlertDialogDescriptionDirective,
-    HlmAlertDialogFooterComponent,
-    HlmAlertDialogHeaderComponent,
-    HlmAlertDialogOverlayDirective,
-    HlmAlertDialogTitleDirective,
-} from '@spartan-ng/ui-alertdialog-helm'
-import { HlmAspectRatioDirective } from '@spartan-ng/ui-aspectratio-helm'
-import {
-    HlmAvatarComponent,
-    HlmAvatarFallbackDirective,
-    HlmAvatarImageDirective,
-    HlmAvatarModule,
-} from '@spartan-ng/ui-avatar-helm'
-import { HlmBadgeDirective } from '@spartan-ng/ui-badge-helm'
-import { HlmButtonDirective, HlmButtonModule } from '@spartan-ng/ui-button-helm'
-import {
-    HlmCardContentDirective,
-    HlmCardDescriptionDirective,
-    HlmCardDirective,
-    HlmCardFooterDirective,
-    HlmCardHeaderDirective,
-    HlmCardTitleDirective,
-} from '@spartan-ng/ui-card-helm'
-import { BrnCheckboxComponent } from '@spartan-ng/ui-checkbox-brain'
-import { HlmCheckboxCheckIconComponent, HlmCheckboxDirective } from '@spartan-ng/ui-checkbox-helm'
+import { BrnAccordionImports } from '@spartan-ng/ui-accordion-brain'
+import { HlmAccordionImports } from '@spartan-ng/ui-accordion-helm'
+import { HlmAlertImports } from '@spartan-ng/ui-alert-helm'
+import { BrnAlertDialogImports } from '@spartan-ng/ui-alertdialog-brain'
+import { HlmAlertDialogImports } from '@spartan-ng/ui-alertdialog-helm'
+import { HlmAspectRatioModule } from '@spartan-ng/ui-aspectratio-helm'
+import { HlmAvatarImports } from '@spartan-ng/ui-avatar-helm'
+import { HlmBadgeModule } from '@spartan-ng/ui-badge-helm'
+import { HlmButtonModule } from '@spartan-ng/ui-button-helm'
+import { HlmCardImports } from '@spartan-ng/ui-card-helm'
+import { BrnCheckboxImports } from '@spartan-ng/ui-checkbox-brain'
+import { HlmCheckboxImports } from '@spartan-ng/ui-checkbox-helm'
 import {
     BrnCollapsibleComponent,
     BrnCollapsibleContentComponent,
+    BrnCollapsibleImports,
     BrnCollapsibleTriggerDirective,
 } from '@spartan-ng/ui-collapsible-brain'
 import { BrnCommandImports } from '@spartan-ng/ui-command-brain'
 import { HlmCommandImports } from '@spartan-ng/ui-command-helm'
 import { BrnDialogContentDirective, BrnDialogTriggerDirective } from '@spartan-ng/ui-dialog-brain'
-import {
-    HlmDialogComponent,
-    HlmDialogContentComponent,
-    HlmDialogDescriptionDirective,
-    HlmDialogFooterComponent,
-    HlmDialogHeaderComponent,
-    HlmDialogTitleDirective,
-} from '@spartan-ng/ui-dialog-helm'
+import { HlmDialogImports } from '@spartan-ng/ui-dialog-helm'
 import { BrnHoverCardModule } from '@spartan-ng/ui-hovercard-brain'
-import { HlmHoverCardModule } from '@spartan-ng/ui-hovercard-helm'
-import { HlmIconComponent } from '@spartan-ng/ui-icon-helm'
-import { HlmInputDirective } from '@spartan-ng/ui-input-helm'
-import { HlmLabelDirective } from '@spartan-ng/ui-label-helm'
-import { BrnContextMenuTriggerDirective, BrnMenuTriggerDirective } from '@spartan-ng/ui-menu-brain'
+import { HlmHoverCardImports } from '@spartan-ng/ui-hovercard-helm'
+import { HlmIconModule } from '@spartan-ng/ui-icon-helm'
+import { HlmInputModule } from '@spartan-ng/ui-input-helm'
+import { HlmLabelModule } from '@spartan-ng/ui-label-helm'
 import {
-    HlmMenuComponent,
-    HlmMenuGroupComponent,
-    HlmMenuItemCheckComponent,
-    HlmMenuItemCheckboxDirective,
-    HlmMenuItemDirective,
-    HlmMenuItemIconDirective,
-    HlmMenuItemRadioComponent,
-    HlmMenuItemRadioDirective,
-    HlmMenuItemSubIndicatorComponent,
-    HlmMenuLabelComponent,
-    HlmMenuModule,
-    HlmMenuSeparatorComponent,
-    HlmMenuShortcutComponent,
-    HlmSubMenuComponent,
-} from '@spartan-ng/ui-menu-helm'
+    BrnContextMenuTriggerDirective,
+    BrnMenuBarImports,
+    BrnMenuImports,
+    BrnMenuTriggerDirective,
+} from '@spartan-ng/ui-menu-brain'
+import { HlmMenuBarImports, HlmMenuImports } from '@spartan-ng/ui-menu-helm'
 import {
     BrnPopoverCloseDirective,
     BrnPopoverComponent,
     BrnPopoverContentDirective,
+    BrnPopoverImports,
     BrnPopoverTriggerDirective,
 } from '@spartan-ng/ui-popover-brain'
-import { HlmPopoverCloseDirective, HlmPopoverContentDirective } from '@spartan-ng/ui-popover-helm'
-import { BrnProgressComponent, BrnProgressIndicatorComponent } from '@spartan-ng/ui-progress-brain'
-import { HlmProgressIndicatorDirective } from '@spartan-ng/ui-progress-helm'
-import { BrnRadioComponent, BrnRadioGroupComponent } from '@spartan-ng/ui-radiogroup-brain'
+import { HlmPopoverImports } from '@spartan-ng/ui-popover-helm'
 import {
-    HlmRadioDirective,
-    HlmRadioGroupDirective,
-    HlmRadioIndicatorComponent,
-} from '@spartan-ng/ui-radiogroup-helm'
-import { HlmScrollAreaComponent } from '@spartan-ng/ui-scrollarea-helm'
+    BrnProgressComponent,
+    BrnProgressImports,
+    BrnProgressIndicatorComponent,
+} from '@spartan-ng/ui-progress-brain'
+import { HlmProgressImports } from '@spartan-ng/ui-progress-helm'
+import {
+    BrnRadioComponent,
+    BrnRadioGroupComponent,
+    BrnRadioGroupImports,
+} from '@spartan-ng/ui-radiogroup-brain'
+import { HlmRadioGroupImports } from '@spartan-ng/ui-radiogroup-helm'
+import { HlmScrollAreaModule } from '@spartan-ng/ui-scrollarea-helm'
 import { BrnSeparatorComponent } from '@spartan-ng/ui-separator-brain'
-import { HlmSeparatorDirective } from '@spartan-ng/ui-separator-helm'
+import { HlmSeparatorModule } from '@spartan-ng/ui-separator-helm'
+import { BrnSheetImports } from '@spartan-ng/ui-sheet-brain'
+import { HlmSheetImports } from '@spartan-ng/ui-sheet-helm'
+import { HlmSkeletonModule } from '@spartan-ng/ui-skeleton-helm'
+import { HlmSpinnerModule } from '@spartan-ng/ui-spinner-helm'
 import {
-    BrnSheetCloseDirective,
-    BrnSheetComponent,
-    BrnSheetContentDirective,
-    BrnSheetDescriptionDirective,
-    BrnSheetOverlayComponent,
-    BrnSheetTitleDirective,
-    BrnSheetTriggerDirective,
-} from '@spartan-ng/ui-sheet-brain'
-import {
-    HlmSheetCloseDirective,
-    HlmSheetContentDirective,
-    HlmSheetDescriptionDirective,
-    HlmSheetFooterComponent,
-    HlmSheetHeaderComponent,
-    HlmSheetOverlayDirective,
-    HlmSheetTitleDirective,
-} from '@spartan-ng/ui-sheet-helm'
-import { HlmSkeletonComponent } from '@spartan-ng/ui-skeleton-helm'
-import { BrnSwitchComponent, BrnSwitchThumbComponent } from '@spartan-ng/ui-switch-brain'
-import { HlmSwitchDirective, HlmSwitchThumbDirective } from '@spartan-ng/ui-switch-helm'
-import { BrnTableModule } from '@spartan-ng/ui-table-brain'
-import {
-    HlmCaptionComponent,
-    HlmTableComponent,
-    HlmTableModule,
-    HlmTdComponent,
-    HlmThComponent,
-    HlmTrowComponent,
-} from '@spartan-ng/ui-table-helm'
+    BrnSwitchComponent,
+    BrnSwitchImports,
+    BrnSwitchThumbComponent,
+} from '@spartan-ng/ui-switch-brain'
+import { HlmSwitchImports } from '@spartan-ng/ui-switch-helm'
+import { BrnTableImports, BrnTableModule } from '@spartan-ng/ui-table-brain'
+import { HlmTableImports } from '@spartan-ng/ui-table-helm'
 import { BrnTabsDirective } from '@spartan-ng/ui-tabs-brain'
-import {
-    HlmTabsContentDirective,
-    HlmTabsListComponent,
-    HlmTabsTriggerDirective,
-} from '@spartan-ng/ui-tabs-helm'
-import { BrnToggleDirective } from '@spartan-ng/ui-toggle-brain'
-import { HlmToggleDirective } from '@spartan-ng/ui-toggle-helm'
-import { BrnTooltipContentDirective } from '@spartan-ng/ui-tooltip-brain'
-import { HlmTooltipComponent, HlmTooltipTriggerDirective } from '@spartan-ng/ui-tooltip-helm'
+import { HlmTabsImports } from '@spartan-ng/ui-tabs-helm'
+import { BrnToggleModule } from '@spartan-ng/ui-toggle-brain'
+import { HlmToggleGroupModule, HlmToggleModule } from '@spartan-ng/ui-toggle-helm'
+import { BrnTooltipImports } from '@spartan-ng/ui-tooltip-brain'
+import { HlmTooltipImports } from '@spartan-ng/ui-tooltip-helm'
 import {
     HlmBlockquoteDirective,
     HlmCodeDirective,
@@ -154,21 +85,30 @@ import {
     HlmUlDirective,
 } from '@spartan-ng/ui-typography-helm'
 
-export const SpartanUiImports = [
-    BrnAccordionContentComponent,
-    BrnAlertDialogContentDirective,
-    BrnAlertDialogTriggerDirective,
-    BrnCheckboxComponent,
+export const BrainImports = [
+    ...BrnAccordionImports,
+    ...BrnAlertDialogImports,
+    ...BrnCheckboxImports,
+    ...BrnCheckboxImports,
+    ...BrnCollapsibleImports,
+    ...BrnCommandImports,
+    ...BrnSheetImports,
+    ...BrnTableImports,
+    ...BrnTooltipImports,
+    ...BrnRadioGroupImports,
+    ...BrnSwitchImports,
+    ...BrnPopoverImports,
+    ...BrnProgressImports,
+    ...BrnCollapsibleImports,
+    ...BrnMenuBarImports,
+    ...BrnMenuImports,
     BrnCollapsibleComponent,
     BrnCollapsibleContentComponent,
     BrnCollapsibleTriggerDirective,
-    BrnCommandImports,
     BrnContextMenuTriggerDirective,
     BrnDialogContentDirective,
     BrnDialogTriggerDirective,
     BrnHoverCardModule,
-    BrnMenuTriggerDirective,
-    BrnMenuTriggerDirective,
     BrnMenuTriggerDirective,
     BrnPopoverCloseDirective,
     BrnPopoverComponent,
@@ -179,118 +119,67 @@ export const SpartanUiImports = [
     BrnRadioComponent,
     BrnRadioGroupComponent,
     BrnSeparatorComponent,
-    BrnSheetCloseDirective,
-    BrnSheetComponent,
-    BrnSheetContentDirective,
-    BrnSheetDescriptionDirective,
-    BrnSheetOverlayComponent,
-    BrnSheetTitleDirective,
-    BrnSheetTriggerDirective,
     BrnSwitchComponent,
     BrnSwitchThumbComponent,
     BrnTableModule,
     BrnTabsDirective,
-    BrnToggleDirective,
-    BrnTooltipContentDirective,
-    HlmAccordionContentDirective,
-    HlmAccordionDirective,
-    HlmAccordionIconDirective,
-    HlmAccordionItemDirective,
-    HlmAccordionTriggerDirective,
-    HlmAlertDescriptionDirective,
-    HlmAlertDialogActionButtonDirective,
-    HlmAlertDialogCancelButtonDirective,
-    HlmAlertDialogComponent,
-    HlmAlertDialogContentComponent,
-    HlmAlertDialogDescriptionDirective,
-    HlmAlertDialogFooterComponent,
-    HlmAlertDialogHeaderComponent,
-    HlmAlertDialogOverlayDirective,
-    HlmAlertDialogTitleDirective,
-    HlmAlertDirective,
-    HlmAlertIconDirective,
-    HlmAlertTitleDirective,
-    HlmAspectRatioDirective,
-    HlmAvatarComponent,
-    HlmAvatarFallbackDirective,
-    HlmAvatarImageDirective,
-    HlmAvatarModule,
-    HlmBadgeDirective,
-    HlmBlockquoteDirective,
-    HlmButtonDirective,
+    BrnToggleModule,
+]
+
+export const SpartanImports = [
+    ...HlmAccordionImports,
+    ...HlmAlertDialogImports,
+    ...HlmAlertImports,
+    ...HlmAvatarImports,
+    ...HlmCardImports,
+    ...HlmCheckboxImports,
+    ...HlmCommandImports,
+    ...HlmDialogImports,
+    ...HlmHoverCardImports,
+    ...HlmMenuBarImports,
+    ...HlmMenuImports,
+    ...HlmPopoverImports,
+    ...HlmProgressImports,
+    ...HlmRadioGroupImports,
+    ...HlmSheetImports,
+    ...HlmSwitchImports,
+    ...HlmTooltipImports,
+    ...HlmTabsImports,
+    ...HlmTableImports,
+]
+
+export const SpartanModules = [
+    HlmAspectRatioModule,
+    HlmBadgeModule,
+    HlmBadgeModule,
     HlmButtonModule,
-    HlmCaptionComponent,
-    HlmCardContentDirective,
-    HlmCardDescriptionDirective,
-    HlmCardDirective,
-    HlmCardFooterDirective,
-    HlmCardHeaderDirective,
-    HlmCardTitleDirective,
-    HlmCheckboxCheckIconComponent,
-    HlmCheckboxDirective,
+    HlmIconModule,
+    HlmInputModule,
+    HlmLabelModule,
+    HlmScrollAreaModule,
+    HlmScrollAreaModule,
+    HlmSeparatorModule,
+    HlmSkeletonModule,
+    HlmSpinnerModule,
+    HlmToggleGroupModule,
+    HlmToggleModule,
+]
+
+export const SpartanTypographyDirectives = [
+    HlmBlockquoteDirective,
     HlmCodeDirective,
-    HlmCommandImports,
-    HlmDialogComponent,
-    HlmDialogContentComponent,
-    HlmDialogDescriptionDirective,
-    HlmDialogFooterComponent,
-    HlmDialogHeaderComponent,
-    HlmDialogTitleDirective,
     HlmH1Directive,
-    HlmHoverCardModule,
-    HlmIconComponent,
-    HlmInputDirective,
-    HlmLabelDirective,
     HlmLargeDirective,
     HlmLeadDirective,
-    HlmMenuComponent,
-    HlmMenuGroupComponent,
-    HlmMenuGroupComponent,
-    HlmMenuItemCheckComponent,
-    HlmMenuItemCheckboxDirective,
-    HlmMenuItemDirective,
-    HlmMenuItemIconDirective,
-    HlmMenuItemRadioComponent,
-    HlmMenuItemRadioDirective,
-    HlmMenuItemSubIndicatorComponent,
-    HlmMenuItemSubIndicatorComponent,
-    HlmMenuLabelComponent,
-    HlmMenuModule,
-    HlmMenuSeparatorComponent,
-    HlmMenuShortcutComponent,
     HlmMutedDirective,
     HlmPDirective,
-    HlmPopoverCloseDirective,
-    HlmPopoverContentDirective,
-    HlmProgressIndicatorDirective,
-    HlmRadioDirective,
-    HlmRadioGroupDirective,
-    HlmRadioIndicatorComponent,
-    HlmScrollAreaComponent,
-    HlmSeparatorDirective,
-    HlmSheetCloseDirective,
-    HlmSheetContentDirective,
-    HlmSheetDescriptionDirective,
-    HlmSheetFooterComponent,
-    HlmSheetHeaderComponent,
-    HlmSheetOverlayDirective,
-    HlmSheetTitleDirective,
-    HlmSkeletonComponent,
     HlmSmallDirective,
-    HlmSmallDirective,
-    HlmSubMenuComponent,
-    HlmSwitchDirective,
-    HlmSwitchThumbDirective,
-    HlmTableComponent,
-    HlmTableModule,
-    HlmTabsContentDirective,
-    HlmTabsListComponent,
-    HlmTabsTriggerDirective,
-    HlmTdComponent,
-    HlmThComponent,
-    HlmToggleDirective,
-    HlmTooltipComponent,
-    HlmTooltipTriggerDirective,
-    HlmTrowComponent,
     HlmUlDirective,
+]
+
+export const SpartanUiImports = [
+    ...SpartanImports,
+    ...SpartanModules,
+    ...BrainImports,
+    ...SpartanTypographyDirectives,
 ]

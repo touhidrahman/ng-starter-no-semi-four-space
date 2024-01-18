@@ -15,6 +15,7 @@
     "spartan": "ng g @spartan-ng/cli:ui",
     "spartan-theme": "ng g @spartan-ng/cli:ui-theme",
     "lint": "npx biome lint ./src --apply",
+    "lint:oxlint": "npx oxlint ./src",
     "lint:unsafe": "npx biome lint ./src --apply-unsafe",
     "prepare": "husky install .client/.husky",
     "format:ts": "npx biome format ./src ./libs --write",
@@ -37,6 +38,7 @@
     "@ng-icons/core": "^26.3.0",
     "@ng-icons/radix-icons": "^26.3.0",
     "@ng-web-apis/common": "^3.0.6",
+    "@ngneat/cmdk": "^2.0.0",
     "@spartan-ng/ui-accordion-brain": "0.0.1-alpha.321",
     "@spartan-ng/ui-alertdialog-brain": "0.0.1-alpha.321",
     "@spartan-ng/ui-avatar-brain": "0.0.1-alpha.321",
@@ -46,6 +48,7 @@
     "@spartan-ng/ui-core": "0.0.1-alpha.321",
     "@spartan-ng/ui-dialog-brain": "0.0.1-alpha.321",
     "@spartan-ng/ui-hovercard-brain": "0.0.1-alpha.321",
+    "@spartan-ng/ui-label-brain": "0.0.1-alpha.321",
     "@spartan-ng/ui-menu-brain": "0.0.1-alpha.321",
     "@spartan-ng/ui-popover-brain": "0.0.1-alpha.321",
     "@spartan-ng/ui-progress-brain": "0.0.1-alpha.321",
@@ -89,6 +92,7 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "lint-staged": "^15.2.0",
+    "oxlint": "^0.2.1",
     "postcss": "^8.4.33",
     "prettier": "^3.2.4",
     "prettier-plugin-tailwindcss": "^0.5.11",
@@ -101,9 +105,9 @@
     "typescript": "~5.3.3"
   },
   "optionalDependencies": {
+    "@biomejs/cli-darwin-x64": "1.5.2",
     "@biomejs/cli-linux-x64": "1.5.2",
-    "@biomejs/cli-win32-x64": "1.5.2",
-    "@biomejs/cli-darwin-x64": "1.5.2"
+    "@biomejs/cli-win32-x64": "1.5.2"
   },
   "lint-staged": {
     "src/**/*.{html,xml,scss,css,less}": "npx prettier --write",

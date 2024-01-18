@@ -5,7 +5,10 @@ import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core'
     standalone: true,
 })
 export class RepeatDirective {
-    constructor(private vcRef: ViewContainerRef, private templateRef: TemplateRef<any>) {
+    constructor(
+        private vcRef: ViewContainerRef,
+        private templateRef: TemplateRef<any>,
+    ) {
         this.vcRef.createEmbeddedView(this.templateRef, {})
     }
 

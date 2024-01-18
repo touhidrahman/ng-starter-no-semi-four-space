@@ -5,7 +5,10 @@ import { AbstractApiService } from './api.service'
 export abstract class AbstractFormService<T> {
     form: FormGroup
 
-    constructor(protected fb: FormBuilder, protected apiService: AbstractApiService<T>) {
+    constructor(
+        protected fb: FormBuilder,
+        protected apiService: AbstractApiService<T>,
+    ) {
         this.form = this.buildForm()
     }
 

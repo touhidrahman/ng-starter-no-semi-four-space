@@ -11,7 +11,10 @@ import { Asset } from '../models/asset.model'
 export class AssetService {
     private apiUrl: string
 
-    constructor(private http: HttpClient, @Inject(APP_ENVIRONMENT) appEnvironment: AppEnvironment) {
+    constructor(
+        private http: HttpClient,
+        @Inject(APP_ENVIRONMENT) appEnvironment: AppEnvironment,
+    ) {
         this.apiUrl = `${appEnvironment.apiUrl}v1/assets`
     }
 
@@ -27,6 +30,7 @@ export class AssetService {
 
     uploadMultiple(files: File[]): Observable<Asset> {
         const formData = new FormData()
+        // biome-ignore lint/complexity/noForEach: <explanation>
         files.forEach((file) => {
             formData.append('files', file, file.name)
         })

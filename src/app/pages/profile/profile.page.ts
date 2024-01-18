@@ -26,7 +26,11 @@ export default class ProfilePage implements OnInit {
 
     errors: string[] = []
 
-    constructor(private auth: AuthService, private fb: FormBuilder, private router: Router) {}
+    constructor(
+        private auth: AuthService,
+        private fb: FormBuilder,
+        private router: Router,
+    ) {}
 
     ngOnInit(): void {
         void 0
