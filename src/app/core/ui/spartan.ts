@@ -126,7 +126,7 @@ export const BrainImports = [
     BrnToggleModule,
 ]
 
-export const SpartanImports = [
+export const HelmImports = [
     ...HlmAccordionImports,
     ...HlmAlertDialogImports,
     ...HlmAlertImports,
@@ -177,8 +177,8 @@ export const SpartanTypographyDirectives = [
     HlmUlDirective,
 ]
 
-export const SpartanUiImports = [
-    ...SpartanImports,
+export const SpartanImports = [
+    ...HelmImports,
     ...SpartanModules,
     ...BrainImports,
     ...SpartanTypographyDirectives,
