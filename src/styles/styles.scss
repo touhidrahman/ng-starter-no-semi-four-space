@@ -1,7 +1,11 @@
 @import '@angular/cdk/overlay-prebuilt.css';
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+// @import 'tailwindcss/base';
+// @import 'tailwindcss/components';
+// @import 'tailwindcss/utilities';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
     --font-sans: 'IBM Plex Sans';
