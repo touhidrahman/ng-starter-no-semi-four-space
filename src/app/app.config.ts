@@ -21,7 +21,6 @@ import { CustomTitleStrategy } from '@core/services/custom-title.service'
 import { APP_ENVIRONMENT } from '@environment/app-environment.injector'
 import { environment } from '@environment/environment'
 import { AuthHeaderInterceptorFn } from '@main/auth/interceptors/auth-header.interceptor'
-import { HotToastModule } from '@ngneat/hot-toast'
 import { AppRoutes } from './app.routes'
 
 export const appConfig: ApplicationConfig = {
@@ -42,6 +41,5 @@ export const appConfig: ApplicationConfig = {
             withPreloading(PreloadAllModules),
         ),
         importProvidersFrom(BrowserAnimationsModule),
-        importProvidersFrom(HotToastModule.forRoot()),
     ],
 }
