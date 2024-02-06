@@ -1,0 +1,19 @@
+// this is my base text color and a subtle-text counterpart
+// i'm not passing this into material... but could if desired
+$base: var(--base);
+$base-muted: var(--base-muted);
+
+// this is my contrast text color and a subtle-text counterpart
+// i'm not passing this into material... but could if desired
+$contrast: var(--contrast);
+$contrast-muted: var(--contrast-muted);
+
+// these 3 pairs of color variables are a minimalistic representation of conventional material color variables
+$accent: var(--accent);
+$accent-contrast: var(--accent-contrast);
+
+$primary: var(--primary);
+$primary-contrast: var(--primary-contrast);
+
+$warn: var(--warn);
+$warn-contrast: var(--warn-contrast);

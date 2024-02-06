@@ -1,5 +1,5 @@
 <main class="container mx-auto">
-    <h1 class="text-primary-500 text-3xl font-bold">Home Page Works!</h1>
+    <h1 class="h1 text-primary-500 font-bold">Home Page Works!</h1>
 
     <div class="mt-12 space-x-4">
         <button (click)="openSnackbar()" class="btn-outline btn">
@@ -32,6 +32,39 @@
             </div>
         </div>
     </div>
+
+    <mat-card class="p-4 flex flex-col gap-8 mat-elevation-z8">
+    <div class="p-2">This is a component with some Material buttons and Tailwind text.</div>
+
+    <div class="p-2 mat-elevation-z4 rounded text-lg font-bold bg-primary-contrast text-primary border-solid border-4 border-primary">primary - this uses tailwind utility classes</div>
+    <div class="flex flex-row gap-2 py-4">
+        <button mat-button color="primary">button</button>
+        <button mat-raised-button color="primary">raised</button>
+        <button mat-flat-button color="primary">flat</button>
+        <button mat-stroked-button color="primary">stroked</button>
+    </div>
+
+    <div class="p-2 mat-elevation-z4 rounded text-lg font-bold bg-accent-contrast text-accent border-solid border-4 border-accent">accent - this uses tailwind utility classes</div>
+    <div class="flex flex-row gap-2 py-4">
+        <button mat-button color="accent">button</button>
+        <button mat-raised-button color="accent">raised</button>
+        <button mat-flat-button color="accent">flat</button>
+        <button mat-stroked-button color="accent">stroked</button>
+    </div>
+
+    <div class="p-2 mat-elevation-z4 rounded text-lg font-bold bg-warn-contrast text-warn border-solid border-4 border-warn">warn - this uses tailwind utility classes</div>
+    <div class="flex flex-row gap-2 py-4">
+        <button mat-button color="warn">button</button>
+        <button mat-raised-button color="warn">raised</button>
+        <button mat-flat-button color="warn">flat</button>
+        <button mat-stroked-button color="warn">stroked</button>
+    </div>
+
+    <mat-form-field>
+        <mat-label>Do you love it?</mat-label>
+        <input matInput type="text" />
+    </mat-form-field>
+</mat-card>
 
     <div *ngFor="let item of 6 | spreadIntoArray" class="mt-12">
         Distinctio quo eum inventore. Voluptatem saepe ut magni sed est hic molestiae asperiores. Quo esse facilis velit
