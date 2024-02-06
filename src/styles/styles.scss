@@ -14,8 +14,6 @@
 @import './03-utilities/border.scss';
 @import './03-utilities/heading.scss';
 
-
-
 @layer base {
     :root {
         --base: rgba(0, 0, 0, 0.8);
@@ -55,19 +53,18 @@
             --contrast: rgba(255, 255, 255, 0.8);
             --contrast-muted: rgba(255, 255, 255, 0.54);
 
-            --accent: #BF0A30;
+            --accent: #bf0a30;
             --accent-contrast: #002868;
 
             --primary: #002868;
             --primary-contrast: #ffffff;
 
-            --warn: #BF0A30;
+            --warn: #bf0a30;
             --warn-contrast: #ffffff;
 
             color: var(--base);
         }
     }
 }
-
 
 @import './theme/material-theme.scss';

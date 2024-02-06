@@ -8,19 +8,20 @@
 // force material to use theme colors for raised/flat button text color
 a,
 button {
-  &[mat-raised-button], &[mat-flat-button] {
-    &[color=primary] {
-      color: $primary-contrast !important;
-    }
+    &[mat-raised-button],
+    &[mat-flat-button] {
+        &[color='primary'] {
+            color: $primary-contrast !important;
+        }
 
-    &[color=accent] {
-      color: $accent-contrast !important;
-    }
+        &[color='accent'] {
+            color: $accent-contrast !important;
+        }
 
-    &[color=warn] {
-      color: $warn-contrast !important;
+        &[color='warn'] {
+            color: $warn-contrast !important;
+        }
     }
-  }
 }
 
 // default theme

@@ -22,7 +22,7 @@
         "enabled": true,
         "formatWithErrors": false,
         "indentStyle": "space",
-        "indentSize": 4,
+        "indentWidth": 4,
         "lineWidth": 100,
         "ignore": []
     },

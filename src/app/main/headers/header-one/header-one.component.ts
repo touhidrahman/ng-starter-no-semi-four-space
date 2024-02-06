@@ -27,7 +27,10 @@ export class HeaderOneComponent implements OnInit {
 
     appName = this.appState.appName
 
-    constructor(public auth: AuthService, public appState: AppStateService) {}
+    constructor(
+        public auth: AuthService,
+        public appState: AppStateService,
+    ) {}
 
     ngOnInit(): void {
         void 0

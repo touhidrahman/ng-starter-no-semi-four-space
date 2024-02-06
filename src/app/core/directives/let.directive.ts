@@ -10,7 +10,10 @@ export class LetDirective {
         ngLet: null,
     }
 
-    constructor(private vcRef: ViewContainerRef, private templateRef: TemplateRef<any>) {
+    constructor(
+        private vcRef: ViewContainerRef,
+        private templateRef: TemplateRef<any>,
+    ) {
         this.vcRef.createEmbeddedView(this.templateRef, this.context)
     }
 

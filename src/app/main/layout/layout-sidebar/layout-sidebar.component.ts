@@ -33,7 +33,10 @@ export class LayoutSidebarComponent {
     appName = this.appState.appName
     isSmallScreen = false
 
-    constructor(public auth: AuthService, private appState: AppStateService) {
+    constructor(
+        public auth: AuthService,
+        private appState: AppStateService,
+    ) {
         this.isSmallScreen = isSmallScreen()
         if (this.isSmallScreen) {
             this.opened = false

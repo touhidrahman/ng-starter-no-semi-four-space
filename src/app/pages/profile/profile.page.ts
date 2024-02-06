@@ -8,12 +8,7 @@ import { HeaderOneComponent } from '@main/headers/header-one/header-one.componen
 
 @Component({
     standalone: true,
-    imports: [
-        CommonModule,
-        ReactiveFormsModule,
-        RouterModule,
-        HeaderOneComponent,
-    ],
+    imports: [CommonModule, ReactiveFormsModule, RouterModule, HeaderOneComponent],
     templateUrl: './profile.page.html',
     styleUrls: ['./profile.page.scss'],
 })
