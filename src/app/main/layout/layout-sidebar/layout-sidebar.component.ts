@@ -6,8 +6,6 @@ import { DropdownAccentComponent } from '@core/ui/dropdown/dropdown-accent/dropd
 import { MaterialModules } from '@core/ui/material'
 import { isSmallScreen } from '@core/utils/screen.util'
 import { AuthService } from '@main/auth/services/auth.service'
-import { FooterCopyrightComponent } from '@main/footers/footer-copyright/footer-copyright.component'
-import { FooterOneComponent } from '@main/footers/footer-one/footer-one.component'
 import { HeaderOneComponent } from '@main/headers/header-one/header-one.component'
 
 @Component({
@@ -18,8 +16,6 @@ import { HeaderOneComponent } from '@main/headers/header-one/header-one.componen
         RouterModule,
         MaterialModules,
         HeaderOneComponent,
-        FooterOneComponent,
-        FooterCopyrightComponent,
         DropdownAccentComponent,
     ],
     templateUrl: './layout-sidebar.component.html',

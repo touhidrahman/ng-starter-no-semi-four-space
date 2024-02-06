@@ -34,13 +34,27 @@
         "editor.formatOnSave": false
     },
     "[html]": {
-        "editor.defaultFormatter": "Angular.ng-template",
+        "editor.defaultFormatter": "stringham.angular-template-formatter",
         "editor.formatOnSave": true
     },
     "[javascript][typescript]": {
         "editor.codeActionsOnSave": {
             "quickfix.biome": "explicit",
             "source.organizeImports.biome": "explicit"
+        }
+    },
+    "angular-schematics.schematicsDefaultOptions": {
+        "angular-*": {
+            "style": "scss",
+            "externalTemplate": true
+        },
+        "angular-component": {
+            "skipChangeDetectionOnPush": true,
+            "ngOnInit": false
+        },
+        "angular-page": {
+            "skipChangeDetectionOnPush": true,
+            "skipNgOnInit": false
         }
     }
 }

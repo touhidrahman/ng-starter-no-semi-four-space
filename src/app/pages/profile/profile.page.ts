@@ -4,7 +4,6 @@ import { FormBuilder, ReactiveFormsModule } from '@angular/forms'
 import { Router, RouterModule } from '@angular/router'
 import { ToastService } from '@core/ui/toast/toast.service'
 import { AuthService } from '@main/auth/services/auth.service'
-import { FooterOneComponent } from '@main/footers/footer-one/footer-one.component'
 import { HeaderOneComponent } from '@main/headers/header-one/header-one.component'
 
 @Component({
@@ -13,7 +12,6 @@ import { HeaderOneComponent } from '@main/headers/header-one/header-one.componen
         CommonModule,
         ReactiveFormsModule,
         RouterModule,
-        FooterOneComponent,
         HeaderOneComponent,
     ],
     templateUrl: './profile.page.html',
