@@ -13,7 +13,7 @@ export function getHomeRoutes(): HomeRoutes {
             path: '',
             title: 'Home',
             resolve: { layout: setLayout(PageLayout.Sidebar) },
-            loadComponent: () => import('./home.page'),
+            loadComponent: () => import('./home.component'),
         },
         redirect: {
             path: 'home',

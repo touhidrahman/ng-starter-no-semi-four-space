@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common'
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
 import { RouterModule } from '@angular/router'
 import { AppStateService } from '@core/states/app-state.service'
-import { DropdownAccentComponent } from '@core/ui/dropdown/dropdown-accent/dropdown-accent.component'
 import { MaterialModules } from '@core/ui/material'
 import { isSmallScreen } from '@core/utils/screen.util'
 import { AuthService } from '@main/auth/services/auth.service'
@@ -20,7 +19,6 @@ import { HeaderOneComponent } from '@main/headers/header-one/header-one.componen
         HeaderOneComponent,
         FooterOneComponent,
         FooterCopyrightComponent,
-        DropdownAccentComponent,
     ],
     templateUrl: './layout-sidebar.component.html',
     styleUrls: ['./layout-sidebar.component.scss'],

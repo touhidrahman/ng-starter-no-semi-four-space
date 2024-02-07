@@ -23,13 +23,6 @@ and most importantly - **4 space tabs** and **NO SEMICOLON**
 
 `git checkout <desired-branch-name>`
 
-- `main`: bare-bone angular project with tailwind and daisyUI support.
-- `material`: official material library for angular as the UI framework.
-- `zorro`: Uses the power of both tailwindcss and zorro.
-- `prime`: PrimeNG X library for the UI. Uses v10.x which has a rich collection of angular components (MIT licenced)
-
-**N.B:** Branches are not updated as often as the `main` branch.
-
 2. Once checked out, remove the `.git` directory to remove all the connection to this starter repository.
 
 `rm -rf .git`
