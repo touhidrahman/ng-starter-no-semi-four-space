@@ -29,6 +29,7 @@ module.exports = {
         require('@tailwindcss/typography'),
         require('tailwindcss-elevation'),
         require('tailwind-scrollbar'),
+        // TODO: fix build issue when this plugin is enabled
         // require('prettier-plugin-tailwindcss'),
     ],
 }
