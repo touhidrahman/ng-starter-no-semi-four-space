@@ -11,5 +11,8 @@ export class HideDirective {
             : this.renderer2.removeStyle(this.elementRef.nativeElement, 'visibility')
     }
 
-    constructor(protected elementRef: ElementRef, protected renderer2: Renderer2) {}
+    constructor(
+        protected elementRef: ElementRef,
+        protected renderer2: Renderer2,
+    ) {}
 }

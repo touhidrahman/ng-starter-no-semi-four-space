@@ -5,8 +5,6 @@ import { AppStateService } from '@core/states/app-state.service'
 import { MaterialModules } from '@core/ui/material'
 import { isSmallScreen } from '@core/utils/screen.util'
 import { AuthService } from '@main/auth/services/auth.service'
-import { FooterCopyrightComponent } from '@main/footers/footer-copyright/footer-copyright.component'
-import { FooterOneComponent } from '@main/footers/footer-one/footer-one.component'
 import { HeaderOneComponent } from '@main/headers/header-one/header-one.component'
 
 @Component({
@@ -17,8 +15,6 @@ import { HeaderOneComponent } from '@main/headers/header-one/header-one.componen
         RouterModule,
         MaterialModules,
         HeaderOneComponent,
-        FooterOneComponent,
-        FooterCopyrightComponent,
     ],
     templateUrl: './layout-sidebar.component.html',
     styleUrls: ['./layout-sidebar.component.scss'],
@@ -35,7 +31,10 @@ export class LayoutSidebarComponent {
     appName = this.appState.appName
     isSmallScreen = false
 
-    constructor(public auth: AuthService, private appState: AppStateService) {
+    constructor(
+        public auth: AuthService,
+        private appState: AppStateService,
+    ) {
         this.isSmallScreen = isSmallScreen()
         if (this.isSmallScreen) {
             this.opened = false

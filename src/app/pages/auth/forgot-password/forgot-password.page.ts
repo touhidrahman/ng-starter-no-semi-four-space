@@ -14,7 +14,11 @@ import { AuthService } from '@main/auth/services/auth.service'
 export default class ForgotPasswordPage {
     email = ''
 
-    constructor(private auth: AuthService, private toast: ToastService, private router: Router) {}
+    constructor(
+        private auth: AuthService,
+        private toast: ToastService,
+        private router: Router,
+    ) {}
 
     submit() {
         this.auth.forgotPassword(this.email).subscribe({

@@ -4,37 +4,12 @@
         [mode]="isSmallScreen ? 'over' : 'side'"
         [(opened)]="opened"
     >
-        <div class="space-y-2"></div>
-
-        <div class="absolute bottom-0 left-0 right-0 p-2">
-            <a
-                *ngIf="!auth.isLoggedIn"
-                [routerLink]="['/login']"
-                class="btn-ghost btn-block btn"
-            >
-                <mat-icon class="mr-2">login</mat-icon>
-                Login
-            </a>
-            <a
-                *ngIf="auth.isLoggedIn"
-                [routerLink]="['/logout']"
-                class="btn-ghost btn-block btn"
-            >
-                <mat-icon class="mr-2">logout</mat-icon>
-                Logout
-            </a>
-        </div>
+        Side navigation
     </mat-sidenav>
 
     <mat-sidenav-content>
-        <app-header-one
-            class="sticky top-0 z-50"
-            (sidenavToggle)="sidenav.toggle()"
-        ></app-header-one>
-
         <main class="block p-4 pb-24">
             <ng-content></ng-content>
         </main>
-        <app-footer-copyright></app-footer-copyright>
     </mat-sidenav-content>
 </mat-sidenav-container>

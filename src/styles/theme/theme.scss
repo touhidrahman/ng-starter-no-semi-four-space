@@ -1,0 +1,68 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+@import './colors';
+
+$primary-palette: (
+    mat.define-palette(
+        (
+            100: $primary,
+            500: $primary,
+            700: $primary,
+            contrast: (
+                100: $primary-contrast,
+                500: $primary-contrast,
+                700: $primary-contrast,
+            ),
+        )
+    )
+);
+
+$accent-palette: (
+    mat.define-palette(
+        (
+            100: $accent,
+            500: $accent,
+            700: $accent,
+            contrast: (
+                100: $accent-contrast,
+                500: $accent-contrast,
+                700: $accent-contrast,
+            ),
+        )
+    )
+);
+
+$warn-palette: (
+    mat.define-palette(
+        (
+            100: $warn,
+            500: $warn,
+            700: $warn,
+            contrast: (
+                100: $warn-contrast,
+                500: $warn-contrast,
+                700: $warn-contrast,
+            ),
+        )
+    )
+);
+
+$theme: (
+    color: (
+        primary: $primary-palette,
+        accent: $accent-palette,
+        warn: $warn-palette,
+        foreground: mat.$light-theme-foreground-palette,
+        background: mat.$light-theme-background-palette,
+    ),
+);
+
+$dark-theme: (
+    color: (
+        primary: $primary-palette,
+        accent: $accent-palette,
+        warn: $warn-palette,
+        foreground: mat.$dark-theme-foreground-palette,
+        background: mat.$dark-theme-background-palette,
+    ),
+);
