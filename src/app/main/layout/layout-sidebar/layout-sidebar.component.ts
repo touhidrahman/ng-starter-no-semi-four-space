@@ -10,12 +10,7 @@ import { HeaderOneComponent } from '@main/headers/header-one/header-one.componen
 @Component({
     selector: 'app-layout-sidebar',
     standalone: true,
-    imports: [
-        CommonModule,
-        RouterModule,
-        MaterialModules,
-        HeaderOneComponent,
-    ],
+    imports: [CommonModule, RouterModule, MaterialModules, HeaderOneComponent],
     templateUrl: './layout-sidebar.component.html',
     styleUrls: ['./layout-sidebar.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,

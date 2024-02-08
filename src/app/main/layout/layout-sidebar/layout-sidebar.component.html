@@ -1,11 +1,5 @@
 <mat-sidenav-container>
-    <mat-sidenav
-        #sidenav
-        [mode]="isSmallScreen ? 'over' : 'side'"
-        [(opened)]="opened"
-    >
-        Side navigation
-    </mat-sidenav>
+    <mat-sidenav #sidenav [mode]="isSmallScreen ? 'over' : 'side'" [(opened)]="opened"> Side navigation </mat-sidenav>
 
     <mat-sidenav-content>
         <app-header-one (sidenavToggle)="opened = !opened"></app-header-one>
