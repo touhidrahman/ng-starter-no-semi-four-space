@@ -4,12 +4,11 @@ This boilerplate uses:
 
 - Angular
 - TailwindCSS
-- Eslint
+- BiomeJS
 - Prettier
 - Git hooks
 - Boxicons
 - Angular Material
-- DaisyUI
 
 and most importantly - **4 space tabs** and **NO SEMICOLON**
 
