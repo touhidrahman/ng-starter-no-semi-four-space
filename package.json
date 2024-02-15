@@ -32,6 +32,7 @@
     "@angular/platform-browser-dynamic": "^17.1.2",
     "@angular/router": "^17.1.2",
     "@ng-web-apis/common": "^3.0.6",
+    "david-ui-angular": "^1.0.0",
     "radash": "^11.0.0",
     "rxjs": "~7.8.1",
     "tslib": "^2.6.2",
@@ -49,7 +50,6 @@
     "@types/jasmine": "~5.1.4",
     "@types/node": "^20.11.16",
     "autoprefixer": "^10.4.17",
-    "cypress": "^13.6.4",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-angular": "^4.1.0",
@@ -80,9 +80,6 @@
     "src/**/*.{ts,js}": [
       "npx biome format --write",
       "npx biome lint --apply"
-    ],
-    "cypress/**/*.{ts,js}": [
-      "npx biome format --write"
     ]
   }
 }

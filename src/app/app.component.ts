@@ -8,6 +8,7 @@ import { LayoutDefaultComponent } from '@main/layout/layout-default/layout-defau
 import { LayoutSidebarComponent } from '@main/layout/layout-sidebar/layout-sidebar.component'
 import { PageLayout } from '@main/layout/page-layout.enum'
 import { PageLayoutService } from '@main/layout/page-layout.service'
+import HomeComponent from '@pages/home/home.component'
 import { take, timer } from 'rxjs'
 
 @Component({
@@ -20,6 +21,7 @@ import { take, timer } from 'rxjs'
         LayoutCenteredComponent,
         LayoutDefaultComponent,
         LayoutSidebarComponent,
+        HomeComponent,
     ],
 })
 export class AppComponent {

@@ -1,3 +1,4 @@
+"./node_modules/david-ui-angular/**/*.{html,ts,js,mjs}"
 /** @type {import('tailwindcss').Config} */
 /* eslint-disable no-undef */
 module.exports = {
