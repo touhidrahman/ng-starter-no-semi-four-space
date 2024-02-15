@@ -52,7 +52,7 @@ export default class RegisterPage implements OnInit {
                 }
                 if (Array.isArray(error.message)) {
                     // biome-ignore lint/complexity/noForEach: <explanation>
-error.message.forEach((x: string) => {
+                    error.message.forEach((x: string) => {
                         this.errors = this.errors.concat(`\n${x}`)
                     })
                 }

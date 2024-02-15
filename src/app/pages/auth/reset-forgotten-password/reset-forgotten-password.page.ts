@@ -1,12 +1,16 @@
 import { CommonModule } from '@angular/common'
 import { Component, OnInit } from '@angular/core'
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms'
+import {
+    FormControl,
+    FormGroup,
+    ReactiveFormsModule,
+    Validators
+} from '@angular/forms'
 import { ActivatedRoute, Router, RouterModule } from '@angular/router'
 import { JwtService } from '@core/services/jwt.service'
 import { ToastService } from '@core/ui/toast/toast.service'
 import { ForgotPasswordVerificationToken } from '@main/auth/models/forgot-password-verification-token.model'
 import { AuthApiService } from '@main/auth/services/auth-api.service'
-import { AuthStateService } from '@main/auth/services/auth.service'
 import { getAuthRoutes } from '../auth.routes'
 
 @Component({
@@ -45,11 +49,7 @@ export default class ResetForgottenPasswordPage implements OnInit {
         }
 
         this.authApiService
-            .resetPassword(
-                this.activeRoute.snapshot.params['token'],
-                this.userInfo.email,
-                password,
-            )
+            .resetPassword(this.activeRoute.snapshot.params['token'], this.userInfo.email, password)
             .subscribe((res) => {
                 this.alertService.success('Password reset successfully...')
                 setTimeout(() => {

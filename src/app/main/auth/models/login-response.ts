@@ -1,4 +1,4 @@
-import { User } from "@main/users/models/user.model"
+import { User } from '@main/users/models/user.model'
 
 export interface LoginResponse {
     user: User
