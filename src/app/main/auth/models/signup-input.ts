@@ -1,4 +1,4 @@
-export interface RegisterPayload {
+export interface SignupInput {
     email: string
     password: string
     passwordConfirmation: string

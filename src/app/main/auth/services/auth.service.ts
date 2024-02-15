@@ -1,129 +1,146 @@
-import { HttpClient } from '@angular/common/http'
 import { Inject, Injectable } from '@angular/core'
-import { StateSubject } from '@core/store/state-subject'
-import { APP_ENVIRONMENT } from '@environment/app-environment.injector'
-import { AppEnvironment } from '@environment/app-environment.interface'
+import { Router } from '@angular/router'
+import { JwtHelperService } from '@auth0/angular-jwt'
+import { LocalStorageService } from '@core/services/local-storage.service'
+import { SimpleStore } from '@core/store/simple-store'
+import { environment } from '@environment/environment'
 import { User, UserRole } from '@main/users/models/user.model'
 import { WINDOW } from '@ng-web-apis/common'
-import { Observable, catchError, debounceTime, of, shareReplay, switchMap, tap } from 'rxjs'
-import { LoginResponse } from '../interfaces/login-response'
-import { LoginPayload } from '../interfaces/login.payload'
-import { RegisterPayload } from '../interfaces/register.payload'
+import { getAuthRoutes } from '@pages/auth/auth.routes'
+import { Observable, map, of, timer } from 'rxjs'
+import { LoginResponse } from '../models/login-response'
+import { AuthApiService } from './auth-api.service'
 import { TokenStorageService } from './token-storage.service'
+
+export interface AuthState {
+    isLoggedIn: boolean
+    accessToken: string
+    refreshToken: string
+    user: User | null
+    lastUpdated: Date | null
+    isAdmin: boolean
+    isSuperAdmin: boolean
+}
+
+export const initialAuthState: AuthState = {
+    isLoggedIn: false,
+    accessToken: '',
+    refreshToken: '',
+    user: null,
+    lastUpdated: null,
+    isAdmin: false,
+    isSuperAdmin: false,
+}
 
 @Injectable({
     providedIn: 'root',
 })
-export class AuthService {
-    private endpoint: string
-
-    user = new StateSubject<User | null>(null)
-    accessToken = new StateSubject<string>(this.storage.getAccessToken() ?? '')
-    refreshToken = new StateSubject<string>(this.storage.getRefreshToken() ?? '')
-
-    get isLoggedIn(): boolean {
-        return Boolean(this.accessToken.value)
-    }
-
-    get isAdmin(): boolean {
-        return this.user.value?.role === UserRole.ADMIN
-    }
-
-    get isModerator(): boolean {
-        return this.user.value?.role === UserRole.MODERATOR
-    }
+export class AuthStateService extends SimpleStore<AuthState> {
+    private refreshTokenTimeout?: ReturnType<typeof setTimeout>
+    private jwtHelper = new JwtHelperService()
 
     constructor(
-        private http: HttpClient,
-        private storage: TokenStorageService,
         @Inject(WINDOW) private windowRef: Window,
-        @Inject(APP_ENVIRONMENT) private appEnvironment: AppEnvironment,
+        private tokenStorageService: TokenStorageService,
+        private authApiService: AuthApiService,
+        private localStorageService: LocalStorageService,
+        private router: Router,
     ) {
-        this.endpoint = `${this.appEnvironment.apiUrl}/auth`
-        this.continueAutoloadingUser()
+        super(initialAuthState)
     }
 
-    signUp(data: RegisterPayload): Observable<void> {
-        return this.http.post<void>(`${this.endpoint}/register`, data)
+    getUser(): User | null {
+        return this.getState().user ?? null
     }
 
-    login(data: LoginPayload, returnUrl?: string): Observable<LoginResponse | null> {
-        return this.http.post<LoginResponse>(`${this.endpoint}/login`, data).pipe(
-            tap((data) => {
-                this.setTokens(data.accessToken, data.refreshToken)
-                this.windowRef.location.href = returnUrl ?? '/'
+    getUserId(): string | null {
+        return this.getState().user?.id ?? null
+    }
+
+    getUserRole(): UserRole | null {
+        return this.getState().user?.role ?? null
+    }
+
+    isLoggedIn(): boolean {
+        return this.getState().isLoggedIn
+    }
+
+    isAdmin(): boolean {
+        return this.getState().isAdmin ?? false
+    }
+
+    isSuperAdmin(): boolean {
+        return this.getState().isSuperAdmin ?? false
+    }
+
+    login(username: string, password: string) {
+        return this.authApiService.login(username, password).pipe(
+            map(({ data }) => {
+                data && this.setStateAfterLogin(data.accessToken, data.refreshToken, data.user)
+                return data
             }),
         )
     }
 
-    verifyEmail(token: string): Observable<void> {
-        return this.http.post<void>(`${this.endpoint}/verify-email/${token}`, {})
-    }
+    refreshAccessToken(): Observable<LoginResponse | undefined> {
+        const refreshToken = this.tokenStorageService.getRefreshToken()
+        if (!refreshToken) return of(undefined)
 
-    forgotPassword(email: string): Observable<void> {
-        return this.http.post<void>(`${this.endpoint}/forgot-password`, { email })
-    }
-
-    resetForgottenPassword(
-        token: string,
-        password: string,
-        passwordConfirmation: string,
-    ): Observable<void> {
-        return this.http.post<void>(`${this.endpoint}/reset-password/${token}`, {
-            password,
-            passwordConfirmation,
-        })
-    }
-
-    changePassword(password: string, passwordConfirmation: string): Observable<void> {
-        return this.http.post<void>(`${this.endpoint}/change-password`, {
-            password,
-            passwordConfirmation,
-        })
-    }
-
-    setTokens(accessToken: string, refreshToken = '') {
-        this.storage.saveAccessToken(accessToken)
-        this.storage.saveRefreshToken(refreshToken)
-        this.accessToken.next(accessToken)
-        this.refreshToken.next(refreshToken)
-    }
-
-    deleteTokens() {
-        this.storage.clear()
-        this.accessToken.next('')
-        this.refreshToken.next('')
-    }
-
-    signOut() {
-        this.deleteTokens()
-        this.user.next(null)
-        this.windowRef.location.href = '/'
-    }
-
-    getLoggedInUser$(): Observable<User | null> {
-        return this.http.get<User>(`${this.endpoint}/me`).pipe(
-            catchError(() => {
-                this.user.next(null)
-                return of(null)
+        return this.authApiService.refreshAccessToken(refreshToken).pipe(
+            map(({ data }) => {
+                data && this.setStateAfterLogin(data.accessToken, data.refreshToken, data.user)
+                return data
             }),
-            shareReplay({ bufferSize: 1, refCount: true }),
         )
     }
 
-    private continueAutoloadingUser() {
-        this.accessToken.value$
-            .pipe(
-                debounceTime(100),
-                switchMap((accessToken) => {
-                    if (accessToken && this.user.value === null) {
-                        return this.getLoggedInUser$()
-                    }
-                    return of(null)
-                }),
-            )
-            .subscribe({
-                next: (user) => this.user.next(user),
-            })
+    setStateAfterLogin(accessToken: string, refreshToken: string, user: User) {
+        const decoded = this.jwtHelper.decodeToken(accessToken)
+
+        this.setState({
+            accessToken,
+            refreshToken,
+            isLoggedIn: true,
+            user,
+            lastUpdated: new Date(),
+            isSuperAdmin: decoded?.['superAdmin'] ?? false,
+        })
+        this.saveInLocalStorage(user)
+        this.startRefreshTokenTimer()
+    }
+
+    logout() {
+        this.authApiService.logout().subscribe()
+        this.reset()
+        this.stopRefreshTokenTimer()
+        this.localStorageService.removeItem('user')
+        this.tokenStorageService.clear()
+        this.router.navigate([getAuthRoutes().login.path])
+        timer(1000).subscribe(() => window.location.reload())
+    }
+
+    setUser(user: User) {
+        this.setState({ user, lastUpdated: new Date() })
+        this.saveInLocalStorage(user)
+    }
+
+    private saveInLocalStorage(user: User) {
+        this.localStorageService.setItem('user', JSON.stringify(user))
+        this.tokenStorageService.saveAccessToken(this.getState().accessToken)
+        this.tokenStorageService.saveRefreshToken(this.getState().refreshToken)
+    }
+
+    private startRefreshTokenTimer() {
+        const { accessToken } = this.getState()
+        const decoded = this.jwtHelper.decodeToken(accessToken)
+
+        // set a timeout to refresh the token a minute before it expires
+        const expires = new Date(decoded.exp * 1000)
+        const timeout = expires.getTime() - Date.now() - 60 * 1000
+        this.refreshTokenTimeout = setTimeout(() => this.refreshAccessToken().subscribe(), timeout)
+    }
+
+    private stopRefreshTokenTimer() {
+        clearTimeout(this.refreshTokenTimeout)
     }
 }

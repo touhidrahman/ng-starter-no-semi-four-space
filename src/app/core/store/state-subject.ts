@@ -1,5 +1,5 @@
 import { isEqual } from 'radash'
-import { BehaviorSubject, distinctUntilChanged, Observable } from 'rxjs'
+import { BehaviorSubject, Observable, distinctUntilChanged } from 'rxjs'
 
 /**
  * An extended BehaviorSubject that can be reset to its initial value.
@@ -8,7 +8,7 @@ import { BehaviorSubject, distinctUntilChanged, Observable } from 'rxjs'
  *
  * This util is also available as a npm package:
  * https://www.npmjs.com/package/rxjs-state-subject
- * @author Touhid Rahman <touhidrahman1987@gmail.com>
+ * @author Touhid Rahman <mail@touhidrahman.me>
  */
 export class StateSubject<T> extends BehaviorSubject<T> {
     private initialValue: T

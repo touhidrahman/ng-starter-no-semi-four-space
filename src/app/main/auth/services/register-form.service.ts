@@ -8,10 +8,10 @@ import {
     ValidatorFn,
     Validators,
 } from '@angular/forms'
-import { RegisterPayload } from '../interfaces/register.payload'
+import { SignupInput } from '../models/signup-input'
 
 type RegisterForm = {
-    [field in keyof RegisterPayload]: FormControl<RegisterPayload[field]>
+    [field in keyof SignupInput]: FormControl<SignupInput[field]>
 }
 
 @Injectable()
@@ -39,8 +39,8 @@ export class RegisterFormService {
         )
     }
 
-    getValue(): RegisterPayload {
-        return this.form.value as RegisterPayload
+    getValue(): SignupInput {
+        return this.form.value as SignupInput
     }
 }
 

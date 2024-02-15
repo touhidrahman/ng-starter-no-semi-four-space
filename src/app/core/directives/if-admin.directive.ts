@@ -1,5 +1,5 @@
 import { Directive, TemplateRef, ViewContainerRef } from '@angular/core'
-import { AuthService } from '@main/auth/services/auth.service'
+import { AuthStateService } from '@main/auth/services/auth.service'
 
 @Directive({
     standalone: true,
@@ -9,9 +9,9 @@ export class IfAdminDirective {
     constructor(
         private templateRef: TemplateRef<any>,
         private viewContainer: ViewContainerRef,
-        private auth: AuthService,
+        private auth: AuthStateService,
     ) {
-        if (this.auth.isAdmin) {
+        if (this.auth.isAdmin()) {
             this.viewContainer.createEmbeddedView(this.templateRef)
         } else {
             this.viewContainer.clear()

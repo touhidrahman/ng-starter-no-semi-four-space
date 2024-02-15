@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common'
 import { Component, OnInit } from '@angular/core'
 import { ReactiveFormsModule } from '@angular/forms'
 import { ActivatedRoute, Router, RouterModule } from '@angular/router'
-import { AuthService } from '@main/auth/services/auth.service'
+import { AuthStateService } from '@main/auth/services/auth.service'
 import { LoginFormService } from '@main/auth/services/login-form.service'
 
 @Component({
@@ -20,13 +20,13 @@ export default class LoginPage implements OnInit {
     constructor(
         public loginFormService: LoginFormService,
         private activatedRoute: ActivatedRoute,
-        private auth: AuthService,
+        private authStateService: AuthStateService,
         private router: Router,
     ) {}
 
     ngOnInit(): void {
         this.returnUrl = this.activatedRoute.snapshot.queryParams['returnUrl'] ?? '/'
-        if (this.auth.isLoggedIn) this.router.navigateByUrl(this.returnUrl)
+        if (this.authStateService.isLoggedIn()) this.router.navigateByUrl(this.returnUrl)
     }
 
     submit(): void {
@@ -39,7 +39,8 @@ export default class LoginPage implements OnInit {
         this.errors = []
         this.loading = true
 
-        this.auth.login(this.loginFormService.getValue()).subscribe({
+        const { email, password } = this.loginFormService.getValue()
+        this.authStateService.login(email, password).subscribe({
             next: (_) => {
                 this.loading = false
                 this.router.navigateByUrl(this.returnUrl)

@@ -3,7 +3,7 @@ import { Component } from '@angular/core'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { Router, RouterModule } from '@angular/router'
 import { ToastService } from '@core/ui/toast/toast.service'
-import { AuthService } from '@main/auth/services/auth.service'
+import { AuthApiService } from '@main/auth/services/auth-api.service'
 
 @Component({
     standalone: true,
@@ -15,13 +15,13 @@ export default class ForgotPasswordPage {
     email = ''
 
     constructor(
-        private auth: AuthService,
+        private authApiService: AuthApiService,
         private toast: ToastService,
         private router: Router,
     ) {}
 
     submit() {
-        this.auth.forgotPassword(this.email).subscribe({
+        this.authApiService.forgotPassword(this.email).subscribe({
             next: () => {
                 this.toast.success('Success! Please check your email.')
                 this.router.navigate(['/'])

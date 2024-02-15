@@ -1,9 +1,13 @@
 import { CommonModule } from '@angular/common'
 import { Component, OnInit } from '@angular/core'
-import { FormBuilder, ReactiveFormsModule } from '@angular/forms'
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms'
 import { ActivatedRoute, Router, RouterModule } from '@angular/router'
+import { JwtService } from '@core/services/jwt.service'
 import { ToastService } from '@core/ui/toast/toast.service'
-import { AuthService } from '@main/auth/services/auth.service'
+import { ForgotPasswordVerificationToken } from '@main/auth/models/forgot-password-verification-token.model'
+import { AuthApiService } from '@main/auth/services/auth-api.service'
+import { AuthStateService } from '@main/auth/services/auth.service'
+import { getAuthRoutes } from '../auth.routes'
 
 @Component({
     standalone: true,
@@ -12,41 +16,45 @@ import { AuthService } from '@main/auth/services/auth.service'
     styleUrls: ['./reset-forgotten-password.page.scss'],
 })
 export default class ResetForgottenPasswordPage implements OnInit {
-    form = this.fb.group({
-        password: [''],
-        passwordConfirmation: [''],
+    userInfo: ForgotPasswordVerificationToken | null = null
+    form: FormGroup = new FormGroup({
+        password: new FormControl('', [Validators.required, Validators.minLength(8)]),
+        passwordConfirmation: new FormControl('', [Validators.required, Validators.minLength(8)]),
     })
 
-    errors: string[] = []
-    token = this.ar.snapshot.params['token'] ?? ''
-
     constructor(
-        private auth: AuthService,
-        private fb: FormBuilder,
         private router: Router,
-        private ar: ActivatedRoute,
-        private toast: ToastService,
+        private activeRoute: ActivatedRoute,
+        private alertService: ToastService,
+        private jwtService: JwtService,
+        private authApiService: AuthApiService,
     ) {}
 
     ngOnInit(): void {
-        void 0
+        this.userInfo = this.jwtService.decodeToken(this.activeRoute.snapshot.params['token'])
     }
 
-    submit(): void {
-        this.errors = []
+    resetPasswordSubmitted() {
+        if (!this.userInfo) return
+
         const { password, passwordConfirmation } = this.form.value
-        if (!password || password !== passwordConfirmation) {
-            this.errors.push('Passwords do not match')
+
+        if (!this.form.valid || password !== passwordConfirmation) {
+            this.alertService.error('Passwords do not match')
             return
         }
-        this.auth.resetForgottenPassword(this.token, password, passwordConfirmation).subscribe({
-            next: () => {
-                this.toast.success('Password reset successfully')
-                this.router.navigate(['/login'])
-            },
-            error: (err) => {
-                this.errors.push(err.error.message)
-            },
-        })
+
+        this.authApiService
+            .resetPassword(
+                this.activeRoute.snapshot.params['token'],
+                this.userInfo.email,
+                password,
+            )
+            .subscribe((res) => {
+                this.alertService.success('Password reset successfully...')
+                setTimeout(() => {
+                    this.router.navigateByUrl(`/${getAuthRoutes().login.path}`)
+                }, 3000)
+            })
     }
 }

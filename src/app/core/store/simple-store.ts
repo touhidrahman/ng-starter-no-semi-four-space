@@ -1,8 +1,8 @@
 import { isEqual } from 'radash'
-import { distinctUntilChanged, filter, map, Observable, share, Subject, takeUntil } from 'rxjs'
+import { Observable, Subject, distinctUntilChanged, filter, map, share, takeUntil } from 'rxjs'
 import { StateSubject } from './state-subject'
 
-export class Store<T> {
+export class SimpleStore<T> {
     private unsubscriber: Subject<void>
     private state: StateSubject<T>
 

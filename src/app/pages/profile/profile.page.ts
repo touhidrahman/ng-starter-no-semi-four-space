@@ -3,7 +3,8 @@ import { Component, OnInit } from '@angular/core'
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms'
 import { Router, RouterModule } from '@angular/router'
 import { ToastService } from '@core/ui/toast/toast.service'
-import { AuthService } from '@main/auth/services/auth.service'
+import { AuthApiService } from '@main/auth/services/auth-api.service'
+import { AuthStateService } from '@main/auth/services/auth.service'
 import { HeaderOneComponent } from '@main/headers/header-one/header-one.component'
 
 @Component({
@@ -14,6 +15,7 @@ import { HeaderOneComponent } from '@main/headers/header-one/header-one.componen
 })
 export default class ProfilePage implements OnInit {
     form = this.fb.nonNullable.group({
+        currentPassword: [''],
         password: [''],
         passwordConfirmation: [''],
     })
@@ -21,7 +23,7 @@ export default class ProfilePage implements OnInit {
     errors: string[] = []
 
     constructor(
-        private auth: AuthService,
+        private auth: AuthApiService,
         private fb: FormBuilder,
         private router: Router,
         private toast: ToastService,
@@ -33,12 +35,17 @@ export default class ProfilePage implements OnInit {
 
     submit(): void {
         this.errors = []
-        const { password, passwordConfirmation } = this.form.value
+        const { currentPassword, password, passwordConfirmation } = this.form.value
+
+        if (!currentPassword || !password || !passwordConfirmation) {
+            this.errors.push('All fields are required')
+            return
+        }
         if (!password || password !== passwordConfirmation) {
             this.errors.push('Passwords do not match')
             return
         }
-        this.auth.changePassword(password, passwordConfirmation).subscribe({
+        this.auth.changePassword(currentPassword, password, passwordConfirmation).subscribe({
             next: () => {
                 this.toast.success('Password changed successfully')
                 this.form.reset()

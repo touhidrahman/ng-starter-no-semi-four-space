@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
-import { LoginPayload } from '../interfaces/login.payload'
+import { LoginInput } from '../models/login-input'
 
 @Injectable()
 export class LoginFormService {
@@ -13,7 +13,7 @@ export class LoginFormService {
         })
     }
 
-    getValue(): LoginPayload {
+    getValue(): LoginInput {
         const { email, password } = this.loginForm.value
         return { email, password }
     }

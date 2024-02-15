@@ -10,7 +10,7 @@ import {
 import { RouterModule } from '@angular/router'
 import { AppStateService } from '@core/states/app-state.service'
 import { MaterialModules } from '@core/ui/material'
-import { AuthService } from '@main/auth/services/auth.service'
+import { AuthStateService } from '@main/auth/services/auth.service'
 
 @Component({
     selector: 'app-header-one',
@@ -27,7 +27,7 @@ export class HeaderOneComponent implements OnInit {
     appName = this.appState.appName
 
     constructor(
-        public auth: AuthService,
+        public auth: AuthStateService,
         public appState: AppStateService,
     ) {}
 
