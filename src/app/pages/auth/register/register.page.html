@@ -1,23 +1,27 @@
-<div class="flex items-center justify-center mb-6 text-2xl font-semibold text-gray-900">
-    <img class="w-8 h-8 mr-2" src="./../../../../assets/logoipsum-282.svg" alt="logo" />
+<div class="mb-6 flex items-center justify-center text-2xl font-semibold text-gray-900">
+    <img class="mr-2 h-8 w-8" src="./../../../../assets/logoipsum-282.svg" alt="logo" />
 </div>
 
-<div class="w-full bg-white rounded shadow dark:border md:mt-0 sm:w-96 xl:p-0">
-    <div class="p-6 space-y-2 md:space-y-4 sm:p-8">
-        <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">Create account</h1>
+<div class="w-full rounded bg-white shadow sm:w-96 md:mt-0 xl:p-0 dark:border">
+    <div class="space-y-2 p-6 sm:p-8 md:space-y-4">
+        <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
+            Create account
+        </h1>
         <p *ngIf="errors" class="text-lg font-medium text-sky-600">
             {{ errors }}
         </p>
         <form
             class="space-y-4 md:space-y-6"
             [formGroup]="signUpForm"
-            [ngClass]="{ 'opacity-50 pointer-events-none': loading === true }"
+            [ngClass]="{ 'pointer-events-none opacity-50': loading === true }"
         >
             <div>
-                <label for="firstName" class="block mb-2 text-sm font-medium text-gray-900">First name</label>
+                <label for="firstName" class="mb-2 block text-sm font-medium text-gray-900"
+                    >First name</label
+                >
                 <input
                     formControlName="firstName"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 rounded block w-full p-2.5"
+                    class="block w-full rounded border border-gray-300 bg-gray-50 p-2.5 text-gray-900"
                 />
                 <div
                     *ngIf="
@@ -25,16 +29,18 @@
                         signUpForm.get('firstName')?.touched &&
                         signUpForm.get('firstName')?.dirty
                     "
-                    class="text-red-500 text-xs italic"
+                    class="text-xs italic text-red-500"
                 >
                     First name is required.
                 </div>
             </div>
             <div>
-                <label for="lastName" class="block mb-2 text-sm font-medium text-gray-900">Last name</label>
+                <label for="lastName" class="mb-2 block text-sm font-medium text-gray-900"
+                    >Last name</label
+                >
                 <input
                     formControlName="lastName"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 rounded block w-full p-2.5"
+                    class="block w-full rounded border border-gray-300 bg-gray-50 p-2.5 text-gray-900"
                 />
                 <div
                     *ngIf="
@@ -42,16 +48,18 @@
                         signUpForm.get('lastName')?.touched &&
                         signUpForm.get('lastName')?.dirty
                     "
-                    class="text-red-500 text-xs italic"
+                    class="text-xs italic text-red-500"
                 >
                     Last name is required.
                 </div>
             </div>
             <div>
-                <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Email</label>
+                <label for="email" class="mb-2 block text-sm font-medium text-gray-900"
+                    >Email</label
+                >
                 <input
                     formControlName="email"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 rounded block w-full p-2.5"
+                    class="block w-full rounded border border-gray-300 bg-gray-50 p-2.5 text-gray-900"
                 />
                 <div
                     *ngIf="
@@ -59,23 +67,28 @@
                         signUpForm.get('email')?.touched &&
                         signUpForm.get('email')?.dirty
                     "
-                    class="text-red-500 text-xs italic"
+                    class="text-xs italic text-red-500"
                 >
                     Email is required.
                 </div>
                 <div
-                    *ngIf="signUpForm.get('email')?.hasError('email') && signUpForm.get('email')?.touched"
-                    class="text-red-500 text-xs italic"
+                    *ngIf="
+                        signUpForm.get('email')?.hasError('email') &&
+                        signUpForm.get('email')?.touched
+                    "
+                    class="text-xs italic text-red-500"
                 >
                     Enter a valid email address.
                 </div>
             </div>
             <div>
-                <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Password</label>
+                <label for="password" class="mb-2 block text-sm font-medium text-gray-900"
+                    >Password</label
+                >
                 <input
                     type="password"
                     formControlName="password"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 rounded block w-full p-2.5"
+                    class="block w-full rounded border border-gray-300 bg-gray-50 p-2.5 text-gray-900"
                 />
                 <div
                     *ngIf="
@@ -83,34 +96,42 @@
                         signUpForm.get('password')?.touched &&
                         signUpForm.get('password')?.dirty
                     "
-                    class="text-red-500 text-xs italic"
+                    class="text-xs italic text-red-500"
                 >
                     Password is required.
                 </div>
                 <div
-                    *ngIf="signUpForm.get('password')?.hasError('minLength') && signUpForm.get('password')?.touched"
-                    class="text-red-500 text-xs italic"
+                    *ngIf="
+                        signUpForm.get('password')?.hasError('minLength') &&
+                        signUpForm.get('password')?.touched
+                    "
+                    class="text-xs italic text-red-500"
                 >
                     Password must be 8 characters.
                 </div>
                 <div
-                    *ngIf="signUpForm.get('password')?.hasError('maxLength') && signUpForm.get('password')?.touched"
-                    class="text-red-500 text-xs italic"
+                    *ngIf="
+                        signUpForm.get('password')?.hasError('maxLength') &&
+                        signUpForm.get('password')?.touched
+                    "
+                    class="text-xs italic text-red-500"
                 >
                     Password can't exceed 32 characters.
                 </div>
             </div>
             <div>
-                <label for="passwordConfirmation" class="block mb-2 text-sm font-medium text-gray-900"
+                <label
+                    for="passwordConfirmation"
+                    class="mb-2 block text-sm font-medium text-gray-900"
                     >Confirm password</label
                 >
                 <input
                     type="password"
                     formControlName="passwordConfirmation"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 rounded block w-full p-2.5"
+                    class="block w-full rounded border border-gray-300 bg-gray-50 p-2.5 text-gray-900"
                 />
                 <div
-                    class="text-red-500 text-xs italic"
+                    class="text-xs italic text-red-500"
                     *ngIf="
                         signUpForm.get('passwordConfirmation')?.touched &&
                         signUpForm.errors?.['passwordNotMatched'] &&
@@ -125,14 +146,16 @@
                 <button
                     type="submit"
                     (click)="register()"
-                    class="w-full text-white bg-sky-600 hover:bg-sky-700 focus:ring-4 focus:outline-none focus:ring-sky-300 font-medium rounded text-sm px-5 py-2.5 text-center dark:bg-sky-600 dark:hover:bg-sky-700 dark:focus:ring-sky-800"
+                    class="w-full rounded bg-sky-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-sky-700 focus:outline-none focus:ring-4 focus:ring-sky-300 dark:bg-sky-600 dark:hover:bg-sky-700 dark:focus:ring-sky-800"
                 >
                     Register
                 </button>
             </div>
             <p class="text-sm font-light text-gray-500 dark:text-gray-400">
                 Already have an account?
-                <a [routerLink]="['/login']" class="font-medium text-sky-600 hover:underline dark:text-sky-500"
+                <a
+                    [routerLink]="['/login']"
+                    class="font-medium text-sky-600 hover:underline dark:text-sky-500"
                     >Login here</a
                 >
             </p>

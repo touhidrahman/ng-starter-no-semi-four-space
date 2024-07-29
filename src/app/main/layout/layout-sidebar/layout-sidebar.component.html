@@ -1,10 +1,4 @@
-<mat-sidenav-container>
-    <mat-sidenav #sidenav [mode]="isSmallScreen ? 'over' : 'side'" [(opened)]="opened"> Side navigation </mat-sidenav>
-
-    <mat-sidenav-content>
-        <app-header-one (sidenavToggle)="opened = !opened"></app-header-one>
-        <main class="block p-4 pb-24">
-            <ng-content></ng-content>
-        </main>
-    </mat-sidenav-content>
-</mat-sidenav-container>
+<app-header-one (sidenavToggle)="opened = !opened"></app-header-one>
+<main class="block p-4 pb-24">
+    <ng-content></ng-content>
+</main>

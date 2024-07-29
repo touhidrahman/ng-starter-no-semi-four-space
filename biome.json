@@ -18,9 +18,7 @@
                 "noExplicitAny": "warn"
             }
         },
-        "ignore": [
-            "./cypres/**/*.*"
-        ]
+        "ignore": ["./cypres/**/*.*"]
     },
     "formatter": {
         "enabled": true,
