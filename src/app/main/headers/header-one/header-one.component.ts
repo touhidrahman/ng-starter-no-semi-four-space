@@ -9,13 +9,12 @@ import {
 } from '@angular/core'
 import { RouterModule } from '@angular/router'
 import { AppStateService } from '@core/states/app-state.service'
-import { MaterialModules } from '@core/ui/material'
 import { AuthStateService } from '@main/auth/services/auth.service'
 
 @Component({
     selector: 'app-header-one',
     standalone: true,
-    imports: [CommonModule, RouterModule, ...MaterialModules],
+    imports: [CommonModule, RouterModule],
     templateUrl: './header-one.component.html',
     styleUrls: ['./header-one.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
