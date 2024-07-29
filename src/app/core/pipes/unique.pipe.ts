@@ -1,5 +1,5 @@
-import { unique } from 'radash'
 import { Pipe, PipeTransform } from '@angular/core'
+import { unique } from 'radash'
 
 @Pipe({
     name: 'unique',

@@ -1,11 +1,6 @@
 import { CommonModule } from '@angular/common'
 import { Component, OnInit } from '@angular/core'
-import {
-    FormControl,
-    FormGroup,
-    ReactiveFormsModule,
-    Validators
-} from '@angular/forms'
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms'
 import { ActivatedRoute, Router, RouterModule } from '@angular/router'
 import { JwtService } from '@core/services/jwt.service'
 import { ToastService } from '@core/ui/toast/toast.service'

@@ -1,5 +1,5 @@
+import { writeFile } from 'node:fs'
 import { AppEnvironment } from './app-environment.interface'
-import { writeFile } from 'fs'
 
 /**
  * This script makes a prod environment file in angular project's environment dir

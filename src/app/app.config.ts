@@ -5,7 +5,7 @@ import {
     withJsonpSupport,
     withXsrfConfiguration,
 } from '@angular/common/http'
-import { ApplicationConfig, importProvidersFrom } from '@angular/core'
+import { type ApplicationConfig, importProvidersFrom } from '@angular/core'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import {
     PreloadAllModules,

@@ -50,9 +50,9 @@ export class QueryResultStore<Q, R, T> extends SimpleStore<{ query: Q; result: R
     getCachedResult(): R | undefined {
         const key = this.getCacheKey()
         if (this.cache.has(key)) {
-            return (this.cache.get(key))
+            return this.cache.get(key)
         }
-        return (undefined)
+        return undefined
     }
 
     cacheResult(result: R): void {

@@ -8,15 +8,19 @@
         "rules": {
             "recommended": true,
             "style": {
+                "useImportType": "off"
             },
             "complexity": {
-                "useLiteralKeys": "off"
+                "useLiteralKeys": "off",
+                "noForEach": "off"
             },
             "suspicious": {
                 "noExplicitAny": "warn"
             }
         },
-        "ignore": ["./cypres/**/*.*"]
+        "ignore": [
+            "./cypres/**/*.*"
+        ]
     },
     "formatter": {
         "enabled": true,
