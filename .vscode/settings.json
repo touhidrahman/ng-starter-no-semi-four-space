@@ -56,5 +56,8 @@
             "skipChangeDetectionOnPush": true,
             "skipNgOnInit": false
         }
+    },
+    "[scss]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     }
 }

@@ -8,7 +8,6 @@ This boilerplate uses:
 - Prettier
 - Git hooks
 - Boxicons
-- Angular Material
 
 and most importantly - **4 space tabs** and **NO SEMICOLON**
 
