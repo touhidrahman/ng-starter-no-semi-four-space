@@ -1,12 +1,13 @@
 import { DATE_PIPE_DEFAULT_OPTIONS } from '@angular/common'
 import {
     provideHttpClient,
+    withFetch,
     withInterceptors,
     withJsonpSupport,
     withXsrfConfiguration,
 } from '@angular/common/http'
 import { type ApplicationConfig, importProvidersFrom } from '@angular/core'
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { provideAnimations } from '@angular/platform-browser/animations'
 import {
     PreloadAllModules,
     TitleStrategy,
@@ -16,6 +17,7 @@ import {
     withPreloading,
     withRouterConfig,
 } from '@angular/router'
+import { JwtModule } from '@auth0/angular-jwt'
 import { serverErrorInterceptorFn } from '@core/interceptors/server-error.interceptor'
 import { CustomTitleStrategy } from '@core/services/custom-title.service'
 import { APP_ENVIRONMENT } from '@environment/app-environment.injector'
@@ -25,10 +27,12 @@ import { AppRoutes } from './app.routes'
 
 export const appConfig: ApplicationConfig = {
     providers: [
+        importProvidersFrom(JwtModule),
         { provide: APP_ENVIRONMENT, useValue: environment },
         { provide: DATE_PIPE_DEFAULT_OPTIONS, useValue: { dateFormat: 'shortDate' } },
         { provide: TitleStrategy, useClass: CustomTitleStrategy },
         provideHttpClient(
+            withFetch(),
             withXsrfConfiguration({}),
             withJsonpSupport(),
             withInterceptors([AuthHeaderInterceptorFn, serverErrorInterceptorFn]),
@@ -40,6 +44,6 @@ export const appConfig: ApplicationConfig = {
             withComponentInputBinding(),
             withPreloading(PreloadAllModules),
         ),
-        importProvidersFrom(BrowserAnimationsModule),
+        provideAnimations(),
     ],
 }
