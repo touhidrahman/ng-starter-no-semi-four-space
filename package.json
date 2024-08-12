@@ -19,25 +19,25 @@
         "format:ts:unsafe": "npx biome check ./src --write --unsafe",
         "format:json": "npx biome check *.json --write",
         "format:html": "prettier --write 'src/**/*.{html,xml,scss,css,less}'",
-        "format": "npm run format:html && npm run format:ts && npm run format:json",
+        "format": "npm run format:html && npm run format:json && npm run format:ts",
         "ng-update": "ng update @angular/core @angular/cli @angular/cdk @schematics/angular --allow-dirty",
         "make-env-file": "tsc src/environments/make-env-file.ts && node src/environments/make-env-file.js && rm src/environments/make-env-file.js"
     },
     "dependencies": {
-        "@angular/animations": "^18.1.2",
-        "@angular/cdk": "^18.1.2",
-        "@angular/common": "^18.1.2",
-        "@angular/compiler": "^18.1.2",
-        "@angular/core": "^18.1.2",
-        "@angular/forms": "^18.1.2",
-        "@angular/platform-browser": "^18.1.2",
-        "@angular/platform-browser-dynamic": "^18.1.2",
-        "@angular/router": "^18.1.2",
+        "@angular/animations": "^18.1.4",
+        "@angular/cdk": "^18.1.4",
+        "@angular/common": "^18.1.4",
+        "@angular/compiler": "^18.1.4",
+        "@angular/core": "^18.1.4",
+        "@angular/forms": "^18.1.4",
+        "@angular/platform-browser": "^18.1.4",
+        "@angular/platform-browser-dynamic": "^18.1.4",
+        "@angular/router": "^18.1.4",
         "@auth0/angular-jwt": "^5.2.0",
-        "@ng-web-apis/common": "^4.2.0",
+        "@ng-web-apis/common": "^4.2.1",
         "@ngneat/dialog": "^5.1.1",
         "date-fns": "^3.6.0",
-        "ng-primitives": "^0.3.0",
+        "ng-primitives": "^0.6.0",
         "ngx-sonner": "^2.0.1",
         "radash": "^12.1.0",
         "rxjs": "~7.8.1",
@@ -45,11 +45,11 @@
         "zone.js": "~0.14.8"
     },
     "devDependencies": {
-        "@angular-devkit/build-angular": "^18.1.2",
-        "@angular/cli": "^18.1.2",
-        "@angular/compiler-cli": "^18.1.2",
+        "@angular-devkit/build-angular": "^18.1.4",
+        "@angular/cli": "^18.1.4",
+        "@angular/compiler-cli": "^18.1.4",
         "@biomejs/biome": "^1.8.3",
-        "@schematics/angular": "^18.1.2",
+        "@schematics/angular": "^18.1.4",
         "@tailwindcss/aspect-ratio": "0.4.2",
         "@tailwindcss/forms": "^0.5.7",
         "@tailwindcss/typography": "^0.5.13",
@@ -72,7 +72,7 @@
         "postcss": "^8.4.40",
         "prettier": "^3.3.3",
         "prettier-plugin-tailwindcss": "^0.6.5",
-        "tailwindcss": "^3.4.7",
+        "tailwindcss": "^3.4.9",
         "tailwindcss-elevation": "^2.0.0",
         "tailwindcss-scrollbar": "^0.1.0",
         "typescript": "~5.5.4"
@@ -84,11 +84,8 @@
     },
     "lint-staged": {
         "src/**/*.{html,xml,scss,css,less}": "npx prettier --write",
-        "src/**/*.{ts,js}": [
-            "npx biome check --apply"
-        ],
-        "cypress/**/*.{ts,js}": [
-            "npx biome format --write"
-        ]
+        "src/**/*.{ts,js}": ["npx biome check --fix"],
+        "cypress/**/*.{ts,js}": ["npx biome format --fix"],
+        "*.json": "npx biome check --fix"
     }
 }
