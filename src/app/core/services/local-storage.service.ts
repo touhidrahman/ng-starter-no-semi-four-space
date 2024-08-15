@@ -1,11 +1,11 @@
-import { Inject, Injectable } from '@angular/core'
+import { Injectable, inject } from '@angular/core'
 import { LOCAL_STORAGE } from '@ng-web-apis/common'
 
 @Injectable({
     providedIn: 'root',
 })
 export class LocalStorageService {
-    constructor(@Inject(LOCAL_STORAGE) private readonly storage: Storage) {}
+    private readonly storage = inject(LOCAL_STORAGE)
 
     clear(): void {
         this.storage.clear()

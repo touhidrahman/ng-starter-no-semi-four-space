@@ -15,11 +15,10 @@ export const serverErrorInterceptorFn: HttpInterceptorFn = (request, next) => {
             if ([401, 403].includes(error.status)) {
                 inject(Router).navigateByUrl('/login')
                 return throwError(() => error)
-            } else {
-                // otherwise throw error
-                console.error(error)
-                return throwError(() => error)
             }
+            // otherwise throw error
+            console.error(error)
+            return throwError(() => error)
         }),
     )
 }

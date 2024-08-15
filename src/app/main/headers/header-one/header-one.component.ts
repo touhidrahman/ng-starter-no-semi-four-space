@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common'
 import {
     ChangeDetectionStrategy,
     Component,
@@ -6,6 +5,7 @@ import {
     Input,
     OnInit,
     Output,
+    inject,
 } from '@angular/core'
 import { RouterModule } from '@angular/router'
 import { AppStateService } from '@core/states/app-state.service'
@@ -14,21 +14,19 @@ import { AuthStateService } from '@main/auth/services/auth.service'
 @Component({
     selector: 'app-header-one',
     standalone: true,
-    imports: [CommonModule, RouterModule],
+    imports: [RouterModule],
     templateUrl: './header-one.component.html',
     styleUrls: ['./header-one.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderOneComponent implements OnInit {
+    auth = inject(AuthStateService)
+    appState = inject(AppStateService)
+
     @Input() sidenavToggleVisible = true
     @Output() sidenavToggle = new EventEmitter<void>()
 
     appName = this.appState.appName
-
-    constructor(
-        public auth: AuthStateService,
-        public appState: AppStateService,
-    ) {}
 
     ngOnInit(): void {
         void 0

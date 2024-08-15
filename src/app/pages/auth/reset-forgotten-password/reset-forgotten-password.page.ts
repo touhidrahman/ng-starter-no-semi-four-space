@@ -1,5 +1,4 @@
-import { CommonModule } from '@angular/common'
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, inject } from '@angular/core'
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms'
 import { ActivatedRoute, Router, RouterModule } from '@angular/router'
 import { JwtService } from '@core/services/jwt.service'
@@ -10,24 +9,22 @@ import { getAuthRoutes } from '../auth.routes'
 
 @Component({
     standalone: true,
-    imports: [CommonModule, ReactiveFormsModule, RouterModule],
+    imports: [ReactiveFormsModule, RouterModule],
     templateUrl: './reset-forgotten-password.page.html',
     styleUrls: ['./reset-forgotten-password.page.scss'],
 })
 export default class ResetForgottenPasswordPage implements OnInit {
+    private router = inject(Router)
+    private activeRoute = inject(ActivatedRoute)
+    private alertService = inject(ToastService)
+    private jwtService = inject(JwtService)
+    private authApiService = inject(AuthApiService)
+
     userInfo: ForgotPasswordVerificationToken | null = null
     form: FormGroup = new FormGroup({
         password: new FormControl('', [Validators.required, Validators.minLength(8)]),
         passwordConfirmation: new FormControl('', [Validators.required, Validators.minLength(8)]),
     })
-
-    constructor(
-        private router: Router,
-        private activeRoute: ActivatedRoute,
-        private alertService: ToastService,
-        private jwtService: JwtService,
-        private authApiService: AuthApiService,
-    ) {}
 
     ngOnInit(): void {
         this.userInfo = this.jwtService.decodeToken(this.activeRoute.snapshot.params['token'])

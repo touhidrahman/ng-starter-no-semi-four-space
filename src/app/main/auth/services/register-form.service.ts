@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core'
+import { Injectable, inject } from '@angular/core'
 import {
     AbstractControl,
     FormControl,
@@ -16,9 +16,11 @@ type RegisterForm = {
 
 @Injectable()
 export class RegisterFormService {
+    private fb = inject(NonNullableFormBuilder)
+
     form: FormGroup<RegisterForm>
 
-    constructor(private fb: NonNullableFormBuilder) {
+    constructor() {
         const { required, minLength, maxLength, pattern, email } = Validators
 
         this.form = this.fb.group(

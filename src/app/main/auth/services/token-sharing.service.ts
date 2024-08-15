@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core'
+import { Injectable, inject } from '@angular/core'
 import { TokenStorageService } from './token-storage.service'
 
 const TOKEN_SHARING_CHANNEL = 'token-sharing'
@@ -11,9 +11,9 @@ const REQUESTING_TOKEN = 'requesting-token'
     providedIn: 'root',
 })
 export class TokenSharingService {
-    private bc = new BroadcastChannel(TOKEN_SHARING_CHANNEL)
+    private tokenStorageService = inject(TokenStorageService)
 
-    constructor(private tokenStorageService: TokenStorageService) {}
+    private bc = new BroadcastChannel(TOKEN_SHARING_CHANNEL)
 
     init() {
         this.addBroadcastChannelListener()

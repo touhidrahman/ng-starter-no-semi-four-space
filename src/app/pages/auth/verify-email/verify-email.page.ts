@@ -1,5 +1,4 @@
-import { CommonModule } from '@angular/common'
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, inject } from '@angular/core'
 import { ReactiveFormsModule } from '@angular/forms'
 import { ActivatedRoute, Router, RouterModule } from '@angular/router'
 import { AuthApiService } from '@main/auth/services/auth-api.service'
@@ -7,18 +6,16 @@ import { timer } from 'rxjs'
 
 @Component({
     standalone: true,
-    imports: [CommonModule, ReactiveFormsModule, RouterModule],
+    imports: [ReactiveFormsModule, RouterModule],
     templateUrl: './verify-email.page.html',
     styleUrls: ['./verify-email.page.scss'],
 })
 export default class VerifyEmailPage implements OnInit {
-    message = 'Verifying email...'
+    private auth = inject(AuthApiService)
+    private activatedRoute = inject(ActivatedRoute)
+    private router = inject(Router)
 
-    constructor(
-        private auth: AuthApiService,
-        private activatedRoute: ActivatedRoute,
-        private router: Router,
-    ) {}
+    message = 'Verifying email...'
 
     ngOnInit(): void {
         const token = this.activatedRoute.snapshot.params['token'] ?? ''

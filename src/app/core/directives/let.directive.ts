@@ -1,19 +1,19 @@
-import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core'
+import { Directive, Input, TemplateRef, ViewContainerRef, inject } from '@angular/core'
 
 @Directive({
     selector: '[appLet]',
     standalone: true,
 })
 export class LetDirective {
+    private vcRef = inject(ViewContainerRef)
+    private templateRef = inject<TemplateRef<any>>(TemplateRef)
+
     context = {
         $implicit: null,
         ngLet: null,
     }
 
-    constructor(
-        private vcRef: ViewContainerRef,
-        private templateRef: TemplateRef<any>,
-    ) {
+    constructor() {
         this.vcRef.createEmbeddedView(this.templateRef, this.context)
     }
 

@@ -1,5 +1,4 @@
-import { CommonModule } from '@angular/common'
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, inject } from '@angular/core'
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms'
 import { Router, RouterModule } from '@angular/router'
 import { ToastService } from '@core/ui/toast/toast.service'
@@ -9,11 +8,16 @@ import { HeaderOneComponent } from '@main/headers/header-one/header-one.componen
 
 @Component({
     standalone: true,
-    imports: [CommonModule, ReactiveFormsModule, RouterModule, HeaderOneComponent],
+    imports: [ReactiveFormsModule, RouterModule, HeaderOneComponent],
     templateUrl: './profile.page.html',
     styleUrls: ['./profile.page.scss'],
 })
 export default class ProfilePage implements OnInit {
+    private auth = inject(AuthApiService)
+    private fb = inject(FormBuilder)
+    private router = inject(Router)
+    private toast = inject(ToastService)
+
     form = this.fb.nonNullable.group({
         currentPassword: [''],
         password: [''],
@@ -21,13 +25,6 @@ export default class ProfilePage implements OnInit {
     })
 
     errors: string[] = []
-
-    constructor(
-        private auth: AuthApiService,
-        private fb: FormBuilder,
-        private router: Router,
-        private toast: ToastService,
-    ) {}
 
     ngOnInit(): void {
         void 0

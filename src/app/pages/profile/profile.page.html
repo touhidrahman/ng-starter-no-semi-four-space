@@ -25,12 +25,15 @@
                     class="flex max-w-screen-sm flex-col pt-3 md:pt-8"
                 >
                     <div class="flex flex-col pt-4">
-                        <div
-                            *ngIf="errors.length"
-                            class="mb-8 border border-solid border-red-500 bg-red-100 px-4 py-2 text-red-500"
-                        >
-                            <ng-container *ngFor="let err of errors">{{ err }}</ng-container>
-                        </div>
+                        @if (errors.length) {
+                            <div
+                                class="mb-8 border border-solid border-red-500 bg-red-100 px-4 py-2 text-red-500"
+                            >
+                                @for (err of errors; track err) {
+                                    {{ err }}
+                                }
+                            </div>
+                        }
                     </div>
 
                     <div class="flex flex-col pt-4">

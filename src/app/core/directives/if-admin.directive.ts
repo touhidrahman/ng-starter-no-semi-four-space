@@ -1,4 +1,4 @@
-import { Directive, TemplateRef, ViewContainerRef } from '@angular/core'
+import { Directive, TemplateRef, ViewContainerRef, inject } from '@angular/core'
 import { AuthStateService } from '@main/auth/services/auth.service'
 
 @Directive({
@@ -6,11 +6,11 @@ import { AuthStateService } from '@main/auth/services/auth.service'
     selector: '[appIfAdmin]',
 })
 export class IfAdminDirective {
-    constructor(
-        private templateRef: TemplateRef<any>,
-        private viewContainer: ViewContainerRef,
-        private auth: AuthStateService,
-    ) {
+    private templateRef = inject<TemplateRef<any>>(TemplateRef)
+    private viewContainer = inject(ViewContainerRef)
+    private auth = inject(AuthStateService)
+
+    constructor() {
         if (this.auth.isAdmin()) {
             this.viewContainer.createEmbeddedView(this.templateRef)
         } else {

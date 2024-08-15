@@ -1,5 +1,4 @@
-import { CommonModule } from '@angular/common'
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
+import { ChangeDetectionStrategy, Component, Input, inject } from '@angular/core'
 import { RouterModule } from '@angular/router'
 import { AppStateService } from '@core/states/app-state.service'
 import { isSmallScreen } from '@core/utils/screen.util'
@@ -9,12 +8,15 @@ import { HeaderOneComponent } from '@main/headers/header-one/header-one.componen
 @Component({
     selector: 'app-layout-sidebar',
     standalone: true,
-    imports: [CommonModule, RouterModule, HeaderOneComponent],
+    imports: [RouterModule, HeaderOneComponent],
     templateUrl: './layout-sidebar.component.html',
     styleUrls: ['./layout-sidebar.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LayoutSidebarComponent {
+    auth = inject(AuthStateService)
+    private appState = inject(AppStateService)
+
     @Input() opened = true
 
     menuToggles = {
@@ -25,10 +27,7 @@ export class LayoutSidebarComponent {
     appName = this.appState.appName
     isSmallScreen = false
 
-    constructor(
-        public auth: AuthStateService,
-        private appState: AppStateService,
-    ) {
+    constructor() {
         this.isSmallScreen = isSmallScreen()
         if (this.isSmallScreen) {
             this.opened = false

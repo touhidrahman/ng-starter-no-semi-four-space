@@ -1,14 +1,14 @@
-import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core'
+import { Directive, Input, TemplateRef, ViewContainerRef, inject } from '@angular/core'
 
 @Directive({
     selector: '[appRepeat]',
     standalone: true,
 })
 export class RepeatDirective {
-    constructor(
-        private vcRef: ViewContainerRef,
-        private templateRef: TemplateRef<any>,
-    ) {
+    private vcRef = inject(ViewContainerRef)
+    private templateRef = inject<TemplateRef<any>>(TemplateRef)
+
+    constructor() {
         this.vcRef.createEmbeddedView(this.templateRef, {})
     }
 

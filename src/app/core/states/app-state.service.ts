@@ -1,4 +1,4 @@
-import { Inject, Injectable } from '@angular/core'
+import { Injectable, inject } from '@angular/core'
 import { APP_ENVIRONMENT } from '@environment/app-environment.injector'
 import { AppEnvironment } from '@environment/app-environment.interface'
 import { BehaviorSubject } from 'rxjs'
@@ -10,6 +10,8 @@ import { BehaviorSubject } from 'rxjs'
     providedIn: 'root',
 })
 export class AppStateService {
+    readonly appEnvironment = inject(APP_ENVIRONMENT)
+
     private loadingSubject = new BehaviorSubject<boolean>(true)
 
     get appName(): string {
@@ -19,8 +21,6 @@ export class AppStateService {
     get loading(): boolean {
         return this.loadingSubject.value
     }
-
-    constructor(@Inject(APP_ENVIRONMENT) readonly appEnvironment: AppEnvironment) {}
 
     startLoading(): void {
         this.loadingSubject.next(true)

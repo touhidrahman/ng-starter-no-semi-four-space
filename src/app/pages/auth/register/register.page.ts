@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common'
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, inject } from '@angular/core'
 import { ReactiveFormsModule } from '@angular/forms'
 import { Router, RouterModule } from '@angular/router'
 import { markAllControlsAsDirty } from '@core/utils/form.util'
@@ -15,18 +15,16 @@ import { RegisterFormService } from '@main/auth/services/register-form.service'
     providers: [RegisterFormService],
 })
 export default class RegisterPage implements OnInit {
+    registerFormService = inject(RegisterFormService)
+    private router = inject(Router)
+    private authApiService = inject(AuthApiService)
+
     loading = false
     errors = ''
 
     get signUpForm() {
         return this.registerFormService.form
     }
-
-    constructor(
-        public registerFormService: RegisterFormService,
-        private router: Router,
-        private authApiService: AuthApiService,
-    ) {}
 
     ngOnInit(): void {
         void 0

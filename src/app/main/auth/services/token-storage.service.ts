@@ -1,4 +1,4 @@
-import { Inject, Injectable } from '@angular/core'
+import { Injectable, inject } from '@angular/core'
 import { WINDOW } from '@ng-web-apis/common'
 
 export const ACCESS_TOKEN_KEY = 'accesToken'
@@ -8,7 +8,7 @@ export const REFRESH_TOKEN_KEY = 'refreshToken'
     providedIn: 'root',
 })
 export class TokenStorageService {
-    constructor(@Inject(WINDOW) private windowRef: Window) {}
+    private windowRef = inject(WINDOW)
 
     clear() {
         this.windowRef.sessionStorage.clear()

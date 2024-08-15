@@ -1,15 +1,17 @@
 <nav aria-label="Page navigation">
     <ul class="navlinks">
-        <li *ngIf="showFirstLastButton">
-            <a
-                [queryParams]="{ size: size, page: 1 }"
-                [routerLink]="routerLinkBase"
-                queryParamsHandling="merge"
-                class="navlink"
-            >
-                First
-            </a>
-        </li>
+        @if (showFirstLastButton) {
+            <li>
+                <a
+                    [queryParams]="{ size: size, page: 1 }"
+                    [routerLink]="routerLinkBase"
+                    queryParamsHandling="merge"
+                    class="navlink"
+                >
+                    First
+                </a>
+            </li>
+        }
         <li>
             <a
                 [queryParams]="{ size: size, page: currentPage - 1 }"
@@ -20,17 +22,19 @@
                 < Prev
             </a>
         </li>
-        <li *ngFor="let page of getNavigablePages()">
-            <a
-                [queryParams]="{ size: size, page: page }"
-                [routerLink]="routerLinkBase"
-                queryParamsHandling="merge"
-                [class.active]="page === currentPage"
-                class="navlink"
-            >
-                {{ page }}
-            </a>
-        </li>
+        @for (page of getNavigablePages(); track page) {
+            <li>
+                <a
+                    [queryParams]="{ size: size, page: page }"
+                    [routerLink]="routerLinkBase"
+                    queryParamsHandling="merge"
+                    [class.active]="page === currentPage"
+                    class="navlink"
+                >
+                    {{ page }}
+                </a>
+            </li>
+        }
         <li>
             <a
                 [queryParams]="{ size: size, page: currentPage + 1 }"
@@ -41,15 +45,17 @@
                 Next >
             </a>
         </li>
-        <li *ngIf="showFirstLastButton">
-            <a
-                [queryParams]="{ size: size, page: totalPages }"
-                [routerLink]="routerLinkBase"
-                queryParamsHandling="merge"
-                class="navlink"
-            >
-                Last
-            </a>
-        </li>
+        @if (showFirstLastButton) {
+            <li>
+                <a
+                    [queryParams]="{ size: size, page: totalPages }"
+                    [routerLink]="routerLinkBase"
+                    queryParamsHandling="merge"
+                    class="navlink"
+                >
+                    Last
+                </a>
+            </li>
+        }
     </ul>
 </nav>
