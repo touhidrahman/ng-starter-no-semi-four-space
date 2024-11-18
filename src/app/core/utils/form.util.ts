@@ -6,7 +6,7 @@ import { AbstractControl, FormArray, FormControl, FormGroup } from '@angular/for
  */
 export function markAllControlsAsDirty(abstractControls: AbstractControl[]): void {
     abstractControls.forEach((abstractControl) => {
-        let control
+        let control: FormControl | FormGroup | FormArray
         if (abstractControl instanceof FormControl) {
             control = abstractControl as FormControl
             control.markAsDirty({ onlySelf: true })

@@ -1,4 +1,3 @@
-// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 export const isEqual = (a: any, b: any) => {
     if (typeof a !== typeof b) {
         return false
