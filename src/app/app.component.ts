@@ -8,7 +8,6 @@ import { LayoutDefaultComponent } from '@main/layout/layout-default/layout-defau
 import { LayoutSidebarComponent } from '@main/layout/layout-sidebar/layout-sidebar.component'
 import { PageLayout } from '@main/layout/page-layout.enum'
 import { PageLayoutService } from '@main/layout/page-layout.service'
-import { take, timer } from 'rxjs'
 
 @Component({
     standalone: true,
@@ -31,10 +30,5 @@ export class AppComponent {
 
     constructor() {
         this.tokenSharingService.init()
-
-        // stop initial loading spinner after 1 sec
-        timer(1000)
-            .pipe(take(1))
-            .subscribe({ next: () => this.appState.stopLoading() })
     }
 }

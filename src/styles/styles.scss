@@ -1,78 +1,16 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@layer tailwind-base, primeng, tailwind-utilities;
 
-// https://tailtools.app/palette-generator
-:root {
-    --primary-50: #f7fefd;
-    --primary-100: #d0fbf3;
-    --primary-200: #a9f8e8;
-    --primary-300: #82f5de;
-    --primary-400: #5ee6cb;
-    --primary-500: #52c9b2;
-    --primary-600: #46ac98;
-    --primary-700: #3a8f7e;
-    --primary-800: #2f7265;
-    --primary-900: #23554b;
-    --primary-950: #173831;
-    --secondary-50: #fcfdf9;
-    --secondary-100: #eef0dc;
-    --secondary-200: #e0e4bf;
-    --secondary-300: #d2d7a2;
-    --secondary-400: #bdc384;
-    --secondary-500: #a5aa73;
-    --secondary-600: #8d9263;
-    --secondary-700: #757952;
-    --secondary-800: #5e6041;
-    --secondary-900: #464831;
-    --secondary-950: #2e2f20;
-    --accent-50: #fff9ff;
-    --accent-100: #fcd9fc;
-    --accent-200: #fabafa;
-    --accent-300: #f89af7;
-    --accent-400: #ea7be9;
-    --accent-500: #cc6bcb;
-    --accent-600: #af5cae;
-    --accent-700: #914c91;
-    --accent-800: #743d73;
-    --accent-900: #562d56;
-    --accent-950: #391e38;
-    --warn-50: #fff8f5;
-    --warn-100: #fed5c1;
-    --warn-200: #fdb28d;
-    --warn-300: #fd8f59;
-    --warn-400: #ef6d2d;
-    --warn-500: #d15f27;
-    --warn-600: #b35221;
-    --warn-700: #95441c;
-    --warn-800: #763616;
-    --warn-900: #582810;
-    --warn-950: #3a1a0b;
-    --success-50: #fafef5;
-    --success-100: #e1fcc3;
-    --success-200: #c8f992;
-    --success-300: #aff660;
-    --success-400: #93e835;
-    --success-500: #81cb2e;
-    --success-600: #6ead28;
-    --success-700: #5b9021;
-    --success-800: #49731a;
-    --success-900: #365514;
-    --success-950: #24380d;
+@layer tailwind-base {
+    @tailwind base;
+}
+
+@layer tailwind-utilities {
+    @tailwind components;
+    @tailwind utilities;
 }
 
 html,
 body {
     @apply h-full;
-    font-family: 'IBM Plex Sans', sans-serif;
-}
-
-body {
-    @apply bg-slate-50;
-    @apply text-slate-800;
-}
-
-body.dark {
-    @apply bg-zinc-900;
-    @apply text-zinc-200;
+    font-family: 'Noto Sans', sans-serif;
 }

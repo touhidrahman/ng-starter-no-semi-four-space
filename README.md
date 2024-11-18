@@ -8,6 +8,7 @@ This boilerplate uses:
 - Prettier
 - Git hooks
 - Boxicons
+- PrimeNG
 
 and most importantly - **4 space tabs** and **NO SEMICOLON**
 

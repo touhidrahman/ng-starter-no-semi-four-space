@@ -7,7 +7,7 @@ import {
     withXsrfConfiguration,
 } from '@angular/common/http'
 import { type ApplicationConfig, importProvidersFrom } from '@angular/core'
-import { provideAnimations } from '@angular/platform-browser/animations'
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async'
 import {
     PreloadAllModules,
     TitleStrategy,
@@ -23,6 +23,8 @@ import { CustomTitleStrategy } from '@core/services/custom-title.service'
 import { APP_ENVIRONMENT } from '@environment/app-environment.injector'
 import { environment } from '@environment/environment'
 import { AuthHeaderInterceptorFn } from '@main/auth/interceptors/auth-header.interceptor'
+import Aura from '@primeng/themes/aura'
+import { providePrimeNG } from 'primeng/config'
 import { AppRoutes } from './app.routes'
 
 export const appConfig: ApplicationConfig = {
@@ -44,6 +46,19 @@ export const appConfig: ApplicationConfig = {
             withComponentInputBinding(),
             withPreloading(PreloadAllModules),
         ),
-        provideAnimations(),
+        provideAnimationsAsync(),
+        providePrimeNG({
+            theme: {
+                preset: Aura,
+                options: {
+                    prefix: 'p',
+                    darkModeSelector: '.dark',
+                    cssLayer: {
+                        name: 'primeng',
+                        order: 'tailwind-base, primeng, tailwind-utilities',
+                    },
+                },
+            },
+        }),
     ],
 }

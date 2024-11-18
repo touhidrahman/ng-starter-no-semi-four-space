@@ -37,12 +37,15 @@
         "@auth0/angular-jwt": "^5.2.0",
         "@ng-web-apis/common": "^4.11.1",
         "@ngneat/dialog": "^5.1.1",
+        "@primeng/themes": "^18.0.0-rc.1",
         "date-fns": "^4.1.0",
         "es-toolkit": "^1.26.1",
         "ng-primitives": "^0.14.0",
         "ngx-sonner": "^2.0.2",
+        "primeng": "^18.0.0-rc.1",
         "radash": "^12.1.0",
         "rxjs": "~7.8.1",
+        "tailwindcss-primeui": "^0.3.4",
         "tslib": "^2.8.1",
         "zone.js": "~0.14.10"
     },
@@ -53,7 +56,6 @@
         "@biomejs/biome": "^1.9.4",
         "@schematics/angular": "^18.2.12",
         "@tailwindcss/aspect-ratio": "0.4.2",
-        "@tailwindcss/forms": "^0.5.9",
         "@tailwindcss/typography": "^0.5.15",
         "@types/jasmine": "~5.1.4",
         "@types/node": "^22.9.0",
@@ -86,8 +88,12 @@
     },
     "lint-staged": {
         "src/**/*.{html,xml,scss,css,less}": "npx prettier --write",
-        "src/**/*.{ts,js}": ["npx biome check --fix"],
-        "cypress/**/*.{ts,js}": ["npx biome format --fix"],
+        "src/**/*.{ts,js}": [
+            "npx biome check --fix"
+        ],
+        "cypress/**/*.{ts,js}": [
+            "npx biome format --fix"
+        ],
         "*.json": "npx biome check --fix"
     },
     "simple-git-hooks": {
