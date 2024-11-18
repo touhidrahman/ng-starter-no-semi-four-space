@@ -88,12 +88,8 @@
     },
     "lint-staged": {
         "src/**/*.{html,xml,scss,css,less}": "npx prettier --write",
-        "src/**/*.{ts,js}": [
-            "npx biome check --fix"
-        ],
-        "cypress/**/*.{ts,js}": [
-            "npx biome format --fix"
-        ],
+        "src/**/*.{ts,js}": ["npx biome check --fix"],
+        "cypress/**/*.{ts,js}": ["npx biome format --fix"],
         "*.json": "npx biome check --fix"
     },
     "simple-git-hooks": {

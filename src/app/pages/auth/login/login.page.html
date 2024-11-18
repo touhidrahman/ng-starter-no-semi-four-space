@@ -10,7 +10,7 @@
         <div class="flex flex-col pt-4">
             @if (errors.length) {
                 <div
-                    class="mb-8 border border-solid border-warn-500 bg-red-100 px-4 py-2 text-warn-500"
+                    class="border-warn-500 text-warn-500 mb-8 border border-solid bg-red-100 px-4 py-2"
                 >
                     @for (err of errors; track err) {
                         {{ err }}

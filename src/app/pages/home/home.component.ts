@@ -4,8 +4,7 @@ import { ButtonModule } from 'primeng/button'
 @Component({
     selector: 'app-home',
     standalone: true,
-    imports: [ButtonModule
-    ],
+    imports: [ButtonModule],
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.scss'],
 })
