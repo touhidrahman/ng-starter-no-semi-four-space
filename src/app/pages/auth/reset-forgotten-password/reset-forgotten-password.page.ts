@@ -42,7 +42,7 @@ export default class ResetForgottenPasswordPage implements OnInit {
 
         this.authApiService
             .resetPassword(this.activeRoute.snapshot.params['token'], this.userInfo.email, password)
-            .subscribe((res) => {
+            .subscribe((_res) => {
                 this.alertService.success('Password reset successfully...')
                 setTimeout(() => {
                     this.router.navigateByUrl(`/${getAuthRoutes().login.path}`)

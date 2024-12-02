@@ -1,4 +1,4 @@
-import { ApiResponse, ApiResponseMeta } from "@core/models/api-response.model"
+import { ApiResponse, ApiResponseMeta } from '@core/models/api-response.model'
 
 export const BLANK_META: ApiResponseMeta = {
     totalResults: 0,

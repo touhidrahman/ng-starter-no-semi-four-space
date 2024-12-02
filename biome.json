@@ -3,6 +3,11 @@
     "organizeImports": {
         "enabled": true
     },
+    "vcs": {
+        "enabled": true,
+        "clientKind": "git",
+        "useIgnoreFile": true
+    },
     "linter": {
         "enabled": true,
         "rules": {
@@ -15,7 +20,15 @@
                 "noForEach": "off"
             },
             "suspicious": {
+                "noDebugger": "off",
+                "noConsoleLog": "info",
                 "noExplicitAny": "warn"
+            },
+            "correctness": {
+                "noUnusedVariables": {
+                    "level": "error",
+                    "fix": "none"
+                }
             }
         },
         "ignore": ["./cypres/**/*.*"]
@@ -26,7 +39,9 @@
         "indentStyle": "space",
         "indentWidth": 4,
         "lineWidth": 100,
-        "ignore": []
+        "ignore": [],
+        "lineEnding": "lf",
+        "attributePosition": "auto"
     },
     "javascript": {
         "parser": {
@@ -34,7 +49,18 @@
         },
         "formatter": {
             "semicolons": "asNeeded",
-            "quoteStyle": "single"
+            "quoteStyle": "single",
+            "arrowParentheses": "always",
+            "bracketSameLine": false,
+            "bracketSpacing": true,
+            "jsxQuoteStyle": "double",
+            "quoteProperties": "asNeeded",
+            "trailingCommas": "all"
+        }
+    },
+    "json": {
+        "formatter": {
+            "trailingCommas": "none"
         }
     }
 }
