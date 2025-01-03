@@ -7,7 +7,6 @@ import { AuthApiService } from '@main/auth/services/auth-api.service'
 import { RegisterFormService } from '@main/auth/services/register-form.service'
 
 @Component({
-    standalone: true,
     imports: [CommonModule, ReactiveFormsModule, RouterModule],
     templateUrl: './register.page.html',
     styleUrls: ['./register.page.scss'],

@@ -7,7 +7,6 @@ import { HeaderOneComponent } from '@main/headers/header-one/header-one.componen
 
 @Component({
     selector: 'app-layout-sidebar',
-    standalone: true,
     imports: [RouterModule, HeaderOneComponent],
     templateUrl: './layout-sidebar.component.html',
     styleUrls: ['./layout-sidebar.component.scss'],

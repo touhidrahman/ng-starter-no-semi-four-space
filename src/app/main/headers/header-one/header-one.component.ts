@@ -16,7 +16,6 @@ import { MegaMenuItem } from 'primeng/api'
 
 @Component({
     selector: 'app-header-one',
-    standalone: true,
     imports: [RouterModule, CommonModule, ...PrimeNGImports],
     templateUrl: './header-one.component.html',
     styleUrls: ['./header-one.component.scss'],

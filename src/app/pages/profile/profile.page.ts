@@ -7,7 +7,6 @@ import { AuthStateService } from '@main/auth/services/auth.service'
 import { HeaderOneComponent } from '@main/headers/header-one/header-one.component'
 
 @Component({
-    standalone: true,
     imports: [ReactiveFormsModule, RouterModule, HeaderOneComponent],
     templateUrl: './profile.page.html',
     styleUrls: ['./profile.page.scss'],

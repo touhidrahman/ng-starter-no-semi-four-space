@@ -4,7 +4,6 @@ import { HeaderOneComponent } from '@main/headers/header-one/header-one.componen
 
 @Component({
     selector: 'app-layout-default',
-    standalone: true,
     imports: [RouterModule, HeaderOneComponent],
     templateUrl: './layout-default.component.html',
     styleUrls: ['./layout-default.component.scss'],

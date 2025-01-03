@@ -5,7 +5,6 @@ import { ToastService } from '@core/ui/toast/toast.service'
 import { AuthApiService } from '@main/auth/services/auth-api.service'
 
 @Component({
-    standalone: true,
     imports: [ReactiveFormsModule, FormsModule, RouterModule],
     templateUrl: './forgot-password.page.html',
     styleUrls: ['./forgot-password.page.scss'],

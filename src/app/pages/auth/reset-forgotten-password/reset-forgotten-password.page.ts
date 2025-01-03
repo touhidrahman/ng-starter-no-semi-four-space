@@ -8,7 +8,6 @@ import { AuthApiService } from '@main/auth/services/auth-api.service'
 import { getAuthRoutes } from '../auth.routes'
 
 @Component({
-    standalone: true,
     imports: [ReactiveFormsModule, RouterModule],
     templateUrl: './reset-forgotten-password.page.html',
     styleUrls: ['./reset-forgotten-password.page.scss'],

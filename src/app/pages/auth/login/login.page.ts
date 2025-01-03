@@ -5,7 +5,6 @@ import { AuthStateService } from '@main/auth/services/auth.service'
 import { LoginFormService } from '@main/auth/services/login-form.service'
 
 @Component({
-    standalone: true,
     templateUrl: './login.page.html',
     styleUrls: ['./login.page.scss'],
     imports: [ReactiveFormsModule, RouterModule],

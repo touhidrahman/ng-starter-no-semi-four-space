@@ -5,7 +5,6 @@ import { AuthApiService } from '@main/auth/services/auth-api.service'
 import { timer } from 'rxjs'
 
 @Component({
-    standalone: true,
     imports: [ReactiveFormsModule, RouterModule],
     templateUrl: './verify-email.page.html',
     styleUrls: ['./verify-email.page.scss'],

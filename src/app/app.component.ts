@@ -10,7 +10,6 @@ import { PageLayout } from '@main/layout/page-layout.enum'
 import { PageLayoutService } from '@main/layout/page-layout.service'
 
 @Component({
-    standalone: true,
     selector: 'app-root',
     templateUrl: './app.component.html',
     imports: [
