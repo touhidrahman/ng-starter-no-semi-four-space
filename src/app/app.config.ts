@@ -23,9 +23,9 @@ import { CustomTitleStrategy } from '@core/services/custom-title.service'
 import { APP_ENVIRONMENT } from '@environment/app-environment.injector'
 import { environment } from '@environment/environment'
 import { AuthHeaderInterceptorFn } from '@main/auth/interceptors/auth-header.interceptor'
-import Aura from '@primeng/themes/aura'
 import { providePrimeNG } from 'primeng/config'
 import { AppRoutes } from './app.routes'
+import { MyPrimeNGConfig } from './primeng.config'
 
 export const appConfig: ApplicationConfig = {
     providers: [
@@ -47,18 +47,6 @@ export const appConfig: ApplicationConfig = {
             withPreloading(PreloadAllModules),
         ),
         provideAnimationsAsync(),
-        providePrimeNG({
-            theme: {
-                preset: Aura,
-                options: {
-                    prefix: 'p',
-                    darkModeSelector: '.dark',
-                    cssLayer: {
-                        name: 'primeng',
-                        order: 'tailwind-base, primeng, tailwind-utilities',
-                    },
-                },
-            },
-        }),
+        providePrimeNG(MyPrimeNGConfig),
     ],
 }

@@ -3,11 +3,9 @@ import { FormBuilder, ReactiveFormsModule } from '@angular/forms'
 import { Router, RouterModule } from '@angular/router'
 import { ToastService } from '@core/ui/toast/toast.service'
 import { AuthApiService } from '@main/auth/services/auth-api.service'
-import { AuthStateService } from '@main/auth/services/auth.service'
-import { HeaderOneComponent } from '@main/headers/header-one/header-one.component'
 
 @Component({
-    imports: [ReactiveFormsModule, RouterModule, HeaderOneComponent],
+    imports: [ReactiveFormsModule, RouterModule],
     templateUrl: './profile.page.html',
     styleUrls: ['./profile.page.scss'],
 })

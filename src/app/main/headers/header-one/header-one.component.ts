@@ -10,13 +10,13 @@ import {
 } from '@angular/core'
 import { RouterModule } from '@angular/router'
 import { AppStateService } from '@core/states/app-state.service'
-import { PrimeNGImports } from '@core/ui/prime-ng-imports'
+import { PrimeModules } from '@core/ui/primeng'
 import { AuthStateService } from '@main/auth/services/auth.service'
 import { MegaMenuItem } from 'primeng/api'
 
 @Component({
     selector: 'app-header-one',
-    imports: [RouterModule, CommonModule, ...PrimeNGImports],
+    imports: [RouterModule, CommonModule, ...PrimeModules],
     templateUrl: './header-one.component.html',
     styleUrls: ['./header-one.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
