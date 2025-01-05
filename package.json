@@ -60,6 +60,7 @@
         "@types/jasmine": "~5.1.5",
         "@types/node": "^22.10.4",
         "autoprefixer": "^10.4.20",
+        "biome": "^0.3.3",
         "cypress": "^13.17.0",
         "eslint": "^9.17.0",
         "eslint-config-prettier": "^9.1.0",
@@ -88,8 +89,12 @@
     },
     "lint-staged": {
         "src/**/*.{html,xml}": "pnpm prettier --write",
-        "src/**/*.{ts,js,scss,css,less}": ["pnpm biome check --fix"],
-        "cypress/**/*.{ts,js}": ["pnpm biome format --fix"],
+        "src/**/*.{ts,js,scss,css,less}": [
+            "pnpm biome check --fix"
+        ],
+        "cypress/**/*.{ts,js}": [
+            "pnpm biome format --fix"
+        ],
         "*.json": "pnpm biome check --fix"
     },
     "simple-git-hooks": {
