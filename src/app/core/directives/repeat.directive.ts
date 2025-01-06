@@ -6,7 +6,7 @@ import { Directive, Input, TemplateRef, ViewContainerRef, inject } from '@angula
 })
 export class RepeatDirective {
     private vcRef = inject(ViewContainerRef)
-    private templateRef = inject<TemplateRef<any>>(TemplateRef)
+    private templateRef = inject<TemplateRef<unknown>>(TemplateRef)
 
     constructor() {
         this.vcRef.createEmbeddedView(this.templateRef, {})

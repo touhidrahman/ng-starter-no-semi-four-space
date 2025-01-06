@@ -1,6 +1,7 @@
 import { HttpErrorResponse, HttpInterceptorFn } from '@angular/common/http'
 import { inject } from '@angular/core'
 import { Router } from '@angular/router'
+import { getAuthRoutes } from '@pages/auth/auth.routes'
 import { catchError, throwError } from 'rxjs'
 
 export const serverErrorInterceptorFn: HttpInterceptorFn = (request, next) => {
@@ -13,7 +14,7 @@ export const serverErrorInterceptorFn: HttpInterceptorFn = (request, next) => {
         catchError((error: HttpErrorResponse) => {
             // in case of aunathorized error, redirect to login page
             if ([401, 403].includes(error.status)) {
-                inject(Router).navigateByUrl('/login')
+                inject(Router).navigateByUrl(`/${getAuthRoutes().login.path}` as string)
                 return throwError(() => error)
             }
             // otherwise throw error

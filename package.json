@@ -7,7 +7,6 @@
         "start": "ng serve",
         "dev": "ng serve",
         "build": "ng build",
-        "build:alternative": "NODE_ENV=production node --max_old_space_size=8192 node_modules/@angular/cli/bin/ng build --prod",
         "watch": "ng build --watch --configuration development",
         "test": "ng test",
         "e2e:open": "pnpm dlx cypress open",
@@ -51,6 +50,7 @@
     },
     "devDependencies": {
         "@angular-devkit/build-angular": "^19.0.6",
+        "@angular-eslint/schematics": "^19.0.2",
         "@angular/cli": "^19.0.6",
         "@angular/compiler-cli": "^19.0.5",
         "@biomejs/biome": "^1.9.4",
@@ -58,7 +58,7 @@
         "@tailwindcss/aspect-ratio": "0.4.2",
         "@tailwindcss/typography": "^0.5.15",
         "@types/jasmine": "~5.1.5",
-        "@types/node": "^22.10.4",
+        "@types/node": "^22.10.5",
         "autoprefixer": "^10.4.20",
         "cypress": "^13.17.0",
         "eslint": "^9.17.0",
@@ -87,10 +87,10 @@
         "@biomejs/cli-win32-x64": "~1.9.4"
     },
     "lint-staged": {
-        "src/**/*.{html,xml}": "pnpm prettier --write",
-        "src/**/*.{ts,js,scss,css,less}": ["pnpm biome check --fix"],
-        "cypress/**/*.{ts,js}": ["pnpm biome format --fix"],
-        "*.json": "pnpm biome check --fix"
+        "src/**/*.{html,xml}": "prettier --write",
+        "src/**/*.{ts,js,scss,css,less}": ["biome check --fix"],
+        "cypress/**/*.{ts,js}": ["biome format --fix"],
+        "*.json": "biome check --fix"
     },
     "simple-git-hooks": {
         "pre-commit": "pnpm lint",

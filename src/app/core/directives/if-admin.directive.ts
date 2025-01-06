@@ -6,7 +6,7 @@ import { AuthStateService } from '@main/auth/services/auth.service'
     selector: '[appIfAdmin]',
 })
 export class IfAdminDirective {
-    private templateRef = inject<TemplateRef<any>>(TemplateRef)
+    private templateRef = inject<TemplateRef<unknown>>(TemplateRef)
     private viewContainer = inject(ViewContainerRef)
     private auth = inject(AuthStateService)
 

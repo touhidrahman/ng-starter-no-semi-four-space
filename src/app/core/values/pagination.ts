@@ -7,7 +7,7 @@ export const BLANK_META: ApiResponseMeta = {
     size: 24,
 }
 
-export const BLANK_RESPONSE: ApiResponse<any> = {
+export const BLANK_RESPONSE: ApiResponse<unknown> = {
     data: [],
     meta: BLANK_META,
     code: 200,
