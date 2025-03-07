@@ -3,10 +3,10 @@ import {
     ChangeDetectionStrategy,
     Component,
     EventEmitter,
-    Input,
     OnInit,
     Output,
     inject,
+    input,
 } from '@angular/core'
 import { RouterModule } from '@angular/router'
 import { AppStateService } from '@core/states/app-state.service'
@@ -25,7 +25,7 @@ export class HeaderOneComponent implements OnInit {
     auth = inject(AuthStateService)
     appState = inject(AppStateService)
 
-    @Input() sidenavToggleVisible = true
+    readonly sidenavToggleVisible = input(true)
     @Output() sidenavToggle = new EventEmitter<void>()
 
     appName = this.appState.appName

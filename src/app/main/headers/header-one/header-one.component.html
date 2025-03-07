@@ -84,36 +84,38 @@
         </svg>
     </ng-template>
     <ng-template #item let-item>
-        <a
-            *ngIf="item.root"
-            pRipple
-            class="relative flex cursor-pointer items-center overflow-hidden px-4 py-2 text-lg font-semibold uppercase"
-            style="border-radius: 2rem"
-        >
-            <i [ngClass]="item.icon"></i>
-            <span class="ml-2">{{ item.label }}</span>
-        </a>
-        <a
-            *ngIf="!item.root && !item.image"
-            class="mb-2 flex cursor-pointer items-center gap-2 p-4"
-        >
-            <span
-                class="inline-flex h-12 w-12 items-center justify-center rounded-full bg-primary text-primary-contrast"
+        @if (item.root) {
+            <a
+                pRipple
+                class="relative flex cursor-pointer items-center overflow-hidden px-4 py-2 text-lg font-semibold uppercase"
+                style="border-radius: 2rem"
             >
-                <i [ngClass]="item.icon + ' text-lg'"></i>
-            </span>
-            <span class="inline-flex flex-col gap-1">
-                <span class="text-lg font-medium text-surface-900 dark:text-surface-0">{{
-                    item.label
-                }}</span>
-                <span class="whitespace-nowrap">{{ item.subtext }}</span>
-            </span>
-        </a>
-        <div *ngIf="item.image" class="flex flex-col items-start gap-4">
-            <img [src]="item.image" alt="megamenu-demo" class="w-full" />
-            <span>{{ item.subtext }}</span>
-            <p-button [label]="item.label" [outlined]="true"></p-button>
-        </div>
+                <i [ngClass]="item.icon"></i>
+                <span class="ml-2">{{ item.label }}</span>
+            </a>
+        }
+        @if (!item.root && !item.image) {
+            <a class="mb-2 flex cursor-pointer items-center gap-2 p-4">
+                <span
+                    class="inline-flex h-12 w-12 items-center justify-center rounded-full bg-primary text-primary-contrast"
+                >
+                    <i [ngClass]="item.icon + ' text-lg'"></i>
+                </span>
+                <span class="inline-flex flex-col gap-1">
+                    <span class="text-lg font-medium text-surface-900 dark:text-surface-0">{{
+                        item.label
+                    }}</span>
+                    <span class="whitespace-nowrap">{{ item.subtext }}</span>
+                </span>
+            </a>
+        }
+        @if (item.image) {
+            <div class="flex flex-col items-start gap-4">
+                <img [src]="item.image" alt="megamenu-demo" class="w-full" />
+                <span>{{ item.subtext }}</span>
+                <p-button [label]="item.label" [outlined]="true"></p-button>
+            </div>
+        }
     </ng-template>
     <ng-template #end>
         <p-avatar
