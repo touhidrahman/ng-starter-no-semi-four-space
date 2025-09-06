@@ -19,7 +19,7 @@
                     "strict": true
                 },
                 "@schematics/angular:component": {
-                    "style": "scss",
+                    "style": "css",
                     "skipTests": true,
                     "displayBlock": true,
                     "standalone": true
@@ -50,9 +50,9 @@
                         "index": "src/index.html",
                         "polyfills": [],
                         "tsConfig": "tsconfig.app.json",
-                        "inlineStyleLanguage": "scss",
+                        "inlineStyleLanguage": "css",
                         "assets": ["src/favicon.ico", "src/assets"],
-                        "styles": ["src/styles/styles.scss"],
+                        "styles": ["src/styles.css"],
                         "scripts": [],
                         "browser": "src/main.ts"
                     },
@@ -73,8 +73,8 @@
                                 },
                                 {
                                     "type": "anyComponentStyle",
-                                    "maximumWarning": "4kb",
-                                    "maximumError": "8kb"
+                                    "maximumWarning": "8kb",
+                                    "maximumError": "16kb"
                                 }
                             ]
                         },
@@ -111,9 +111,9 @@
                         "karmaConfig": "karma.conf.js",
                         "polyfills": [],
                         "tsConfig": "tsconfig.spec.json",
-                        "inlineStyleLanguage": "scss",
+                        "inlineStyleLanguage": "css",
                         "assets": ["src/favicon.ico", "src/assets"],
-                        "styles": ["src/styles.scss"],
+                        "styles": ["src/styles.css"],
                         "scripts": [],
                         "main": "src/test.ts"
                     }
@@ -151,6 +151,7 @@
             "setParserOptionsProject": true
         },
         "@schematics/angular:directive": {
+            "skipTests": true,
             "type": "directive"
         },
         "@schematics/angular:interceptor": {

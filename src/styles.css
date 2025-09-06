@@ -1,0 +1,96 @@
+/* Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/* External Styles */
+@import "@angular/cdk/overlay-prebuilt.css";
+@import "primeicons/primeicons.css";
+
+/* Tailwind Core and Plugins */
+@import "tailwindcss";
+@plugin "tailwindcss-primeui";
+@plugin "tailwind-scrollbar";
+
+/* Custom Variant */
+@custom-variant dark (&:where(.app-dark, .app-dark *));
+
+@layer base {
+    :root {
+        --color-primary: #005f15;
+        --color-lightGreen: #eaffea;
+        --color-secondaryGreen: #e2ffed;
+        --color-secondary: #4f8851;
+    }
+
+    @theme {
+        --font-poppins: "Poppins", "sans-serif";
+        --color-primary: #005f15;
+        --color-secondary: #4f8851;
+        --color-lightGreen: #eaffea;
+        --color-secondaryGreen: #e2ffed;
+    }
+
+    html,
+    body,
+    * {
+        font-family: "Poppins", sans-serif;
+        font-optical-sizing: auto;
+    }
+
+    .bangla,
+    [lang="bn"],
+    :lang(bn) {
+        font-family: "Hind Siliguri", sans-serif;
+    }
+}
+
+@layer components {
+    /* Scrollbar Styling */
+    ::-webkit-scrollbar {
+        @apply h-2.5 w-2.5;
+    }
+
+    * {
+        scrollbar-width: thin;
+    }
+
+    /* Responsive Container */
+    .container {
+        @apply mx-auto w-full px-4;
+
+        /* @screen md {
+            @apply px-16;
+        } */
+    }
+
+    .required {
+        @apply after:ml-1 after:text-red-500 after:content-['*'];
+    }
+}
+
+@layer utilities {
+    /* Text Utilities */
+    .text-gradient {
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+
+    .text-balance {
+        text-wrap: balance;
+    }
+
+    /* Animation */
+    .animate-fade-in {
+        animation: fadeIn 0.3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+}
