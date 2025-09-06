@@ -27,7 +27,7 @@ export class LoginFormService {
     }
 
     getValue(): LoginInput {
-        const { identifier, password } = this.form.value
-        return { identifier, password }
+        const { email, password } = this.form.value
+        return { email, password }
     }
 }

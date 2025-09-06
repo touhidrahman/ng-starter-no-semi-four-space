@@ -30,7 +30,7 @@ export default class LoginPage implements OnInit {
     submit(): void {
         if (this.loading) return
 
-        if (this.loginFormService.loginForm.invalid) {
+        if (this.loginFormService.form.invalid) {
             this.errors.push('Invalid Credentials')
         }
 
