@@ -1,4 +1,4 @@
-import Aura from '@primeng/themes/aura'
+import Aura from '@primeuix/themes/aura'
 import { PrimeNGConfigType } from 'primeng/config'
 
 export const MyPrimeNGConfig: PrimeNGConfigType = {
@@ -6,10 +6,10 @@ export const MyPrimeNGConfig: PrimeNGConfigType = {
         preset: Aura,
         options: {
             prefix: 'p',
-            darkModeSelector: '.dark',
+            darkModeSelector: '.app-dark',
             cssLayer: {
                 name: 'primeng',
-                order: 'tailwind-base, primeng, tailwind-utilities',
+                order: 'theme, base, primeng, utilities',
             },
         },
     },
