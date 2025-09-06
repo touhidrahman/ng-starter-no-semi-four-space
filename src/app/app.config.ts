@@ -25,6 +25,7 @@ import { serverErrorInterceptorFn } from '@core/interceptors/server-error.interc
 import { CustomTitleStrategy } from '@core/services/custom-title.service'
 import { APP_ENVIRONMENT } from '@environment/app-environment.injector'
 import { environment } from '@environment/environment'
+import { AUTH_API_URL } from '@main/auth/auth-injectors'
 import { AuthHeaderInterceptorFn } from '@main/auth/interceptors/auth-header.interceptor'
 import { provideNgIconsConfig } from '@ng-icons/core'
 import { providePrimeNG } from 'primeng/config'
@@ -35,6 +36,7 @@ export const appConfig: ApplicationConfig = {
     providers: [
         importProvidersFrom(JwtModule),
         { provide: APP_ENVIRONMENT, useValue: environment },
+        { provide: AUTH_API_URL, useValue: environment.authApiUrl },
         {
             provide: DATE_PIPE_DEFAULT_OPTIONS,
             useValue: { dateFormat: 'shortDate' },

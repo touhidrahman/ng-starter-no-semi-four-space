@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http'
 import { Injectable, inject } from '@angular/core'
 import { ApiResponse } from '@core/models/api-response.model'
-import { environment } from '@environment/environment'
 import { User } from '@main/users/models/user.model'
 import { Observable } from 'rxjs'
+import { AUTH_API_URL } from '../auth-injectors'
 import { LoginResponse } from '../models/login-response'
 import { SignupInput } from '../models/signup-input'
 
@@ -12,8 +12,7 @@ import { SignupInput } from '../models/signup-input'
 })
 export class AuthApiService {
     private http = inject(HttpClient)
-
-    private readonly apiUrl = `${environment.apiUrl}/v1/auth`
+    private apiUrl = inject<string>(AUTH_API_URL)
 
     getMe(): Observable<ApiResponse<User>> {
         return this.http.get<ApiResponse<User>>(`${this.apiUrl}/me`)

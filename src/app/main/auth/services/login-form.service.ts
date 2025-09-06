@@ -1,22 +1,33 @@
 import { Injectable, inject } from '@angular/core'
-import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+import { FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms'
+import { zip } from 'rxjs'
 import { LoginInput } from '../models/login-input'
 
 @Injectable()
 export class LoginFormService {
-    private fb = inject(FormBuilder)
+    private fb = inject(NonNullableFormBuilder)
+    form = this.buildForm()
 
-    loginForm: FormGroup
-
-    constructor() {
-        this.loginForm = this.fb.nonNullable.group({
-            email: ['', [Validators.required, Validators.email]],
-            password: ['', Validators.required],
+    buildForm(): FormGroup {
+        const { required } = Validators
+        const form = this.fb.group({
+            identifier: ['', [required]],
+            password: ['', [required]],
+            zip,
         })
+        return form
+    }
+
+    get emailControl() {
+        return this.form.get('email')
+    }
+
+    get passwordControl() {
+        return this.form.get('password')
     }
 
     getValue(): LoginInput {
-        const { email, password } = this.loginForm.value
-        return { email, password }
+        const { identifier, password } = this.form.value
+        return { identifier, password }
     }
 }
