@@ -97,12 +97,12 @@
         @if (!item.root && !item.image) {
             <a class="mb-2 flex cursor-pointer items-center gap-2 p-4">
                 <span
-                    class="inline-flex h-12 w-12 items-center justify-center rounded-full bg-primary text-primary-contrast"
+                    class="bg-primary text-primary-contrast inline-flex h-12 w-12 items-center justify-center rounded-full"
                 >
                     <i [ngClass]="item.icon + ' text-lg'"></i>
                 </span>
                 <span class="inline-flex flex-col gap-1">
-                    <span class="text-lg font-medium text-surface-900 dark:text-surface-0">{{
+                    <span class="text-surface-900 dark:text-surface-0 text-lg font-medium">{{
                         item.label
                     }}</span>
                     <span class="whitespace-nowrap">{{ item.subtext }}</span>
