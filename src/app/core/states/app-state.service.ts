@@ -1,6 +1,5 @@
 import { Injectable, inject } from '@angular/core'
 import { APP_ENVIRONMENT } from '@environment/app-environment.injector'
-import { AppEnvironment } from '@environment/app-environment.interface'
 import { BehaviorSubject } from 'rxjs'
 
 /**

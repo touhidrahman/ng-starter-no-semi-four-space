@@ -1,4 +1,4 @@
-import { Directive, TemplateRef, ViewContainerRef, inject } from '@angular/core'
+import { Directive, inject, TemplateRef, ViewContainerRef } from '@angular/core'
 import { AuthStateService } from '@main/auth/services/auth.service'
 
 @Directive({

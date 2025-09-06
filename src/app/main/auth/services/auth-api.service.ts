@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http'
 import { Injectable, inject } from '@angular/core'
 import { ApiResponse } from '@core/models/api-response.model'
-import { environment } from '@environment/environment'
 import { User } from '@main/users/models/user.model'
 import { Observable } from 'rxjs'
+import { AUTH_API_URL } from '../auth-injectors'
 import { LoginResponse } from '../models/login-response'
 import { SignupInput } from '../models/signup-input'
 
@@ -12,32 +12,48 @@ import { SignupInput } from '../models/signup-input'
 })
 export class AuthApiService {
     private http = inject(HttpClient)
-
-    private readonly apiUrl = `${environment.apiUrl}/v1/auth`
+    private apiUrl = inject<string>(AUTH_API_URL)
 
     getMe(): Observable<ApiResponse<User>> {
         return this.http.get<ApiResponse<User>>(`${this.apiUrl}/me`)
     }
 
     isSuperAdmin(userId: string): Observable<ApiResponse<boolean>> {
-        return this.http.post<ApiResponse<boolean>>(`${this.apiUrl}/${userId}/is-admin`, {})
+        return this.http.post<ApiResponse<boolean>>(
+            `${this.apiUrl}/${userId}/is-admin`,
+            {},
+        )
     }
 
-    login(email: string, password: string): Observable<ApiResponse<LoginResponse>> {
-        return this.http.post<ApiResponse<LoginResponse>>(`${this.apiUrl}/login`, {
-            email,
-            password,
-        })
+    login(
+        email: string,
+        password: string,
+    ): Observable<ApiResponse<LoginResponse>> {
+        return this.http.post<ApiResponse<LoginResponse>>(
+            `${this.apiUrl}/login`,
+            {
+                email,
+                password,
+            },
+        )
     }
 
     register(input: SignupInput): Observable<ApiResponse<User>> {
-        return this.http.post<ApiResponse<User>>(`${this.apiUrl}/register`, input)
+        return this.http.post<ApiResponse<User>>(
+            `${this.apiUrl}/register`,
+            input,
+        )
     }
 
-    refreshAccessToken(refreshToken: string): Observable<ApiResponse<LoginResponse>> {
-        return this.http.post<ApiResponse<LoginResponse>>(`${this.apiUrl}/refresh-access-token`, {
-            token: refreshToken,
-        })
+    refreshAccessToken(
+        refreshToken: string,
+    ): Observable<ApiResponse<LoginResponse>> {
+        return this.http.post<ApiResponse<LoginResponse>>(
+            `${this.apiUrl}/refresh-access-token`,
+            {
+                token: refreshToken,
+            },
+        )
     }
 
     changePassword(
@@ -45,15 +61,21 @@ export class AuthApiService {
         password: string,
         passwordConfirmation: string,
     ): Observable<ApiResponse<boolean>> {
-        return this.http.post<ApiResponse<boolean>>(`${this.apiUrl}/change-password`, {
-            password,
-            currentPassword,
-            passwordConfirmation,
-        })
+        return this.http.post<ApiResponse<boolean>>(
+            `${this.apiUrl}/change-password`,
+            {
+                password,
+                currentPassword,
+                passwordConfirmation,
+            },
+        )
     }
 
     forgotPassword(email: string): Observable<ApiResponse<boolean>> {
-        return this.http.post<ApiResponse<boolean>>(`${this.apiUrl}/forgot-password`, { email })
+        return this.http.post<ApiResponse<boolean>>(
+            `${this.apiUrl}/forgot-password`,
+            { email },
+        )
     }
 
     resetPassword(
@@ -61,10 +83,13 @@ export class AuthApiService {
         email: string,
         password: string,
     ): Observable<ApiResponse<boolean>> {
-        return this.http.post<ApiResponse<boolean>>(`${this.apiUrl}/reset-password/${token}'`, {
-            email,
-            password,
-        })
+        return this.http.post<ApiResponse<boolean>>(
+            `${this.apiUrl}/reset-password/${token}'`,
+            {
+                email,
+                password,
+            },
+        )
     }
 
     logout(): Observable<ApiResponse<boolean>> {
@@ -72,6 +97,8 @@ export class AuthApiService {
     }
 
     verifyEmail(token: string): Observable<ApiResponse<boolean>> {
-        return this.http.get<ApiResponse<boolean>>(`${this.apiUrl}/verify-email/${token}`)
+        return this.http.get<ApiResponse<boolean>>(
+            `${this.apiUrl}/verify-email/${token}`,
+        )
     }
 }

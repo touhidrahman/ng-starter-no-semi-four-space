@@ -1,5 +1,5 @@
 import { isEqual } from 'radash'
-import { BehaviorSubject, Observable, distinctUntilChanged } from 'rxjs'
+import { BehaviorSubject, distinctUntilChanged, Observable } from 'rxjs'
 
 /**
  * An extended BehaviorSubject that can be reset to its initial value.
@@ -19,7 +19,9 @@ export class StateSubject<T> extends BehaviorSubject<T> {
     }
 
     get value$(): Observable<T> {
-        return super.asObservable().pipe(distinctUntilChanged((a, b) => isEqual(a, b)))
+        return super
+            .asObservable()
+            .pipe(distinctUntilChanged((a, b) => isEqual(a, b)))
     }
 
     update(value: T): void {

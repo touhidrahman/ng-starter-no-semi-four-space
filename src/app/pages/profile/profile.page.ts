@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core'
+import { Component, inject, OnInit } from '@angular/core'
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms'
 import { Router, RouterModule } from '@angular/router'
 import { ToastService } from '@core/ui/toast/toast.service'
@@ -29,7 +29,8 @@ export default class ProfilePage implements OnInit {
 
     submit(): void {
         this.errors = []
-        const { currentPassword, password, passwordConfirmation } = this.form.value
+        const { currentPassword, password, passwordConfirmation } =
+            this.form.value
 
         if (!currentPassword || !password || !passwordConfirmation) {
             this.errors.push('All fields are required')
@@ -39,14 +40,16 @@ export default class ProfilePage implements OnInit {
             this.errors.push('Passwords do not match')
             return
         }
-        this.auth.changePassword(currentPassword, password, passwordConfirmation).subscribe({
-            next: () => {
-                this.toast.success('Password changed successfully')
-                this.form.reset()
-            },
-            error: (err) => {
-                this.errors.push(err.error.message)
-            },
-        })
+        this.auth
+            .changePassword(currentPassword, password, passwordConfirmation)
+            .subscribe({
+                next: () => {
+                    this.toast.success('Password changed successfully')
+                    this.form.reset()
+                },
+                error: (err) => {
+                    this.errors.push(err.error.message)
+                },
+            })
     }
 }

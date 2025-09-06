@@ -1,34 +1,39 @@
 import { Injectable, inject } from '@angular/core'
-import { WINDOW } from '@ng-web-apis/common'
-
-export const ACCESS_TOKEN_KEY = 'accesToken'
-export const REFRESH_TOKEN_KEY = 'refreshToken'
+import { WA_WINDOW } from '@ng-web-apis/common'
+import { ACCESS_TOKEN_KEY, REFRESH_TOKEN_KEY } from './../auth-injectors'
 
 @Injectable({
     providedIn: 'root',
 })
 export class TokenStorageService {
-    private windowRef = inject(WINDOW)
+    private windowRef = inject(WA_WINDOW)
+    private accessTokenKey = inject<string>(ACCESS_TOKEN_KEY)
+    private refreshTokenKey = inject<string>(REFRESH_TOKEN_KEY)
 
     clear() {
-        this.windowRef.sessionStorage.clear()
+        this.windowRef.localStorage.removeItem(this.accessTokenKey)
+        this.windowRef.localStorage.removeItem(this.refreshTokenKey)
     }
 
     saveAccessToken(token: string): void {
-        this.windowRef.sessionStorage.removeItem(ACCESS_TOKEN_KEY)
-        this.windowRef.sessionStorage.setItem(ACCESS_TOKEN_KEY, token)
+        const saved = this.getAccessToken()
+        if (saved === token) return
+        this.windowRef.localStorage.removeItem(this.accessTokenKey)
+        this.windowRef.localStorage.setItem(this.accessTokenKey, token)
     }
 
     saveRefreshToken(token: string): void {
-        this.windowRef.sessionStorage.removeItem(REFRESH_TOKEN_KEY)
-        this.windowRef.sessionStorage.setItem(REFRESH_TOKEN_KEY, token)
+        const saved = this.getRefreshToken()
+        if (saved === token) return
+        this.windowRef.localStorage.removeItem(this.refreshTokenKey)
+        this.windowRef.localStorage.setItem(this.refreshTokenKey, token)
     }
 
     getAccessToken(): string | null {
-        return this.windowRef.sessionStorage.getItem(ACCESS_TOKEN_KEY)
+        return this.windowRef.localStorage.getItem(this.accessTokenKey)
     }
 
     getRefreshToken(): string | null {
-        return this.windowRef.sessionStorage.getItem(REFRESH_TOKEN_KEY)
+        return this.windowRef.localStorage.getItem(this.refreshTokenKey)
     }
 }

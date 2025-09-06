@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http'
 import { Injectable, inject } from '@angular/core'
 import { ApiService } from '@core/services/api.service'
 import { APP_ENVIRONMENT } from '@environment/app-environment.injector'
-import { AppEnvironment } from '@environment/app-environment.interface'
 import { Observable } from 'rxjs'
 import { User } from '../models/user.model'
 

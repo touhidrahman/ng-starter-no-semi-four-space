@@ -1,0 +1,16 @@
+pre-commit:
+    parallel: true
+    jobs:
+        - run: pnpm f1
+          glob: '*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc,css}'
+          stage_fixed: true
+
+pre-push:
+    parallel: true
+    jobs:
+        - run: pnpm f1
+          glob: '*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc,css}'
+          stage_fixed: true
+        - run: pnpm f2
+          glob: '*.{html}'
+          stage_fixed: true

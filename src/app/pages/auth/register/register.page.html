@@ -4,7 +4,7 @@
 
 <div class="w-full rounded bg-white shadow sm:w-96 md:mt-0 xl:p-0 dark:border">
     <div class="space-y-2 p-6 sm:p-8 md:space-y-4">
-        <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
+        <h1 class="text-xl leading-tight font-bold tracking-tight text-gray-900 md:text-2xl">
             Create account
         </h1>
         @if (errors) {
@@ -30,7 +30,7 @@
                     signUpForm.get('firstName')?.touched &&
                     signUpForm.get('firstName')?.dirty
                 ) {
-                    <div class="text-xs italic text-red-500">First name is required.</div>
+                    <div class="text-xs text-red-500 italic">First name is required.</div>
                 }
             </div>
             <div>
@@ -46,7 +46,7 @@
                     signUpForm.get('lastName')?.touched &&
                     signUpForm.get('lastName')?.dirty
                 ) {
-                    <div class="text-xs italic text-red-500">Last name is required.</div>
+                    <div class="text-xs text-red-500 italic">Last name is required.</div>
                 }
             </div>
             <div>
@@ -62,12 +62,12 @@
                     signUpForm.get('email')?.touched &&
                     signUpForm.get('email')?.dirty
                 ) {
-                    <div class="text-xs italic text-red-500">Email is required.</div>
+                    <div class="text-xs text-red-500 italic">Email is required.</div>
                 }
                 @if (
                     signUpForm.get('email')?.hasError('email') && signUpForm.get('email')?.touched
                 ) {
-                    <div class="text-xs italic text-red-500">Enter a valid email address.</div>
+                    <div class="text-xs text-red-500 italic">Enter a valid email address.</div>
                 }
             </div>
             <div>
@@ -84,19 +84,19 @@
                     signUpForm.get('password')?.touched &&
                     signUpForm.get('password')?.dirty
                 ) {
-                    <div class="text-xs italic text-red-500">Password is required.</div>
+                    <div class="text-xs text-red-500 italic">Password is required.</div>
                 }
                 @if (
                     signUpForm.get('password')?.hasError('minLength') &&
                     signUpForm.get('password')?.touched
                 ) {
-                    <div class="text-xs italic text-red-500">Password must be 8 characters.</div>
+                    <div class="text-xs text-red-500 italic">Password must be 8 characters.</div>
                 }
                 @if (
                     signUpForm.get('password')?.hasError('maxLength') &&
                     signUpForm.get('password')?.touched
                 ) {
-                    <div class="text-xs italic text-red-500">
+                    <div class="text-xs text-red-500 italic">
                         Password can't exceed 32 characters.
                     </div>
                 }
@@ -117,7 +117,7 @@
                     signUpForm.errors?.['passwordNotMatched'] &&
                     signUpForm.get('password')?.valid
                 ) {
-                    <div class="text-xs italic text-red-500">Passwords do not match.</div>
+                    <div class="text-xs text-red-500 italic">Passwords do not match.</div>
                 }
             </div>
 
@@ -125,7 +125,7 @@
                 <button
                     type="submit"
                     (click)="register()"
-                    class="w-full rounded bg-sky-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-sky-700 focus:outline-none focus:ring-4 focus:ring-sky-300 dark:bg-sky-600 dark:hover:bg-sky-700 dark:focus:ring-sky-800"
+                    class="w-full rounded bg-sky-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-sky-700 focus:ring-4 focus:ring-sky-300 focus:outline-none dark:bg-sky-600 dark:hover:bg-sky-700 dark:focus:ring-sky-800"
                 >
                     Register
                 </button>

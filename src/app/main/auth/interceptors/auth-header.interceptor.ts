@@ -1,4 +1,8 @@
-import { HttpHandlerFn, HttpInterceptorFn, HttpRequest } from '@angular/common/http'
+import {
+    HttpHandlerFn,
+    HttpInterceptorFn,
+    HttpRequest,
+} from '@angular/common/http'
 import { inject } from '@angular/core'
 import { environment } from '@environment/environment'
 import { TokenStorageService } from '@main/auth/services/token-storage.service'

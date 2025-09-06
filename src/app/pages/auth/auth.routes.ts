@@ -34,13 +34,17 @@ export function getAuthRoutes(): AuthRoutes {
             path: 'forgot-password',
             title: 'Forgot Password',
             resolve: { layout: setLayout(PageLayout.Center) },
-            loadComponent: () => import('./forgot-password/forgot-password.page'),
+            loadComponent: () =>
+                import('./forgot-password/forgot-password.page'),
         },
         resetPassword: {
             path: 'reset-password/:token',
             title: 'Reset Password',
             resolve: { layout: setLayout(PageLayout.Center) },
-            loadComponent: () => import('./reset-forgotten-password/reset-forgotten-password.page'),
+            loadComponent: () =>
+                import(
+                    './reset-forgotten-password/reset-forgotten-password.page'
+                ),
         },
     }
 }

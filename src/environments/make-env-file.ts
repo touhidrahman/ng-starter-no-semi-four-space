@@ -27,7 +27,9 @@ readFile(filePath, 'utf8', (err, data) => {
     if (err) {
         console.error('Error reading the file:', err.message)
     } else {
-        console.warn('Running ./make-env-file.ts script to create angular environment file')
+        console.warn(
+            'Running ./make-env-file.ts script to create angular environment file',
+        )
         console.info('Existing File content:\n', data)
     }
 })

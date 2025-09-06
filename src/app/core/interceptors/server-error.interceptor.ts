@@ -14,7 +14,9 @@ export const serverErrorInterceptorFn: HttpInterceptorFn = (request, next) => {
         catchError((error: HttpErrorResponse) => {
             // in case of aunathorized error, redirect to login page
             if ([401, 403].includes(error.status)) {
-                inject(Router).navigateByUrl(`/${getAuthRoutes().login.path}` as string)
+                inject(Router).navigateByUrl(
+                    `/${getAuthRoutes().login.path}` as string,
+                )
                 return throwError(() => error)
             }
             // otherwise throw error

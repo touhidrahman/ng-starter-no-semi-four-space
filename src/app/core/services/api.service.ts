@@ -50,7 +50,10 @@ export class ApiService<T, DtoT> implements AbstractApiService<T> {
     }
 
     update(id: string, body: DtoT | Partial<T>): Observable<T> {
-        return this.http.patch<T>(`${this.apiUrl}/${id}`, { ...body, id: undefined })
+        return this.http.patch<T>(`${this.apiUrl}/${id}`, {
+            ...body,
+            id: undefined,
+        })
     }
 
     delete(id: string): Observable<void> {

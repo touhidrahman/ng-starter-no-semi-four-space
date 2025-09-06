@@ -10,4 +10,5 @@ export const environment: AppEnvironment = {
     appName: 'ng-starter-no-semi-four-space',
     production: true,
     apiUrl: '',
+    authApiUrl: '',
 }

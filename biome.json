@@ -1,7 +1,11 @@
 {
     "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
-    "organizeImports": {
-        "enabled": true
+    "assist": {
+        "actions": {
+            "source": {
+                "organizeImports": "on"
+            }
+        }
     },
     "vcs": {
         "enabled": true,
@@ -13,7 +17,17 @@
         "rules": {
             "recommended": true,
             "style": {
-                "useImportType": "off"
+                "useImportType": "off",
+                "noParameterAssign": "error",
+                "useAsConstAssertion": "error",
+                "useDefaultParameterLast": "error",
+                "useEnumInitializers": "error",
+                "useSelfClosingElements": "error",
+                "useSingleVarDeclarator": "error",
+                "noUnusedTemplateLiteral": "error",
+                "useNumberNamespace": "error",
+                "noInferrableTypes": "error",
+                "noUselessElse": "error"
             },
             "complexity": {
                 "useLiteralKeys": "off",
@@ -21,25 +35,37 @@
             },
             "suspicious": {
                 "noDebugger": "off",
-                "noConsoleLog": "info",
-                "noExplicitAny": "warn"
+                "noExplicitAny": "info",
+                "noConsole": {
+                    "level": "info",
+                    "options": {
+                        "allow": ["info", "warn", "error"]
+                    }
+                }
             },
             "correctness": {
                 "noUnusedVariables": {
-                    "level": "error",
+                    "level": "warn",
+                    "fix": "none",
+                    "options": {
+                        "ignoreRestSiblings": true
+                    }
+                },
+                "noUnusedPrivateClassMembers": {
+                    "level": "warn",
                     "fix": "none"
                 }
             }
         },
-        "ignore": ["./cypres/**/*.*"]
+        "includes": ["**", "!dist/**/*.*"]
     },
     "formatter": {
         "enabled": true,
         "formatWithErrors": false,
         "indentStyle": "space",
         "indentWidth": 4,
-        "lineWidth": 100,
-        "ignore": [],
+        "lineWidth": 80,
+        "includes": ["**"],
         "lineEnding": "lf",
         "attributePosition": "auto"
     },
@@ -58,9 +84,35 @@
             "trailingCommas": "all"
         }
     },
-    "json": {
+    "html": {
         "formatter": {
-            "trailingCommas": "none"
+            "enabled": false
+        }
+    },
+    "json": {
+        "parser": {
+            "allowComments": true,
+            "allowTrailingCommas": true
+        },
+        "formatter": {
+            "enabled": true,
+            "indentStyle": "space",
+            "indentWidth": 4,
+            "lineWidth": 80
+        }
+    },
+    "css": {
+        "formatter": {
+            "enabled": true,
+            "indentStyle": "space",
+            "indentWidth": 4,
+            "lineWidth": 80
+        },
+        "linter": {
+            "enabled": false
+        },
+        "assist": {
+            "enabled": false
         }
     }
 }

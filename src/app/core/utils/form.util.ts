@@ -1,10 +1,17 @@
-import { AbstractControl, FormArray, FormControl, FormGroup } from '@angular/forms'
+import {
+    AbstractControl,
+    FormArray,
+    FormControl,
+    FormGroup,
+} from '@angular/forms'
 
 /**
  * Marks all the controls and their nested controls as dirty.
  * @param abstractControls - an array of controls(can be FormControls, FormGroups or FormArrays)
  */
-export function markAllControlsAsDirty(abstractControls: AbstractControl[]): void {
+export function markAllControlsAsDirty(
+    abstractControls: AbstractControl[],
+): void {
     abstractControls.forEach((abstractControl) => {
         let control: FormControl | FormGroup | FormArray
         if (abstractControl instanceof FormControl) {

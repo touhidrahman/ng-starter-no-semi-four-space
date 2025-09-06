@@ -1,5 +1,13 @@
 import { isEqual } from 'radash'
-import { Observable, Subject, distinctUntilChanged, filter, map, share, takeUntil } from 'rxjs'
+import {
+    distinctUntilChanged,
+    filter,
+    map,
+    Observable,
+    Subject,
+    share,
+    takeUntil,
+} from 'rxjs'
 import { StateSubject } from './state-subject'
 
 export class SimpleStore<T> {
@@ -20,7 +28,10 @@ export class SimpleStore<T> {
         return this.state.value
     }
 
-    select<K extends keyof T>(key: K, filterFn?: (value: T[K]) => boolean): Observable<T[K]> {
+    select<K extends keyof T>(
+        key: K,
+        filterFn?: (value: T[K]) => boolean,
+    ): Observable<T[K]> {
         return this.state.value$.pipe(
             map((state) => state[key]),
             filter(filterFn ?? (() => true)),
