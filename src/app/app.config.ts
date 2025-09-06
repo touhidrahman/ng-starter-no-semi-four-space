@@ -10,8 +10,8 @@ import { type ApplicationConfig, importProvidersFrom } from '@angular/core'
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async'
 import {
     PreloadAllModules,
-    TitleStrategy,
     provideRouter,
+    TitleStrategy,
     withComponentInputBinding,
     withInMemoryScrolling,
     withPreloading,
@@ -31,13 +31,19 @@ export const appConfig: ApplicationConfig = {
     providers: [
         importProvidersFrom(JwtModule),
         { provide: APP_ENVIRONMENT, useValue: environment },
-        { provide: DATE_PIPE_DEFAULT_OPTIONS, useValue: { dateFormat: 'shortDate' } },
+        {
+            provide: DATE_PIPE_DEFAULT_OPTIONS,
+            useValue: { dateFormat: 'shortDate' },
+        },
         { provide: TitleStrategy, useClass: CustomTitleStrategy },
         provideHttpClient(
             withFetch(),
             withXsrfConfiguration({}),
             withJsonpSupport(),
-            withInterceptors([AuthHeaderInterceptorFn, serverErrorInterceptorFn]),
+            withInterceptors([
+                AuthHeaderInterceptorFn,
+                serverErrorInterceptorFn,
+            ]),
         ),
         provideRouter(
             AppRoutes,

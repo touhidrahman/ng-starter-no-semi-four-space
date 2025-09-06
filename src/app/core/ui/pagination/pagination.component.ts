@@ -20,7 +20,10 @@ export class PaginationComponent {
     getNavigablePages() {
         const pages = []
         const left = Math.max(1, this.currentPage - this.windowSize)
-        const right = Math.min(this.totalPages, this.currentPage + this.windowSize)
+        const right = Math.min(
+            this.totalPages,
+            this.currentPage + this.windowSize,
+        )
         for (let i = left; i <= right; i++) {
             pages.push(i)
         }

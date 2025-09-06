@@ -2,7 +2,6 @@ import { Injectable, inject } from '@angular/core'
 import { Title } from '@angular/platform-browser'
 import { RouterStateSnapshot, TitleStrategy } from '@angular/router'
 import { APP_ENVIRONMENT } from '@environment/app-environment.injector'
-import { AppEnvironment } from '@environment/app-environment.interface'
 
 @Injectable()
 export class CustomTitleStrategy extends TitleStrategy {

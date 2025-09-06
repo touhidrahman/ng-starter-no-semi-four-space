@@ -1,8 +1,12 @@
 import { shake } from 'radash'
-import { Observable, of } from 'rxjs'
+import { Observable } from 'rxjs'
 import { SimpleStore } from './simple-store'
 
-export class QueryResultStore<Q, R, T> extends SimpleStore<{ query: Q; result: R; transient: T }> {
+export class QueryResultStore<Q, R, T> extends SimpleStore<{
+    query: Q
+    result: R
+    transient: T
+}> {
     private cache: Map<string, R> = new Map()
 
     get query$(): Observable<Q> {
@@ -36,7 +40,9 @@ export class QueryResultStore<Q, R, T> extends SimpleStore<{ query: Q; result: R
     }
 
     setTransient(transient: Partial<T>): void {
-        this.setState({ transient: { ...this.getState().transient, ...transient } })
+        this.setState({
+            transient: { ...this.getState().transient, ...transient },
+        })
     }
 
     getTransient(): T {

@@ -1,12 +1,12 @@
-import { CommonModule, NgClass } from '@angular/common'
+import { CommonModule } from '@angular/common'
 import {
     ChangeDetectionStrategy,
     Component,
     EventEmitter,
-    OnInit,
-    Output,
     inject,
     input,
+    OnInit,
+    Output,
 } from '@angular/core'
 import { RouterModule } from '@angular/router'
 import { AppStateService } from '@core/states/app-state.service'
@@ -37,8 +37,16 @@ export class HeaderOneComponent implements OnInit {
                 [
                     {
                         items: [
-                            { label: 'Features', icon: 'pi pi-list', subtext: 'Subtext of item' },
-                            { label: 'Customers', icon: 'pi pi-users', subtext: 'Subtext of item' },
+                            {
+                                label: 'Features',
+                                icon: 'pi pi-list',
+                                subtext: 'Subtext of item',
+                            },
+                            {
+                                label: 'Customers',
+                                icon: 'pi pi-users',
+                                subtext: 'Subtext of item',
+                            },
                             {
                                 label: 'Case Studies',
                                 icon: 'pi pi-file',
@@ -55,8 +63,16 @@ export class HeaderOneComponent implements OnInit {
                                 icon: 'pi pi-shield',
                                 subtext: 'Subtext of item',
                             },
-                            { label: 'Faq', icon: 'pi pi-question', subtext: 'Subtext of item' },
-                            { label: 'Library', icon: 'pi pi-search', subtext: 'Subtext of item' },
+                            {
+                                label: 'Faq',
+                                icon: 'pi pi-question',
+                                subtext: 'Subtext of item',
+                            },
+                            {
+                                label: 'Library',
+                                icon: 'pi pi-search',
+                                subtext: 'Subtext of item',
+                            },
                         ],
                     },
                 ],
@@ -68,8 +84,16 @@ export class HeaderOneComponent implements OnInit {
                                 icon: 'pi pi-comments',
                                 subtext: 'Subtext of item',
                             },
-                            { label: 'Rewards', icon: 'pi pi-star', subtext: 'Subtext of item' },
-                            { label: 'Investors', icon: 'pi pi-globe', subtext: 'Subtext of item' },
+                            {
+                                label: 'Rewards',
+                                icon: 'pi pi-star',
+                                subtext: 'Subtext of item',
+                            },
+                            {
+                                label: 'Investors',
+                                icon: 'pi pi-globe',
+                                subtext: 'Subtext of item',
+                            },
                         ],
                     },
                 ],

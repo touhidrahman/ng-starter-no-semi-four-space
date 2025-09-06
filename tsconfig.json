@@ -17,7 +17,7 @@
         "resolveJsonModule": true,
         "importHelpers": true,
         "module": "ES2022",
-        "moduleResolution": "node",
+        "moduleResolution": "bundler",
         "noFallthroughCasesInSwitch": true,
         "noImplicitOverride": true,
         "noImplicitReturns": true,

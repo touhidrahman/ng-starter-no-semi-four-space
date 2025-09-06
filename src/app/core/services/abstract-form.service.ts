@@ -39,18 +39,23 @@ export abstract class AbstractFormService<T> {
     fillFormById$(id: string): Observable<T> {
         return this.apiService
             .findById(id)
-            .pipe(tap((value) => this.setFormValue(value as T & { id?: string })))
+            .pipe(
+                tap((value) => this.setFormValue(value as T & { id?: string })),
+            )
     }
 
     save$(): Observable<T> {
-        if (this.form.invalid) return throwError(() => new Error('Invalid form'))
+        if (this.form.invalid)
+            return throwError(() => new Error('Invalid form'))
 
         const id = this.form.get('id')?.value ?? null
         return id ? this.update$(id) : this.create$()
     }
 
     protected create$(): Observable<T> {
-        return this.apiService.create(this.getFormValue()).pipe(tap(() => this.setFormValue(null)))
+        return this.apiService
+            .create(this.getFormValue())
+            .pipe(tap(() => this.setFormValue(null)))
     }
 
     protected update$(id: string): Observable<T> {

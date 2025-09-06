@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core'
+import { Component, inject, OnInit } from '@angular/core'
 import { ReactiveFormsModule } from '@angular/forms'
 import { ActivatedRoute, Router, RouterModule } from '@angular/router'
 import { AuthStateService } from '@main/auth/services/auth.service'
@@ -21,8 +21,10 @@ export default class LoginPage implements OnInit {
     private returnUrl = ''
 
     ngOnInit(): void {
-        this.returnUrl = this.activatedRoute.snapshot.queryParams['returnUrl'] ?? '/'
-        if (this.authStateService.isLoggedIn()) this.router.navigateByUrl(this.returnUrl)
+        this.returnUrl =
+            this.activatedRoute.snapshot.queryParams['returnUrl'] ?? '/'
+        if (this.authStateService.isLoggedIn())
+            this.router.navigateByUrl(this.returnUrl)
     }
 
     submit(): void {

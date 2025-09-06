@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, Input, inject } from '@angular/core'
+import {
+    ChangeDetectionStrategy,
+    Component,
+    Input,
+    inject,
+} from '@angular/core'
 import { RouterModule } from '@angular/router'
 import { AppStateService } from '@core/states/app-state.service'
 import { isSmallScreen } from '@core/utils/screen.util'

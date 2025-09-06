@@ -23,22 +23,15 @@ function getContent(): string {
 }
 
 // Read the file
-readFile(filePath, 'utf8', (err, data) => {
+readFile(filePath, 'utf8', (err, _data) => {
     if (err) {
         console.error('Error reading the file:', err.message)
     } else {
-        console.warn('Running ./make-env-file.ts script to create angular environment file')
-        console.info('Existing File content:\n', data)
     }
 })
 
 setTimeout(() => {
     writeFile(filePath, getContent(), function onCreate(err: unknown) {
         if (err) throw err
-        console.info('#################### MAKE-ENV-FILE ####################')
-        console.info(`${filePath} created`)
-        console.info('File content:')
-        console.info(getContent())
-        console.info('#######################################################')
     })
 }, 100)

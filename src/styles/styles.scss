@@ -9,6 +9,8 @@
     @tailwind utilities;
 }
 
+@import './foblex-flow.common.css';
+
 html,
 body {
     @apply h-full;

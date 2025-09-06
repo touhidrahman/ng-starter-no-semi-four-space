@@ -1,4 +1,10 @@
-import { Directive, Input, TemplateRef, ViewContainerRef, inject } from '@angular/core'
+import {
+    Directive,
+    Input,
+    inject,
+    TemplateRef,
+    ViewContainerRef,
+} from '@angular/core'
 
 @Directive({
     selector: '[appRepeat]',

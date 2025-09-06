@@ -3,11 +3,10 @@ import { Router } from '@angular/router'
 import { JwtHelperService } from '@auth0/angular-jwt'
 import { LocalStorageService } from '@core/services/local-storage.service'
 import { SimpleStore } from '@core/store/simple-store'
-import { environment } from '@environment/environment'
 import { User, UserRole } from '@main/users/models/user.model'
 import { WINDOW } from '@ng-web-apis/common'
 import { getAuthRoutes } from '@pages/auth/auth.routes'
-import { Observable, map, of, timer } from 'rxjs'
+import { map, Observable, of, timer } from 'rxjs'
 import { LoginResponse } from '../models/login-response'
 import { AuthApiService } from './auth-api.service'
 import { TokenStorageService } from './token-storage.service'
@@ -76,7 +75,12 @@ export class AuthStateService extends SimpleStore<AuthState> {
     login(username: string, password: string) {
         return this.authApiService.login(username, password).pipe(
             map(({ data }) => {
-                data && this.setStateAfterLogin(data.accessToken, data.refreshToken, data.user)
+                data &&
+                    this.setStateAfterLogin(
+                        data.accessToken,
+                        data.refreshToken,
+                        data.user,
+                    )
                 return data
             }),
         )
@@ -88,7 +92,12 @@ export class AuthStateService extends SimpleStore<AuthState> {
 
         return this.authApiService.refreshAccessToken(refreshToken).pipe(
             map(({ data }) => {
-                data && this.setStateAfterLogin(data.accessToken, data.refreshToken, data.user)
+                data &&
+                    this.setStateAfterLogin(
+                        data.accessToken,
+                        data.refreshToken,
+                        data.user,
+                    )
                 return data
             }),
         )
@@ -137,7 +146,10 @@ export class AuthStateService extends SimpleStore<AuthState> {
         // set a timeout to refresh the token a minute before it expires
         const expires = new Date(decoded.exp * 1000)
         const timeout = expires.getTime() - Date.now() - 60 * 1000
-        this.refreshTokenTimeout = setTimeout(() => this.refreshAccessToken().subscribe(), timeout)
+        this.refreshTokenTimeout = setTimeout(
+            () => this.refreshAccessToken().subscribe(),
+            timeout,
+        )
     }
 
     private stopRefreshTokenTimer() {

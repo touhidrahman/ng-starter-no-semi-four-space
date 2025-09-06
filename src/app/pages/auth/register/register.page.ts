@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common'
-import { Component, OnInit, inject } from '@angular/core'
+import { Component, inject, OnInit } from '@angular/core'
 import { ReactiveFormsModule } from '@angular/forms'
 import { Router, RouterModule } from '@angular/router'
 import { markAllControlsAsDirty } from '@core/utils/form.util'
@@ -37,26 +37,28 @@ export default class RegisterPage implements OnInit {
 
         this.errors = ''
         this.loading = true
-        this.authApiService.register(this.registerFormService.getValue()).subscribe({
-            next: () => {
-                this.loading = false
-                this.router.navigate(['/'])
-            },
-            error: ({ error }) => {
-                if (typeof error.message === 'string') {
-                    this.errors = error.message
-                }
-                if (Array.isArray(error.message)) {
-                    error.message.forEach((x: string) => {
-                        this.errors = this.errors.concat(`\n${x}`)
-                    })
-                }
+        this.authApiService
+            .register(this.registerFormService.getValue())
+            .subscribe({
+                next: () => {
+                    this.loading = false
+                    this.router.navigate(['/'])
+                },
+                error: ({ error }) => {
+                    if (typeof error.message === 'string') {
+                        this.errors = error.message
+                    }
+                    if (Array.isArray(error.message)) {
+                        error.message.forEach((x: string) => {
+                            this.errors = this.errors.concat(`\n${x}`)
+                        })
+                    }
 
-                this.loading = false
-            },
-            complete: () => {
-                this.loading = false
-            },
-        })
+                    this.loading = false
+                },
+                complete: () => {
+                    this.loading = false
+                },
+            })
     }
 }

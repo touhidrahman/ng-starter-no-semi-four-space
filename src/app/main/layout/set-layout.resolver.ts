@@ -1,5 +1,9 @@
 import { inject } from '@angular/core'
-import { ActivatedRouteSnapshot, ResolveFn, RouterStateSnapshot } from '@angular/router'
+import {
+    ActivatedRouteSnapshot,
+    ResolveFn,
+    RouterStateSnapshot,
+} from '@angular/router'
 import { PageLayout } from './page-layout.enum'
 import { PageLayoutService } from './page-layout.service'
 
