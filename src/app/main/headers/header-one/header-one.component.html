@@ -1,4 +1,4 @@
-<p-menubar class="bg-transparent ">
+<p-menubar class="bg-transparent">
   <!-- Left side: button + logo -->
   <ng-template pTemplate="start">
     <!-- Sidebar toggle button -->
@@ -24,11 +24,18 @@
     </svg>
   </ng-template>
 
-  <!-- Right side: avatar -->
+  <!-- Right side: avatar dropdown -->
   <ng-template pTemplate="end">
-    <p-avatar
-      image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png"
-      shape="circle"
-    />
+    <div class="flex items-center">
+      <p-avatar
+        image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png"
+        shape="circle"
+        styleClass="cursor-pointer"
+        (click)="menu.toggle($event)"
+      ></p-avatar>
+
+      <!-- Dropdown menu -->
+      <p-menu #menu [popup]="true" [model]="userMenuItems"></p-menu>
+    </div>
   </ng-template>
 </p-menubar>
