@@ -3,6 +3,7 @@ import {
     ChangeDetectionStrategy,
     Component,
     EventEmitter,
+    Input,
     inject,
     input,
     OnInit,
@@ -26,6 +27,7 @@ export class HeaderOneComponent implements OnInit {
     appState = inject(AppStateService)
 
     readonly sidenavToggleVisible = input(true)
+    @Input() showToggle = false
     @Output() sidenavToggle = new EventEmitter<void>()
 
     appName = this.appState.appName
