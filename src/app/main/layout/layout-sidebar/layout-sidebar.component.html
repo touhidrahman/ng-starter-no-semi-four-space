@@ -1,34 +1,33 @@
+<div class="flex h-screen flex-col">
+    <!-- Header (always on top) -->
+    <app-header-one
+        (sidenavToggle)="toggleSidebar()"
+        [showToggle]="isSmallScreen"
+        class="z-50 max-h-[64px] w-full shrink-0"
+    ></app-header-one>
 
-<div class="flex flex-col h-screen">
-  <!-- Header (always on top) -->
-  <app-header-one
-    (sidenavToggle)="toggleSidebar()"
-    [showToggle]="isSmallScreen"
-    class="z-50 w-full max-h-[64px] shrink-0"
-  ></app-header-one>
+    <div class="flex flex-1 overflow-hidden">
+        <!-- Sidebar (desktop) -->
+        <aside
+            class="bg-surface-100 dark:bg-surface-900 hidden w-64 flex-shrink-0 shadow-lg md:block"
+        >
+            <app-sidebar-one></app-sidebar-one>
+        </aside>
 
-  <div class="flex flex-1 overflow-hidden">
-    <!-- Sidebar (desktop) -->
-    <aside
-      class="hidden md:block w-64 bg-surface-100 dark:bg-surface-900 shadow-lg flex-shrink-0 "
-    >
-      <app-sidebar-one></app-sidebar-one>
-    </aside>
-
-    <!-- Main content -->
-    <main class="flex-1 p-4 overflow-auto">
-      <ng-content></ng-content>
-    </main>
-  </div>
+        <!-- Main content -->
+        <main class="flex-1 overflow-auto p-4">
+            <ng-content></ng-content>
+        </main>
+    </div>
 </div>
 
 <!-- Drawer (mobile) -->
 <p-drawer
-  [(visible)]="sidebarVisible"
-  position="left"
-  [modal]="true"
-  [baseZIndex]="10000"
-  class="block md:hidden w-64 bg-surface-100 dark:bg-surface-900 shadow-lg"
+    [(visible)]="sidebarVisible"
+    position="left"
+    [modal]="true"
+    [baseZIndex]="10000"
+    class="bg-surface-100 dark:bg-surface-900 block w-64 shadow-lg md:hidden"
 >
-  <app-sidebar-one></app-sidebar-one>
+    <app-sidebar-one></app-sidebar-one>
 </p-drawer>

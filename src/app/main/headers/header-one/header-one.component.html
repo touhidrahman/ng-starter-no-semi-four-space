@@ -1,41 +1,36 @@
 <p-menubar class="bg-transparent">
-  <!-- Left side: button + logo -->
-  <ng-template pTemplate="start">
-    <!-- Sidebar toggle button -->
-    <p-button
-      severity="secondary"
-      type="icon"
-      icon="pi pi-bars"
-      class="block md:hidden mx-2"
-      (click)="sidenavToggle.emit()"
-    />
+    <!-- Left side: button + logo -->
+    <ng-template pTemplate="start">
+        <!-- Sidebar toggle button -->
+        <p-button
+            severity="secondary"
+            type="icon"
+            icon="pi pi-bars"
+            class="mx-2 block md:hidden"
+            (click)="sidenavToggle.emit()"
+        />
 
-    <!-- Logo -->
-    <svg
-      width="31"
-      height="33"
-      viewBox="0 0 31 33"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M15.1934 0L0.0391 5.3829L2.3505 25.3417L15.1934 32.427L28.0364 25.3417L30.3478 5.3829L15.1934 0Z"
-        fill="var(--p-primary-color)"
-      />
-    </svg>
-  </ng-template>
+        <!-- Logo -->
+        <svg width="31" height="33" viewBox="0 0 31 33" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M15.1934 0L0.0391 5.3829L2.3505 25.3417L15.1934 32.427L28.0364 25.3417L30.3478 5.3829L15.1934 0Z"
+                fill="var(--p-primary-color)"
+            />
+        </svg>
+    </ng-template>
 
-  <!-- Right side: avatar dropdown -->
-  <ng-template pTemplate="end">
-    <div class="flex items-center">
-      <p-avatar
-        image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png"
-        shape="circle"
-        styleClass="cursor-pointer"
-        (click)="menu.toggle($event)"
-      ></p-avatar>
+    <!-- Right side: avatar dropdown -->
+    <ng-template pTemplate="end">
+        <div class="flex items-center">
+            <p-avatar
+                image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png"
+                shape="circle"
+                styleClass="cursor-pointer"
+                (click)="menu.toggle($event)"
+            ></p-avatar>
 
-      <!-- Dropdown menu -->
-      <p-menu #menu [popup]="true" [model]="userMenuItems"></p-menu>
-    </div>
-  </ng-template>
+            <!-- Dropdown menu -->
+            <p-menu #menu [popup]="true" [model]="userMenuItems"></p-menu>
+        </div>
+    </ng-template>
 </p-menubar>
