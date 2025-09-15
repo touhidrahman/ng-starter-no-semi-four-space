@@ -11,6 +11,10 @@ import {
 import { getHomeRoutes, HomeRoutes } from '@pages/home/home.routes'
 import { getNotFoundPageRoutes } from '@pages/not-found/not-found.routes'
 import { getProfileRoutes, ProfileRoutes } from '@pages/profile/profile.routes'
+import {
+    getTransactionsRoute,
+    TransactionsRoute,
+} from '@pages/transactions/transactions.routes'
 
 type GroupedRoutes = [
     HomeRoutes,
@@ -18,6 +22,7 @@ type GroupedRoutes = [
     ProfileRoutes,
     DashboardRoutes,
     AccountsRoute,
+    TransactionsRoute,
 ]
 
 const groupedRoutes: GroupedRoutes = [
@@ -26,6 +31,7 @@ const groupedRoutes: GroupedRoutes = [
     getProfileRoutes(),
     getDashboardRoutes(),
     getAccountsRoutes(),
+    getTransactionsRoute(),
 ]
 
 const flattenedRoutes: Route[] = []
