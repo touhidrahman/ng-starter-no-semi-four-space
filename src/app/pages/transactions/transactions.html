@@ -1,3 +1,37 @@
-<div class="">
-    test
+<div class="p-2 space-y-8">
+    <!-- Header -->
+     <div class="flex items-center justify-between">
+        <h1 class="text-2xl font-bold text-gray-800 dark:text-white">Transactions</h1>
+        <p-button
+            icon="pi pi-plus"
+            label="Add Transaction"
+            class="p-button-sm p-button-outlined"
+        ></p-button>
+    </div>
+
+    <!-- Transactions Table -->
+     <p-table [value]="transactions" [paginator]="true" [rows]="10" [responsiveLayout]="'scroll'">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Date</th>
+                <th>Account</th>
+                <th>Category</th>
+                <th>Amount</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-transaction>
+            <tr>
+                <td>{{ transaction.date | date:'mediumDate' }}</td>
+                <td>{{ transaction.account }}</td>
+                <td>{{ transaction.category }}</td>
+                <td>
+                    @if(transaction.type === TransactionType.Credit){
+                        <span class="text-green-600">+{{ transaction.amount | currency:userCurrency }}</span>
+                    }@else {
+                        <span class="text-red-600">-{{ transaction.amount | currency:userCurrency }}</span>
+                    }
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
 </div>

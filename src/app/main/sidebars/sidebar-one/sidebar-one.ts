@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core'
+import { Component, EventEmitter, Input, Output } from '@angular/core'
+import { RouterModule } from '@angular/router'
 import { PrimeModules } from '@core/ui/primeng'
 import { MenuItem } from 'primeng/api'
 
@@ -6,10 +7,11 @@ import { MenuItem } from 'primeng/api'
     selector: 'app-sidebar-one',
     templateUrl: './sidebar-one.html',
     styleUrls: ['./sidebar-one.scss'],
-    imports: [...PrimeModules],
+    imports: [...PrimeModules, RouterModule],
 })
 export class SidebarOneComponent {
     @Input() isOpen = true
+    @Output() closeSidebar = new EventEmitter<void>()
 
     items: MenuItem[] = [
         {
@@ -38,4 +40,8 @@ export class SidebarOneComponent {
             routerLink: '/help',
         },
     ]
+
+    itemClick(_event: any) {
+        this.closeSidebar.emit()
+    }
 }

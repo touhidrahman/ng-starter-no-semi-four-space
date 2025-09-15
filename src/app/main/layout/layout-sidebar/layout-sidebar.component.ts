@@ -47,5 +47,7 @@ export class LayoutSidebarComponent {
 
     toggleSidebar() {
         this.sidebarVisible.set(!this.sidebarVisible())
+        // biome-ignore lint/suspicious/noConsole: <explanation>
+        console.log('Toggling sidebar', !this.sidebarVisible())
     }
 }

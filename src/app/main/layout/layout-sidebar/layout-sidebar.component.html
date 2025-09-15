@@ -9,7 +9,7 @@
     <div class="flex flex-1 overflow-hidden">
         <!-- Sidebar (desktop) -->
         <aside
-            class="bg-surface-100 dark:bg-surface-900 hidden w-64 flex-shrink-0 shadow-lg md:block"
+            class="bg-surface-100 dark:bg-surface-900 hidden w-64 flex-shrink-0 shadow-md md:block"
         >
             <app-sidebar-one></app-sidebar-one>
         </aside>
@@ -26,8 +26,9 @@
     [(visible)]="sidebarVisible"
     position="left"
     [modal]="true"
+    header="Menu"
     [baseZIndex]="10000"
     class="bg-surface-100 dark:bg-surface-900 block w-64 shadow-lg md:hidden"
 >
-    <app-sidebar-one></app-sidebar-one>
+    <app-sidebar-one (closeSidebar)="toggleSidebar()"></app-sidebar-one>
 </p-drawer>

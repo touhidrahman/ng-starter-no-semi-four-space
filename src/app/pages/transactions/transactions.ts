@@ -1,22 +1,29 @@
 import { Component } from '@angular/core'
+import { PrimeModules } from '@core/ui/primeng'
 import { AccountType } from '@pages/accounts/accounts'
 
 export type Transaction = {
     id: string
     date: string
-    account: string
-    accountType: AccountType
+    account: AccountType
     category: string
-    type: string
     amount: number
+    payee?: string
+    type: TransactionType
+}
+
+export enum TransactionType {
+    Debit = 'Debit',
+    Credit = 'Credit',
 }
 
 @Component({
     selector: 'app-transactions',
     templateUrl: './transactions.html',
-    imports: [],
+    imports: [PrimeModules],
 })
 export class TransactionsComponent {
+    TransactionType = TransactionType
     userCurrency = 'USD'
 
     searchQuery = ''
@@ -34,38 +41,29 @@ export class TransactionsComponent {
         {
             id: '1',
             date: '2024-10-01',
-            account: 'Personal Checking',
-            accountType: AccountType.Bank,
+            account: AccountType.Bank,
             category: 'Groceries',
-            type: 'Debit',
             amount: 150.75,
+            payee: 'Supermarket',
+            type: TransactionType.Debit,
         },
         {
             id: '2',
             date: '2024-10-02',
-            account: 'Credit Card',
-            accountType: AccountType.CreditCard,
-            category: 'Dining',
-            type: 'Debit',
-            amount: 60.0,
+            account: AccountType.CreditCard,
+            category: 'Salary',
+            amount: 2500.0,
+            payee: 'Employer Inc.',
+            type: TransactionType.Credit,
         },
         {
             id: '3',
             date: '2024-10-03',
-            account: 'Savings Account',
-            accountType: AccountType.Bank,
-            category: 'Salary',
-            type: 'Credit',
-            amount: 2000.0,
-        },
-        {
-            id: '4',
-            date: '2024-10-04',
-            account: 'Cash Wallet',
-            accountType: AccountType.Wallet,
-            category: 'Transport',
-            type: 'Debit',
-            amount: 20.0,
+            account: AccountType.Wallet,
+            category: 'Dining',
+            amount: 45.5,
+            payee: 'Restaurant',
+            type: TransactionType.Debit,
         },
     ]
 }
