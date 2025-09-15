@@ -18,9 +18,9 @@ export class SidebarOneComponent {
             routerLink: '/dashboard',
         },
         {
-            label: 'Users',
-            icon: 'pi pi-users',
-            routerLink: '/users',
+            label: 'Accounts',
+            icon: 'pi pi-building-columns',
+            routerLink: '/accounts',
         },
         {
             label: 'Settings',

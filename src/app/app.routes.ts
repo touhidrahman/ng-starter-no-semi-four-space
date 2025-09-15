@@ -1,4 +1,8 @@
 import { Route } from '@angular/router'
+import {
+    AccountsRoute,
+    getAccountsRoutes,
+} from '@pages/accounts/accounts.routes'
 import { AuthRoutes, getAuthRoutes } from '@pages/auth/auth.routes'
 import {
     DashboardRoutes,
@@ -8,13 +12,20 @@ import { getHomeRoutes, HomeRoutes } from '@pages/home/home.routes'
 import { getNotFoundPageRoutes } from '@pages/not-found/not-found.routes'
 import { getProfileRoutes, ProfileRoutes } from '@pages/profile/profile.routes'
 
-type GroupedRoutes = [HomeRoutes, AuthRoutes, ProfileRoutes, DashboardRoutes]
+type GroupedRoutes = [
+    HomeRoutes,
+    AuthRoutes,
+    ProfileRoutes,
+    DashboardRoutes,
+    AccountsRoute,
+]
 
 const groupedRoutes: GroupedRoutes = [
     getHomeRoutes(),
     getAuthRoutes(),
     getProfileRoutes(),
     getDashboardRoutes(),
+    getAccountsRoutes(),
 ]
 
 const flattenedRoutes: Route[] = []
