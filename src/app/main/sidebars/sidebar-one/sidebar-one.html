@@ -1,0 +1,31 @@
+<div class="flex h-full flex-col">
+    <!-- Sidebar Header -->
+    <div class="px-4 py-3 dark:border-gray-700">
+        <h3 class="block text-lg font-semibold text-gray-800 md:hidden dark:text-gray-100">Menu</h3>
+    </div>
+
+    <!-- PrimeNG PanelMenu -->
+    <div class="flex-1 overflow-auto">
+        <ul class="border-0">
+            @for (item of items; track $index) {
+                <li>
+                    <a
+                        class="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-200 dark:text-gray-300 dark:hover:bg-gray-700"
+                        [routerLink]="item.routerLink"
+                        routerLinkActive="bg-gray-100 dark:bg-gray-600 font-bold"
+                        [routerLinkActiveOptions]="{ exact: true }"
+                        (click)="itemClick($event)"
+                    >
+                        <i class="{{ item.icon }} mr-3"></i>
+                        <span>{{ item.label }}</span>
+                    </a>
+                </li>
+            }
+        </ul>
+    </div>
+
+    <!-- Sidebar Footer -->
+    <div class="border-t border-gray-200 px-4 py-3 dark:border-gray-700">
+        <p class="text-sm text-gray-500 dark:text-gray-400">Version 1.0.0</p>
+    </div>
+</div>

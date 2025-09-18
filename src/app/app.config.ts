@@ -11,6 +11,7 @@ import {
     importProvidersFrom,
     provideZonelessChangeDetection,
 } from '@angular/core'
+import { provideAnimations } from '@angular/platform-browser/animations'
 import {
     PreloadAllModules,
     provideRouter,
@@ -49,6 +50,8 @@ export const appConfig: ApplicationConfig = {
         },
         { provide: TitleStrategy, useClass: CustomTitleStrategy },
         provideZonelessChangeDetection(),
+        // provideAnimationsAsync(),
+        provideAnimations(),
         provideHttpClient(
             withFetch(),
             withXsrfConfiguration({}),

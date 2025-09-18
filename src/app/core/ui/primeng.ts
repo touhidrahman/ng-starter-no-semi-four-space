@@ -5,6 +5,7 @@ import { AvatarGroup } from 'primeng/avatargroup'
 import { BadgeModule } from 'primeng/badge'
 import { ButtonModule } from 'primeng/button'
 import { Card } from 'primeng/card'
+import { ChartModule } from 'primeng/chart'
 import { Checkbox } from 'primeng/checkbox'
 import { Chip } from 'primeng/chip'
 import { ConfirmDialogModule } from 'primeng/confirmdialog'
@@ -27,6 +28,7 @@ import { InputTextModule } from 'primeng/inputtext'
 import { MegaMenu } from 'primeng/megamenu'
 import { Menu } from 'primeng/menu'
 import { Menubar } from 'primeng/menubar'
+import { PanelMenuModule } from 'primeng/panelmenu'
 import { Popover } from 'primeng/popover'
 import { ProgressBar } from 'primeng/progressbar'
 import { RadioButton } from 'primeng/radiobutton'
@@ -58,6 +60,7 @@ export const PrimeModules = [
     ContextMenuModule,
     DatePicker,
     Dialog,
+    ChartModule,
     DividerModule,
     DrawerModule,
     DynamicDialogModule,
@@ -73,6 +76,7 @@ export const PrimeModules = [
     MegaMenu,
     Menu,
     Menubar,
+    PanelMenuModule,
     Popover,
     ProgressBar,
     RadioButton,

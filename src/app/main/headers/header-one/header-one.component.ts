@@ -3,16 +3,18 @@ import {
     ChangeDetectionStrategy,
     Component,
     EventEmitter,
+    Input,
     inject,
-    input,
     OnInit,
     Output,
+    ViewChild,
 } from '@angular/core'
 import { RouterModule } from '@angular/router'
 import { AppStateService } from '@core/states/app-state.service'
 import { PrimeModules } from '@core/ui/primeng'
 import { AuthStateService } from '@main/auth/services/auth.service'
-import { MegaMenuItem } from 'primeng/api'
+import { MenuItem } from 'primeng/api'
+import { Menu } from 'primeng/menu'
 
 @Component({
     selector: 'app-header-one',
@@ -25,98 +27,32 @@ export class HeaderOneComponent implements OnInit {
     auth = inject(AuthStateService)
     appState = inject(AppStateService)
 
-    readonly sidenavToggleVisible = input(true)
+    @Input() showToggle = false
     @Output() sidenavToggle = new EventEmitter<void>()
 
     appName = this.appState.appName
-    items: MegaMenuItem[] = [
+
+    @ViewChild('menu') menu!: Menu
+
+    // 👇 User dropdown items
+    userMenuItems: MenuItem[] = [
         {
-            label: 'Company',
-            root: true,
-            items: [
-                [
-                    {
-                        items: [
-                            {
-                                label: 'Features',
-                                icon: 'pi pi-list',
-                                subtext: 'Subtext of item',
-                            },
-                            {
-                                label: 'Customers',
-                                icon: 'pi pi-users',
-                                subtext: 'Subtext of item',
-                            },
-                            {
-                                label: 'Case Studies',
-                                icon: 'pi pi-file',
-                                subtext: 'Subtext of item',
-                            },
-                        ],
-                    },
-                ],
-                [
-                    {
-                        items: [
-                            {
-                                label: 'Solutions',
-                                icon: 'pi pi-shield',
-                                subtext: 'Subtext of item',
-                            },
-                            {
-                                label: 'Faq',
-                                icon: 'pi pi-question',
-                                subtext: 'Subtext of item',
-                            },
-                            {
-                                label: 'Library',
-                                icon: 'pi pi-search',
-                                subtext: 'Subtext of item',
-                            },
-                        ],
-                    },
-                ],
-                [
-                    {
-                        items: [
-                            {
-                                label: 'Community',
-                                icon: 'pi pi-comments',
-                                subtext: 'Subtext of item',
-                            },
-                            {
-                                label: 'Rewards',
-                                icon: 'pi pi-star',
-                                subtext: 'Subtext of item',
-                            },
-                            {
-                                label: 'Investors',
-                                icon: 'pi pi-globe',
-                                subtext: 'Subtext of item',
-                            },
-                        ],
-                    },
-                ],
-                [
-                    {
-                        items: [
-                            {
-                                image: 'https://primefaces.org/cdn/primeng/images/uikit/uikit-system.png',
-                                label: 'GET STARTED',
-                                subtext: 'Build spectacular apps in no time.',
-                            },
-                        ],
-                    },
-                ],
-            ],
+            label: 'Profile',
+            icon: 'pi pi-user',
+            routerLink: '/profile',
         },
         {
-            label: 'Resources',
-            root: true,
+            label: 'Settings',
+            icon: 'pi pi-cog',
+            routerLink: '/settings',
         },
         {
-            label: 'Contact',
-            root: true,
+            separator: true,
+        },
+        {
+            label: 'Logout',
+            icon: 'pi pi-sign-out',
+            command: () => this.logout(),
         },
     ]
 
@@ -126,5 +62,9 @@ export class HeaderOneComponent implements OnInit {
 
     toggle(): void {
         this.sidenavToggle.next()
+    }
+
+    logout() {
+        this.auth.logout() // assuming you have a logout method
     }
 }

@@ -1,0 +1,74 @@
+<div class="space-y-6 p-6">
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+        <app-overview-card
+            [title]="'Total Balance'"
+            [value]="(totalBalance != null ? (totalBalance | currency: userCurrency) : '') || ''"
+            [icon]="'account_balance'"
+        ></app-overview-card>
+        <app-overview-card
+            [title]="'Monthly Income'"
+            [value]="(monthlyIncome | currency: userCurrency) || ''"
+            [icon]="'attach_money'"
+        ></app-overview-card>
+        <app-overview-card
+            [title]="'Monthly Expenses'"
+            [value]="
+                (monthlyExpenses != null ? (monthlyExpenses | currency: userCurrency) : '') || ''
+            "
+            [icon]="'money_off'"
+        ></app-overview-card>
+    </div>
+
+    <!-- Quick insights -->
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+        <div class="rounded bg-white p-4 shadow">
+            <h3 class="mb-4 text-lg font-semibold">Recent Transactions</h3>
+            <p-table
+                [value]="recentTransactions"
+                [paginator]="true"
+                [rows]="5"
+                [responsiveLayout]="'scroll'"
+                class="w-full"
+            >
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Date</th>
+                        <th>Account</th>
+                        <th>Category</th>
+                        <th>Amount</th>
+                        <th>Type</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-transaction>
+                    <tr>
+                        <td>{{ transaction.date | date: 'mediumDate' }}</td>
+                        <td>{{ transaction.account }}</td>
+                        <td>{{ transaction.category }}</td>
+                        <td>{{ transaction.amount | currency: userCurrency }}</td>
+                        <td>
+                            <span
+                                [ngClass]="
+                                    transaction.type === 'income'
+                                        ? 'font-semibold text-green-600'
+                                        : 'font-semibold text-red-600'
+                                "
+                            >
+                                {{ transaction.type | titlecase }}
+                            </span>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+
+        <!-- PI CHART -->
+        <div class="rounded bg-white p-4 shadow">
+            <h3 class="mb-4 text-lg font-semibold">Expenses by Category</h3>
+            <app-chart
+                [type]="'doughnut'"
+                [data]="spendingByCategoryData"
+                [options]="spendingByCategoryOptions"
+            ></app-chart>
+        </div>
+    </div>
+</div>
