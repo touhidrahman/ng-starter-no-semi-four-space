@@ -5,6 +5,7 @@ import { AvatarGroup } from 'primeng/avatargroup'
 import { BadgeModule } from 'primeng/badge'
 import { ButtonModule } from 'primeng/button'
 import { Card } from 'primeng/card'
+import { ChartModule } from 'primeng/chart'
 import { Checkbox } from 'primeng/checkbox'
 import { Chip } from 'primeng/chip'
 import { ConfirmDialogModule } from 'primeng/confirmdialog'
@@ -59,6 +60,7 @@ export const PrimeModules = [
     ContextMenuModule,
     DatePicker,
     Dialog,
+    ChartModule,
     DividerModule,
     DrawerModule,
     DynamicDialogModule,

@@ -1,0 +1,83 @@
+
+<div class=" p-6 space-y-6">
+    <p-tabs value="0">
+        <p-tablist>
+            <p-tab value="0">Spending</p-tab>
+            <p-tab value="1">Income</p-tab>
+            <p-tab value="2">Net Worth</p-tab>
+        </p-tablist>
+
+        <!-- Tab Panels -->
+         <p-tabpanels>
+            <!-- Spending -->
+             <p-tabpanel value="0">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- spending by category -->
+                     <div class="bg-white rounded-lg shadow">
+                        <h2 class="text-xl font-semibold mb-4">Spending by Category</h2>
+                        <h3 class="text-2xl font-bold mb-1">${{spendingTotal}}</h3>
+                        <p class="text-sm text-green-500 mb-4">This month +{{spendingGrowth}}%</p>
+                        <p-chart type="bar" [data]="spendingChartData" [options]="chartOptions"></p-chart>
+                     </div>
+
+                    <!-- spending over time -->
+                        <div class="bg-white rounded-lg shadow p-4">
+                            <h2 class="text-xl font-semibold mb-4">Spending Over Time</h2>
+                            <h3 class="text-2xl font-bold mb-1">${{spendingOverTimeTotal}}</h3>
+                            <p class="text-sm text-red-500 mb-4">Last 6 months -{{spendingOverTimeChange}}%</p>
+                            <p-chart type="line" [data]="spendingOverTimeChartData" [options]="chartOptions"></p-chart>
+                        </div>
+                </div>
+                <!-- Insights Table  using p-table-->
+                <div class="bg-white rounded-lg shadow p-4 mt-6">
+                    <h2 class="text-xl font-semibold mb-4">Spending Insights</h2>
+                    <p class="text-sm text-gray-500 mb-4">
+                     Analyze your spending patterns to identify areas for potential savings.
+                     this reports helps you understand where your money is going and how to optimize your budget.
+                    </p>
+                    <p-table [value]="spendingItems" [paginator]="true" [rows]="5" [responsiveLayout]="'scroll'">
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th>Category</th>
+                                <th>Amount</th>
+                                <th>Percentage</th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-item>
+                            <tr>
+                                <td>{{item.category}}</td>
+                                <td>${{item.amount}}</td>
+                                <td>{{item.percentage}}%</td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </div>
+
+             </p-tabpanel>
+
+            <!-- Income -->
+             <p-tabpanel value="1">
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <h2 class="text-xl font-semibold mb-4">Income Report</h2>
+                    <p class="text-sm text-gray-500 mb-4">
+                     This report provides an overview of your income sources and trends over time.
+                     It helps you track your earnings and plan your finances effectively.
+                    </p>
+                   <p-chart type="bar" [data]="incomeChartData" [options]="chartOptions"></p-chart>
+                </div>
+            </p-tabpanel>
+
+            <!-- Net Worth -->
+            <p-tabpanel value="2">
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <h2 class="text-xl font-semibold mb-4">Net Worth Report</h2>
+                    <p class="text-sm text-gray-500 mb-4">
+                        This report provides an overview of your net worth and its growth over time.
+                        It helps you understand your financial health and make informed decisions.
+                    </p>
+                    <p-chart type="line" [data]="netWorthChartData" [options]="chartOptions"></p-chart>
+                </div>
+            </p-tabpanel>
+        </p-tabpanels>
+    </p-tabs>
+</div>

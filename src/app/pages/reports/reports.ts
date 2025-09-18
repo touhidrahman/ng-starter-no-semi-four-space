@@ -1,4 +1,5 @@
 import { Component } from '@angular/core'
+import { PrimeModules } from '@core/ui/primeng'
 import { ChartData, ChartOptions } from 'chart.js'
 
 export type SpendingItem = {
@@ -10,12 +11,13 @@ export type SpendingItem = {
 @Component({
     selector: 'app-reports',
     templateUrl: './reports.html',
+    imports: [...PrimeModules],
 })
 export class ReportsComponent {
     spendingTotal = 12345
     spendingGrowth = 12
     spendingOverTimeTotal = 12345
-    apendingOverTimeChange = 5
+    spendingOverTimeChange = 5
 
     spendingChartData: ChartData<'bar'> = {
         labels: [
