@@ -1,18 +1,25 @@
 import {
     ChangeDetectionStrategy,
     Component,
-    Input,
     inject,
+    signal,
 } from '@angular/core'
 import { RouterModule } from '@angular/router'
 import { AppStateService } from '@core/states/app-state.service'
+import { PrimeModules } from '@core/ui/primeng'
 import { isSmallScreen } from '@core/utils/screen.util'
 import { AuthStateService } from '@main/auth/services/auth.service'
 import { HeaderOneComponent } from '@main/headers/header-one/header-one.component'
+import { SidebarOneComponent } from '@main/sidebars/sidebar-one/sidebar-one'
 
 @Component({
     selector: 'app-layout-sidebar',
-    imports: [RouterModule, HeaderOneComponent],
+    imports: [
+        RouterModule,
+        HeaderOneComponent,
+        SidebarOneComponent,
+        ...PrimeModules,
+    ],
     templateUrl: './layout-sidebar.component.html',
     styleUrls: ['./layout-sidebar.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -21,7 +28,7 @@ export class LayoutSidebarComponent {
     auth = inject(AuthStateService)
     private appState = inject(AppStateService)
 
-    @Input() opened = true
+    sidebarVisible = signal(false)
 
     menuToggles = {
         home: false,
@@ -34,7 +41,13 @@ export class LayoutSidebarComponent {
     constructor() {
         this.isSmallScreen = isSmallScreen()
         if (this.isSmallScreen) {
-            this.opened = false
+            this.sidebarVisible.set(false)
         }
+    }
+
+    toggleSidebar() {
+        this.sidebarVisible.set(!this.sidebarVisible())
+        // biome-ignore lint/suspicious/noConsole: <explanation>
+        console.log('Toggling sidebar', !this.sidebarVisible())
     }
 }

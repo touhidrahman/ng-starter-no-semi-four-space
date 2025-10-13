@@ -1,4 +1,34 @@
-<app-header-one (sidenavToggle)="opened = !opened"></app-header-one>
-<main class="block p-4 pb-24">
-    <ng-content></ng-content>
-</main>
+<div class="flex h-screen flex-col">
+    <!-- Header (always on top) -->
+    <app-header-one
+        (sidenavToggle)="toggleSidebar()"
+        [showToggle]="isSmallScreen"
+        class="z-50 max-h-[64px] w-full shrink-0"
+    ></app-header-one>
+
+    <div class="flex flex-1 overflow-hidden">
+        <!-- Sidebar (desktop) -->
+        <aside
+            class="bg-surface-100 dark:bg-surface-900 hidden w-64 flex-shrink-0 shadow-md md:block"
+        >
+            <app-sidebar-one></app-sidebar-one>
+        </aside>
+
+        <!-- Main content -->
+        <main class="flex-1 overflow-auto p-4">
+            <ng-content></ng-content>
+        </main>
+    </div>
+</div>
+
+<!-- Drawer (mobile) -->
+<p-drawer
+    [(visible)]="sidebarVisible"
+    position="left"
+    [modal]="true"
+    header="Menu"
+    [baseZIndex]="10000"
+    class="bg-surface-100 dark:bg-surface-900 block w-64 shadow-lg md:hidden"
+>
+    <app-sidebar-one (closeSidebar)="toggleSidebar()"></app-sidebar-one>
+</p-drawer>

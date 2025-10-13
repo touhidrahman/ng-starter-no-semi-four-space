@@ -1,0 +1,17 @@
+<div class="p-10">
+    @for (type of accountTypes; track $index) {
+        <div class="mb-8">
+            <h3 class="mb-4 text-lg font-semibold text-gray-800 dark:text-white">
+                {{ type }} Accounts
+            </h3>
+            <div class="space-y-4">
+                @for (account of getAccountsByType(type); track $index) {
+                    <app-account-card
+                        [account]="account"
+                        [userCurrency]="userCurrency"
+                    ></app-account-card>
+                }
+            </div>
+        </div>
+    }
+</div>
