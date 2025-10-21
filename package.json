@@ -22,7 +22,9 @@
         "ng-control-flow": "ng generate @angular/core:control-flow",
         "ng-use-inject": "ng generate @angular/core:inject",
         "ng-use-signal-input": "ng generate @angular/core:signal-input-migration",
-        "make-env-file": "tsc src/environments/make-env-file.ts && node src/environments/make-env-file.js && rm src/environments/make-env-file.js"
+        "make-env-file": "tsc src/environments/make-env-file.ts && node src/environments/make-env-file.js && rm src/environments/make-env-file.js",
+        "spartan:theme": "ng g @spartan-ng/cli:ui-theme",
+        "spartan:ui": "ng g @spartan-ng/cli:ui"
     },
     "dependencies": {
         "@angular/animations": "^20.3.6",
@@ -42,11 +44,15 @@
         "@ng-web-apis/common": "^4.12.2",
         "@ngneat/dialog": "^5.2.0",
         "@primeuix/themes": "^1.2.5",
+        "@spartan-ng/brain": "0.0.1-alpha.533",
         "@tailwindcss/postcss": "^4.1.14",
         "chart.js": "^4.5.1",
+        "class-variance-authority": "^0.7.0",
+        "clsx": "^2.1.1",
         "date-fns": "^4.1.0",
         "date-fns-tz": "^3.2.0",
         "destr": "^2.0.5",
+        "embla-carousel-angular": ">=19.0.0",
         "es-toolkit": "^1.40.0",
         "lefthook": "^1.13.6",
         "ng-primitives": "^0.84.0",
@@ -56,6 +62,7 @@
         "qs": "^6.14.0",
         "radash": "^12.1.1",
         "rxjs": "~7.8.2",
+        "tailwind-merge": "^2.5.2",
         "tailwindcss-primeui": "^0.6.1",
         "tslib": "^2.8.1"
     },
@@ -66,6 +73,7 @@
         "@angular/compiler-cli": "^20.3.6",
         "@biomejs/biome": "~2.2.6",
         "@schematics/angular": "^20.3.6",
+        "@spartan-ng/cli": "0.0.1-alpha.533",
         "@types/node": "^24.8.0",
         "@types/qs": "^6.14.0",
         "autoprefixer": "^10.4.21",
@@ -77,6 +85,7 @@
         "prettier": "^3.6.2",
         "prettier-plugin-tailwindcss": "^0.7.0",
         "tailwindcss": "^4.1.14",
+        "tailwindcss-animate": "^1.0.6",
         "typescript": "~5.9.2"
     },
     "optionalDependencies": {
@@ -95,7 +104,8 @@
             "esbuild",
             "lefthook",
             "lmdb",
-            "msgpackr-extract"
+            "msgpackr-extract",
+            "nx"
         ]
     }
 }

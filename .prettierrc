@@ -17,5 +17,9 @@
     ],
     "plugins": [
         "prettier-plugin-tailwindcss"
+    ],
+    "tailwindFunctions": [
+        "hlm",
+        "cva"
     ]
 }
