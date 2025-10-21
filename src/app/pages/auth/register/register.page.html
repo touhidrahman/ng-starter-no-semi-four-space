@@ -1,10 +1,10 @@
-<div class="mb-6 flex items-center justify-center text-2xl font-semibold text-gray-900">
+<div class="mb-6 flex items-center justify-center text-2xl font-semibold text-slate-900">
     <img class="mr-2 h-8 w-8" src="./../../../../assets/logoipsum-282.svg" alt="logo" />
 </div>
 
 <div class="w-full rounded bg-white shadow sm:w-96 md:mt-0 xl:p-0 dark:border">
     <div class="space-y-2 p-6 sm:p-8 md:space-y-4">
-        <h1 class="text-xl leading-tight font-bold tracking-tight text-gray-900 md:text-2xl">
+        <h1 class="text-xl leading-tight font-bold tracking-tight text-slate-900 md:text-2xl">
             Create account
         </h1>
         @if (errors) {
@@ -18,12 +18,12 @@
             [ngClass]="{ 'pointer-events-none opacity-50': loading === true }"
         >
             <div>
-                <label for="firstName" class="mb-2 block text-sm font-medium text-gray-900"
+                <label for="firstName" class="mb-2 block text-sm font-medium text-slate-900"
                     >First name</label
                 >
                 <input
                     formControlName="firstName"
-                    class="block w-full rounded border border-gray-300 bg-gray-50 p-2.5 text-gray-900"
+                    class="block w-full rounded border border-slate-300 bg-slate-50 p-2.5 text-slate-900"
                 />
                 @if (
                     signUpForm.get('firstName')?.hasError('required') &&
@@ -34,12 +34,12 @@
                 }
             </div>
             <div>
-                <label for="lastName" class="mb-2 block text-sm font-medium text-gray-900"
+                <label for="lastName" class="mb-2 block text-sm font-medium text-slate-900"
                     >Last name</label
                 >
                 <input
                     formControlName="lastName"
-                    class="block w-full rounded border border-gray-300 bg-gray-50 p-2.5 text-gray-900"
+                    class="block w-full rounded border border-slate-300 bg-slate-50 p-2.5 text-slate-900"
                 />
                 @if (
                     signUpForm.get('lastName')?.hasError('required') &&
@@ -50,12 +50,12 @@
                 }
             </div>
             <div>
-                <label for="email" class="mb-2 block text-sm font-medium text-gray-900"
+                <label for="email" class="mb-2 block text-sm font-medium text-slate-900"
                     >Email</label
                 >
                 <input
                     formControlName="email"
-                    class="block w-full rounded border border-gray-300 bg-gray-50 p-2.5 text-gray-900"
+                    class="block w-full rounded border border-slate-300 bg-slate-50 p-2.5 text-slate-900"
                 />
                 @if (
                     signUpForm.get('email')?.hasError('required') &&
@@ -71,13 +71,13 @@
                 }
             </div>
             <div>
-                <label for="password" class="mb-2 block text-sm font-medium text-gray-900"
+                <label for="password" class="mb-2 block text-sm font-medium text-slate-900"
                     >Password</label
                 >
                 <input
                     type="password"
                     formControlName="password"
-                    class="block w-full rounded border border-gray-300 bg-gray-50 p-2.5 text-gray-900"
+                    class="block w-full rounded border border-slate-300 bg-slate-50 p-2.5 text-slate-900"
                 />
                 @if (
                     signUpForm.get('password')?.hasError('required') &&
@@ -104,13 +104,13 @@
             <div>
                 <label
                     for="passwordConfirmation"
-                    class="mb-2 block text-sm font-medium text-gray-900"
+                    class="mb-2 block text-sm font-medium text-slate-900"
                     >Confirm password</label
                 >
                 <input
                     type="password"
                     formControlName="passwordConfirmation"
-                    class="block w-full rounded border border-gray-300 bg-gray-50 p-2.5 text-gray-900"
+                    class="block w-full rounded border border-slate-300 bg-slate-50 p-2.5 text-slate-900"
                 />
                 @if (
                     signUpForm.get('passwordConfirmation')?.touched &&
@@ -130,7 +130,7 @@
                     Register
                 </button>
             </div>
-            <p class="text-sm font-light text-gray-500 dark:text-gray-400">
+            <p class="text-sm font-light text-slate-500 dark:text-slate-400">
                 Already have an account?
                 <a
                     [routerLink]="['/login']"

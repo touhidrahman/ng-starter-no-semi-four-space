@@ -8,7 +8,7 @@ import { Component, Input } from '@angular/core'
 })
 export class OverviewCardComponent {
     @Input() bgColor = 'bg-white'
-    @Input() textColor = 'text-gray-800'
+    @Input() textColor = 'text-slate-800'
     @Input() icon!: string
     @Input() title!: string
     @Input() value!: string | number

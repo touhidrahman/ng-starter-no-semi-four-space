@@ -16,16 +16,16 @@ import { Component, Input } from '@angular/core'
 
             <!-- Account Info -->
             <div class="flex flex-col">
-                <p class="text-sm font-medium text-gray-800 dark:text-white">
+                <p class="text-sm font-medium text-slate-800 dark:text-white">
                     {{ account.name }}
                 </p>
-                <p class="text-xs text-gray-500 dark:text-gray-400">
+                <p class="text-xs text-slate-500 dark:text-slate-400">
                     {{ account.email }}
                 </p>
             </div>
         </div>
         <div class="text-right">
-            <p class="text-lg font-medium text-gray-800 dark:text-white">
+            <p class="text-lg font-medium text-slate-800 dark:text-white">
                 {{ account.balance | currency: userCurrency }}
             </p>
         </div>
