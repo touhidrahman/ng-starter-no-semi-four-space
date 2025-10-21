@@ -6,7 +6,6 @@ import {
 } from '@angular/core'
 import { RouterModule } from '@angular/router'
 import { AppStateService } from '@core/states/app-state.service'
-import { PrimeModules } from '@core/ui/primeng'
 import { isSmallScreen } from '@core/utils/screen.util'
 import { AuthStateService } from '@main/auth/services/auth.service'
 import { HeaderOneComponent } from '@main/headers/header-one/header-one.component'
@@ -14,12 +13,7 @@ import { SidebarOneComponent } from '@main/sidebars/sidebar-one/sidebar-one'
 
 @Component({
     selector: 'app-layout-sidebar',
-    imports: [
-        RouterModule,
-        HeaderOneComponent,
-        SidebarOneComponent,
-        ...PrimeModules,
-    ],
+    imports: [RouterModule, HeaderOneComponent, SidebarOneComponent],
     templateUrl: './layout-sidebar.component.html',
     styleUrls: ['./layout-sidebar.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,

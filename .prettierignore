@@ -6,3 +6,13 @@ package-lock.json
 package.json
 src/assets/**
 yarn.lock
+.angular
+
+# biome formats these files so ignore from prettier
+**/*.ts
+**/*.js
+**/*.md
+**/*.mjs
+**/*.cjs
+**/*.css
+# **/*.scss # not yet supported by biome

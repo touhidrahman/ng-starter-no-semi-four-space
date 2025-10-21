@@ -7,8 +7,7 @@ This boilerplate uses:
 - BiomeJS
 - Prettier
 - Git hooks
-- Boxicons
-- PrimeNG
+- Spartan NG UI
 
 and most importantly - **4 space tabs** and **NO SEMICOLON**
 

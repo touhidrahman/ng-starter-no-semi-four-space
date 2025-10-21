@@ -11,7 +11,6 @@ import {
     importProvidersFrom,
     provideZonelessChangeDetection,
 } from '@angular/core'
-import { provideAnimations } from '@angular/platform-browser/animations'
 import {
     PreloadAllModules,
     provideRouter,
@@ -33,9 +32,7 @@ import {
 } from '@main/auth/auth-injectors'
 import { AuthHeaderInterceptorFn } from '@main/auth/interceptors/auth-header.interceptor'
 import { provideNgIconsConfig } from '@ng-icons/core'
-import { providePrimeNG } from 'primeng/config'
 import { AppRoutes } from './app.routes'
-import { MyPrimeNGConfig } from './primeng.config'
 
 export const appConfig: ApplicationConfig = {
     providers: [
@@ -50,8 +47,6 @@ export const appConfig: ApplicationConfig = {
         },
         { provide: TitleStrategy, useClass: CustomTitleStrategy },
         provideZonelessChangeDetection(),
-        // provideAnimationsAsync(),
-        provideAnimations(),
         provideHttpClient(
             withFetch(),
             withXsrfConfiguration({}),
@@ -68,7 +63,6 @@ export const appConfig: ApplicationConfig = {
             withComponentInputBinding(),
             withPreloading(PreloadAllModules),
         ),
-        providePrimeNG(MyPrimeNGConfig),
         provideNgIconsConfig({
             size: '1.5rem',
             color: 'currentColor',
