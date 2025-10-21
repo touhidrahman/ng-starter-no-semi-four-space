@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common'
 import {
     ChangeDetectionStrategy,
     Component,
@@ -10,11 +9,16 @@ import {
 } from '@angular/core'
 import { RouterModule } from '@angular/router'
 import { AppStateService } from '@core/states/app-state.service'
+import { IconImports } from '@core/ui/icon-imports'
+import { SpartanImports } from '@core/ui/spartan-imports'
 import { AuthStateService } from '@main/auth/services/auth.service'
+import { provideIcons } from '@ng-icons/core'
+import { hlmH3 } from '@spartan-ng/helm/typography'
 
 @Component({
     selector: 'app-header-one',
-    imports: [RouterModule, CommonModule],
+    imports: [RouterModule, ...SpartanImports],
+    providers: [provideIcons(IconImports)],
     templateUrl: './header-one.component.html',
     styleUrls: ['./header-one.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -27,6 +31,7 @@ export class HeaderOneComponent implements OnInit {
     @Output() sidenavToggle = new EventEmitter<void>()
 
     appName = this.appState.appName
+    hlmH3 = hlmH3
 
     ngOnInit(): void {
         void 0

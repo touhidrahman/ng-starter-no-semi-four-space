@@ -20,15 +20,3 @@
         </main>
     </div>
 </div>
-
-<!-- Drawer (mobile) -->
-<p-drawer
-    [(visible)]="sidebarVisible"
-    position="left"
-    [modal]="true"
-    header="Menu"
-    [baseZIndex]="10000"
-    class="bg-surface-100 dark:bg-surface-900 block w-64 shadow-lg md:hidden"
->
-    <app-sidebar-one (closeSidebar)="toggleSidebar()"></app-sidebar-one>
-</p-drawer>

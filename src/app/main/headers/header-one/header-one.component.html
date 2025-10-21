@@ -1,36 +1,61 @@
-<p-menubar class="bg-transparent">
-    <!-- Left side: button + logo -->
-    <ng-template pTemplate="start">
-        <!-- Sidebar toggle button -->
-        <p-button
-            severity="secondary"
-            type="icon"
-            icon="pi pi-bars"
-            class="mx-2 block md:hidden"
-            (click)="sidenavToggle.emit()"
-        />
-
+<header class="border-border flex items-center border-b px-4 py-3">
+    <div class="flex justify-start">
         <!-- Logo -->
-        <svg width="31" height="33" viewBox="0 0 31 33" xmlns="http://www.w3.org/2000/svg">
-            <path
-                d="M15.1934 0L0.0391 5.3829L2.3505 25.3417L15.1934 32.427L28.0364 25.3417L30.3478 5.3829L15.1934 0Z"
-                fill="var(--p-primary-color)"
-            />
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-cloud-sun-icon lucide-cloud-sun text-2xl text-slate-600 mr-4"
+        >
+            <path d="M12 2v2" />
+            <path d="m4.93 4.93 1.41 1.41" />
+            <path d="M20 12h2" />
+            <path d="m19.07 4.93-1.41 1.41" />
+            <path d="M15.947 12.65a4 4 0 0 0-5.925-4.128" />
+            <path d="M13 22H7a5 5 0 1 1 4.9-6H13a3 3 0 0 1 0 6Z" />
         </svg>
-    </ng-template>
-
-    <!-- Right side: avatar dropdown -->
-    <ng-template pTemplate="end">
-        <div class="flex items-center">
-            <p-avatar
-                image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png"
-                shape="circle"
-                styleClass="cursor-pointer"
-                (click)="menu.toggle($event)"
-            ></p-avatar>
-
-            <!-- Dropdown menu -->
-            <p-menu #menu [popup]="true" [model]="userMenuItems"></p-menu>
+        <h3 class="{{ hlmH3 }}">
+            {{ appName }}
+        </h3>
+    </div>
+    <div class="flex-1"></div>
+    <div class="flex justify-end">
+        <div hlmButtonGroup>
+            <button hlmBtn variant="outline">Profile</button>
+            <button hlmBtn variant="outline" size="icon" [brnMenuTriggerFor]="menu">
+                <ng-icon hlm name="lucideChevronDown" size="sm" />
+            </button>
         </div>
-    </ng-template>
-</p-menubar>
+        <ng-template #menu>
+            <hlm-menu class="w-45 [--radius:1rem]">
+                <hlm-menu-group>
+                    <button hlmMenuItem>
+                        <ng-icon hlm name="lucideShare" size="sm" />
+                        <span>Share</span>
+                    </button>
+                    <button hlmMenuItem>
+                        <ng-icon hlm name="lucideCopy" size="sm" />
+                        <span>Settings</span>
+                    </button>
+                </hlm-menu-group>
+                <hlm-menu-separator />
+                <hlm-menu-group>
+                    <button
+                        hlmMenuItem
+                        variant="destructive"
+                        class="hover:bg-destructive/10 dark:hover:bg-destructive/40"
+                    >
+                        <ng-icon hlm name="lucideUserRoundX" size="sm" class="!text-destructive" />
+                        <span>Delete Conversation</span>
+                    </button>
+                </hlm-menu-group>
+            </hlm-menu>
+        </ng-template>
+    </div>
+</header>
