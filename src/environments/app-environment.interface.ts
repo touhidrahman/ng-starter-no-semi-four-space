@@ -3,4 +3,8 @@ export interface AppEnvironment {
     production: boolean
     apiUrl: string
     authApiUrl: string
+
+    appwriteEndpoint: string,
+    appwriteProjectId: string
+    appwriteProjectName: string
 }

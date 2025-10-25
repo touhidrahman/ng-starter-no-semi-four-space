@@ -46,6 +46,7 @@
         "@ngneat/dialog": "^5.2.0",
         "@spartan-ng/brain": "0.0.1-alpha.533",
         "@tailwindcss/postcss": "^4.1.14",
+        "appwrite": "^21.2.1",
         "class-variance-authority": "^0.7.0",
         "clsx": "^2.1.1",
         "date-fns": "^4.1.0",
