@@ -1,0 +1,165 @@
+<body class="font-display bg-background-light dark:bg-background-dark">
+    <div
+        class="relative flex min-h-screen w-full flex-col items-center justify-center p-4 sm:p-6 lg:p-8"
+    >
+        <main class="w-full max-w-2xl">
+            <div class="flex flex-col gap-8">
+                <!-- Page Heading -->
+                <div class="text-center">
+                    <h1
+                        class="text-3xl font-black tracking-tighter text-zinc-900 sm:text-4xl dark:text-white"
+                    >
+                        Add New Card
+                    </h1>
+                    <p class="mt-2 text-base text-zinc-500 dark:text-zinc-400">
+                        Securely enter your card details below.
+                    </p>
+                </div>
+                <!-- Form Container -->
+                <div class="w-full space-y-6">
+                    <!-- Card Name -->
+                    <div class="flex flex-col">
+                        <label
+                            class="pb-2 text-sm font-medium text-zinc-800 dark:text-zinc-200"
+                            for="card-name"
+                            >Card Name</label
+                        >
+                        <input
+                            class="form-input focus:border-primary focus:ring-primary h-12 w-full rounded-lg border border-zinc-200 bg-transparent px-4 text-base text-zinc-900 placeholder:text-zinc-400 focus:ring-1 dark:border-zinc-700 dark:text-white dark:placeholder:text-zinc-500"
+                            id="card-name"
+                            placeholder="e.g., Chase Sapphire"
+                            type="text"
+                        />
+                    </div>
+                    <!-- Card Type -->
+                    <div class="flex flex-col">
+                        <label
+                            class="pb-2 text-sm font-medium text-zinc-800 dark:text-zinc-200"
+                            for="card-type"
+                            >Card Type</label
+                        >
+                        <select
+                            class="form-select bg-right-2.5 focus:border-primary focus:ring-primary h-12 w-full appearance-none rounded-lg border border-zinc-200 bg-transparent bg-[url('data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20fill=%27none%27%20viewBox=%270%200%2020%2020%27%3e%3cpath%20stroke=%27%236b7280%27%20stroke-linecap=%27round%27%20stroke-linejoin=%27round%27%20stroke-width=%271.5%27%20d=%27M6%208l4%204%204-4%27/%3e%3c/svg%3e')] bg-no-repeat px-4 text-base text-zinc-900 focus:ring-1 dark:border-zinc-700 dark:bg-[url('data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20fill=%27none%27%20viewBox=%270%200%2020%2020%27%3e%3cpath%20stroke=%27%23a1a1aa%27%20stroke-linecap=%27round%27%20stroke-linejoin=%27round%27%20stroke-width=%271.5%27%20d=%27M6%208l4%204%204-4%27/%3e%3c/svg%3e')] dark:text-white"
+                            id="card-type"
+                        >
+                            <option>Credit</option>
+                            <option>Debit</option>
+                        </select>
+                    </div>
+                    <!-- Name on Card -->
+                    <div class="flex flex-col">
+                        <label
+                            class="pb-2 text-sm font-medium text-zinc-800 dark:text-zinc-200"
+                            for="name-on-card"
+                            >Name on Card</label
+                        >
+                        <input
+                            class="form-input focus:border-primary focus:ring-primary h-12 w-full rounded-lg border border-zinc-200 bg-transparent px-4 text-base text-zinc-900 placeholder:text-zinc-400 focus:ring-1 dark:border-zinc-700 dark:text-white dark:placeholder:text-zinc-500"
+                            id="name-on-card"
+                            placeholder="Enter name as it appears on card"
+                            type="text"
+                        />
+                    </div>
+                    <!-- Card Number -->
+                    <div class="flex flex-col">
+                        <label
+                            class="pb-2 text-sm font-medium text-zinc-800 dark:text-zinc-200"
+                            for="card-number"
+                            >Card Number</label
+                        >
+                        <input
+                            class="form-input focus:border-primary focus:ring-primary h-12 w-full rounded-lg border border-zinc-200 bg-transparent px-4 text-base text-zinc-900 placeholder:text-zinc-400 focus:ring-1 dark:border-zinc-700 dark:text-white dark:placeholder:text-zinc-500"
+                            id="card-number"
+                            placeholder="XXXX XXXX XXXX XXXX"
+                            type="text"
+                        />
+                    </div>
+                    <!-- Expiry & Current Balance -->
+                    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                        <div class="flex flex-col">
+                            <label
+                                class="pb-2 text-sm font-medium text-zinc-800 dark:text-zinc-200"
+                                for="expiry-date"
+                                >Expiry Date</label
+                            >
+                            <input
+                                class="form-input focus:border-primary focus:ring-primary h-12 w-full rounded-lg border border-zinc-200 bg-transparent px-4 text-base text-zinc-900 placeholder:text-zinc-400 focus:ring-1 dark:border-zinc-700 dark:text-white dark:placeholder:text-zinc-500"
+                                id="expiry-date"
+                                placeholder="MM/YY"
+                                type="text"
+                            />
+                        </div>
+                        <div class="flex flex-col">
+                            <label
+                                class="pb-2 text-sm font-medium text-zinc-800 dark:text-zinc-200"
+                                for="current-balance"
+                                >Current Balance ($)</label
+                            >
+                            <input
+                                class="form-input focus:border-primary focus:ring-primary h-12 w-full rounded-lg border border-zinc-200 bg-transparent px-4 text-base text-zinc-900 placeholder:text-zinc-400 focus:ring-1 dark:border-zinc-700 dark:text-white dark:placeholder:text-zinc-500"
+                                id="current-balance"
+                                placeholder="0.00"
+                                type="number"
+                            />
+                        </div>
+                    </div>
+                    <!-- Dates & Credit Limit -->
+                    <div class="grid grid-cols-1 gap-6 sm:grid-cols-3">
+                        <div class="flex flex-col">
+                            <label
+                                class="pb-2 text-sm font-medium text-zinc-800 dark:text-zinc-200"
+                                for="due-date"
+                                >Monthly Due Date</label
+                            >
+                            <input
+                                class="form-input focus:border-primary focus:ring-primary h-12 w-full rounded-lg border border-zinc-200 bg-transparent px-4 text-base text-zinc-900 placeholder:text-zinc-400 focus:ring-1 dark:border-zinc-700 dark:text-white dark:placeholder:text-zinc-500"
+                                id="due-date"
+                                placeholder="e.g., 15"
+                                type="number"
+                            />
+                        </div>
+                        <div class="flex flex-col">
+                            <label
+                                class="pb-2 text-sm font-medium text-zinc-800 dark:text-zinc-200"
+                                for="statement-date"
+                                >Statement Date</label
+                            >
+                            <input
+                                class="form-input focus:border-primary focus:ring-primary h-12 w-full rounded-lg border border-zinc-200 bg-transparent px-4 text-base text-zinc-900 placeholder:text-zinc-400 focus:ring-1 dark:border-zinc-700 dark:text-white dark:placeholder:text-zinc-500"
+                                id="statement-date"
+                                placeholder="e.g., 20"
+                                type="number"
+                            />
+                        </div>
+                        <div class="flex flex-col">
+                            <label
+                                class="pb-2 text-sm font-medium text-zinc-800 dark:text-zinc-200"
+                                for="credit-limit"
+                                >Credit Limit ($)</label
+                            >
+                            <input
+                                class="form-input focus:border-primary focus:ring-primary h-12 w-full rounded-lg border border-zinc-200 bg-transparent px-4 text-base text-zinc-900 placeholder:text-zinc-400 focus:ring-1 dark:border-zinc-700 dark:text-white dark:placeholder:text-zinc-500"
+                                id="credit-limit"
+                                placeholder="5000"
+                                type="number"
+                            />
+                        </div>
+                    </div>
+                </div>
+                <!-- Action Buttons -->
+                <div class="flex flex-col gap-4 pt-2">
+                    <button
+                        class="bg-primary focus-visible:outline-primary flex h-12 w-full items-center justify-center rounded-lg px-6 text-base font-semibold text-white transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+                    >
+                        Save Card
+                    </button>
+                    <button
+                        class="flex h-12 w-full items-center justify-center rounded-lg bg-transparent px-6 text-base font-semibold text-zinc-700 transition-colors hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-800"
+                    >
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
