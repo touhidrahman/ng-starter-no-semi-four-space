@@ -15,13 +15,14 @@
     </div>
 
     <div class="mt-4 flex flex-col gap-2">
-        <a class="text-primary flex items-center gap-3 rounded-lg bg-black/10 px-3 py-2" href="#">
+        <a routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="text-primary flex items-center gap-3 rounded-lg  px-3 py-2" routerLink="/">
             <span class="material-symbols-outlined">dashboard</span>
             <p class="text-sm leading-normal font-medium">Dashboard</p>
         </a>
         <a
             [routerLink]="[accountRoutes.index.path]"
-            class="text-primary flex items-center gap-3 rounded-lg bg-black/10 px-3 py-2"
+            routerLinkActive="active"
+            class="text-primary flex items-center gap-3 rounded-lg  px-3 py-2"
             href="#"
         >
             <span class="material-symbols-outlined">account_balance_wallet</span>
@@ -30,6 +31,7 @@
         <a
             class="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-200"
             href="#"
+
         >
             <span class="material-symbols-outlined">receipt_long</span>
             <p class="text-sm leading-normal font-medium">Transactions</p>

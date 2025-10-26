@@ -11,7 +11,7 @@ import { SpartanImports } from '@core/ui/spartan-imports'
 })
 export class CardAccountEditComponent {
     private fb = inject(FormBuilder)
-    tableClient = new AppwriteTableClient<any>('creditcards')
+    tableClient = new AppwriteTableClient<any>('accounts')
 
     cardForm = this.fb.group({
         cardName: ['', Validators.required],

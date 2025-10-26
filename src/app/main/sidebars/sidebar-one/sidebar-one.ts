@@ -13,6 +13,9 @@ export class SidebarOneComponent {
     @Output() closeSidebar = new EventEmitter<void>()
 
     accountRoutes = getAccountRoutes()
+    // transactionRoutes = getTransactionRoutes()
+    // budgetRoutes = getBudgetRoutes()
+    // settingsRoutes = getSettingsRoutes()
 
     itemClick(_event: any) {
         this.closeSidebar.emit()
