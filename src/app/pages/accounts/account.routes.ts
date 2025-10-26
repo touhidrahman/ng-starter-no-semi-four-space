@@ -12,7 +12,7 @@ export function getCardRoutes(): CardRoutes {
             path: 'card/edit/new',
             title: 'Card',
             resolve: { layout: setLayout(PageLayout.Sidebar) },
-            loadComponent: () => import('./card-edit/card-edit.component').then(m => m.CardEditComponent),
+            loadComponent: () => import('./card-account-edit/card-account-edit.component').then(m => m.CardAccountEditComponent),
         },
     }
 }

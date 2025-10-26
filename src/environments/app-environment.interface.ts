@@ -7,4 +7,5 @@ export interface AppEnvironment {
     appwriteEndpoint: string,
     appwriteProjectId: string
     appwriteProjectName: string
+    appwriteApiKey: string
 }

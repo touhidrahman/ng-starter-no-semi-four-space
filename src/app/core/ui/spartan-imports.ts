@@ -6,6 +6,7 @@ import { HlmButtonGroup } from '@spartan-ng/helm/button-group'
 import { HlmFormFieldImports } from '@spartan-ng/helm/form-field'
 import { HlmIcon } from '@spartan-ng/helm/icon'
 import { HlmInputImports } from '@spartan-ng/helm/input'
+import { HlmLabel } from '@spartan-ng/helm/label'
 import {
     HlmMenu,
     HlmMenuBar,
@@ -23,16 +24,18 @@ import {
     HlmSubMenu,
 } from '@spartan-ng/helm/menu'
 import { HlmSelectImports } from '@spartan-ng/helm/select'
+import { HlmTypographyImports } from '@spartan-ng/helm/typography'
 
 export const SpartanImports = [
     BrnMenuTrigger,
     BrnSelectImports,
-    HlmButtonImports,
     HlmButton,
     HlmButtonGroup,
+    HlmButtonImports,
     HlmFormFieldImports,
     HlmIcon,
     HlmInputImports,
+    HlmLabel,
     HlmMenu,
     HlmMenuBar,
     HlmMenuBarItem,
@@ -49,5 +52,6 @@ export const SpartanImports = [
     HlmMenuShortcut,
     HlmSelectImports,
     HlmSubMenu,
+    HlmTypographyImports,
     NgIcon,
 ]
