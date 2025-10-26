@@ -7,6 +7,8 @@ export type AccountRoutes = {
     cardUpdate: Route
     bankAccountCreate: Route
     bankAccountUpdate: Route
+    loanAccountCreate: Route
+    loanAccountUpdate: Route
 }
 
 export function getAccountRoutes(): AccountRoutes {
@@ -34,6 +36,18 @@ export function getAccountRoutes(): AccountRoutes {
             title: 'Edit Bank Account',
             resolve: { layout: setLayout(PageLayout.Sidebar) },
             loadComponent: () => import('./bank-account-edit/bank-account-edit.component').then(m => m.BankAccountEditComponent),
+        },
+        loanAccountCreate: {
+            path: 'loan-account/edit/new',
+            title: 'Loan Account',
+            resolve: { layout: setLayout(PageLayout.Sidebar) },
+            loadComponent: () => import('./loan-account-edit/loan-account-edit.component').then(m => m.LoanAccountEditComponent),
+        },
+        loanAccountUpdate: {
+            path: 'loan-account/edit/:id',
+            title: 'Edit Loan Account',
+            resolve: { layout: setLayout(PageLayout.Sidebar) },
+            loadComponent: () => import('./loan-account-edit/loan-account-edit.component').then(m => m.LoanAccountEditComponent),
         },
     }
 }
