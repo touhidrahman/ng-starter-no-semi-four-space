@@ -15,170 +15,77 @@
     </button>
 </div>
 <div class="mb-10 grid grid-cols-1 gap-6 md:grid-cols-3">
-    <div class="flex flex-col gap-2 rounded-xl border border-gray-200 bg-gray-50 p-6">
-        <p class="text-base leading-normal font-medium text-gray-600">Total Net Worth</p>
-        <p class="tracking-light text-2xl leading-tight font-bold text-gray-900">$125,430.50</p>
-        <p class="text-positive text-base leading-normal font-medium">+2.5%</p>
-    </div>
-    <div class="flex flex-col gap-2 rounded-xl border border-gray-200 bg-gray-50 p-6">
-        <p class="text-base leading-normal font-medium text-gray-600">Total Debt</p>
-        <p class="tracking-light text-2xl leading-tight font-bold text-gray-900">$85,210.00</p>
-        <p class="text-negative text-base leading-normal font-medium">-1.2%</p>
-    </div>
-    <div class="flex flex-col gap-2 rounded-xl border border-gray-200 bg-gray-50 p-6">
-        <p class="text-base leading-normal font-medium text-gray-600">Recent Spending</p>
-        <p class="tracking-light text-2xl leading-tight font-bold text-gray-900">$1,245.78</p>
-        <p class="text-positive text-base leading-normal font-medium">+5.8%</p>
-    </div>
+    <app-dashboard-account-widget
+        [title]="'Total Net Worth'"
+        [amount]="'50,234.00'"
+        [subtitle]="'-1.2%'"
+    ></app-dashboard-account-widget>
+    <app-dashboard-account-widget
+        [title]="'Total Debt'"
+        [amount]="'50,234.00'"
+        [subtitle]="'-1.2%'"
+    ></app-dashboard-account-widget>
+    <app-dashboard-account-widget
+        [title]="'Recent Spending'"
+        [amount]="'50,234.00'"
+        [subtitle]="'-1.2%'"
+    ></app-dashboard-account-widget>
 </div>
 <div class="flex flex-col gap-10">
     <section>
-        <div class="mb-4 flex items-center justify-between">
-            <div>
-                <h2 class="text-[22px] leading-tight font-bold tracking-tight text-gray-900">
-                    Credit Cards
-                </h2>
-                <p class="text-base leading-normal font-normal text-gray-500">
-                    Total Balance: $5,432.89
-                </p>
-            </div>
-            <button class="text-primary flex items-center gap-2 text-sm font-bold hover:underline">
-                <span class="material-symbols-outlined text-base">add</span>
-                Add Card
-            </button>
-        </div>
+        <app-dashboard-account-section-header
+            class="mb-4"
+            [title]="'Credit Cards'"
+        ></app-dashboard-account-section-header>
+
         <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            <div class="flex flex-col gap-4 rounded-xl border border-gray-200 bg-white p-5">
-                <div class="flex items-center gap-4">
-                    <img
-                        alt="Chase Bank Logo"
-                        class="h-10 w-10 object-contain"
-                        data-alt="Chase Bank Logo"
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCf2s-T2OJjDVJxhLOU5HHBq4Njp21Ug7d7Ash0AnPEEwya_wKdsoUd5K4XY2irHZ_pS3J9S698BHCGKHv_7VsaCxGOQYZCf3rg4YLg8GYEwGnMtYaIq252dYhI183iZ446jbbGAh3mETV96rqkmABeflC2Ro7Mw7Jd8zzmqA57MjCh-eK2dKCm5XNGnYdLRMZDaczuNFT5AFnBysSjS6OKfQJVC5ZbKhPRy3B9PFPLIhTQw2UJlySYVYqby2ZStdWogmXM6h2uYW29"
-                    />
-                    <div>
-                        <h3 class="font-bold text-gray-900">Sapphire Preferred</h3>
-                        <p class="text-sm text-gray-500">Credit Card •••• 5678</p>
-                    </div>
-                </div>
-                <div>
-                    <p class="text-xs tracking-wider text-gray-500 uppercase">Current Balance</p>
-                    <p class="text-2xl font-bold text-gray-900">$3,150.75</p>
-                </div>
-                <div>
-                    <p class="text-xs tracking-wider text-gray-500 uppercase">Next Payment Due</p>
-                    <p class="text-sm font-medium text-gray-700">Oct 25, 2023</p>
-                </div>
-                <a
-                    class="mt-2 w-full rounded-lg bg-gray-100 px-4 py-2 text-center text-sm font-bold text-gray-800 hover:bg-gray-200"
-                    href="#"
-                    >View Details</a
-                >
-            </div>
-            <div class="flex flex-col gap-4 rounded-xl border border-gray-200 bg-white p-5">
-                <div class="flex items-center gap-4">
-                    <img
-                        alt="American Express Logo"
-                        class="h-10 w-10 rounded-md bg-white object-contain p-1"
-                        data-alt="American Express Logo"
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsmjFmiJeiIRAaZGSFmnMIi0wyd7fQui5KLczv-gXaqlH238luuvmV3KdS6Nn1JKUx8QHHCV4bkfz9GfJPd7ynQOzITfJJbPmfm2iLS6jL5ZCpdOQeSm0XMoLtUFod97EMXOPtD9DcGRt0OHJvZArNH-K3ekH2MbAO1Z7aUZQZm8VfizXje7__pIsBvdZy3XROFlDVRxzBygbnnOo1JNkXhEfT6ovb-XCe4Brrl-i9qAi2d4Sb6hyunklsBKYHpcNMBT3BsJlF47mm"
-                    />
-                    <div>
-                        <h3 class="font-bold text-gray-900">Gold Card</h3>
-                        <p class="text-sm text-gray-500">Credit Card •••• 9012</p>
-                    </div>
-                </div>
-                <div>
-                    <p class="text-xs tracking-wider text-gray-500 uppercase">Current Balance</p>
-                    <p class="text-2xl font-bold text-gray-900">$2,282.14</p>
-                </div>
-                <div>
-                    <p class="text-xs tracking-wider text-gray-500 uppercase">Next Payment Due</p>
-                    <p class="text-sm font-medium text-gray-700">Nov 02, 2023</p>
-                </div>
-                <a
-                    class="mt-2 w-full rounded-lg bg-gray-100 px-4 py-2 text-center text-sm font-bold text-gray-800 hover:bg-gray-200"
-                    href="#"
-                    >View Details</a
-                >
-            </div>
+            <app-account-card></app-account-card>
+            <app-account-card></app-account-card>
         </div>
     </section>
+
     <section>
-        <div class="mb-4 flex items-center justify-between">
-            <div>
-                <h2 class="text-[22px] leading-tight font-bold tracking-tight text-gray-900">
-                    Checking Accounts
-                </h2>
-                <p class="text-base leading-normal font-normal text-gray-500">
-                    Total Balance: $12,874.12
-                </p>
-            </div>
-            <button class="text-primary flex items-center gap-2 text-sm font-bold hover:underline">
-                <span class="material-symbols-outlined text-base">add</span>
-                Add Account
-            </button>
-        </div>
+        <app-dashboard-account-section-header
+            class="mb-4"
+            [title]="'Debit/Gift Cards'"
+        ></app-dashboard-account-section-header>
+
         <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            <div
-                class="flex min-h-[260px] flex-col items-center justify-center gap-4 rounded-xl border-2 border-dashed border-gray-300 bg-gray-50 p-5"
-            >
-                <span class="material-symbols-outlined text-4xl text-gray-400">add_card</span>
-                <p class="text-center text-gray-500">
-                    You haven't added any checking accounts yet.
-                </p>
-                <button
-                    class="text-primary flex items-center gap-2 text-sm font-bold hover:underline"
-                >
-                    <span class="material-symbols-outlined text-base">add</span>
-                    Add Checking Account
-                </button>
-            </div>
+            <app-account-card></app-account-card>
+            <app-account-card></app-account-card>
         </div>
     </section>
+
     <section>
-        <div class="mb-4 flex items-center justify-between">
-            <div>
-                <h2 class="text-[22px] leading-tight font-bold tracking-tight text-gray-900">
-                    Savings Accounts
-                </h2>
-                <p class="text-base leading-normal font-normal text-gray-500">
-                    Total Balance: $58,321.90
-                </p>
-            </div>
-            <button class="text-primary flex items-center gap-2 text-sm font-bold hover:underline">
-                <span class="material-symbols-outlined text-base">add</span>
-                Add Account
-            </button>
-        </div>
+        <app-dashboard-account-section-header
+            class="mb-4"
+            [title]="'Checking Accounts'"
+        ></app-dashboard-account-section-header>
+
         <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            <div class="flex flex-col gap-4 rounded-xl border border-gray-200 bg-white p-5">
-                <div class="flex items-center gap-4">
-                    <img
-                        alt="Ally Bank Logo"
-                        class="h-10 w-10 object-contain"
-                        data-alt="Ally Bank Logo"
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-JNDjKalU7aAvkbm3Iuq5pQfCfYitJNWx78sggTyTyDm7XPlOL3ZjoBD2Py4eXe6uB_r6plEQt8V5V239Hz42qxI15t127_tOMvNt0ScaDJqCQzRk_O897R8jpcJYRg8_vQfU33dsUtZuMzvsHOy01VuGx2PoOrxrD1eBIiYdCBfvl7y80IKkKse7fPZi9B-hivRTNTYz7zVRMRBySRFYkJnCI7emUseqgCvIIsYsnBngdWWrF7X1chhj3tu26IX_f14VHXNDjMPy"
-                    />
-                    <div>
-                        <h3 class="font-bold text-gray-900">High-Yield Savings</h3>
-                        <p class="text-sm text-gray-500">Savings •••• 4451</p>
-                    </div>
-                </div>
-                <div>
-                    <p class="text-xs tracking-wider text-gray-500 uppercase">Current Balance</p>
-                    <p class="text-2xl font-bold text-gray-900">$58,321.90</p>
-                </div>
-                <div class="pointer-events-none opacity-0">
-                    <p class="text-xs tracking-wider uppercase"> </p>
-                    <p class="text-sm font-medium"> </p>
-                </div>
-                <a
-                    class="mt-2 w-full rounded-lg bg-gray-100 px-4 py-2 text-center text-sm font-bold text-gray-800 hover:bg-gray-200"
-                    href="#"
-                    >View Details</a
-                >
-            </div>
+            <app-account-card-placeholder></app-account-card-placeholder>
+        </div>
+    </section>
+
+    <section>
+        <app-dashboard-account-section-header
+            class="mb-4"
+            [title]="'Savings Accounts'"
+        ></app-dashboard-account-section-header>
+
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <app-account-card></app-account-card>
+        </div>
+    </section>
+
+        <section>
+        <app-dashboard-account-section-header
+            class="mb-4"
+            [title]="'Loan Accounts'"
+        ></app-dashboard-account-section-header>
+
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <app-account-card-placeholder></app-account-card-placeholder>
         </div>
     </section>
 </div>
