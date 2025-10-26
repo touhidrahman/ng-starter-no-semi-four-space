@@ -4,7 +4,7 @@ export interface AppEnvironment {
     apiUrl: string
     authApiUrl: string
 
-    appwriteEndpoint: string,
+    appwriteEndpoint: string
     appwriteProjectId: string
     appwriteProjectName: string
     appwriteApiKey: string

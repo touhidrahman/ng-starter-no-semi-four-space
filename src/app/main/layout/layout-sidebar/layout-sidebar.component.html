@@ -1,19 +1,21 @@
-<div class="flex h-screen flex-col">
+<div class="relative flex min-h-screen w-full flex-col">
     <!-- Header (always on top) -->
     <app-header-one
         (sidenavToggle)="toggleSidebar()"
         [showToggle]="isSmallScreen"
-        class="z-50 max-h-[64px] w-full shrink-0"
+        class="sticky top-0 z-50 max-h-[64px] bg-white w-full shrink-0"
     ></app-header-one>
 
-    <div class="flex flex-1 overflow-hidden">
+    <div class="relative flex flex-1">
         <!-- Sidebar (desktop) -->
-        <aside class="border-border hidden w-64 flex-shrink-0 border-r md:block">
+        <aside
+            class="border-border bg-accent sticky top-[60px] hidden h-[calc(100vh-60px)] w-64 flex-shrink-0 border-r md:block"
+        >
             <app-sidebar-one></app-sidebar-one>
         </aside>
 
         <!-- Main content -->
-        <main class="flex-1 overflow-auto p-4">
+        <main class="flex-1 overflow-y-auto p-8">
             <ng-content></ng-content>
         </main>
     </div>
