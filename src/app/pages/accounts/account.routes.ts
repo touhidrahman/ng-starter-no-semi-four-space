@@ -3,6 +3,7 @@ import { PageLayout } from '@main/layout/page-layout.enum'
 import { setLayout } from '@main/layout/set-layout.resolver'
 
 export type AccountRoutes = {
+    index: Route
     cardCreate: Route
     cardUpdate: Route
     bankAccountCreate: Route
@@ -13,6 +14,15 @@ export type AccountRoutes = {
 
 export function getAccountRoutes(): AccountRoutes {
     return {
+        index: {
+            path: 'accounts',
+            title: 'Accounts',
+            resolve: { layout: setLayout(PageLayout.Sidebar) },
+            loadComponent: () =>
+                import('./accounts-list/accounts-list.component').then(
+                    (m) => m.AccountsListComponent,
+                ),
+        },
         cardCreate: {
             path: 'card/edit/new',
             title: 'Card',

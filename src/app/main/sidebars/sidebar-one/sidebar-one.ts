@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core'
 import { RouterModule } from '@angular/router'
+import { getAccountRoutes } from '@pages/accounts/account.routes'
 
 @Component({
     selector: 'app-sidebar-one',
@@ -10,6 +11,8 @@ import { RouterModule } from '@angular/router'
 export class SidebarOneComponent {
     @Input() isOpen = true
     @Output() closeSidebar = new EventEmitter<void>()
+
+    accountRoutes = getAccountRoutes()
 
     itemClick(_event: any) {
         this.closeSidebar.emit()

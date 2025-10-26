@@ -1,4 +1,4 @@
-<div class="flex flex-col h-full p-4">
+<div class="flex h-full flex-col p-4">
     <!-- Sidebar Header -->
     <div class="flex items-center gap-3 p-2">
         <div
@@ -18,6 +18,14 @@
         <a class="text-primary flex items-center gap-3 rounded-lg bg-black/10 px-3 py-2" href="#">
             <span class="material-symbols-outlined">dashboard</span>
             <p class="text-sm leading-normal font-medium">Dashboard</p>
+        </a>
+        <a
+            [routerLink]="[accountRoutes.index.path]"
+            class="text-primary flex items-center gap-3 rounded-lg bg-black/10 px-3 py-2"
+            href="#"
+        >
+            <span class="material-symbols-outlined">account_balance_wallet</span>
+            <p class="text-sm leading-normal font-medium">Accounts</p>
         </a>
         <a
             class="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-700 hover:bg-gray-200"
@@ -43,7 +51,7 @@
     </div>
 
     <!-- Sidebar Footer -->
-    <div class="border-border border-t mt-auto py-3">
+    <div class="border-border mt-auto border-t py-3">
         <button
             class="bg-primary flex h-10 w-full max-w-[480px] min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg px-4 text-sm leading-normal font-bold tracking-wide text-white"
         >

@@ -1,0 +1,72 @@
+<div class="mb-8 flex flex-wrap items-center justify-between gap-4">
+    <div class="flex flex-col gap-1">
+        <h1 class="text-3xl leading-tight font-black tracking-tight text-gray-900">Accounts</h1>
+        <p class="text-base leading-normal font-normal text-gray-500">
+            Add and manage your accounts to get a complete overview of your finances.
+        </p>
+    </div>
+    <button
+        class="bg-primary flex h-10 min-w-[84px] cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-lg px-4 text-sm leading-normal font-bold tracking-wide text-white"
+    >
+        <span class="material-symbols-outlined text-base">add</span>
+        <span class="truncate">Add Account</span>
+    </button>
+</div>
+<div class="flex flex-col gap-10">
+    <section>
+        <app-dashboard-account-section-header
+            class="mb-4"
+            [title]="'Credit Cards'"
+        ></app-dashboard-account-section-header>
+
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <app-account-card></app-account-card>
+            <app-account-card></app-account-card>
+        </div>
+    </section>
+
+    <section>
+        <app-dashboard-account-section-header
+            class="mb-4"
+            [title]="'Debit/Gift Cards'"
+        ></app-dashboard-account-section-header>
+
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <app-account-card></app-account-card>
+            <app-account-card></app-account-card>
+        </div>
+    </section>
+
+    <section>
+        <app-dashboard-account-section-header
+            class="mb-4"
+            [title]="'Checking Accounts'"
+        ></app-dashboard-account-section-header>
+
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <app-account-card-placeholder></app-account-card-placeholder>
+        </div>
+    </section>
+
+    <section>
+        <app-dashboard-account-section-header
+            class="mb-4"
+            [title]="'Savings Accounts'"
+        ></app-dashboard-account-section-header>
+
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <app-account-card></app-account-card>
+        </div>
+    </section>
+
+    <section>
+        <app-dashboard-account-section-header
+            class="mb-4"
+            [title]="'Loan Accounts'"
+        ></app-dashboard-account-section-header>
+
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <app-account-card-placeholder></app-account-card-placeholder>
+        </div>
+    </section>
+</div>
