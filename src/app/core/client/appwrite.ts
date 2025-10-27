@@ -1,4 +1,4 @@
-import { Client, Databases, TablesDB } from 'appwrite'
+import { Client, Databases } from 'appwrite'
 import { environment } from '../../../environments/environment'
 
 export const AppwriteClient = new Client()
@@ -6,11 +6,9 @@ export const AppwriteClient = new Client()
     .setProject(environment.appwriteProjectId)
     .setDevKey(environment.appwriteApiKey)
 
-export const AppwriteTableClientConst = new TablesDB(AppwriteClient)
-
 export class AppwriteTableClient<T> {
     private tableClient = new Databases(AppwriteClient)
-    private databaseId = '68fc777b00005ac6fa2d'
+    private databaseId = environment.appwriteDatabaseId
 
     constructor(private tableId: string) {}
 

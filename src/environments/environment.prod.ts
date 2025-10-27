@@ -15,5 +15,6 @@ export const environment: AppEnvironment = {
         'http://appwrite-h80wokwcgwoksgcog40wkc4c.184.174.33.128.sslip.io/v1',
     appwriteProjectId: 'finance',
     appwriteProjectName: 'Personal Finance',
+    appwriteDatabaseId: '68fc777b00005ac6fa2d',
     appwriteApiKey: '',
 }

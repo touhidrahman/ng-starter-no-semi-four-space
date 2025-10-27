@@ -8,4 +8,5 @@ export interface AppEnvironment {
     appwriteProjectId: string
     appwriteProjectName: string
     appwriteApiKey: string
+    appwriteDatabaseId: string
 }
