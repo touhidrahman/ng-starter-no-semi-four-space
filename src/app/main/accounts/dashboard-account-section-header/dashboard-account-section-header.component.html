@@ -3,18 +3,22 @@
         <h2 class="text-[22px] leading-tight font-bold tracking-tight text-gray-900">
             {{ title() }}
         </h2>
-        <p class="text-base leading-normal font-normal text-gray-500">Total Balance: ${{ totalBalance() }}</p>
+        <p class="text-base leading-normal font-normal text-gray-500">
+            Total Balance: ${{ totalBalance() }}
+        </p>
     </div>
-   @if(routePath()){
-      <button [routerLink]="routePath()" class="text-primary flex items-center gap-2 text-sm font-bold hover:underline">
-        <span class="material-symbols-outlined text-base">add</span>
-        Add Account
-    </button>
-   }
-   @else{
-     <button  class="text-primary flex items-center gap-2 text-sm font-bold hover:underline">
-        <span class="material-symbols-outlined text-base">add</span>
-        Add Account
-    </button>
-}
+    @if (routePath()) {
+        <button
+            [routerLink]="routePath()"
+            class="text-primary flex items-center gap-2 text-sm font-bold hover:underline"
+        >
+            <span class="material-symbols-outlined text-base">add</span>
+            Add Account
+        </button>
+    } @else {
+        <button class="text-primary flex items-center gap-2 text-sm font-bold hover:underline">
+            <span class="material-symbols-outlined text-base">add</span>
+            Add Account
+        </button>
+    }
 </div>
