@@ -21,7 +21,7 @@
                             hlmInput
                             type="text"
                             placeholder="e.g., Chase Sapphire"
-                            formControlName="cardName"
+                            formControlName="name"
                         />
                         <hlm-hint>This is a nick name for your card.</hlm-hint>
                         <hlm-error>The field is required.</hlm-error>
@@ -41,8 +41,8 @@
                                 <hlm-select-value />
                             </hlm-select-trigger>
                             <hlm-select-content>
-                                <hlm-option value="credit">Credit</hlm-option>
-                                <hlm-option value="debit">Debit</hlm-option>
+                                <hlm-option value="Credit">Credit</hlm-option>
+                                <hlm-option value="Debit">Debit</hlm-option>
                             </hlm-select-content>
                         </brn-select>
                     </hlm-form-field>
@@ -53,7 +53,7 @@
                     <label class="mb-2" hlmLabel>Name on Card</label>
                     <hlm-form-field>
                         <input
-                            formControlName="nameOnCard"
+                            formControlName="accountName"
                             class="w-full"
                             hlmInput
                             type="text"
@@ -67,7 +67,7 @@
                     <label class="mb-2" hlmLabel>Card Number</label>
                     <hlm-form-field>
                         <input
-                            formControlName="cardNumber"
+                            formControlName="accountNumber"
                             class="w-full"
                             hlmInput
                             type="text"
@@ -81,7 +81,7 @@
                         <label class="mb-2" hlmLabel>Expiry Date</label>
                         <hlm-form-field>
                             <input
-                                formControlName="expiry"
+                                formControlName="card_expiry"
                                 class="w-full"
                                 hlmInput
                                 type="text"
@@ -121,7 +121,7 @@
                         <label class="mb-2" hlmLabel>Statement Date</label>
                         <hlm-form-field>
                             <input
-                                formControlName="statementDate"
+                                formControlName="monthlyStatementDate"
                                 class="w-full"
                                 hlmInput
                                 type="number"
@@ -133,7 +133,7 @@
                         <label class="mb-2" hlmLabel>Credit Limit</label>
                         <hlm-form-field>
                             <input
-                                formControlName="limit"
+                                formControlName="card_limit"
                                 class="w-full"
                                 hlmInput
                                 type="number"

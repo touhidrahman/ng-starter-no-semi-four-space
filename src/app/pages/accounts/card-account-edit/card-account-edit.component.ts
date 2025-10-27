@@ -14,24 +14,22 @@ export class CardAccountEditComponent {
     tableClient = new AppwriteTableClient<any>('accounts')
 
     cardForm = this.fb.group({
-        cardName: ['', Validators.required],
-        type: [''],
-        nameOnCard: [''],
-        cardNumber: [''],
-        expiry: [''],
+        name: ['', Validators.required],
+        type: ['', Validators.required],
+        accountName: [''],
+        accountNumber: [''],
+        card_expiry: [''],
         balance: [''],
         monthlyDueDate: [''],
-        statementDate: [''],
-        limit: [''],
+        monthlyStatementDate: [''],
+        card_limit: [''],
+        useForNetWorth: [false],
     })
 
     async saveCard() {
-        const result = await this.tableClient.getDocuments()
-        console.info('Existing cards:', result)
-
         if (this.cardForm.valid) {
             const cardData = this.cardForm.value
-            const expiryInput = cardData.expiry ?? '' // Expecting format "MM/YY"
+            const expiryInput = cardData.card_expiry ?? '' // Expecting format "MM/YY"
             const [month, year] = expiryInput
                 .split('/')
                 .map((part) => Number.parseInt(part, 10))
@@ -39,7 +37,7 @@ export class CardAccountEditComponent {
             const expiryDate = new Date(fullYear, month - 1) // Month is 0-indexed
             const saved = await this.tableClient.createDocument({
                 ...cardData,
-                expiry: expiryDate,
+                card_expiry: expiryDate,
             })
             console.info('Card saved:', saved)
         } else {
