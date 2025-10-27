@@ -22,7 +22,7 @@ export class LoanAccountEditComponent {
         bankName: [''],
         loan_subject: [''],
         currency: ['USD'],
-        useForNetWorth: [''],
+        useForNetWorth: [false],
         loan_startDate: [''],
         loan_endDate: [''],
         loan_interestRate: [''],
@@ -30,9 +30,6 @@ export class LoanAccountEditComponent {
     })
 
     async saveAccount() {
-        const result = await this.tableClient.getDocuments()
-        console.info('Existing cards:', result)
-
         if (this.loanForm.valid) {
             const loanData = this.loanForm.value
             const saved = await this.tableClient.createDocument({
