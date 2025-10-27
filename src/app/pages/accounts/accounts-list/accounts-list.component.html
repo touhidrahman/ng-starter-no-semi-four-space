@@ -12,61 +12,30 @@
         <span class="truncate">Add Account</span>
     </button>
 </div>
+
 <div class="flex flex-col gap-10">
-    <section>
-        <app-dashboard-account-section-header
-            class="mb-4"
-            [title]="'Credit Cards'"
-        ></app-dashboard-account-section-header>
+    <ng-container *ngIf="groupedAccounts() as grouped">
+        <section *ngFor="let t of accountTypes">
+            <app-dashboard-account-section-header
+                class="mb-4"
+                [title]="t.title"
+                [accountType]="t.key"
+                [routePath]="t.route"
+                [totalBalance]="grouped[t.key]?.totalBalance || 0"
+            ></app-dashboard-account-section-header>
 
-        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            <app-account-card></app-account-card>
-            <app-account-card></app-account-card>
-        </div>
-    </section>
+            <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+                <ng-container *ngIf="grouped[t.key]?.accounts?.length; else showPlaceholder">
+                    <app-account-card
+                        *ngFor="let account of grouped[t.key]?.accounts"
+                        [account]="account"
+                    ></app-account-card>
+                </ng-container>
 
-    <section>
-        <app-dashboard-account-section-header
-            class="mb-4"
-            [title]="'Debit/Gift Cards'"
-        ></app-dashboard-account-section-header>
-
-        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            <app-account-card></app-account-card>
-            <app-account-card></app-account-card>
-        </div>
-    </section>
-
-    <section>
-        <app-dashboard-account-section-header
-            class="mb-4"
-            [title]="'Checking Accounts'"
-        ></app-dashboard-account-section-header>
-
-        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            <app-account-card-placeholder></app-account-card-placeholder>
-        </div>
-    </section>
-
-    <section>
-        <app-dashboard-account-section-header
-            class="mb-4"
-            [title]="'Savings Accounts'"
-        ></app-dashboard-account-section-header>
-
-        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            <app-account-card></app-account-card>
-        </div>
-    </section>
-
-    <section>
-        <app-dashboard-account-section-header
-            class="mb-4"
-            [title]="'Loan Accounts'"
-        ></app-dashboard-account-section-header>
-
-        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            <app-account-card-placeholder></app-account-card-placeholder>
-        </div>
-    </section>
+                <ng-template #showPlaceholder>
+                    <app-account-card-placeholder></app-account-card-placeholder>
+                </ng-template>
+            </div>
+        </section>
+    </ng-container>
 </div>

@@ -7,17 +7,17 @@
             src="https://lh3.googleusercontent.com/aida-public/AB6AXuCf2s-T2OJjDVJxhLOU5HHBq4Njp21Ug7d7Ash0AnPEEwya_wKdsoUd5K4XY2irHZ_pS3J9S698BHCGKHv_7VsaCxGOQYZCf3rg4YLg8GYEwGnMtYaIq252dYhI183iZ446jbbGAh3mETV96rqkmABeflC2Ro7Mw7Jd8zzmqA57MjCh-eK2dKCm5XNGnYdLRMZDaczuNFT5AFnBysSjS6OKfQJVC5ZbKhPRy3B9PFPLIhTQw2UJlySYVYqby2ZStdWogmXM6h2uYW29"
         />
         <div>
-            <h3 class="font-bold text-gray-900">Sapphire Preferred</h3>
-            <p class="text-sm text-gray-500">Credit Card •••• 5678</p>
+            <h3 class="font-bold text-gray-900">{{ account().type }}</h3>
+            <p class="text-sm text-gray-500">{{ account().accountName }}</p>
         </div>
     </div>
     <div>
         <p class="text-xs tracking-wider text-gray-500 uppercase">Current Balance</p>
-        <p class="text-2xl font-bold text-gray-900">$3,150.75</p>
+        <p class="text-2xl font-bold text-gray-900">{{ account().balance | currency }}</p>
     </div>
     <div>
         <p class="text-xs tracking-wider text-gray-500 uppercase">Next Payment Due</p>
-        <p class="text-sm font-medium text-gray-700">Oct 25, 2023</p>
+        <p class="text-sm font-medium text-gray-700">{{ account().monthlyDueDate | date }}</p>
     </div>
     <a
         class="mt-2 w-full rounded-lg bg-gray-100 px-4 py-2 text-center text-sm font-bold text-gray-800 hover:bg-gray-200"
