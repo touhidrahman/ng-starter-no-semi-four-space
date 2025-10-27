@@ -22,13 +22,10 @@ export class BankAccountEditComponent {
         bankName: [''],
         bank_routing: [''],
         currency: [''],
-        useForNetWorth: [''],
+        useForNetWorth: [false],
     })
 
     async saveAccount() {
-        const result = await this.tableClient.getDocuments()
-        console.info('Existing cards:', result)
-
         if (this.bankForm.valid) {
             const cardData = this.bankForm.value
             const saved = await this.tableClient.createDocument({
