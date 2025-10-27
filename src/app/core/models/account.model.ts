@@ -7,6 +7,7 @@ export enum AccountTypeEnum {
 }
 
 export interface Account {
+    $id?: string
     name: string
     type: AccountTypeEnum
     accountName?: string

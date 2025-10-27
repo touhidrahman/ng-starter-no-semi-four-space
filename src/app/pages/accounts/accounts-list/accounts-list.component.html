@@ -1,41 +1,28 @@
-<div class="mb-8 flex flex-wrap items-center justify-between gap-4">
-    <div class="flex flex-col gap-1">
-        <h1 class="text-3xl leading-tight font-black tracking-tight text-gray-900">Accounts</h1>
-        <p class="text-base leading-normal font-normal text-gray-500">
-            Add and manage your accounts to get a complete overview of your finances.
-        </p>
-    </div>
-    <button
-        class="bg-primary flex h-10 min-w-[84px] cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-lg px-4 text-sm leading-normal font-bold tracking-wide text-white"
-    >
-        <span class="material-symbols-outlined text-base">add</span>
-        <span class="truncate">Add Account</span>
-    </button>
-</div>
-
+@let  grouped = groupedAccounts();
 <div class="flex flex-col gap-10">
-    <ng-container *ngIf="groupedAccounts() as grouped">
-        <section *ngFor="let t of accountTypes">
-            <app-dashboard-account-section-header
-                class="mb-4"
-                [title]="t.title"
-                [accountType]="t.key"
-                [routePath]="t.route"
-                [totalBalance]="grouped[t.key]?.totalBalance || 0"
-            ></app-dashboard-account-section-header>
+  @if (groupedAccounts()) {
 
-            <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-                <ng-container *ngIf="grouped[t.key]?.accounts?.length; else showPlaceholder">
-                    <app-account-card
-                        *ngFor="let account of grouped[t.key]?.accounts"
-                        [account]="account"
-                    ></app-account-card>
-                </ng-container>
 
-                <ng-template #showPlaceholder>
-                    <app-account-card-placeholder></app-account-card-placeholder>
-                </ng-template>
-            </div>
-        </section>
-    </ng-container>
+    @for (t of accountTypes; track t.key) {
+      <section>
+        <app-dashboard-account-section-header
+          class="mb-4"
+          [title]="t.title"
+          [accountType]="t.key"
+          [routePath]="t.route"
+          [totalBalance]="grouped[t.key].totalBalance || 0"
+        ></app-dashboard-account-section-header>
+
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          @if (grouped[t.key].accounts.length) {
+            @for (account of grouped[t.key].accounts; track account.$id) {
+              <app-account-card [account]="account"></app-account-card>
+            }
+          } @else {
+            <app-account-card-placeholder></app-account-card-placeholder>
+          }
+        </div>
+      </section>
+    }
+  }
 </div>
