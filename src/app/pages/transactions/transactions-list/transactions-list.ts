@@ -43,14 +43,30 @@ export class TransactionsList {
     total = this.transactions.length
     currentPage = signal(1)
     itemsPerPage = signal(2)
+    searchTerm = signal('')
+
+    filteredTransactions = computed(() => {
+        const term = this.searchTerm().toLowerCase()
+        return this.transactions.filter(
+            (tx) =>
+                tx.payee.toLowerCase().includes(term) ||
+                tx.category.toLowerCase().includes(term) ||
+                tx.account.toLowerCase().includes(term),
+        )
+    })
 
     paginatedTransactions = computed(() => {
         const start = (this.currentPage() - 1) * this.itemsPerPage()
         const end = start + this.itemsPerPage()
-        return this.transactions.slice(start, end)
+        return this.filteredTransactions().slice(start, end)
     })
 
     onPageChange(page: number) {
         this.currentPage.set(page)
+    }
+
+    onSearchChange(searchTerm: string) {
+        this.searchTerm.set(searchTerm)
+        this.currentPage.set(1)
     }
 }

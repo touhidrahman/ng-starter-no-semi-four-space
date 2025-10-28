@@ -1,4 +1,4 @@
-<app-transactions-header></app-transactions-header>
+<app-transactions-header (searchChange)="onSearchChange($event)"></app-transactions-header>
 <app-transactions-table [transactions]="paginatedTransactions()"></app-transactions-table>
 <app-pagination
     [currentPage]="currentPage()"
