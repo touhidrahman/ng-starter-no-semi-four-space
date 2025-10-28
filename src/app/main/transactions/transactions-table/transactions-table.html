@@ -14,7 +14,7 @@
             @for (t of transactions(); track t.id) {
                 <tr hlmTr>
                     <td hlmTd>{{ t.id }}</td>
-                    <td hlmTd>{{ t.TransactionTime| date: 'mediumDate' }}</td>
+                    <td hlmTd>{{ t.TransactionTime | date: 'mediumDate' }}</td>
                     <td hlmTd>{{ t.payee }}</td>
                     <td hlmTd>{{ t.amount | currency }}</td>
                     <td hlmTd>
@@ -23,9 +23,8 @@
                             [ngClass]="{
                                 'bg-green-100 text-green-800': t.direction === 'income',
                                 'bg-red-100 text-red-800': t.direction === 'expense',
-                                'bg-yellow-100 text-yellow-800': t.direction === 'transfer'
+                                'bg-yellow-100 text-yellow-800': t.direction === 'transfer',
                             }"
-
                         >
                             {{ t.category?.name }}
                         </span>
