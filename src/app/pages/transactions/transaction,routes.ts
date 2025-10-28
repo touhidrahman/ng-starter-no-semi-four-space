@@ -4,6 +4,7 @@ import { setLayout } from '@main/layout/set-layout.resolver'
 
 export type TransactionRoutes = {
     index: Route
+    transactionEdit: Route
 }
 
 export function getTransactionRoutes(): TransactionRoutes {
@@ -15,6 +16,15 @@ export function getTransactionRoutes(): TransactionRoutes {
             loadComponent: () =>
                 import('./transactions-list/transactions-list').then(
                     (m) => m.TransactionsList,
+                ),
+        },
+        transactionEdit: {
+            path: 'transactions/edit/new',
+            title: 'Add New Transaction ',
+            resolve: { layout: setLayout(PageLayout.Sidebar) },
+            loadComponent: () =>
+                import('./transaction-edit/transaction-edit').then(
+                    (m) => m.TransactionEdit,
                 ),
         },
     }
