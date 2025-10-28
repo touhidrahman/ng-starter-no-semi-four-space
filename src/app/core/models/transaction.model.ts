@@ -1,18 +1,6 @@
 import { Account } from './account.model'
 import { Category, SubCategory } from './category.model'
 
-export enum TransactionCategory {
-    FoodAndDrink = 'Food & Drink',
-    Shopping = 'Shopping',
-    Transport = 'Transport',
-    Utilities = 'Utilities',
-    Entertainment = 'Entertainment',
-    Healthcare = 'Healthcare',
-    Education = 'Education',
-    Travel = 'Travel',
-    Miscellaneous = 'Miscellaneous',
-}
-
 export type TransactionDirection = 'income' | 'expense' | 'transfer'
 
 export type Transaction = {
