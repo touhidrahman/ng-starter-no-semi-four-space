@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core'
 import { RouterModule } from '@angular/router'
 import { getAccountRoutes } from '@pages/accounts/account.routes'
-import { getTransactionRoutes } from '@pages/transactions/transaction,routes'
+import { getTransactionRoutes } from '@pages/transactions/transaction.routes'
 
 @Component({
     selector: 'app-sidebar-one',

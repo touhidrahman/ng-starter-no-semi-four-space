@@ -7,7 +7,7 @@ import { getProfileRoutes, ProfileRoutes } from '@pages/profile/profile.routes'
 import {
     getTransactionRoutes,
     TransactionRoutes,
-} from '@pages/transactions/transaction,routes'
+} from '@pages/transactions/transaction.routes'
 
 type GroupedRoutes = [
     HomeRoutes,
