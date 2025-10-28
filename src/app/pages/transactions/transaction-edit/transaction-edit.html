@@ -1,1 +1,186 @@
-<h1>Add Transaction</h1>
+<div class="relative flex w-full flex-col items-center justify-center p-4 sm:p-6 lg:p-8">
+    <main class="w-full max-w-2xl">
+        <div [formGroup]="transactionForm" class="flex flex-col gap-8">
+            <!-- Page Heading -->
+            <div class="text-center">
+                <h1 hlmH3 class="">Add Transaction</h1>
+                <p class="mt-2 text-base text-zinc-500 dark:text-zinc-400">
+                    Record a new transaction for your account.
+                </p>
+            </div>
+
+            <!-- Form Container -->
+            <div class="w-full space-y-6">
+                <!-- Description -->
+                <div class="flex flex-col">
+                    <label class="mb-2" hlmLabel>
+                        Description <span class="text-destructive">*</span>
+                    </label>
+                    <hlm-form-field>
+                        <input
+                            class="w-full"
+                            hlmInput
+                            type="text"
+                            placeholder="e.g., Grocery Shopping"
+                            formControlName="description"
+                        />
+                        <hlm-hint>Brief description of the transaction.</hlm-hint>
+                        <hlm-error>This field is required.</hlm-error>
+                    </hlm-form-field>
+                </div>
+
+                <!-- Amount -->
+                <div class="flex flex-col">
+                    <label class="mb-2" hlmLabel>
+                        Amount <span class="text-destructive">*</span>
+                    </label>
+                    <hlm-form-field>
+                        <input
+                            class="w-full"
+                            hlmInput
+                            type="number"
+                            step="0.01"
+                            placeholder="0.00"
+                            formControlName="amount"
+                        />
+                        <hlm-error>Please enter a valid amount.</hlm-error>
+                    </hlm-form-field>
+                </div>
+
+                <!-- Transaction Type -->
+                <div class="flex flex-col">
+                    <label class="mb-2" hlmLabel>
+                        Transaction Type <span class="text-destructive">*</span>
+                    </label>
+                    <hlm-form-field>
+                        <brn-select
+                            formControlName="type"
+                            class="inline-block w-full"
+                            placeholder="Select type"
+                        >
+                            <hlm-select-trigger class="w-full">
+                                <hlm-select-value />
+                            </hlm-select-trigger>
+                            <hlm-select-content>
+                                <hlm-option value="income">Income</hlm-option>
+                                <hlm-option value="expense">Expense</hlm-option>
+                                <hlm-option value="transfer">Transfer</hlm-option>
+                            </hlm-select-content>
+                        </brn-select>
+                    </hlm-form-field>
+                </div>
+
+                <!-- Account -->
+                <div class="flex flex-col">
+                    <label class="mb-2" hlmLabel>
+                        Account <span class="text-destructive">*</span>
+                    </label>
+                    <hlm-form-field>
+                        <brn-select
+                            formControlName="account"
+                            class="inline-block w-full"
+                            placeholder="Select account"
+                        >
+                            <hlm-select-trigger class="w-full">
+                                <hlm-select-value />
+                            </hlm-select-trigger>
+                            <hlm-select-content>
+                                <hlm-option value="checking">Checking Account</hlm-option>
+                                <hlm-option value="savings">Savings Account</hlm-option>
+                                <hlm-option value="credit">Credit Card</hlm-option>
+                            </hlm-select-content>
+                        </brn-select>
+                        <hlm-error>Please select an account.</hlm-error>
+                    </hlm-form-field>
+                </div>
+
+                <!-- Category -->
+                <div class="flex flex-col">
+                    <label class="mb-2" hlmLabel>Category</label>
+                    <hlm-form-field>
+                        <brn-select
+                            formControlName="category"
+                            class="inline-block w-full"
+                            placeholder="Select category"
+                        >
+                            <hlm-select-trigger class="w-full">
+                                <hlm-select-value />
+                            </hlm-select-trigger>
+                            <hlm-select-content>
+                                <hlm-option value="food">Food & Dining</hlm-option>
+                                <hlm-option value="transport">Transportation</hlm-option>
+                                <hlm-option value="shopping">Shopping</hlm-option>
+                                <hlm-option value="bills">Bills & Utilities</hlm-option>
+                                <hlm-option value="entertainment">Entertainment</hlm-option>
+                                <hlm-option value="other">Other</hlm-option>
+                            </hlm-select-content>
+                        </brn-select>
+                    </hlm-form-field>
+                </div>
+
+                <!-- Date -->
+                <div class="flex flex-col">
+                    <label class="mb-2" hlmLabel>
+                        Date <span class="text-destructive">*</span>
+                    </label>
+                    <hlm-form-field>
+                        <input
+                            class="w-full"
+                            hlmInput
+                            type="date"
+                            formControlName="date"
+                        />
+                        <hlm-error>Please select a date.</hlm-error>
+                    </hlm-form-field>
+                </div>
+
+                <!-- Notes -->
+                <div class="flex flex-col">
+                    <label class="mb-2" hlmLabel>Notes</label>
+                    <hlm-form-field>
+                        <textarea
+                            class="w-full"
+                            hlmInput
+                            rows="3"
+                            placeholder="Additional notes (optional)"
+                            formControlName="notes"
+                        ></textarea>
+                    </hlm-form-field>
+                </div>
+
+                <!-- Tags -->
+                <div class="flex flex-col">
+                    <label class="mb-2" hlmLabel>Tags</label>
+                    <hlm-form-field>
+                        <input
+                            class="w-full"
+                            hlmInput
+                            type="text"
+                            placeholder="e.g., business, personal"
+                            formControlName="tags"
+                        />
+                        <hlm-hint>Separate tags with commas.</hlm-hint>
+                    </hlm-form-field>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-col gap-4 pt-2">
+                <button
+                    hlmBtn
+                    (click)="saveTransaction()"
+                    class="flex h-12 w-full items-center justify-center rounded-lg px-6 text-base font-semibold"
+                >
+                    Save Transaction
+                </button>
+                <button
+                    hlmBtn
+                    variant="ghost"
+                    class="flex w-full items-center justify-center rounded-lg px-6 text-base font-semibold"
+                >
+                    Cancel
+                </button>
+            </div>
+        </div>
+    </main>
+</div>

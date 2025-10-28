@@ -1,11 +1,53 @@
 import { Component, computed, signal } from '@angular/core'
-import {
-    Transaction,
-    TransactionCategory,
-} from '@core/models/transaction.model'
+import { Account, AccountTypeEnum } from '@core/models/account.model'
+import { Category } from '@core/models/category.model'
+import { Transaction } from '@core/models/transaction.model'
 import { Pagination } from '@main/transactions/pagination/pagination'
 import { TransactionsHeader } from '@main/transactions/transactions-header/transactions-header'
 import { TransactionsTable } from '@main/transactions/transactions-table/transactions-table'
+
+const categories: Category[] = [
+    {
+        id: 1,
+        name: 'Food & Drink',
+        subcategories: [
+            { id: 1, name: 'Groceries', icon: null, category: null },
+            { id: 2, name: 'Restaurants', icon: null, category: null },
+        ],
+    },
+    {
+        id: 2,
+        name: 'Shopping',
+        subcategories: [
+            { id: 3, name: 'Clothing', icon: null, category: null },
+            { id: 4, name: 'Electronics', icon: null, category: null },
+        ],
+    },
+    {
+        id: 3,
+        name: 'Transport',
+        subcategories: [
+            { id: 5, name: 'Public Transport', icon: null, category: null },
+            { id: 6, name: 'Taxi', icon: null, category: null },
+        ],
+    },
+]
+
+const accounts: Account[] = [
+    {
+        $id: '1',
+        type: AccountTypeEnum.Checking,
+        name: 'Checking',
+        balance: 1000,
+    },
+    { $id: '2', type: AccountTypeEnum.Savings, name: 'Savings', balance: 5000 },
+    {
+        $id: '3',
+        type: AccountTypeEnum.Credit,
+        name: 'Credit Card',
+        balance: -200,
+    },
+]
 
 @Component({
     selector: 'app-transactions-list',
@@ -17,27 +59,30 @@ export class TransactionsList {
         {
             id: '1',
             amount: 100,
-            date: '2023-01-01',
+            TransactionTime: '2023-01-01',
+            direction: 'expense',
             payee: 'John Doe',
-            category: TransactionCategory.FoodAndDrink,
-            account: 'Checking',
-        },
+            category: categories[0],
+            account: accounts[0],
+        } as Transaction,
         {
             id: '2',
-            amount: 200,
-            date: '2023-01-02',
+            amount: 50,
+            direction: 'income',
+            TransactionTime: '2023-01-02',
             payee: 'Jane Smith',
-            category: TransactionCategory.Shopping,
-            account: 'Credit Card',
-        },
+            category: categories[1],
+            account: accounts[1],
+        } as Transaction,
         {
             id: '3',
-            amount: 50,
-            date: '2023-01-03',
-            payee: 'Mike Johnson',
-            category: TransactionCategory.Transport,
-            account: 'Savings',
-        },
+            amount: 75,
+            TransactionTime: '2023-01-03',
+            direction: 'expense',
+            payee: 'Acme Corp',
+            category: categories[2],
+            account: accounts[2],
+        } as Transaction,
     ]
 
     total = this.transactions.length
@@ -50,8 +95,8 @@ export class TransactionsList {
         return this.transactions.filter(
             (tx) =>
                 tx.payee.toLowerCase().includes(term) ||
-                tx.category.toLowerCase().includes(term) ||
-                tx.account.toLowerCase().includes(term),
+                tx.category?.name.toLowerCase().includes(term) ||
+                tx.account.name.toLowerCase().includes(term),
         )
     })
 

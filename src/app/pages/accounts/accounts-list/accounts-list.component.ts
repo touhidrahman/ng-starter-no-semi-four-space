@@ -77,6 +77,5 @@ export class AccountsListComponent implements OnInit {
     async loadAccounts() {
         const accounts = await this.tableClient.getDocuments()
         this.accounts.set(accounts ?? [])
-        console.info('Loaded accounts:', accounts)
     }
 }
