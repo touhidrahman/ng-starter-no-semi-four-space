@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core'
 import { RouterModule } from '@angular/router'
 import { getAccountRoutes } from '@pages/accounts/account.routes'
+import { getTransactionRoutes } from '@pages/transactions/transaction,routes'
 
 @Component({
     selector: 'app-sidebar-one',
@@ -13,7 +14,7 @@ export class SidebarOneComponent {
     @Output() closeSidebar = new EventEmitter<void>()
 
     accountRoutes = getAccountRoutes()
-    // transactionRoutes = getTransactionRoutes()
+    transactionRoutes = getTransactionRoutes()
     // budgetRoutes = getBudgetRoutes()
     // settingsRoutes = getSettingsRoutes()
 

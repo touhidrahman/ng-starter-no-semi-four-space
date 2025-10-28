@@ -1,0 +1,19 @@
+<div class="flex items-center justify-center space-x-4 py-4">
+    <button
+        hlmBtn
+        variant="outline"
+        (click)="goToPage(currentPage() - 1)"
+        [disabled]="currentPage() === 1"
+    >
+        Previous
+    </button>
+    <span>Page {{ currentPage() }} of {{ totalPages }}</span>
+    <button
+        hlmBtn
+        variant="outline"
+        (click)="goToPage(currentPage() + 1)"
+        [disabled]="currentPage() === totalPages"
+    >
+        Next
+    </button>
+</div>

@@ -1,0 +1,8 @@
+<app-transactions-header></app-transactions-header>
+<app-transactions-table [transactions]="paginatedTransactions()"></app-transactions-table>
+<app-pagination
+    [currentPage]="currentPage()"
+    [totalItems]="total"
+    [itemsPerPage]="itemsPerPage()"
+    (pageChange)="onPageChange($event)"
+></app-pagination>

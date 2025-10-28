@@ -24,6 +24,7 @@ import {
     HlmSubMenu,
 } from '@spartan-ng/helm/menu'
 import { HlmSelectImports } from '@spartan-ng/helm/select'
+import { HlmTable, HlmTableImports } from '@spartan-ng/helm/table'
 import { HlmTypographyImports } from '@spartan-ng/helm/typography'
 
 export const SpartanImports = [
@@ -54,4 +55,6 @@ export const SpartanImports = [
     HlmSubMenu,
     HlmTypographyImports,
     NgIcon,
+    HlmTable,
+    HlmTableImports,
 ]
