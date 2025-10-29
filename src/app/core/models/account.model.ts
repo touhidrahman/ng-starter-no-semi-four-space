@@ -1,4 +1,4 @@
-export enum AccountTypeEnum {
+export enum AccountType {
     Credit = 'Credit',
     Debit = 'Debit',
     Checking = 'Checking',
@@ -10,7 +10,7 @@ export enum AccountTypeEnum {
 export interface Account {
     $id?: string
     name: string // account nickname
-    type: AccountTypeEnum
+    type: AccountType
     accountName?: string // for bank, account holder name, for card name on card
     accountNumber?: string // credit card or bank account number
     balance?: number

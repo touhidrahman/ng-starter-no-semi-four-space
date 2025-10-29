@@ -1,21 +1,29 @@
 import {
-    lucideCheck,
-    lucideChevronDown,
-    lucideCopy,
-    lucideShare,
-    lucideTrash,
-    lucideTriangleAlert,
-    lucideUserRoundX,
-    lucideVolumeOff,
-} from '@ng-icons/lucide'
+    heroBanknotes,
+    heroBuildingLibrary,
+    heroCreditCard,
+    heroGift,
+    heroWallet,
+} from '@ng-icons/heroicons/outline'
+import { matFastfoodOutline } from '@ng-icons/material-icons/outline'
+import {
+    simpleAmericanexpress,
+    simpleBitcoinsv,
+    simpleDiscover,
+    simpleMastercard,
+    simpleVisa,
+} from '@ng-icons/simple-icons'
 
 export const IconImports = {
-    lucideChevronDown,
-    lucideVolumeOff,
-    lucideCheck,
-    lucideTriangleAlert,
-    lucideUserRoundX,
-    lucideShare,
-    lucideCopy,
-    lucideTrash,
+    heroBanknotes,
+    heroBuildingLibrary,
+    heroCreditCard,
+    heroGift,
+    heroWallet,
+    matFastfoodOutline,
+    simpleAmericanexpress,
+    simpleBitcoinsv,
+    simpleDiscover,
+    simpleMastercard,
+    simpleVisa,
 }

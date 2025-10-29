@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core'
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms'
 import { AppwriteTableClient } from '@core/client/appwrite'
-import { AccountTypeEnum } from '@core/models/account.model'
+import { AccountType } from '@core/models/account.model'
 import { SpartanImports } from '@core/ui/spartan-imports'
 
 @Component({
@@ -13,7 +13,7 @@ import { SpartanImports } from '@core/ui/spartan-imports'
 export class LoanAccountEditComponent {
     private fb = inject(FormBuilder)
     tableClient = new AppwriteTableClient<any>('accounts')
-    accountTypeEnum = AccountTypeEnum
+    accountTypeEnum = AccountType
 
     loanForm = this.fb.group({
         name: ['', Validators.required],

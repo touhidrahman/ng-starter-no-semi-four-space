@@ -1,6 +1,6 @@
 import { Component, computed, OnInit, signal } from '@angular/core'
 import { AppwriteTableClient } from '@core/client/appwrite'
-import { Account, AccountTypeEnum } from '@core/models/account.model'
+import { Account, AccountType } from '@core/models/account.model'
 import { AccountCardComponent } from '@main/accounts/account-card/account-card.component'
 import { AccountCardPlaceholderComponent } from '@main/accounts/account-card-placeholder/account-card-placeholder.component'
 import { DashboardAccountSectionHeaderComponent } from '@main/accounts/dashboard-account-section-header/dashboard-account-section-header.component'
@@ -18,33 +18,33 @@ import { DashboardAccountSectionHeaderComponent } from '@main/accounts/dashboard
 })
 export class AccountsListComponent implements OnInit {
     tableClient = new AppwriteTableClient<any>('accounts')
-    accountTypeEnum = AccountTypeEnum
+    accountTypeEnum = AccountType
 
     accounts = signal<Account[]>([])
 
     readonly accountTypes = [
         {
-            key: AccountTypeEnum.Credit,
+            key: AccountType.Credit,
             title: 'Credit Cards',
             route: '/card/edit/new',
         },
         {
-            key: AccountTypeEnum.Debit,
+            key: AccountType.Debit,
             title: 'Debit/Gift Cards',
             route: '/card/edit/new',
         },
         {
-            key: AccountTypeEnum.Checking,
+            key: AccountType.Checking,
             title: 'Checking Accounts',
             route: '/bank-account/edit/new',
         },
         {
-            key: AccountTypeEnum.Savings,
+            key: AccountType.Savings,
             title: 'Savings Accounts',
             route: '/bank-account/edit/new',
         },
         {
-            key: AccountTypeEnum.Loan,
+            key: AccountType.Loan,
             title: 'Loan Accounts',
             route: '/loan/edit/new',
         },

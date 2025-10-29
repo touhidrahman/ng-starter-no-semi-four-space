@@ -1,5 +1,5 @@
 import { Component, computed, signal } from '@angular/core'
-import { Account, AccountTypeEnum } from '@core/models/account.model'
+import { Account, AccountType } from '@core/models/account.model'
 import { Category } from '@core/models/category.model'
 import { Transaction } from '@core/models/transaction.model'
 import { Pagination } from '@main/transactions/pagination/pagination'
@@ -36,14 +36,14 @@ const categories: Category[] = [
 const accounts: Account[] = [
     {
         $id: '1',
-        type: AccountTypeEnum.Checking,
+        type: AccountType.Checking,
         name: 'Checking',
         balance: 1000,
     },
-    { $id: '2', type: AccountTypeEnum.Savings, name: 'Savings', balance: 5000 },
+    { $id: '2', type: AccountType.Savings, name: 'Savings', balance: 5000 },
     {
         $id: '3',
-        type: AccountTypeEnum.Credit,
+        type: AccountType.Credit,
         name: 'Credit Card',
         balance: -200,
     },

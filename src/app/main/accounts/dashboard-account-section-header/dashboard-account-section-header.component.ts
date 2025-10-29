@@ -1,9 +1,10 @@
 import { Component, input } from '@angular/core'
 import { RouterLink } from '@angular/router'
+import { SpartanImports } from '@core/ui/spartan-imports'
 
 @Component({
     selector: 'app-dashboard-account-section-header',
-    imports: [RouterLink],
+    imports: [RouterLink, ...SpartanImports],
     templateUrl: './dashboard-account-section-header.component.html',
     styleUrl: './dashboard-account-section-header.component.css',
 })

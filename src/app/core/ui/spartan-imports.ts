@@ -1,7 +1,7 @@
 import { NgIcon } from '@ng-icons/core'
 import { BrnMenuTrigger } from '@spartan-ng/brain/menu'
 import { BrnSelectImports } from '@spartan-ng/brain/select'
-import { HlmButton, HlmButtonImports } from '@spartan-ng/helm/button'
+import { HlmButtonImports } from '@spartan-ng/helm/button'
 import { HlmButtonGroup } from '@spartan-ng/helm/button-group'
 import { HlmFormFieldImports } from '@spartan-ng/helm/form-field'
 import { HlmIcon } from '@spartan-ng/helm/icon'
@@ -30,7 +30,6 @@ import { HlmTypographyImports } from '@spartan-ng/helm/typography'
 export const SpartanImports = [
     BrnMenuTrigger,
     BrnSelectImports,
-    HlmButton,
     HlmButtonGroup,
     HlmButtonImports,
     HlmFormFieldImports,

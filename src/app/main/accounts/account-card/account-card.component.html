@@ -1,11 +1,8 @@
 <div class="flex flex-col gap-4 rounded-xl border border-gray-200 bg-white p-5">
     <div class="flex items-center gap-4">
-        <img
-            alt="Chase Bank Logo"
-            class="h-10 w-10 object-contain"
-            data-alt="Chase Bank Logo"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCf2s-T2OJjDVJxhLOU5HHBq4Njp21Ug7d7Ash0AnPEEwya_wKdsoUd5K4XY2irHZ_pS3J9S698BHCGKHv_7VsaCxGOQYZCf3rg4YLg8GYEwGnMtYaIq252dYhI183iZ446jbbGAh3mETV96rqkmABeflC2Ro7Mw7Jd8zzmqA57MjCh-eK2dKCm5XNGnYdLRMZDaczuNFT5AFnBysSjS6OKfQJVC5ZbKhPRy3B9PFPLIhTQw2UJlySYVYqby2ZStdWogmXM6h2uYW29"
-        />
+        <div class="h-12 w-12 p-2 flex items-center justify-center rounded bg-sky-100">
+            <ng-icon [name]="icon()"></ng-icon>
+        </div>
         <div>
             <h3 class="font-bold text-gray-900">{{ account().type }}</h3>
             <p class="text-sm text-gray-500">{{ account().accountName }}</p>

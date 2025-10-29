@@ -47,7 +47,10 @@ importers:
       '@ng-icons/heroicons':
         specifier: ^32.2.0
         version: 32.2.0
-      '@ng-icons/lucide':
+      '@ng-icons/material-icons':
+        specifier: ^32.2.0
+        version: 32.2.0
+      '@ng-icons/simple-icons':
         specifier: ^32.2.0
         version: 32.2.0
       '@ng-web-apis/common':
@@ -2080,8 +2083,11 @@ packages:
   '@ng-icons/heroicons@32.2.0':
     resolution: {integrity: sha512-NVDxzZ/pXZuZw1HAsej5ZeKCICPDRMrYNWwMGPir1fvbxzYKc6s5WV5dSFDjwxDXSfTWGCpgGptCacSIM3ziHA==}
 
-  '@ng-icons/lucide@32.2.0':
-    resolution: {integrity: sha512-9nFdsi9KInMfr9Q1lETdGJTPBwfkWteQi4hrzSHNa/J4fvvWB5CKrIIICb3MOKv7AW+Rb+t2p8yWcCf1fWPa7Q==}
+  '@ng-icons/material-icons@32.2.0':
+    resolution: {integrity: sha512-iVGspVnsYQC15EsjGWE+4D324rvSh3qxq3517isEUW8RwrGRCEh30AXeKaM48pGnnEUQLwl2MwoAP07ikX0mpQ==}
+
+  '@ng-icons/simple-icons@32.2.0':
+    resolution: {integrity: sha512-FE+ekRPb4fUaS8wtkDThd/xnA5/lUCWjuVFjxhBiKG2kn4TG+BI2OcqCQlGbYOlmG2MooZmel5IaYigkobMWgA==}
 
   '@ng-web-apis/common@4.12.2':
     resolution: {integrity: sha512-fjmSpJfu+3i7i/+2U38owTTxoi8EoANQJVaIGmNymyF8EmSrbVCcPP6CXsZ6UsHJwE8IWso7h0cN6kBUqWERfw==}
@@ -9113,7 +9119,11 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
-  '@ng-icons/lucide@32.2.0':
+  '@ng-icons/material-icons@32.2.0':
+    dependencies:
+      tslib: 2.8.1
+
+  '@ng-icons/simple-icons@32.2.0':
     dependencies:
       tslib: 2.8.1
 
