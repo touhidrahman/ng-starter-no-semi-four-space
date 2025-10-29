@@ -4,9 +4,16 @@
 </div>
 
 <div class="mt-10 flex justify-between">
-    <input hlmInput type="text" placeholder="Search transactions..." class="w-70" [(ngModel)]="searchTerm" (ngModelChange)="onSearchChange()" />
+    <input
+        hlmInput
+        type="text"
+        placeholder="Search transactions..."
+        class="w-70"
+        [(ngModel)]="searchTerm"
+        (ngModelChange)="onSearchChange()"
+    />
     <div class="flex gap-3">
         <!-- <button hlmBtn variant="outline">Filter</button> -->
-        <button hlmBtn routerLink="edit/new" >Add Transaction</button>
+        <button hlmBtn routerLink="edit/new">Add Transaction</button>
     </div>
 </div>
