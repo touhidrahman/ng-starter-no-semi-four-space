@@ -1,21 +1,19 @@
 import { Account } from './account.model'
 import { Category, SubCategory } from './category.model'
 
-export type TransactionDirection = 'income' | 'expense' | 'transfer'
+export type TransactionDirection = 'Incoming' | 'Outgoing'
 
 export type Transaction = {
-    id: string
-    amount: number
-    direction: TransactionDirection
+    $id?: string
+    account: Account
     description?: string
-    payee: string
+    direction: TransactionDirection
+    amount: number
     category?: Category | null
     subcategory?: SubCategory | null
-    account: Account
     TransactionTime: string | Date
-    notes?: string
-    tags?: string[]
-    recurringTransaction: RecurringTransaction | null
+    note?: string
+    recurringTransaction?: RecurringTransaction | null
 }
 
 interface RecurringTransaction {

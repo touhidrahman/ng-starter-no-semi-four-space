@@ -13,12 +13,9 @@
                 formControlName="name"
                 placeholder="Enter category name"
             />
-            <p
-                hlmError
-                *ngIf="categoryForm.get('name')?.invalid && categoryForm.get('name')?.touched"
-            >
-                Name is required (minimum 3 characters)
-            </p>
+            @if (categoryForm.get('name')?.invalid && categoryForm.get('name')?.touched) {
+                <p hlmError>Name is required (minimum 3 characters)</p>
+            }
         </div>
 
         <div>

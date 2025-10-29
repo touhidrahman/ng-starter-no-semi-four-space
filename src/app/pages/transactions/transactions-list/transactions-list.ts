@@ -57,32 +57,32 @@ const accounts: Account[] = [
 export class TransactionsList {
     transactions: Transaction[] = [
         {
-            id: '1',
+            $id: '1',
             amount: 100,
             TransactionTime: '2023-01-01',
-            direction: 'expense',
-            payee: 'John Doe',
+            direction: 'Outgoing',
+            description: 'John Doe',
             category: categories[0],
             account: accounts[0],
-        } as Transaction,
+        },
         {
-            id: '2',
+            $id: '2',
             amount: 50,
-            direction: 'income',
             TransactionTime: '2023-01-02',
-            payee: 'Jane Smith',
+            direction: 'Incoming',
+            description: 'Salary',
             category: categories[1],
             account: accounts[1],
-        } as Transaction,
+        },
         {
-            id: '3',
-            amount: 75,
+            $id: '3',
+            amount: 20,
             TransactionTime: '2023-01-03',
-            direction: 'expense',
-            payee: 'Acme Corp',
-            category: categories[2],
-            account: accounts[2],
-        } as Transaction,
+            direction: 'Outgoing',
+            description: 'Groceries',
+            category: categories[0],
+            account: accounts[0],
+        },
     ]
 
     total = this.transactions.length
@@ -94,7 +94,7 @@ export class TransactionsList {
         const term = this.searchTerm().toLowerCase()
         return this.transactions.filter(
             (tx) =>
-                tx.payee.toLowerCase().includes(term) ||
+                tx.description?.toLowerCase().includes(term) ||
                 tx.category?.name.toLowerCase().includes(term) ||
                 tx.account.name.toLowerCase().includes(term),
         )

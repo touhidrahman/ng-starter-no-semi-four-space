@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common'
 import { Component, computed, OnInit, signal } from '@angular/core'
 import { AppwriteTableClient } from '@core/client/appwrite'
 import { Account, AccountTypeEnum } from '@core/models/account.model'
@@ -13,7 +12,6 @@ import { DashboardAccountSectionHeaderComponent } from '@main/accounts/dashboard
         AccountCardComponent,
         AccountCardPlaceholderComponent,
         DashboardAccountSectionHeaderComponent,
-        CommonModule,
     ],
     templateUrl: './accounts-list.component.html',
     styleUrls: ['./accounts-list.component.css'],
