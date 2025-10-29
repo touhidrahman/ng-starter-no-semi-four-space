@@ -1,0 +1,30 @@
+<div hlmTableContainer class="min-h-50">
+    <table hlmTable>
+        <thead hlmTHead>
+            <tr hlmTr>
+                <th hlmTh>ID</th>
+                <th hlmTh>Name</th>
+                <th hlmTh>Sub Categories</th>
+                <th hlmTh>Actions</th>
+            </tr>
+        </thead>
+        <tbody hlmTbody>
+            @for (c of categories(); track c.id) {
+                <tr hlmTr>
+                    <td hlmTd>{{ c.id }}</td>
+                    <td hlmTd>{{ c.name }}</td>
+                    <!-- render sub cat -->
+                    @for (sub of c.subcategories; track sub.id) {
+                        <tr hlmTr>
+                            <td hlmTd>{{ sub.name }}</td>
+                        </tr>
+                    }
+                    <td hlmTd>
+                        <button hlmBtn size="sm" variant="ghost">Edit</button>
+                        <button hlmBtn size="sm" variant="destructive">Delete</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -9,5 +9,5 @@ export interface SubCategory {
     id: number
     name: string
     icon?: string | null
-    category: Category | null
+    category?: Category | null
 }
